@@ -1,0 +1,902 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xarray Tips and Tricks &#8212; Earth and Environmental Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://earth-env-data-science.github.io/lectures/xarray/xarray_tips_and_tricks.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Maps in Scientific Python" href="../mapping_cartopy.html" />
+    <link rel="prev" title="Assignment: More Xarray with El Niño-Southern Oscillation (ENSO) Data" href="../../assignments/more_xarray.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/eeds-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Earth and Environmental Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   An Introduction to Earth and Environmental Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About this Book
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../LICENSE.html">
+   License for this book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../projects.html">
+   Final Projects
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Interactive Computing Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../environment/intro_to_jupyterlab.html">
+   Intro to JupyterLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../environment/intro_to_unix.html">
+   Intro to Unix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../environment/intro_to_git.html">
+   Intro to Git for Version Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/files_markdown_git.html">
+   Assignment: Files, Git, and Github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../environment/python_environments.html">
+   Managing Python Environments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../environment/binder.html">
+   Binder for Reproducible Research
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data.html">
+   All About Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Core Python Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../core_python/python_fundamentals.html">
+   Python Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../core_python/functions_classes.html">
+   Python Functions and Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../core_python/organization_and_packaging.html">
+   Organization and Packaging of Python Projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/python_basics_and_functions.html">
+   Assignment: Basic Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Scientific Python Fundamentals
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basic_scipy/numpy_and_matplotlib.html">
+   Numpy and Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/numpy_matplotlib.html">
+   Assignment 3 - Numpy and Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basic_scipy/more_matplotlib.html">
+   More Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/more_matplotlib.html">
+   Assignment 4: More Matplotlib
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  High Level Data Analysis Frameworks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pandas/pandas_intro.html">
+   Pandas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/basic_pandas.html">
+     Pandas Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/basic_pandas.html">
+     Assignment 5: Pandas Fundamentals with Earthquake Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_groupby.html">
+     Pandas: Groupby
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/pandas_groupby.html">
+     Assignment 6: Pandas Groupby with Hurricane Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="xarray_intro.html">
+   Xarray for multidimensional gridded data
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="xarray.html">
+     Xarray Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/basic_xarray.html">
+     Assignment 7: Xarray Fundamentals with Atmospheric Radiation Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xarray-part2.html">
+     Xarray Interpolation, Groupby, Resample, Rolling, and Coarsen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/more_xarray.html">
+     Assignment: More Xarray with El Niño-Southern Oscillation (ENSO) Data
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Xarray Tips and Tricks
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Geoscience Package
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mapping_cartopy.html">
+   Maps in Scientific Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/cartopy.html">
+   Assignment: Making Maps with Cartopy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../working_with_gcm_data.html">
+   Working with output from general circulation models using xesmf and xgcm
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Big Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dask/intro.html">
+   Dask for Parallel Computing in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dask/dask_arrays.html">
+   Computing with Dask
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lectures/xarray/xarray_tips_and_tricks.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/earth-env-data-science/earth-env-data-science-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/earth-env-data-science/earth-env-data-science-book/issues/new?title=Issue%20on%20page%20%2Flectures/xarray/xarray_tips_and_tricks.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/earth-env-data-science/earth-env-data-science-book/edit/master/src/lectures/xarray/xarray_tips_and_tricks.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://https://us-central1-b.gcp.pangeo.io//hub/user-redirect/git-pull?repo=https://github.com/earth-env-data-science/earth-env-data-science-book&urlpath=lab/tree/earth-env-data-science-book/src/lectures/xarray/xarray_tips_and_tricks.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-a-multi-file-dataset-from-an-opendap-server">
+   Build a multi-file dataset from an OpenDAP server
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perform-correlation-analysis">
+   Perform Correlation Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fix-poorly-encoded-time-coordinates">
+   Fix poorly encoded time coordinates
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="xarray-tips-and-tricks">
+<h1>Xarray Tips and Tricks<a class="headerlink" href="#xarray-tips-and-tricks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="build-a-multi-file-dataset-from-an-opendap-server">
+<h2>Build a multi-file dataset from an OpenDAP server<a class="headerlink" href="#build-a-multi-file-dataset-from-an-opendap-server" title="Permalink to this headline">¶</a></h2>
+<p>One thing we love about xarray is the <code class="docutils literal notranslate"><span class="pre">open_mfdataset</span></code> function, which combines many netCDF files into a single xarray Dataset.</p>
+<p>But what if the files are stored on a remote server and accessed over OpenDAP. An example can be found in NOAA’s NCEP Reanalysis catalog.</p>
+<p><a class="reference external" href="https://www.esrl.noaa.gov/psd/thredds/catalog/Datasets/ncep.reanalysis/surface/catalog.html">https://www.esrl.noaa.gov/psd/thredds/catalog/Datasets/ncep.reanalysis/surface/catalog.html</a></p>
+<p>The dataset is split into different files for each variable and year. For example, a single file for surface air temperature looks like:</p>
+<p><a class="reference external" href="http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1948.nc">http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1948.nc</a></p>
+<p>We can’t just call</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>open_mfdataset(&quot;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.*.nc&quot;)
+</pre></div>
+</div>
+<p>Because wildcard expansion doesn’t work with OpenDAP endpoints. The solution is to manually create a list of files to open.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995&#39;</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">.nc&#39;</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1948</span><span class="p">,</span> <span class="mi">2019</span><span class="p">)]</span>
+<span class="n">files</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1948.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1949.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1950.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1951.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1952.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1953.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1954.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1955.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1956.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1957.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1958.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1959.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1960.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1961.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1962.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1963.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1964.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1965.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1966.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1967.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1968.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1969.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1970.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1971.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1972.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1973.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1974.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1975.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1976.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1977.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1978.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1979.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1980.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1981.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1982.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1983.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1984.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1985.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1986.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1987.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1988.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1989.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1990.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1991.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1992.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1993.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1994.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1995.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1996.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1997.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1998.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.1999.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2000.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2001.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2002.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2003.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2004.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2005.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2006.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2007.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2008.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2009.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2010.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2011.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2012.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2013.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2014.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2015.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2016.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2017.nc&#39;,
+ &#39;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis/surface/air.sig995.2018.nc&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
+Dimensions:  (lat: 73, lon: 144, time: 103596)
+Coordinates:
+  * lon      (lon) float32 0.0 2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 22.5 ...
+  * lat      (lat) float32 90.0 87.5 85.0 82.5 80.0 77.5 75.0 72.5 70.0 67.5 ...
+  * time     (time) datetime64[ns] 1948-01-01 1948-01-01T06:00:00 ...
+Data variables:
+    air      (time, lat, lon) float32 dask.array&lt;shape=(103596, 73, 144), chunksize=(1464, 73, 144)&gt;
+Attributes:
+    Conventions:                     COARDS
+    title:                           4x daily NMC reanalysis (1948)
+    description:                     Data is from NMC initialized reanalysis\...
+    platform:                        Model
+    history:                         created 99/05/11 by Hoop (netCDF2.3)\nCo...
+    References:                      http://www.esrl.noaa.gov/psd/data/gridde...
+    dataset_title:                   NCEP-NCAR Reanalysis 1
+    DODS_EXTRA.Unlimited_Dimension:  time
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have now opened the entire ensemble of files on the remote server as a single xarray Dataset!</p>
+</div>
+<div class="section" id="perform-correlation-analysis">
+<h2>Perform Correlation Analysis<a class="headerlink" href="#perform-correlation-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Many people want to look at correlations (usually in time) in their final projects.
+Unfortunately, this is not currently part of xarray (but it will be added soon! – see <a class="reference external" href="https://github.com/pydata/xarray/issues/1115">open issue</a>).</p>
+<p>In the meantime, the following functions works pretty well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">covariance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dims</span><span class="p">),</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dims</span><span class="p">),</span> <span class="n">dims</span><span class="o">=</span><span class="n">dims</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">corrrelation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">covariance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dims</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">dims</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;NOAA_NCDC_ERSST_v3b_SST.nc&#39;</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
+Dimensions:  (lat: 89, lon: 180, time: 684)
+Coordinates:
+  * lat      (lat) float32 -88.0 -86.0 -84.0 -82.0 -80.0 -78.0 -76.0 -74.0 ...
+  * lon      (lon) float32 0.0 2.0 4.0 6.0 8.0 10.0 12.0 14.0 16.0 18.0 20.0 ...
+  * time     (time) datetime64[ns] 1960-01-15 1960-02-15 1960-03-15 ...
+Data variables:
+    sst      (time, lat, lon) float32 ...
+Attributes:
+    Conventions:  IRIDL
+    source:       https://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCDC/.ERSST/...
+    history:      extracted and cleaned by Ryan Abernathey for Research Compu...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sst</span>
+<span class="n">sst_clim</span> <span class="o">=</span> <span class="n">sst</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">sst_anom</span> <span class="o">=</span> <span class="n">sst</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">sst_clim</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">sst_anom</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7fc6018af5f8&gt;
+</pre></div>
+</div>
+<img alt="../../_images/xarray_tips_and_tricks_8_1.png" src="../../_images/xarray_tips_and_tricks_8_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst_ref</span> <span class="o">=</span> <span class="n">sst_anom</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="n">sst_ref</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc6017de7f0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/xarray_tips_and_tricks_9_1.png" src="../../_images/xarray_tips_and_tricks_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst_cor</span> <span class="o">=</span> <span class="n">corrrelation</span><span class="p">(</span><span class="n">sst_anom</span><span class="p">,</span> <span class="n">sst_ref</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">pc</span> <span class="o">=</span> <span class="n">sst_cor</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">pc</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Correlation btw. global SST Anomaly and SST Anomaly at one point&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5,1,&#39;Correlation btw. global SST Anomaly and SST Anomaly at one point&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/xarray_tips_and_tricks_10_1.png" src="../../_images/xarray_tips_and_tricks_10_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="fix-poorly-encoded-time-coordinates">
+<h2>Fix poorly encoded time coordinates<a class="headerlink" href="#fix-poorly-encoded-time-coordinates" title="Permalink to this headline">¶</a></h2>
+<p>Many datasets, especially from INGRID, are encoded with “months since” as the time unit. Trying to open these in xarray currently gives an error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cftime</span>
+<span class="n">cftime</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.0.3&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.CAMS_OPI/.v0208/.mean/.prcp/dods&#39;</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OutOfBoundsDatetime</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/coding/times.py</span> in <span class="ni">decode_cf_datetime</span><span class="nt">(num_dates, units, calendar, enable_cftimeindex)</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>         <span class="k">if</span> <span class="n">calendar</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_STANDARD_CALENDARS</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">173</span>             <span class="k">raise</span> <span class="n">OutOfBoundsDatetime</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span> 
+
+<span class="ne">OutOfBoundsDatetime</span>: 
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/coding/times.py</span> in <span class="ni">_decode_cf_datetime_dtype</span><span class="nt">(data, units, calendar, enable_cftimeindex)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">decode_cf_datetime</span><span class="p">(</span><span class="n">example_value</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">calendar</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">132</span>                                     <span class="n">enable_cftimeindex</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/coding/times.py</span> in <span class="ni">decode_cf_datetime</span><span class="nt">(num_dates, units, calendar, enable_cftimeindex)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>             <span class="n">flat_num_dates</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">),</span> <span class="n">units</span><span class="p">,</span> <span class="n">calendar</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">201</span>             <span class="n">enable_cftimeindex</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">202</span> 
+
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/coding/times.py</span> in <span class="ni">_decode_datetime_with_cftime</span><span class="nt">(num_dates, units, calendar, enable_cftimeindex)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">95</span>         <span class="n">dates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">cftime</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">num_dates</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">calendar</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span> 
+
+<span class="nn">cftime/_cftime.pyx</span> in <span class="ni">cftime._cftime.num2date</span><span class="nt">()</span>
+
+<span class="nn">cftime/_cftime.pyx</span> in <span class="ni">cftime._cftime.utime.__init__</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: calendar must be one of [&#39;standard&#39;, &#39;gregorian&#39;, &#39;proleptic_gregorian&#39;, &#39;noleap&#39;, &#39;julian&#39;, &#39;all_leap&#39;, &#39;365_day&#39;, &#39;366_day&#39;, &#39;360_day&#39;], got &#39;360&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-9-95c7bea581ab&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.CAMS_OPI/.v0208/.mean/.prcp/dods&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/backends/api.py</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, group, decode_cf, mask_and_scale, decode_times, autoclose, concat_characters, decode_coords, engine, chunks, lock, cache, drop_variables, backend_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>             <span class="n">lock</span> <span class="o">=</span> <span class="n">_default_lock</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">345</span>         <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">346</span>             <span class="k">return</span> <span class="n">maybe_decode_store</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">lock</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span>         <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">engine</span> <span class="o">!=</span> <span class="s1">&#39;scipy&#39;</span><span class="p">:</span>
+
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/backends/api.py</span> in <span class="ni">maybe_decode_store</span><span class="nt">(store, lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span>             <span class="n">store</span><span class="p">,</span> <span class="n">mask_and_scale</span><span class="o">=</span><span class="n">mask_and_scale</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="n">decode_times</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span>             <span class="n">concat_characters</span><span class="o">=</span><span class="n">concat_characters</span><span class="p">,</span> <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">258</span>             <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span> 
+<span class="g g-Whitespace">    </span><span class="mi">260</span>         <span class="n">_protect_dataset_variables_inplace</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">cache</span><span class="p">)</span>
+
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/conventions.py</span> in <span class="ni">decode_cf</span><span class="nt">(obj, concat_characters, mask_and_scale, decode_times, decode_coords, drop_variables)</span>
+<span class="g g-Whitespace">    </span><span class="mi">427</span>     <span class="nb">vars</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">coord_names</span> <span class="o">=</span> <span class="n">decode_cf_variables</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">428</span>         <span class="nb">vars</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">concat_characters</span><span class="p">,</span> <span class="n">mask_and_scale</span><span class="p">,</span> <span class="n">decode_times</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">429</span>         <span class="n">decode_coords</span><span class="p">,</span> <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">430</span>     <span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="nb">vars</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span>     <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">set_coords</span><span class="p">(</span><span class="n">coord_names</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">extra_coords</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">vars</span><span class="p">))</span>
+
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/conventions.py</span> in <span class="ni">decode_cf_variables</span><span class="nt">(variables, attributes, concat_characters, mask_and_scale, decode_times, decode_coords, drop_variables)</span>
+<span class="g g-Whitespace">    </span><span class="mi">360</span>             <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">concat_characters</span><span class="o">=</span><span class="n">concat_characters</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">361</span>             <span class="n">mask_and_scale</span><span class="o">=</span><span class="n">mask_and_scale</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="n">decode_times</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">362</span>             <span class="n">stack_char_dim</span><span class="o">=</span><span class="n">stack_char_dim</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">363</span>         <span class="k">if</span> <span class="n">decode_coords</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">364</span>             <span class="n">var_attrs</span> <span class="o">=</span> <span class="n">new_vars</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span>
+
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/conventions.py</span> in <span class="ni">decode_cf_variable</span><span class="nt">(name, var, concat_characters, mask_and_scale, decode_times, decode_endianness, stack_char_dim)</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span>         <span class="k">for</span> <span class="n">coder</span> <span class="ow">in</span> <span class="p">[</span><span class="n">times</span><span class="o">.</span><span class="n">CFTimedeltaCoder</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>                       <span class="n">times</span><span class="o">.</span><span class="n">CFDatetimeCoder</span><span class="p">()]:</span>
+<span class="ne">--&gt; </span><span class="mi">300</span>             <span class="n">var</span> <span class="o">=</span> <span class="n">coder</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span> 
+<span class="g g-Whitespace">    </span><span class="mi">302</span>     <span class="n">dimensions</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="p">(</span>
+
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/coding/times.py</span> in <span class="ni">decode</span><span class="nt">(self, variable, name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>             <span class="n">calendar</span> <span class="o">=</span> <span class="n">pop_to</span><span class="p">(</span><span class="n">attrs</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="s1">&#39;calendar&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span>             <span class="n">dtype</span> <span class="o">=</span> <span class="n">_decode_cf_datetime_dtype</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">404</span>                 <span class="n">data</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">calendar</span><span class="p">,</span> <span class="n">enable_cftimeindex</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>             <span class="n">transform</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>                 <span class="n">decode_cf_datetime</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="n">calendar</span><span class="p">,</span>
+
+<span class="nn">/opt/conda/lib/python3.6/site-packages/xarray/coding/times.py</span> in <span class="ni">_decode_cf_datetime_dtype</span><span class="nt">(data, units, calendar, enable_cftimeindex)</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">PY3</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span>             <span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39; Full traceback:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">141</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span>         <span class="n">dtype</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;dtype&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;object&#39;</span><span class="p">))</span>
+
+<span class="ne">ValueError</span>: unable to decode time units &#39;months since 1960-01-01&#39; with calendar &#39;360&#39;. Try opening your dataset with decode_times=False.
+</pre></div>
+</div>
+</div>
+</div>
+<p>One way to avoid this is to simply not decode the times:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
+Dimensions:  (T: 478, X: 144, Y: 72)
+Coordinates:
+  * X        (X) float32 1.25 3.75 6.25 8.75 11.25 13.75 16.25 18.75 21.25 ...
+  * T        (T) float32 228.5 229.5 230.5 231.5 232.5 233.5 234.5 235.5 ...
+  * Y        (Y) float32 -88.75 -86.25 -83.75 -81.25 -78.75 -76.25 -73.75 ...
+Data variables:
+    prcp     (T, Y, X) float32 ...
+Attributes:
+    Conventions:  IRIDL
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, this is not satisfying, because now we can’t use xarray’s time aware features (like resample).</p>
+<p>A better option has recently become possible. First we need the latest development version of the <a class="reference external" href="https://github.com/Unidata/cftime">cftime</a> package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fix_calendar</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">timevar</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">ds</span><span class="p">[</span><span class="n">timevar</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;calendar&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;360&#39;</span><span class="p">:</span>
+        <span class="n">ds</span><span class="p">[</span><span class="n">timevar</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;calendar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;360_day&#39;</span>
+    <span class="k">return</span> <span class="n">ds</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">fix_calendar</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">decode_cf</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
+Dimensions:  (T: 478, X: 144, Y: 72)
+Coordinates:
+  * X        (X) float32 1.25 3.75 6.25 8.75 11.25 13.75 16.25 18.75 21.25 ...
+  * T        (T) datetime64[ns] 1979-01-16 1979-02-16 1979-03-16 1979-04-16 ...
+  * Y        (Y) float32 -88.75 -86.25 -83.75 -81.25 -78.75 -76.25 -73.75 ...
+Data variables:
+    prcp     (T, Y, X) float32 ...
+Attributes:
+    Conventions:  IRIDL
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lectures/xarray"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../../assignments/more_xarray.html" title="previous page">Assignment: More Xarray with El Niño-Southern Oscillation (ENSO) Data</a>
+    <a class='right-next' id="next-link" href="../mapping_cartopy.html" title="next page">Maps in Scientific Python</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ryan Abernathey<br/>
+        
+            &copy; Copyright 2016-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

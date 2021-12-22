@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Projects &#8212; Earth and Environmental Data Science</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://earth-env-data-science.github.io/projects.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Intro to JupyterLab" href="lectures/environment/intro_to_jupyterlab.html" />
+    <link rel="prev" title="License for this book" href="LICENSE.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/eeds-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Earth and Environmental Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   An Introduction to Earth and Environmental Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About this Book
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="LICENSE.html">
+   License for this book
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Final Projects
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Interactive Computing Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/environment/intro_to_jupyterlab.html">
+   Intro to JupyterLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/environment/intro_to_unix.html">
+   Intro to Unix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/environment/intro_to_git.html">
+   Intro to Git for Version Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignments/files_markdown_git.html">
+   Assignment: Files, Git, and Github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/environment/python_environments.html">
+   Managing Python Environments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/environment/binder.html">
+   Binder for Reproducible Research
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/data.html">
+   All About Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Core Python Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/core_python/python_fundamentals.html">
+   Python Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/core_python/functions_classes.html">
+   Python Functions and Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/core_python/organization_and_packaging.html">
+   Organization and Packaging of Python Projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignments/python_basics_and_functions.html">
+   Assignment: Basic Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Scientific Python Fundamentals
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/basic_scipy/numpy_and_matplotlib.html">
+   Numpy and Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignments/numpy_matplotlib.html">
+   Assignment 3 - Numpy and Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/basic_scipy/more_matplotlib.html">
+   More Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignments/more_matplotlib.html">
+   Assignment 4: More Matplotlib
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  High Level Data Analysis Frameworks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/pandas/pandas_intro.html">
+   Pandas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/pandas/basic_pandas.html">
+     Pandas Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assignments/basic_pandas.html">
+     Assignment 5: Pandas Fundamentals with Earthquake Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/pandas/pandas_groupby.html">
+     Pandas: Groupby
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assignments/pandas_groupby.html">
+     Assignment 6: Pandas Groupby with Hurricane Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="lectures/xarray/xarray_intro.html">
+   Xarray for multidimensional gridded data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/xarray/xarray.html">
+     Xarray Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assignments/basic_xarray.html">
+     Assignment 7: Xarray Fundamentals with Atmospheric Radiation Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/xarray/xarray-part2.html">
+     Xarray Interpolation, Groupby, Resample, Rolling, and Coarsen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assignments/more_xarray.html">
+     Assignment: More Xarray with El Niño-Southern Oscillation (ENSO) Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lectures/xarray/xarray_tips_and_tricks.html">
+     Xarray Tips and Tricks
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Geoscience Package
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/mapping_cartopy.html">
+   Maps in Scientific Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignments/cartopy.html">
+   Assignment: Making Maps with Cartopy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/working_with_gcm_data.html">
+   Working with output from general circulation models using xesmf and xgcm
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Big Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/dask/intro.html">
+   Dask for Parallel Computing in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/dask/dask_arrays.html">
+   Computing with Dask
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/projects.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/earth-env-data-science/earth-env-data-science-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/earth-env-data-science/earth-env-data-science-book/issues/new?title=Issue%20on%20page%20%2Fprojects.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/earth-env-data-science/earth-env-data-science-book/edit/master/src/projects.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-archive">
+   Project Archive
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#columbia-fall-2019">
+     Columbia, Fall 2019
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-project-requirements">
+   Final Project Requirements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-goals">
+     Learning Goals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataset-requirements">
+     Dataset Requirements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-requirements">
+     Analysis Requirements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#technical-requirements">
+     Technical Requirements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-approval">
+     Project Approval
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-class-presentations">
+     In-Class Presentations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="final-projects">
+<h1>Final Projects<a class="headerlink" href="#final-projects" title="Permalink to this headline">¶</a></h1>
+<p>When taught at Columbia, the capstone of this course has been a final project.
+These final projects are archived here.
+Feel free to open a [pull request] to add your class’s projects to the list.</p>
+<div class="section" id="project-archive">
+<h2>Project Archive<a class="headerlink" href="#project-archive" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="columbia-fall-2019">
+<h3>Columbia, Fall 2019<a class="headerlink" href="#columbia-fall-2019" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><em>Deep earthquakes at Axial Seamount</em> by Michelle Lee
+<a class="reference external" href="https://github.com/mkhuulee/RC_Final_Project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/mkhuulee/RC_Final_Project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Correlation between sea surface temperature and sea ice from 1990</em> by Shengtao Wang
+<a class="reference external" href="https://github.com/wst1997/final_project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/wst1997/final_project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>An analysis of eddies in the Bay of Bengal</em> by Shannon Bohman
+<a class="reference external" href="https://github.com/shannonbohman/Final-Project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/shannonbohman/Final-Project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>The variation trend and distribution study of CO2 concentration and temperature in North America</em> by Lin Xing
+<a class="reference external" href="https://github.com/lx2251/final_project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/lx2251/final_project.git/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>The correlation of global distribution of soil moisture and precipitation</em> by Jiahao Zhang
+<a class="reference external" href="https://github.com/Steven19970523/final-project.git"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/Steven19970523/final-project.git/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Temperature Polarization in Different Membrane Distillation Operations</em> by Stephanie McCartney
+<a class="reference external" href="https://github.com/sm4386/Project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/sm4386/Project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>PTLC vs S&amp;P500</em> by Thomas Kovar
+<a class="reference external" href="https://github.com/tk2749/Project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/tk2749/Project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Are Trees in the South Eastern Brooks Range suffering from Temperature-induced Drought Stress?</em> by Rose Oelkers
+<a class="reference external" href="https://github.com/roho91/Final-Project-2019"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/roho91/Final-Project-2019/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Analysis of the risks to submarine cables</em> by Amelie Latreille
+<a class="reference external" href="https://github.com/alatreille/my_project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/alatreille/my_project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Recent Trends in Global Daily Temperature Variability</em> by Casey Ivanovich
+<a class="reference external" href="https://github.com/ccivanovich/RCES-Final_Assignment"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <span class="xref myst"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></span></p></li>
+<li><p><em>Aerosol Change Effect on China’s Precipitation</em> by Patrick Cho
+<a class="reference external" href="https://github.com/pgc2113/Research-Computing-Final-Project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/pgc2113/Research-Computing-Final-Project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Could CSIF better reveal drought mechanisms?</em> by Weiwei Zhan
+<a class="reference external" href="https://github.com/Weiwei047/Final_Project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/Weiwei047/Final_Project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Seasonality in Salinity, Temperature, and Currents of the North Atlantic</em> by Joohee Kim
+<a class="reference external" href="https://github.com/jk3652/rces-final-project-jkim"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://binder.pangeo.io/v2/gh/jk3652/rces-final-project-jkim/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Analyzing the total emissions and the spatial distributions of the different greenhouse gases in the U.S.</em> by Haokai Zhao
+<a class="reference external" href="https://github.com/hkzhao7/rces-final-project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/hkzhao7/rces-final-project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Sediment provenance variations in Southern Africa during the last 150 kyr</em> by Chiza Mwinde
+<a class="reference external" href="https://github.com/mwindec/Site_U1474"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/mwindec/Site_U1474/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>The affect of geopotential height anomalies on climate extremes</em> by Patric Ryser
+<a class="reference external" href="https://github.com/Patricryser/Project.git"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/Patricryser/Project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Local Effects of Farmland Irrigation on Groundwater Availability</em> by Matt Harrington
+<a class="reference external" href="https://github.com/M-Harrington/final_project_ResComp/blob/master/README.md"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/M-Harrington/final_project_ResComp/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Greenhouse gas ecosystem fluxes in the YK Delta of Alaska</em> by Sarah Ludwig
+<a class="reference external" href="https://github.com/LuddaLudwig/rces_final_project"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/LuddaLudwig/rces_final_project/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Quantifying dynamic topography change in Argentina based on model results</em> by Andrew
+<a class="reference external" href="https://github.com/ahollyday/RCES_final_project/blob/master/Project_proposal_RCES.md"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <span class="xref myst"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></span></p></li>
+<li><p><em>Implied Uncertainty in Impacts Projections from Internal Model Variability</em> by Kevin Schwarzwald
+<a class="reference external" href="https://github.com/ks905383/impact-variability"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/ks905383/impact-variability/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+<li><p><em>Effect of Wind Extremes on Aboveground Biomass: Case Study of Hurricanes Maria and Irma</em> by Jashvina Devadoss
+<a class="reference external" href="https://github.com/jdeva/wind-extremes"><img alt="github" src="https://img.shields.io/badge/view-github-green?logo=github" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/jdeva/wind-extremes/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="final-project-requirements">
+<h2>Final Project Requirements<a class="headerlink" href="#final-project-requirements" title="Permalink to this headline">¶</a></h2>
+<p>For instructors wishing to re-create the final project experience, below we include some specification used in past iterations of the course.</p>
+<div class="section" id="learning-goals">
+<h3>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">¶</a></h3>
+<p>The goal of the final project is to assess your ability to combine and apply the skills you have learned in class in the context of a real-world research problem. Our class has mostly focused on tools for data analysis and visualization, so this must be the focus of your final project. Specifically, we seek to assess your ability to do the following tasks:</p>
+<ul class="simple">
+<li><p>Discover and download real datasets in standard formats (e.g. CSV, netCDF)</p></li>
+<li><p>Load the data into Pandas or Xarray, performing any necessary data cleanup (dealing with missing values, proper time encoding, etc.) along the way.</p></li>
+<li><p>Perform realistic scientific calculation involving, for example tasks such as grouping, aggregating, and applying mathematical formulas.</p></li>
+<li><p>Visualize your results in well-formatted plots.</p></li>
+</ul>
+</div>
+<div class="section" id="dataset-requirements">
+<h3>Dataset Requirements<a class="headerlink" href="#dataset-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Your datasets can involve data collected by yourself or your lab, or can come from a public data repository. Ideally, your choice of dataset should be driven by your research. It is acceptable (and encouraged) to have your final project for this class involve an ongoing research project. <em>However, it is not acceptable to have your final project overlap with the final project for another class.</em></p>
+<p>If you don’t know what dataset to use, here are a couple of links to get you started:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://iridl.ldeo.columbia.edu/">IRI Data Library</a></p></li>
+<li><p><a class="reference external" href="https://data.usgs.gov/datacatalog/">USGS Data Catalog</a></p></li>
+<li><p><a class="reference external" href="https://www.ncdc.noaa.gov/">NOAA National Climate Data Center</a></p></li>
+<li><p><a class="reference external" href="https://earthdata.nasa.gov/">NASA Earth Science Data</a></p></li>
+</ul>
+<p>You may use just one dataset, or you may choose to combine multiple datasets, depending on your scientific question.</p>
+</div>
+<div class="section" id="analysis-requirements">
+<h3>Analysis Requirements<a class="headerlink" href="#analysis-requirements" title="Permalink to this headline">¶</a></h3>
+<p>The goal here is the same as with any science project: to use the data to investigate a scientific question or hypothesis. In order to succeed on the project, you will have to draw on your experience <em>outside</em> our class, from your science-focused classes or independent research, in order to define a scientifically interesting question. It is also acceptable to use this project to reproduce the results from a published study that you find interesting, provided you have access to the original data.</p>
+<p>Whatever you choose, you should <em>clearly define a hypothesis or scientific question that you aim to investigate with your analysis</em>. This will determine what you have to do.</p>
+<p>The results of this analysis will be figures. Beautiful figures which clearly provide answers to your question / hypothesis. Your notebook should contain at least 4 and no more than 8 figures. If you have closer to 4, they should be complex, multi-panel figures. All figures must have titles, clearly labeled axes, informative colormaps / colorbars, and legends, where appropriate.</p>
+</div>
+<div class="section" id="technical-requirements">
+<h3>Technical Requirements<a class="headerlink" href="#technical-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Your final project must meet the following technical requirements</p>
+<ul class="simple">
+<li><p>A <em>single jupyter notebook</em></p></li>
+<li><p>Stored in a standalone public github repo</p></li>
+<li><p>All data is either stored in the repo itself or downloaded / accessed from within the notebook (no manual download steps)</p></li>
+<li><p>Complete explanatory text / equations included in the notebook as markdown cells</p></li>
+<li><p>Notebook must execute in sequence with no errors</p></li>
+<li><p>The whole github repo must be configured to run on <a class="reference external" href="https://mybinder.org/">mybinder.org</a> or, for analysis involving dask, <a class="reference external" href="http://binder.pangeo.io/">binder.pangeo.io</a></p></li>
+</ul>
+<p>You <em>must</em> use either Pandas or Xarray (or both) in some part of your project. You <em>may</em> use other scientific python libraries as well, if you wish, to facilitate some analysis that is not possible with Xarray / Pandas alone. Some libraries you may wish to consider are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/">SciPy</a> for interpolation, signal processing, spectral analysis, linear algebra, and other general purpose scientific computing routines</p></li>
+<li><p><a class="reference external" href="https://github.com/statsmodels/statsmodels">Statsmodels</a> for advanced statistical analysis</p></li>
+<li><p><a class="reference external" href="https://scikit-image.org/">Scikit-image</a> for image processing</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/">Scikit-learn</a> for machine learning</p></li>
+<li><p><a class="reference external" href="https://xgcm.readthedocs.io/en/latest/">XGCM</a> for working with finite-volume data from general circulation models</p></li>
+<li><p><a class="reference external" href="https://xesmf.readthedocs.io/en/latest/">XESMF</a> for regridding of gridded data</p></li>
+<li><p><a class="reference external" href="https://pyresample.readthedocs.io/en/latest/">Pyresample</a> for resampling (reprojection) of satellite data</p></li>
+<li><p><a class="reference external" href="https://ajdawson.github.io/eofs/">EOFS</a> for empirical orthogonal function analysis</p></li>
+<li><p><a class="reference external" href="https://ajdawson.github.io/windspharm/latest/">windspharm</a> for spherical harmonic analysis of global atmospheric wind data</p></li>
+<li><p><a class="reference external" href="https://unidata.github.io/MetPy/latest/index.html">metpy</a> a collection of tools in Python for reading, visualizing, and performing calculations with weather data</p></li>
+</ul>
+</div>
+<div class="section" id="project-approval">
+<h3>Project Approval<a class="headerlink" href="#project-approval" title="Permalink to this headline">¶</a></h3>
+<p>You must have your dataset(s) and general scope for your project improved by the instructor. The approval process works like this:</p>
+<ul class="simple">
+<li><p>Create a new public github repo for your project</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file which contains the scientific question / hypothesis you plan to investigate, links to the relevant datasets, and a three sentence summary of the analysis you plan to do.</p></li>
+<li><p>Submit a link to your project repo using the method indicated by the instructor.</p></li>
+</ul>
+</div>
+<div class="section" id="in-class-presentations">
+<h3>In-Class Presentations<a class="headerlink" href="#in-class-presentations" title="Permalink to this headline">¶</a></h3>
+<p>You are asked to give a 5-minute presentation about your project. Do not prepare any slides. Instead, make your presentation by opening your notebook from GitHub on the presentation computer and walking us through parts of it. Your presentation should be concise and cover the following topics:</p>
+<ul class="simple">
+<li><p>What data did you analyze and how did you load it?</p></li>
+<li><p>What is the most interesting figure you made? (Show us the figure.)</p></li>
+<li><p>What was the biggest challenge you faced in completing your project.</p></li>
+</ul>
+<p><em>Don’t forget to make your project repo <strong>public</strong>; otherwise we won’t be able to see it.</em></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="LICENSE.html" title="previous page">License for this book</a>
+    <a class='right-next' id="next-link" href="lectures/environment/intro_to_jupyterlab.html" title="next page">Intro to JupyterLab</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ryan Abernathey<br/>
+        
+            &copy; Copyright 2016-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
