@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment: Basic Python &#8212; Earth and Environmental Data Science</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://earth-env-data-science.github.io/assignments/python_basics_and_functions.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Numpy and Matplotlib" href="../lectures/basic_scipy/numpy_and_matplotlib.html" />
+    <link rel="prev" title="Organization and Packaging of Python Projects" href="../lectures/core_python/organization_and_packaging.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/eeds-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Earth and Environmental Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   An Introduction to Earth and Environmental Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About this Book
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LICENSE.html">
+   License for this book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../projects.html">
+   Final Projects
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Interactive Computing Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/environment/intro_to_jupyterlab.html">
+   Intro to JupyterLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/environment/intro_to_unix.html">
+   Intro to Unix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/environment/intro_to_git.html">
+   Intro to Git for Version Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="files_markdown_git.html">
+   Assignment: Files, Git, and Github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/environment/python_environments.html">
+   Managing Python Environments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/environment/binder.html">
+   Binder for Reproducible Research
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/data.html">
+   All About Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Core Python Language
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/core_python/python_fundamentals.html">
+   Python Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/core_python/functions_classes.html">
+   Python Functions and Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/core_python/organization_and_packaging.html">
+   Organization and Packaging of Python Projects
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment: Basic Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Scientific Python Fundamentals
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/basic_scipy/numpy_and_matplotlib.html">
+   Numpy and Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_matplotlib.html">
+   Assignment 3 - Numpy and Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/basic_scipy/more_matplotlib.html">
+   More Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="more_matplotlib.html">
+   Assignment 4: More Matplotlib
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  High Level Data Analysis Frameworks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/pandas/pandas_intro.html">
+   Pandas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/pandas/basic_pandas.html">
+     Pandas Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_pandas.html">
+     Assignment 5: Pandas Fundamentals with Earthquake Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/pandas/pandas_groupby.html">
+     Pandas: Groupby
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas_groupby.html">
+     Assignment 6: Pandas Groupby with Hurricane Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lectures/xarray/xarray_intro.html">
+   Xarray for multidimensional gridded data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/xarray/xarray.html">
+     Xarray Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_xarray.html">
+     Assignment 7: Xarray Fundamentals with Atmospheric Radiation Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/xarray/xarray-part2.html">
+     Xarray Interpolation, Groupby, Resample, Rolling, and Coarsen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="more_xarray.html">
+     Assignment: More Xarray with El Niño-Southern Oscillation (ENSO) Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lectures/xarray/xarray_tips_and_tricks.html">
+     Xarray Tips and Tricks
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Geoscience Package
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/mapping_cartopy.html">
+   Maps in Scientific Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cartopy.html">
+   Assignment: Making Maps with Cartopy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/working_with_gcm_data.html">
+   Working with output from general circulation models using xesmf and xgcm
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Big Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/dask/intro.html">
+   Dask for Parallel Computing in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lectures/dask/dask_arrays.html">
+   Computing with Dask
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/assignments/python_basics_and_functions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/earth-env-data-science/earth-env-data-science-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/earth-env-data-science/earth-env-data-science-book/issues/new?title=Issue%20on%20page%20%2Fassignments/python_basics_and_functions.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/earth-env-data-science/earth-env-data-science-book/edit/master/src/assignments/python_basics_and_functions.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://https://us-central1-b.gcp.pangeo.io//hub/user-redirect/git-pull?repo=https://github.com/earth-env-data-science/earth-env-data-science-book&urlpath=lab/tree/earth-env-data-science-book/src/assignments/python_basics_and_functions.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-i-lists-and-loops">
+   Part I: Lists and Loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-list-with-the-names-of-every-planet-in-the-solar-system-in-order">
+     1) Create a list with the names of every planet in the solar system (in order)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#have-python-tell-you-how-many-planets-there-are-by-examining-your-list">
+     2) Have Python tell you how many planets there are by examining your list
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-slicing-to-display-the-first-four-planets-the-rocky-planets">
+     3) Use slicing to display the first four planets (the rocky planets)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterate-through-your-planets-and-print-the-planet-name-only-if-it-has-an-s-at-the-end">
+     4) Iterate through your planets and print the planet name only if it has an
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       s
+      </span>
+     </code>
+     at the end
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-ii-dictionaries">
+   Part II: Dictionaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#now-create-a-dictionary-that-maps-each-planet-name-to-its-mass">
+     1) Now create a dictionary that maps each planet name to its mass
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-your-dictionary-to-look-up-earth-s-mass">
+     2) Use your dictionary to look up Earth’s mass
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loop-through-the-data-and-create-a-list-of-planets-whose-mast-is-greater-than-100-x-10-24-kg">
+     3) Loop through the data and create a list of planets whose mast is greater than 100 x 10^24 kg
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#now-add-pluto-to-your-dictionary">
+     4) Now add pluto to your dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-iii-functions">
+   Part III: Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-a-function-to-convert-temperature-from-kelvin-to-celsius">
+     1. Write a function to convert temperature from kelvin to celsius
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-a-function-to-convert-temperature-to-fahrenheit">
+     2. Write a function to convert temperature to fahrenheit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-that-the-outputs-are-sensible">
+     3) Check that the outputs are sensible
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#now-write-a-function-that-converts-from-farenheit">
+     4) Now write a function that converts
+     <em>
+      from
+     </em>
+     farenheit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-a-function-that-takes-two-arguments-feet-and-inches-and-returns-height-in-meters">
+     5) Write a function that takes two arguments (feet and inches) and returns height in meters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-a-function-takes-one-argument-height-in-meters-and-returns-two-arguments-feet-and-inches">
+     6. Write a function takes one argument (height in meters) and returns two arguments (feet and inches)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-that-the-round-trip-conversion-from-and-back-to-meters-is-consistent">
+     7) Verify that the “round trip” conversion from and back to meters is consistent
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assignment-basic-python">
+<h1>Assignment: Basic Python<a class="headerlink" href="#assignment-basic-python" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Learning Goals</p>
+<p>This assignment will verify that you have the following skills:</p>
+<ul class="simple">
+<li><p>Create lists and dictionaries</p></li>
+<li><p>Iterate through lists, tuples, and dictionaries</p></li>
+<li><p>Index sequences (e.g. lists and tuples)</p></li>
+<li><p>Define functions</p></li>
+<li><p>Use optional keyword arguments in functions</p></li>
+</ul>
+</div>
+<div class="section" id="part-i-lists-and-loops">
+<h2>Part I: Lists and Loops<a class="headerlink" href="#part-i-lists-and-loops" title="Permalink to this headline">¶</a></h2>
+<p>In this problem, we will explore the basic data structures and flow controls of Python by <em>manually creating data structures</em>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pluto is <a class="reference external" href="https://www.loc.gov/everyday-mysteries/item/why-is-pluto-no-longer-a-planet/">not a planet any more</a>.</p>
+</div>
+<div class="section" id="create-a-list-with-the-names-of-every-planet-in-the-solar-system-in-order">
+<h3>1) Create a list with the names of every planet in the solar system (in order)<a class="headerlink" href="#create-a-list-with-the-names-of-every-planet-in-the-solar-system-in-order" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="have-python-tell-you-how-many-planets-there-are-by-examining-your-list">
+<h3>2) Have Python tell you how many planets there are by examining your list<a class="headerlink" href="#have-python-tell-you-how-many-planets-there-are-by-examining-your-list" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="use-slicing-to-display-the-first-four-planets-the-rocky-planets">
+<h3>3) Use slicing to display the first four planets (the rocky planets)<a class="headerlink" href="#use-slicing-to-display-the-first-four-planets-the-rocky-planets" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="iterate-through-your-planets-and-print-the-planet-name-only-if-it-has-an-s-at-the-end">
+<h3>4) Iterate through your planets and print the planet name only if it has an <code class="docutils literal notranslate"><span class="pre">s</span></code> at the end<a class="headerlink" href="#iterate-through-your-planets-and-print-the-planet-name-only-if-it-has-an-s-at-the-end" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="part-ii-dictionaries">
+<h2>Part II: Dictionaries<a class="headerlink" href="#part-ii-dictionaries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="now-create-a-dictionary-that-maps-each-planet-name-to-its-mass">
+<h3>1) Now create a dictionary that maps each planet name to its mass<a class="headerlink" href="#now-create-a-dictionary-that-maps-each-planet-name-to-its-mass" title="Permalink to this headline">¶</a></h3>
+<p>You can use values from this <a class="reference external" href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/">NASA fact sheet</a>.
+You can use whatever units you want, but be consistent.</p>
+</div>
+<div class="section" id="use-your-dictionary-to-look-up-earth-s-mass">
+<h3>2) Use your dictionary to look up Earth’s mass<a class="headerlink" href="#use-your-dictionary-to-look-up-earth-s-mass" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="loop-through-the-data-and-create-a-list-of-planets-whose-mast-is-greater-than-100-x-10-24-kg">
+<h3>3) Loop through the data and create a list of planets whose mast is greater than 100 x 10^24 kg<a class="headerlink" href="#loop-through-the-data-and-create-a-list-of-planets-whose-mast-is-greater-than-100-x-10-24-kg" title="Permalink to this headline">¶</a></h3>
+<p>Display your result</p>
+</div>
+<div class="section" id="now-add-pluto-to-your-dictionary">
+<h3>4) Now add pluto to your dictionary<a class="headerlink" href="#now-add-pluto-to-your-dictionary" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="part-iii-functions">
+<h2>Part III: Functions<a class="headerlink" href="#part-iii-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="write-a-function-to-convert-temperature-from-kelvin-to-celsius">
+<h3>1. Write a function to convert temperature from kelvin to celsius<a class="headerlink" href="#write-a-function-to-convert-temperature-from-kelvin-to-celsius" title="Permalink to this headline">¶</a></h3>
+<p>and celsius to kelvin</p>
+</div>
+<div class="section" id="write-a-function-to-convert-temperature-to-fahrenheit">
+<h3>2. Write a function to convert temperature to fahrenheit<a class="headerlink" href="#write-a-function-to-convert-temperature-to-fahrenheit" title="Permalink to this headline">¶</a></h3>
+<p>Include an optional keyword argument to specify whether the input is in  celcius or kelvin.
+Call your previously defined functions if necessary.</p>
+</div>
+<div class="section" id="check-that-the-outputs-are-sensible">
+<h3>3) Check that the outputs are sensible<a class="headerlink" href="#check-that-the-outputs-are-sensible" title="Permalink to this headline">¶</a></h3>
+<p>by trying a few examples</p>
+</div>
+<div class="section" id="now-write-a-function-that-converts-from-farenheit">
+<h3>4) Now write a function that converts <em>from</em> farenheit<a class="headerlink" href="#now-write-a-function-that-converts-from-farenheit" title="Permalink to this headline">¶</a></h3>
+<p>and uses a keyword argument to specify whether you want the output in celcius or kelvin</p>
+</div>
+<div class="section" id="write-a-function-that-takes-two-arguments-feet-and-inches-and-returns-height-in-meters">
+<h3>5) Write a function that takes two arguments (feet and inches) and returns height in meters<a class="headerlink" href="#write-a-function-that-takes-two-arguments-feet-and-inches-and-returns-height-in-meters" title="Permalink to this headline">¶</a></h3>
+<p>Verify it gives sensible answers</p>
+</div>
+<div class="section" id="write-a-function-takes-one-argument-height-in-meters-and-returns-two-arguments-feet-and-inches">
+<h3>6. Write a function takes one argument (height in meters) and returns two arguments (feet and inches)<a class="headerlink" href="#write-a-function-takes-one-argument-height-in-meters-and-returns-two-arguments-feet-and-inches" title="Permalink to this headline">¶</a></h3>
+<p>(Consult the <a class="reference external" href="https://docs.python.org/3/tutorial/introduction.html#numbers">tutorial on numbers</a> if you are stuck on how to implement this.)</p>
+</div>
+<div class="section" id="verify-that-the-round-trip-conversion-from-and-back-to-meters-is-consistent">
+<h3>7) Verify that the “round trip” conversion from and back to meters is consistent<a class="headerlink" href="#verify-that-the-round-trip-conversion-from-and-back-to-meters-is-consistent" title="Permalink to this headline">¶</a></h3>
+<p>Check for 3 different values of height in meters</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../lectures/core_python/organization_and_packaging.html" title="previous page">Organization and Packaging of Python Projects</a>
+    <a class='right-next' id="next-link" href="../lectures/basic_scipy/numpy_and_matplotlib.html" title="next page">Numpy and Matplotlib</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ryan Abernathey<br/>
+        
+            &copy; Copyright 2016-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
