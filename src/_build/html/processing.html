@@ -222,9 +222,58 @@
 \)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
+</div>
+</div>
+<p>Define physical constants</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epsilon</span> <span class="o">=</span> <span class="mf">2.1</span><span class="p">;</span>    <span class="c1"># the dielectric permittivity of the cable</span>
+
+<span class="n">c</span><span class="o">=</span> <span class="mf">3e8</span><span class="p">;</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="mf">200e6</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> 
+<span class="n">pi</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="n">T</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">omega_c</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="mi">300</span>
+
+<span class="c1">## range and two-way travel time</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># m</span>
+<span class="n">tau</span> <span class="o">=</span>  <span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">/</span><span class="mf">1.8</span><span class="p">)</span>
+
+<span class="n">phi_d</span> <span class="o">=</span> <span class="n">omega_c</span> <span class="o">*</span> <span class="n">tau</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">tau</span><span class="o">*</span><span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">K</span><span class="o">*</span><span class="n">tau</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span><span class="mi">2</span>
+
+<span class="n">f_d</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">B</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">epsilon</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f_d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>121.40267393661519
+</pre></div>
+</div>
+</div>
+</div>
+<p>The phase <span class="math notranslate nohighlight">\(\phi\)</span> is a linear function of time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">phi_d</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;phi [rad]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/processing_6_0.png" src="_images/processing_6_0.png" />
 </div>
 </div>
 </div>
