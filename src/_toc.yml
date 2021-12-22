@@ -4,4 +4,5 @@ parts:
 
 - caption: Theory
   chapters:
-  - file: phase-and-frequency.md
+  - file: phase-and-frequency
+  - file: processing
