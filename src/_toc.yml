@@ -1,8 +1,10 @@
 format: jb-book
-root: intro
+root: book-intro
 parts:
 
-- caption: Theory
+- caption: ice-penetrating radar
   chapters:
-  - file: phase-and-frequency
-  - file: processing
+  - file: apres-intro
+    sections:
+    - file: sections/beat-frequency
+    - file: sections/phase-frequency
