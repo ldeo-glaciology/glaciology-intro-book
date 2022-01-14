@@ -7,4 +7,9 @@ parts:
   - file: apres-intro
     sections:
     - file: sections/beat-frequency
+    - file: sections/coarse-range
     - file: sections/phase-frequency
+
+- caption: 
+  chapters:
+  - file: bibliography.md
