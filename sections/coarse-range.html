@@ -123,6 +123,13 @@
   </ul>
  </li>
 </ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav> <!-- To handle the deprecated key -->
@@ -276,8 +283,9 @@
                 
   <div class="section" id="discrete-fourier-transforms-and-phase">
 <h1>Discrete fourier transforms and phase<a class="headerlink" href="#discrete-fourier-transforms-and-phase" title="Permalink to this headline">¶</a></h1>
+<p>(under construction)</p>
 <p>This page demonstrates the use of a fourier transform to compute the range to reflectors in ApRES data.</p>
-<p>The idealized sinusoidal signals used in these demonstrations are intended to be simplified version of the signals recorded by ApRES. Specifcally, they represent the signal obtained when the received signal is differenced with the transmitted signal. In general this is resulting in a signal with a wide range of different frequencies. However, we will construct our synthetic signal with only two frequencies.</p>
+<p>The idealized sinusoidal signals used in these demonstrations are intended to be simplified version of the signals recorded by ApRES. Specifically, they represent the signal obtained when the received signal is differenced with the transmitted signal. In general this results in a signal with a wide range of different frequencies. However, we will construct our synthetic signal with only two frequencies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -289,8 +297,8 @@
 </div>
 <div class="section" id="define-some-reflectors">
 <h2>1. Define some reflectors<a class="headerlink" href="#define-some-reflectors" title="Permalink to this headline">¶</a></h2>
-<p>Suppose that there are just two reflectors beneath you when you deploy ApRES. In reality there are hundreds, but we wull assume there are just two: the ice sheet base 300 m away and an englacial reflecotre 100 m away.</p>
-<p>Let’s define <span class="math notranslate nohighlight">\(R\)</span> as the range, so the two reflectors have:</p>
+<p>Suppose that there are just two reflectors beneath you when you deploy ApRES. In reality there are hundreds, but we will assume there are just two.</p>
+<p>Let’s use <span class="math notranslate nohighlight">\(R\)</span> as the range, and define the range to the two reflectors as</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">=</span> <span class="mf">50.0</span>  <span class="c1"># units [m]</span>
@@ -303,11 +311,10 @@
 <div class="section" id="compute-the-two-way-travel-time-to-the-reflectors">
 <h2>2. Compute the two-way travel time to the reflectors<a class="headerlink" href="#compute-the-two-way-travel-time-to-the-reflectors" title="Permalink to this headline">¶</a></h2>
 <p>The two-way radio-wave travel time in ice <span class="math notranslate nohighlight">\(\tau\)</span> is given by</p>
-<p><span class="math notranslate nohighlight">\(
-\tau = 2R\frac{\sqrt\epsilon}{c},
-\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-tau1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-tau1" title="Permalink to this equation">¶</a></span>\[\tau = 2R\frac{\sqrt\epsilon}{c},\]</div>
 <p>where <span class="math notranslate nohighlight">\(c\)</span> is the speed of light in a vacuum and <span class="math notranslate nohighlight">\(\epsilon\)</span> is the dielactric constant of ice.</p>
-<p>Next let’s use constants form Brennan et al., 2014, to compute <span class="math notranslate nohighlight">\(\tau\)</span> for our two reflectors:</p>
+<p>Next, let’s use constants from <span id="id1">[<a class="reference internal" href="../bibliography.html#id2">Brennan <em>et al.</em>, 2014</a>]</span>, to compute <span class="math notranslate nohighlight">\(\tau\)</span> for our two reflectors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ep</span> <span class="o">=</span> <span class="mf">3.1</span>
@@ -329,11 +336,10 @@ tau2 is 1.410e-06 s.
 </div>
 <div class="section" id="compute-the-beat-frequencies-we-would-receive-from-these-reflectors">
 <h2>3. Compute the beat frequencies we would receive from these reflectors<a class="headerlink" href="#compute-the-beat-frequencies-we-would-receive-from-these-reflectors" title="Permalink to this headline">¶</a></h2>
-<p>Equation 1 from Brennan et al. relates the difference in  frequency between transmitted and received signal (i.e, the beat frequency, <span class="math notranslate nohighlight">\(f_d\)</span>) to <span class="math notranslate nohighlight">\(\tau\)</span> using some configuration parameters:</p>
-<p><span class="math notranslate nohighlight">\(
-f_d = K\tau = \frac{2\pi B \tau}{T}, 
-\)</span></p>
-<p>where <span class="math notranslate nohighlight">\(K\)</span> is the rate of frequency increase in rad s<span class="math notranslate nohighlight">\(^-1\)</span>, <span class="math notranslate nohighlight">\(B\)</span> is the bandwidth (the difference between the lowest and highest frequency covered by each chirp), and <span class="math notranslate nohighlight">\(T\)</span> is the chirp duration.</p>
+<p>Equation 1 from Brennan et al. relates the difference in frequency between the transmitted and received signals (the beat frequency; <span class="math notranslate nohighlight">\(f_d\)</span>) to <span class="math notranslate nohighlight">\(\tau\)</span> using some configuration parameters realted to how the frequency changes during each chirp:</p>
+<div class="math notranslate nohighlight" id="equation-eq-f-d1">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-f-d1" title="Permalink to this equation">¶</a></span>\[f_d = K\tau = \frac{2\pi B \tau}{T}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(K\)</span> is the rate of frequency increase in Hz s<span class="math notranslate nohighlight">\(^{-1}\)</span>, <span class="math notranslate nohighlight">\(B\)</span> is the bandwidth (the difference between the lowest and highest frequency covered by each chirp), and <span class="math notranslate nohighlight">\(T\)</span> is the chirp duration.</p>
 <p>Again using parameters from Brennan et al., let’s compute the beat frequencies we expect to receive from our two reflectors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -341,17 +347,17 @@ f_d = K\tau = \frac{2\pi B \tau}{T},
 <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span>               <span class="c1"># [s]</span>
 <span class="n">K</span> <span class="o">=</span> <span class="n">B</span><span class="o">/</span><span class="n">T</span>             <span class="c1"># [Hz/s^2]</span>
 
-<span class="n">f1</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">tau1</span>     <span class="c1"># [rad/s]</span>
-<span class="n">f2</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">tau2</span>     <span class="c1"># [rad/s]</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">tau1</span>     <span class="c1"># [Hz]</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">tau2</span>     <span class="c1"># [Hz]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;f1 = </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> Hz.&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;f2 = </span><span class="si">{</span><span class="n">f2</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> Hz.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;f1 = </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Hz.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;f2 = </span><span class="si">{</span><span class="n">f2</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Hz.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f1 = 117.5 Hz.
-f2 = 281.9 Hz.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f1 = 117.46 Hz.
+f2 = 281.90 Hz.
 </pre></div>
 </div>
 </div>
@@ -359,8 +365,8 @@ f2 = 281.9 Hz.
 </div>
 <div class="section" id="construct-our-signal">
 <h2>4. Construct our signal<a class="headerlink" href="#construct-our-signal" title="Permalink to this headline">¶</a></h2>
-<p>The signal ApRES recieves is the sum of two sinusoids. One has angular frequency <code class="docutils literal notranslate"><span class="pre">omega1</span></code> and the other <code class="docutils literal notranslate"><span class="pre">omega2</span></code>.</p>
-<p>Before computing the received signal, we will need to define a sampling frequncy, which is controlled by the ApRES system (Brennan used 12 kHz),</p>
+<p>The signal ApRES recieves is the sum of two sinusoids. One has a frequency of <code class="docutils literal notranslate"><span class="pre">f1</span></code> and the other <code class="docutils literal notranslate"><span class="pre">f2</span></code>.</p>
+<p>Before computing the received signal, we need to define a sampling frequncy, which is controlled by the ApRES system (Brennan used 12 kHz),</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampling_frequency</span> <span class="o">=</span> <span class="mf">12e3</span>    <span class="c1"># [Hz]</span>
@@ -371,25 +377,27 @@ f2 = 281.9 Hz.
 <p>and define a sampling vector,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samplingInterval</span>       <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sampling_frequency</span><span class="p">;</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">samplingInterval</span><span class="p">)</span>     <span class="c1"># [s]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samplingInterval</span>       <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sampling_frequency</span><span class="p">;</span>   <span class="c1"># [s]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">samplingInterval</span><span class="p">)</span>                <span class="c1"># [s]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we can deifne the signal ApRES receives</p>
+<p>Now we can define the signal ApRES receives</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f1</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>  <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f2</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>     
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f1</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>  <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f2</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>     
 </pre></div>
 </div>
 </div>
 </div>
-<p>Plot a small section of the the real and imaginary parts of the array to convince ourselves that this is an oscillatory signal</p>
+<p>Plot the signal to convince ourselves that this is an oscillatory signal.</p>
+<p>The code below plots a small section of the real and imaginary parts of <code class="docutils literal notranslate"><span class="pre">s</span></code> on the left and both components against each other in the complex plane (on an Argand diagram) on the right.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
+<span class="c1"># the real and imaginary components of the signal in the plot on the left</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">real</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;received signal time series&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t [s]&#39;</span><span class="p">)</span>
@@ -397,6 +405,7 @@ f2 = 281.9 Hz.
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;imaginary&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
+<span class="c1"># The Argand diagram on the right</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">real</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;received signal complex plane&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Im(s)&#39;</span><span class="p">);</span>
@@ -405,14 +414,15 @@ f2 = 281.9 Hz.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/coarse-range_15_0.png" src="../_images/coarse-range_15_0.png" />
+<img alt="../_images/coarse-range_17_0.png" src="../_images/coarse-range_17_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="compute-frequencies-with-a-fourier-transform">
 <h2>5. Compute frequencies with a fourier transform<a class="headerlink" href="#compute-frequencies-with-a-fourier-transform" title="Permalink to this headline">¶</a></h2>
-<p>The signal recieved by ApRES is a combination of signals from every reflector. The frequencies of these signals is directly proportional to the range to the reflectors. Next, we compute the frequencies and convert them to range.</p>
-<p>The cell below computes the fourier transform and the frequency bins. The transform produces as many samples as there are time-domain samples (<code class="docutils literal notranslate"><span class="pre">=len(s)</span></code>), between 0 Hz and the sampling frequency (12x10<span class="math notranslate nohighlight">\(^3\)</span>).  The frequency spectrum is normalized by the number of samples.</p>
+<p>The signal recieved by ApRES is a combination of signals from every reflector. The frequencies of these signals is directly proportional
+to the range to the reflectors. The frequencies that make up a signal can be extracted using a fourier transform. <a class="reference external" href="https://www.youtube.com/watch?v=spUNpyF58B">This video</a> is an incredibly clear explanation of how fourier transforms achieve this.</p>
+<p>The cell below computes the discrete fourier transform of <code class="docutils literal notranslate"><span class="pre">s</span></code> and the frequency bins. By default <code class="docutils literal notranslate"><span class="pre">np.fft.fft</span></code> produces as many freqency bins as there are time-domain samples (<code class="docutils literal notranslate"><span class="pre">=len(s)</span></code>), evenly distributed between 0 Hz and the sampling frequency (12x10<span class="math notranslate nohighlight">\(^3\)</span>). Therefore the value of the frequencies is computed by multiplying the indexes by <code class="docutils literal notranslate"><span class="pre">sampling_frequency/no_of_samples</span></code>, which is equal to <span class="math notranslate nohighlight">\(1/T = 1\)</span>s. Note also that the frequency spectrum is normalized by the number of samples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_of_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
@@ -423,7 +433,7 @@ f2 = 281.9 Hz.
 </div>
 </div>
 </div>
-<p>To plot the amplitude of the result we compute the amplitude of the verses frequency</p>
+<p>Next we compute the absolute value of the complex numbers in <code class="docutils literal notranslate"><span class="pre">S</span></code> and plot them against the frequencies yielding the usual depiction of frequency domain.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -436,16 +446,34 @@ f2 = 281.9 Hz.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/coarse-range_20_0.png" src="../_images/coarse-range_20_0.png" />
+<img alt="../_images/coarse-range_22_0.png" src="../_images/coarse-range_22_0.png" />
 </div>
 </div>
+<p>The plot displays two peaks in spectral energy at</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">argrelextrema</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">)</span>      <span class="c1"># this function finds local maxima  </span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; first peak detected at </span><span class="si">{</span><span class="n">frequencies</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> Hz.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;second peak detected at </span><span class="si">{</span><span class="n">frequencies</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> Hz.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> first peak detected at 117.000 Hz.
+second peak detected at 282.000 Hz.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice how the frequencies are close to the frequencies we computed above (<code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code>) but because <code class="docutils literal notranslate"><span class="pre">frequencies</span></code> is quantized and (in our case) increases in 1 Hz increments, the retrieved spectral peaks are restricted to be an integer number of Hz. This is why Brennan et al. call this the coarse range measurment.</p>
 </div>
 <div class="section" id="convert-frequency-to-range">
 <h2>6. Convert frequency to range<a class="headerlink" href="#convert-frequency-to-range" title="Permalink to this headline">¶</a></h2>
-<p>Next we convert frequencies to depths using</p>
+<p>Next we convert <code class="docutils literal notranslate"><span class="pre">frequencies</span></code> to depths using a combination of <a class="reference internal" href="#equation-eq-tau1">(1)</a> and <a class="reference internal" href="#equation-eq-f-d1">(2)</a>,</p>
 <p><span class="math notranslate nohighlight">\(
 f_d = 2KR\frac{\sqrt\epsilon}{c},
 \)</span></p>
+<p>Rearranging this expression for <span class="math notranslate nohighlight">\(R\)</span> gives</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span> <span class="o">=</span> <span class="n">frequencies</span> <span class="o">*</span> <span class="n">c</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">K</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ep</span><span class="p">))</span>
@@ -453,7 +481,7 @@ f_d = 2KR\frac{\sqrt\epsilon}{c},
 </div>
 </div>
 </div>
-<p>…and produce the amplitude-range plot:</p>
+<p>which allows us to produce the amplitude-range plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -466,15 +494,14 @@ f_d = 2KR\frac{\sqrt\epsilon}{c},
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/coarse-range_25_0.png" src="../_images/coarse-range_25_0.png" />
+<img alt="../_images/coarse-range_30_0.png" src="../_images/coarse-range_30_0.png" />
 </div>
 </div>
-<p>Detect the local maxima to locate the reflectors.</p>
+<p>…and compute the range of the reflectors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">retrieved_reflectors</span> <span class="o">=</span> <span class="n">argrelextrema</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">)</span>     
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; first reflector detected at </span><span class="si">{</span><span class="nb">range</span><span class="p">[</span><span class="n">retrieved_reflectors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m.&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;second reflector detected at </span><span class="si">{</span><span class="nb">range</span><span class="p">[</span><span class="n">retrieved_reflectors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m.&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; first reflector detected at </span><span class="si">{</span><span class="nb">range</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;second reflector detected at </span><span class="si">{</span><span class="nb">range</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -500,12 +527,65 @@ second reflector detected at 120.041 m.
 </div>
 </div>
 </div>
+<p>but, again, they are a coarse measurement due to the resolution of the frequency spectrum, which in turn derives from the bandwidth, <span class="math notranslate nohighlight">\(B\)</span> and the rate of increase in frequencies <span class="math notranslate nohighlight">\(K\)</span>.</p>
 </div>
 <div class="section" id="below-this-is-scrap">
 <h2>below this is scrap<a class="headerlink" href="#below-this-is-scrap" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#X2=X;%store the FFT results in another array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; first reflector detected at </span><span class="si">{</span><span class="n">phase</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> rad.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;second reflector detected at </span><span class="si">{</span><span class="n">phase</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> rad.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> first reflector detected at 1.446 rad.
+second reflector detected at -0.303 rad.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;amplitude-range plot showing our two reflectors&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;range [m]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;phase&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">R2</span><span class="o">*</span><span class="mf">1.2</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/coarse-range_38_0.png" src="../_images/coarse-range_38_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_c</span> <span class="o">=</span> <span class="mf">300e6</span>       <span class="c1"># [Hz]</span>
+<span class="n">lam</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span> <span class="o">/</span> <span class="n">f_c</span>
+<span class="n">Rfine1</span> <span class="o">=</span> <span class="n">lam</span> <span class="o">*</span> <span class="n">phase</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">Rfine2</span> <span class="o">=</span> <span class="n">lam</span> <span class="o">*</span> <span class="n">phase</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Rfine1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Rfine2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06530727388987519
+-0.013693240278268263
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this does not recreate the phase analysis here: https://www.gaussianwaves.com/2015/11/interpreting-fft-results-obtaining-magnitude-and-phase-information/</span>
+
+
+<span class="c1">#X2=X;%store the FFT results in another array</span>
 <span class="c1">#%detect noise (very small numbers (eps)) and ignore them</span>
 <span class="c1">#threshold = max(abs(X))/10000; %tolerance threshold</span>
 <span class="c1">#X2(abs(X)&lt;threshold) = 0; %maskout values that are below the threshold</span>
@@ -537,10 +617,9 @@ second reflector detected at 120.041 m.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/coarse-range_31_0.png" src="../_images/coarse-range_31_0.png" />
+<img alt="../_images/coarse-range_40_0.png" src="../_images/coarse-range_40_0.png" />
 </div>
 </div>
-<p>add a phase shift and see if I can detect it, possible need to follow the guide here:<a class="reference external" href="https://www.gaussianwaves.com/2015/11/interpreting-fft-results-obtaining-magnitude-and-phase-information/">https://www.gaussianwaves.com/2015/11/interpreting-fft-results-obtaining-magnitude-and-phase-information/</a> to remove the noise.</p>
 </div>
 </div>
 
