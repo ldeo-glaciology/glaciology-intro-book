@@ -469,10 +469,10 @@ f_d = 2KR\frac{\sqrt\epsilon}{c},
 <img alt="../_images/coarse-range_25_0.png" src="../_images/coarse-range_25_0.png" />
 </div>
 </div>
+<p>Detect the local maxima to locate the reflectors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">retrieved_reflectors</span> <span class="o">=</span> <span class="nb">range</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">]</span>
-<span class="n">retrieved_reflectors</span> <span class="o">=</span> <span class="n">argrelextrema</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">retrieved_reflectors</span> <span class="o">=</span> <span class="n">argrelextrema</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">)</span>     
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; first reflector detected at </span><span class="si">{</span><span class="nb">range</span><span class="p">[</span><span class="n">retrieved_reflectors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m.&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;second reflector detected at </span><span class="si">{</span><span class="nb">range</span><span class="p">[</span><span class="n">retrieved_reflectors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m.&#39;</span><span class="p">)</span>
 </pre></div>
@@ -537,7 +537,7 @@ second reflector detected at 120.041 m.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/coarse-range_30_0.png" src="../_images/coarse-range_30_0.png" />
+<img alt="../_images/coarse-range_31_0.png" src="../_images/coarse-range_31_0.png" />
 </div>
 </div>
 <p>add a phase shift and see if I can detect it, possible need to follow the guide here:<a class="reference external" href="https://www.gaussianwaves.com/2015/11/interpreting-fft-results-obtaining-magnitude-and-phase-information/">https://www.gaussianwaves.com/2015/11/interpreting-fft-results-obtaining-magnitude-and-phase-information/</a> to remove the noise.</p>
