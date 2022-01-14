@@ -1,0 +1,33 @@
+format: jb-book
+root: intro
+parts:
+
+- caption: Ice flow
+  chapters:
+  - file: ice-flow-intro
+  sections:
+   - file: Ice-as-a-nonlinear-fluid.md
+   - file: stokes-equations.md
+   - file: shallow-ice-approximation
+   - file: finite-difference-approximation
+   - file: SIA-ice-flow-model
+
+
+- caption: Ice-penetrating radar: Impulse
+  chapters:
+  - file: ice-pemetrating-radar-intro
+    sections:
+    - file: impulse-radar-theory
+    - file: impulse-data-analysis-example
+  - file: ApRES-intro
+    sections:
+    - file: phase-and-frequency
+    - file: beat-frequency
+    - file: target-range-from-beat-frequency
+    - file: fourier-transform
+    - file: ApRES-data-analysis-example
+
+- caption: Subglacial hydrology
+  chapters:
+  - file: subglacial-hydrology-theory
+  - file: subglacial-hydrology-data
