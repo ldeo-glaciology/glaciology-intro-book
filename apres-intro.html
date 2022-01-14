@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Processing examples &#8212; Autonomous Phase-Sensitive Radar</title>
+    <title>Autonomous phase-sensitive radio echo sounder &#8212; Introduction to data analysis and modelling in glaciology</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,8 +42,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -53,7 +51,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Phase and Frequency" href="phase-and-frequency.html" />
+    <link rel="next" title="Beat frequency" href="sections/beat-frequency.html" />
+    <link rel="prev" title="Introduction to data analysis and modelling in glaciology" href="book-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -73,7 +72,7 @@
     <a class="navbar-brand text-wrap" href="index.html">
       
       
-      <h1 class="site-logo" id="site-title">Autonomous Phase-Sensitive Radar</h1>
+      <h1 class="site-logo" id="site-title">Introduction to data analysis and modelling in glaciology</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -83,26 +82,38 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   ApRES is an autonomous phase-sensitive radar
+  <a class="reference internal" href="book-intro.html">
+   Introduction to data analysis and modelling in glaciology
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Theory
+  ice-penetrating radar
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="phase-and-frequency.html">
-   Phase and Frequency
-  </a>
- </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Processing examples
+   Autonomous phase-sensitive radio echo sounder
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sections/beat-frequency.html">
+     Beat frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sections/phase-frequency.html">
+     Phase and Frequency
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -145,9 +156,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/processing.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/apres-intro.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -165,10 +176,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fprocessing.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fapres-intro.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/jkingslake/apres_jp/edit/main/src/processing.ipynb"><button
+        <a class="edit-button" href="https://github.com/jkingslake/apres_jp/edit/main/src/apres-intro.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -183,23 +194,6 @@
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        
-        <a class="jupyterhub-button" href="https://https://us-central1-b.gcp.pangeo.io//hub/user-redirect/git-pull?repo=https://github.com/jkingslake/apres_jp&urlpath=lab/tree/apres_jp/src/processing.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
@@ -213,68 +207,14 @@
         
               <div>
                 
-  <div class="section" id="processing-examples">
-<h1>Processing examples<a class="headerlink" href="#processing-examples" title="Permalink to this headline">¶</a></h1>
-<p>This notebook contains examples of doing some processing.</p>
-<p>It can include equations etc.</p>
-<p><span class="math notranslate nohighlight">\(
-\phi_d(t) = \phi_t(t) - \phi_r(t)
-\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Define physical constants</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epsilon</span> <span class="o">=</span> <span class="mf">2.1</span><span class="p">;</span>    <span class="c1"># the dielectric permittivity of the cable</span>
-
-<span class="n">c</span><span class="o">=</span> <span class="mf">3e8</span><span class="p">;</span>
-
-<span class="n">B</span> <span class="o">=</span> <span class="mf">200e6</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> 
-<span class="n">pi</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-<span class="n">K</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="n">T</span>
-
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-
-<span class="n">omega_c</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="mi">300</span>
-
-<span class="c1">## range and two-way travel time</span>
-<span class="n">R</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># m</span>
-<span class="n">tau</span> <span class="o">=</span>  <span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">/</span><span class="mf">1.8</span><span class="p">)</span>
-
-<span class="n">phi_d</span> <span class="o">=</span> <span class="n">omega_c</span> <span class="o">*</span> <span class="n">tau</span> <span class="o">+</span> <span class="n">K</span><span class="o">*</span><span class="n">tau</span><span class="o">*</span><span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">K</span><span class="o">*</span><span class="n">tau</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span><span class="mi">2</span>
-
-<span class="n">f_d</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">B</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">epsilon</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">T</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f_d</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>121.40267393661519
-</pre></div>
-</div>
-</div>
-</div>
-<p>The phase <span class="math notranslate nohighlight">\(\phi\)</span> is a linear function of time <span class="math notranslate nohighlight">\(t\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">phi_d</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;phi [rad]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t [s]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/processing_6_0.png" src="_images/processing_6_0.png" />
-</div>
+  <div class="section" id="autonomous-phase-sensitive-radio-echo-sounder">
+<span id="apres-intro"></span><h1>Autonomous phase-sensitive radio echo sounder<a class="headerlink" href="#autonomous-phase-sensitive-radio-echo-sounder" title="Permalink to this headline">¶</a></h1>
+<p><strong>(under construction)</strong></p>
+<p>Purpose of this page:</p>
+<ul class="simple">
+<li><p>introduce ApRES, and the main topics that need to be understood in order to know where the data come from and how to process the data</p></li>
+</ul>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -303,7 +243,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="phase-and-frequency.html" title="previous page">Phase and Frequency</a>
+    <a class='left-prev' id="prev-link" href="book-intro.html" title="previous page">Introduction to data analysis and modelling in glaciology</a>
+    <a class='right-next' id="next-link" href="sections/beat-frequency.html" title="next page">Beat frequency</a>
 
         </div>
         
