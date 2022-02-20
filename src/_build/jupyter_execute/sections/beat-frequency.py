@@ -3,6 +3,8 @@
 
 # # Beat frequency
 
+# (under construction)
+
 # The Autonomous radio-echo sounder (ApRES) uses the concept of *beat frequency* to compute the difference in the frequency between a transmitted signal and a received signal. From this frequency, the range to each englacial reflector can be calculated (see [here](apres-intro)).
 
 # Beat freqencies occur when two waves with different frequencies are superimposed, producing a third wave that is the sum of the two original waves. Because the two waves are differnt frequencies, they gradually shift out of and into phase with one another  as time goes by. When they are in phase they interfere destructively and when they are out of phase they interfere destructively. So, as they shift in and out of phase the resulting wave increases and descreases in amplitude. This occurs at a particular frequency: the beat frequency. 
@@ -14,15 +16,15 @@
 
 # We will define two waves $s_1$ and $s_2$ by 
 # 
-# $$
+# $
 # s_1 = A_1 \sin \left(\omega_1 t\right)
-# $$
+# $
 # 
 # and
 # 
-# $$
+# $
 # s_2 = A_2 \sin \left(\omega_2 t\right).
-# $$
+# $
 # 
 # Their amplitudes are $A_1$ and $A_2$, and their *angular frequencies* are $\omega_1$ and $\omega_2$.  
 # 

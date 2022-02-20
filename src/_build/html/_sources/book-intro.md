@@ -5,7 +5,8 @@
 Purpose of this page:
 
 Introduce
-* the Book,
+* the book,
 * its structure,
 * its purpose,
 * its intended audience.
+* how to install dependencies to run the NBs.

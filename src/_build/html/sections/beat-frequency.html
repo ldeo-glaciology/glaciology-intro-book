@@ -53,7 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Phase and Frequency" href="phase-frequency.html" />
+    <link rel="next" title="Discrete fourier transforms and phase" href="coarse-range.html" />
     <link rel="prev" title="Autonomous phase-sensitive radio echo sounder" href="../apres-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -111,11 +111,23 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="coarse-range.html">
+     Discrete fourier transforms and phase
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="phase-frequency.html">
      Phase and Frequency
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
  </li>
 </ul>
 
@@ -246,6 +258,7 @@
                 
   <div class="section" id="beat-frequency">
 <h1>Beat frequency<a class="headerlink" href="#beat-frequency" title="Permalink to this headline">¶</a></h1>
+<p>(under construction)</p>
 <p>The Autonomous radio-echo sounder (ApRES) uses the concept of <em>beat frequency</em> to compute the difference in the frequency between a transmitted signal and a received signal. From this frequency, the range to each englacial reflector can be calculated (see <a class="reference internal" href="../apres-intro.html#apres-intro"><span class="std std-ref">here</span></a>).</p>
 <p>Beat freqencies occur when two waves with different frequencies are superimposed, producing a third wave that is the sum of the two original waves. Because the two waves are differnt frequencies, they gradually shift out of and into phase with one another  as time goes by. When they are in phase they interfere destructively and when they are out of phase they interfere destructively. So, as they shift in and out of phase the resulting wave increases and descreases in amplitude. This occurs at a particular frequency: the beat frequency.</p>
 <p>Below we explore this theoretically and numerically.</p>
@@ -253,15 +266,13 @@
 <h2>Numerical superposition of waves<a class="headerlink" href="#numerical-superposition-of-waves" title="Permalink to this headline">¶</a></h2>
 <p>Let’s start by getting a feel for what we expect to see by suprimposing some waves numerically. `</p>
 <p>We will define two waves <span class="math notranslate nohighlight">\(s_1\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span> by</p>
-<div class="math notranslate nohighlight">
-\[
+<p><span class="math notranslate nohighlight">\(
 s_1 = A_1 \sin \left(\omega_1 t\right)
-\]</div>
+\)</span></p>
 <p>and</p>
-<div class="math notranslate nohighlight">
-\[
+<p><span class="math notranslate nohighlight">\(
 s_2 = A_2 \sin \left(\omega_2 t\right).
-\]</div>
+\)</span></p>
 <p>Their amplitudes are <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span>, and their <em>angular frequencies</em> are <span class="math notranslate nohighlight">\(\omega_1\)</span> and <span class="math notranslate nohighlight">\(\omega_2\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -302,7 +313,7 @@ s_2 = A_2 \sin \left(\omega_2 t\right).
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/beat-frequency_8_0.png" src="../_images/beat-frequency_8_0.png" />
+<img alt="../_images/beat-frequency_9_0.png" src="../_images/beat-frequency_9_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -317,7 +328,7 @@ s_2 = A_2 \sin \left(\omega_2 t\right).
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/beat-frequency_9_0.png" src="../_images/beat-frequency_9_0.png" />
+<img alt="../_images/beat-frequency_10_0.png" src="../_images/beat-frequency_10_0.png" />
 </div>
 </div>
 </div>
@@ -356,7 +367,7 @@ s_3 = s_1 + s_2 = 2A\sin\left( \pi \left(f_1+f_2 \right) t \right) \cos\left( \p
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../apres-intro.html" title="previous page">Autonomous phase-sensitive radio echo sounder</a>
-    <a class='right-next' id="next-link" href="phase-frequency.html" title="next page">Phase and Frequency</a>
+    <a class='right-next' id="next-link" href="coarse-range.html" title="next page">Discrete fourier transforms and phase</a>
 
         </div>
         
