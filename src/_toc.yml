@@ -2,14 +2,16 @@ format: jb-book
 root: book-intro
 parts:
 
-- caption: ice-penetrating radar
+- caption: Radar
   chapters:
+  - file: impulse-radar    
   - file: apres-intro
     sections:
     - file: sections/beat-frequency
     - file: sections/coarse-range
     - file: sections/phase-frequency
 
-- caption: 
+
+- caption: References
   chapters:
   - file: bibliography.md
