@@ -1,7 +1,4 @@
-# Autonomous phase-sensitive radar jupyter book
-
-This is an experiment with using the project jupyter book to build documentation for ApRES (Autonomous Phase Sensitive Radio Echo Sounder). 
-
-The beginings of this book is hosted at: [https://jkingslake.github.io/apres_jp/intro.html](https://jkingslake.github.io/apres_jp/intro.html).
+# Introduction to Glaciology data analysis and modeling
 
 
+The beginnings of an online textbook about data analysis and modeling in Glaciology. It is hosted at: [https://ldeo-glaciology.github.io/glaciology-intro-book/](https://ldeo-glaciology.github.io/glaciology-intro-book/).
