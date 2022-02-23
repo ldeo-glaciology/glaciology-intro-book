@@ -44,15 +44,15 @@
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Beat frequency" href="sections/beat-frequency.html" />
-    <link rel="prev" title="Introduction to data analysis and modelling in glaciology" href="book-intro.html" />
+    <link rel="prev" title="Impulse Radar" href="impulse-radar.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -83,16 +83,21 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="book-intro.html">
-   Introduction to data analysis and modelling in glaciology
+   Glaciology data analysis and modeling
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  ice-penetrating radar
+  Radar
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="impulse-radar.html">
+   Impulse Radar
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
    Autonomous phase-sensitive radio echo sounder
@@ -121,6 +126,11 @@
   </ul>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  References
+ </span>
+</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="bibliography.html">
@@ -234,8 +244,8 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "jkingslake/apres_jp",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -255,7 +265,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="book-intro.html" title="previous page">Introduction to data analysis and modelling in glaciology</a>
+    <a class='left-prev' id="prev-link" href="impulse-radar.html" title="previous page">Impulse Radar</a>
     <a class='right-next' id="next-link" href="sections/beat-frequency.html" title="next page">Beat frequency</a>
 
         </div>

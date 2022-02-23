@@ -46,9 +46,9 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -85,16 +85,21 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../book-intro.html">
-   Introduction to data analysis and modelling in glaciology
+   Glaciology data analysis and modeling
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  ice-penetrating radar
+  Radar
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../impulse-radar.html">
+   Impulse Radar
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../apres-intro.html">
    Autonomous phase-sensitive radio echo sounder
@@ -123,6 +128,11 @@
   </ul>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  References
+ </span>
+</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
@@ -240,8 +250,8 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "jkingslake/apres_jp",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction to data analysis and modelling in glaciology &#8212; Introduction to data analysis and modelling in glaciology</title>
+    <title>Glaciology data analysis and modeling &#8212; Introduction to data analysis and modelling in glaciology</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -44,14 +44,14 @@
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Autonomous phase-sensitive radio echo sounder" href="apres-intro.html" />
+    <link rel="next" title="Impulse Radar" href="impulse-radar.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -82,16 +82,21 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   Introduction to data analysis and modelling in glaciology
+   Glaciology data analysis and modeling
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  ice-penetrating radar
+  Radar
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="impulse-radar.html">
+   Impulse Radar
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="apres-intro.html">
    Autonomous phase-sensitive radio echo sounder
@@ -120,6 +125,11 @@
   </ul>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  References
+ </span>
+</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="bibliography.html">
@@ -210,6 +220,48 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#about-the-book">
+     About the Book
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-this-book">
+   How to use this Book
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-the-code-interactively">
+   Running the code interactively.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-in-a-temporary-environment-on-this-page">
+     1. Running in a temporary environment on this page
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-the-code-in-a-temporary-environment-in-a-separate-window">
+     2. Running the code in a temporary environment in a separate window
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -218,8 +270,8 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-data-analysis-and-modelling-in-glaciology">
-<h1>Introduction to data analysis and modelling in glaciology<a class="headerlink" href="#introduction-to-data-analysis-and-modelling-in-glaciology" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="glaciology-data-analysis-and-modeling">
+<h1>Glaciology data analysis and modeling<a class="headerlink" href="#glaciology-data-analysis-and-modeling" title="Permalink to this headline">¶</a></h1>
 <p><strong>(under construction)</strong></p>
 <p>Purpose of this page:</p>
 <p>Introduce</p>
@@ -230,6 +282,28 @@
 <li><p>its intended audience.</p></li>
 <li><p>how to install dependencies to run the NBs.</p></li>
 </ul>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="about-the-book">
+<h3>About the Book<a class="headerlink" href="#about-the-book" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="how-to-use-this-book">
+<h2>How to use this Book<a class="headerlink" href="#how-to-use-this-book" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="running-the-code-interactively">
+<h2>Running the code interactively.<a class="headerlink" href="#running-the-code-interactively" title="Permalink to this headline">¶</a></h2>
+<p>A great advantage of writing this online textbook as a JupyterBook is that coding examples that accompany the text in order to aid in comprehension can be embedded in-line as code blocks within. Even better, the reader can interactively run the code, allowing you to experiment and gain intuition for the modeling or data-analysis procedure that is being described.</p>
+<p>This can be done in three ways.</p>
+<div class="section" id="running-in-a-temporary-environment-on-this-page">
+<h3>1. Running in a temporary environment on this page<a class="headerlink" href="#running-in-a-temporary-environment-on-this-page" title="Permalink to this headline">¶</a></h3>
+<p>We’ll start with the most straight forward way for readers to run the code. Using a project called (Thebe)[ <a class="reference external" href="https://thebe.readthedocs.io/en/latest/index.html">https://thebe.readthedocs.io/en/latest/index.html</a>]. On any page that includes a code block (such as this one) hover over the rocket icon in the top right of the screen and click on the <strong>Live Code</strong> menu item that appears. Buttons labelled <strong>Run</strong> and <strong>Restart</strong> appear in each code cell and after a short delay during which the computing resources are spun up, these buttons can be used to run each cell in turn. Note that the code can be edited, allowing you to experiment with it.</p>
+<p>The advantage of running the code in this way is that it is right here in the same window as the rest of the text and you will be able to easily navigate between pages. The disadvantage of this option is that you have little flexibility in how you use the computing environment (e.g., you cannot open a terminal, or download or upload the results of computations). Another disadvantage is that any edits you make the code are lost when you close the window and the computing environment closes down.</p>
+</div>
+<div class="section" id="running-the-code-in-a-temporary-environment-in-a-separate-window">
+<h3>2. Running the code in a temporary environment in a separate window<a class="headerlink" href="#running-the-code-in-a-temporary-environment-in-a-separate-window" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -240,8 +314,8 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "jkingslake/apres_jp",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -261,7 +335,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="apres-intro.html" title="next page">Autonomous phase-sensitive radio echo sounder</a>
+    <a class='right-next' id="next-link" href="impulse-radar.html" title="next page">Impulse Radar</a>
 
         </div>
         
