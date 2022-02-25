@@ -4,13 +4,13 @@
 # # Flow of the Antarctic Ice sheet
 # 
 
-# In[3]:
+# In[4]:
 
 
 import fsspec
 import xarray as xr
-M_mapper = fsspec.get_mapper('gs://ldeo-glaciology/MEaSUREs') # This also works - just to make sure we dont need the token to access
-M = xr.open_zarr(M_mapper) 
+mapper = fsspec.get_mapper('gs://ldeo-glaciology/MEaSUREs')
+M = xr.open_zarr(mapper) 
 
 
 # In[1]:
