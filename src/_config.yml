@@ -1,5 +1,5 @@
-title: Introduction to data analysis and modelling in glaciology
-author: Jonny Kingslake
+title:  The Glaciology Data Analysis and Modeling book
+author:
 copyright: "2021"
 
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
@@ -17,7 +17,7 @@ repository:
 launch_buttons:
   notebook_interface: jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url: "https://mybinder.org" # The URL of the BinderHub (e.g., https://mybinder.org)
-  thebe: true        
+  thebe: true
   #jupyterhub_url: "https://https://us-central1-b.gcp.pangeo.io/"
 
 # HTML-specific settings

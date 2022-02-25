@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phase and Frequency &#8212; The Glaciology Data Analysis and Modeling book</title>
+    <title>Introduction to ice flow &#8212; The Glaciology Data Analysis and Modeling book</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,8 +42,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -53,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="../bibliography.html" />
-    <link rel="prev" title="Discrete fourier transforms and phase" href="coarse-range.html" />
+    <link rel="next" title="Flow of the Antarctic Ice sheet" href="antarctic-ice-flow.html" />
+    <link rel="prev" title="The Glaciology Data Analysis and Modeling book" href="../book-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -94,9 +92,9 @@
   Ice flow
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ice-flow-intro.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Introduction to ice flow
   </a>
  </li>
@@ -111,22 +109,22 @@
   Radar
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../impulse-radar.html">
    Impulse Radar
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../apres-intro.html">
    Autonomous phase-sensitive radio echo sounder
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="beat-frequency.html">
      Beat frequency
@@ -137,8 +135,8 @@
      Discrete fourier transforms and phase
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="phase-frequency.html">
      Phase and Frequency
     </a>
    </li>
@@ -197,7 +195,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/sections/phase-frequency.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/sections/ice-flow-intro.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -217,10 +215,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/phase-frequency.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/ice-flow-intro.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/phase-frequency.md"><button
+        <a class="edit-button" href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/ice-flow-intro.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -240,6 +238,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introduction to ice flow
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accumulation-and-ablation">
+   Accumulation and ablation
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -248,19 +264,21 @@
         
               <div>
                 
-  <div class="section" id="phase-and-frequency">
-<span id="phase-frequency-label"></span><h1>Phase and Frequency<a class="headerlink" href="#phase-and-frequency" title="Permalink to this headline">¶</a></h1>
-<p><strong>(under construction)</strong></p>
-<p>Purpose of this page:</p>
-<ul class="simple">
-<li><p>explain the relationship between phase, frequency and angular frequency</p></li>
-</ul>
-<p>This is an equation relating phase and angular frequency:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{d\phi}{dt} = \omega_c,
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(t\)</span> is time [s], <span class="math notranslate nohighlight">\(\phi\)</span> is the phase of a radio wave [rad], <span class="math notranslate nohighlight">\(\omega\)</span> is the angular frequency [rad s<span class="math notranslate nohighlight">\(^{-1}\)</span>]</p>
+  <div class="section" id="introduction-to-ice-flow">
+<h1>Introduction to ice flow<a class="headerlink" href="#introduction-to-ice-flow" title="Permalink to this headline">¶</a></h1>
+<p>One of the most remarkable facts about ice is that under certain circumstances it flows under its own weight like a fluid. This is one of the things that excites glaciologists the most about their subject. The ice we are referring to here is nt some exotic family of ice that is softer than the frozen water we experience in our every day lives. It is in many ways similiar to the ice you make in your freezer and it behaves in many of the same ways: if you dropped a chinkof it on to a hard surface it is likely to shatter, if were walking on a sheet of it and you fell over it would hurt as much as falling on concrete. And yet, when enough (essentially) ordinary water ice gather in one place it flows under the influence of gravity.</p>
+<div class="figure align-default" id="baltoro-gif">
+<a class="reference internal image-reference" href="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2015/11/panmah_and_choktoi_glaciers/15696280-1-eng-GB/Panmah_and_Choktoi_glaciers_pillars.gif"><img alt="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2015/11/panmah_and_choktoi_glaciers/15696280-1-eng-GB/Panmah_and_Choktoi_glaciers_pillars.gif" src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2015/11/panmah_and_choktoi_glaciers/15696280-1-eng-GB/Panmah_and_Choktoi_glaciers_pillars.gif" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Using fifteen images from Landsat, this animation compresses 25 years of change into 1.5 seconds to reveal the complex behaviour of the surging glaciers in the Panmah region of the Karakoram mountain range in Asia. Glaciers are shown in pale blue, snow in light blue to cyan, clouds in white, water in dark blue, vegetation in green and bare terrain in pink to brown.</span><a class="headerlink" href="#baltoro-gif" title="Permalink to this image">¶</a></p>
+</div>
+<p>Ice flow is not just a curiosity. It is one of the key components of glacial systems. This because it controls how ice sheets and glaciers grow and shrink. To understand this we will first need to discuss how ice sheets gain and lose ice and how this depends on location.</p>
+</div>
+<div class="section" id="accumulation-and-ablation">
+<h1>Accumulation and ablation<a class="headerlink" href="#accumulation-and-ablation" title="Permalink to this headline">¶</a></h1>
+<p>Glacier and ice sheets gain mass through several processes, collectively known simply as accumulation. This includes deposition, whereby water vapor condenses as ice, freezing of rain or meltwater, avalanching, and, most importantly by far, snow fall. % this happens at high elevation where is cold</p>
+<p>Ice flow controls how ice gets from the areas where accumulation dominates to the areas where ablation dominates. Therefore the rate at which ice flows is a primary control on how fast ice sheets grow and shrink. A dramatic example of this is
+tica.</p>
+<p>Before we dive in to the physics of ice flow and begin to build an understanding of what controls, let’s gain some intuition use ice velocity and surface elevation data from Antarctica.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -288,8 +306,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="coarse-range.html" title="previous page">Discrete fourier transforms and phase</a>
-    <a class='right-next' id="next-link" href="../bibliography.html" title="next page">Bibliography</a>
+    <a class='left-prev' id="prev-link" href="../book-intro.html" title="previous page">The Glaciology Data Analysis and Modeling book</a>
+    <a class='right-next' id="next-link" href="antarctic-ice-flow.html" title="next page">Flow of the Antarctic Ice sheet</a>
 
         </div>
         

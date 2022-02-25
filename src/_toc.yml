@@ -2,9 +2,14 @@ format: jb-book
 root: book-intro
 parts:
 
+- caption: Ice flow
+  chapters:
+  - file: sections/ice-flow-intro
+  - file: sections/antarctic-ice-flow
+
 - caption: Radar
   chapters:
-  - file: impulse-radar    
+  - file: impulse-radar
   - file: apres-intro
     sections:
     - file: sections/beat-frequency

@@ -1,0 +1,10 @@
+name: env1
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - jupyterlab
+  - jupyter-book==0.11.2
+  - xarray
+  - scipy
+  - matplotlib

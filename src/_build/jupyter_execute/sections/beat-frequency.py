@@ -32,7 +32,7 @@
 # ```{note}
 # Angular frequencies $\omega$ tell us how fast the phase of a wave increaes with time. The units of  $\omega$ are radians per second. Angular frequency is related to *frequency* $f$ by $\omega = 2\pi f$.
 # 
-# See the [page](phase-frequency) on phase and frequency for more details
+# See the [page](phase-frequency-label) on phase and frequency for more details
 # ```
 
 # In[ ]:
