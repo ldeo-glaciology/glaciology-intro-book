@@ -1,4 +1,4 @@
-(phase-frequency)=
+(phase-frequency-label)=
 # Phase and Frequency
 
 **(under construction)**

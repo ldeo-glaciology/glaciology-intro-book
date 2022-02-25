@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Glaciology data analysis and modeling &#8212; Introduction to data analysis and modelling in glaciology</title>
+    <title>The Glaciology Data Analysis and Modeling book &#8212; The Glaciology Data Analysis and Modeling book</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Impulse Radar" href="impulse-radar.html" />
+    <link rel="next" title="Introduction to ice flow" href="sections/ice-flow-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -71,7 +71,7 @@
     <a class="navbar-brand text-wrap" href="index.html">
       
       
-      <h1 class="site-logo" id="site-title">Introduction to data analysis and modelling in glaciology</h1>
+      <h1 class="site-logo" id="site-title">The Glaciology Data Analysis and Modeling book</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -82,7 +82,24 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   Glaciology data analysis and modeling
+   The Glaciology Data Analysis and Modeling book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Ice flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="sections/ice-flow-intro.html">
+   Introduction to ice flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sections/antarctic-ice-flow.html">
+   Flow of the Antarctic Ice sheet
   </a>
  </li>
 </ul>
@@ -229,32 +246,35 @@
   <a class="reference internal nav-link" href="#introduction">
    Introduction
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#about-the-book">
-     About the Book
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-use-this-book">
-   How to use this Book
+  <a class="reference internal nav-link" href="#who-is-this-book-for">
+   Who is this book for?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#this-book-compared-to-previous-texts">
+   This book compared to previous texts
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#running-the-code-interactively">
-   Running the code interactively.
+   Running the code interactively
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#running-in-a-temporary-environment-on-this-page">
-     1. Running in a temporary environment on this page
+    <a class="reference internal nav-link" href="#in-a-temporary-environment-on-this-page">
+     1. In a temporary environment on this page
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#running-the-code-in-a-temporary-environment-in-a-separate-window">
-     2. Running the code in a temporary environment in a separate window
+    <a class="reference internal nav-link" href="#in-a-temporary-environment-in-a-separate-window">
+     2. In a temporary environment in a separate window
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#on-your-local-machine">
+     3. On your local machine
     </a>
    </li>
   </ul>
@@ -270,39 +290,72 @@
         
               <div>
                 
-  <div class="section" id="glaciology-data-analysis-and-modeling">
-<h1>Glaciology data analysis and modeling<a class="headerlink" href="#glaciology-data-analysis-and-modeling" title="Permalink to this headline">¶</a></h1>
-<p><strong>(under construction)</strong></p>
-<p>Purpose of this page:</p>
-<p>Introduce</p>
-<ul class="simple">
-<li><p>the book,</p></li>
-<li><p>its structure,</p></li>
-<li><p>its purpose,</p></li>
-<li><p>its intended audience.</p></li>
-<li><p>how to install dependencies to run the NBs.</p></li>
-</ul>
+  <div class="section" id="the-glaciology-data-analysis-and-modeling-book">
+<h1>The Glaciology Data Analysis and Modeling book<a class="headerlink" href="#the-glaciology-data-analysis-and-modeling-book" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="about-the-book">
-<h3>About the Book<a class="headerlink" href="#about-the-book" title="Permalink to this headline">¶</a></h3>
+<p>This book is a collaborative effort across the international glaciology community to document key glaciological concepts and computational approaches for observing and understanding them in an <strong>open</strong> and <strong>understandable</strong> way.</p>
+<p>By <strong>open</strong> we mean that this is a free resource for everyone and anyone can contribute (see the Contributing page). This also means that all data used in examples are openly accessible online, often in cloud-optimized, analysis ready formats. It also means that it uses an open-source code base: the Python scientific computing ecosystem.</p>
+<p>By <strong>understandable</strong> we mean that we will aim to explain all concepts and computational procedures in sufficient detail such that those who are just starting their career in glaciology will be able to fully comprehend them. In other words, we endeavor to assume very little prior knowledge about glaciological computational or advanced mathematical concepts.</p>
 </div>
+<div class="section" id="who-is-this-book-for">
+<h2>Who is this book for?<a class="headerlink" href="#who-is-this-book-for" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>undergraduate or early graduate students of glaciology looking to learn some key concepts and computational approaches</p></li>
+<li><p>teachers, professors or lecturers designing glaciological course material</p></li>
+<li><p>glaciologists looking for inspiration on how to access datasets in the cloud using Python.s</p></li>
+</ul>
 </div>
-<div class="section" id="how-to-use-this-book">
-<h2>How to use this Book<a class="headerlink" href="#how-to-use-this-book" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="this-book-compared-to-previous-texts">
+<h2>This book compared to previous texts<a class="headerlink" href="#this-book-compared-to-previous-texts" title="Permalink to this headline">¶</a></h2>
+<p>Several seminal glaciological textbooks, e.g., Cuffey and Paterson’s Physics of Glaciers, have be instrumental in the training of a generations of glaciologists. This book cannot hope to be as comprehensive as many such texts, but it does aim to cover similar material. So, despite this overlap, it will have several important advantages:</p>
+<ol class="simple">
+<li><p>It will be available to anyone, anytime, at no cost. This removes any barriers to entry usually associated with the cost of textbooks.</p></li>
+<li><p>It will be community driven, with multiple contributors sharing their time and expertise. This will more evenly distribute both the work load and the credit for creating a useful text, and it will enable a larger diversity of topics to be covered than a standard introductory text.</p></li>
+<li><p>It will be easily updatable as the science develops.</p></li>
+<li><p>It will include executable code examples embedded in the text (see below).</p></li>
+</ol>
 </div>
 <div class="section" id="running-the-code-interactively">
-<h2>Running the code interactively.<a class="headerlink" href="#running-the-code-interactively" title="Permalink to this headline">¶</a></h2>
+<h2>Running the code interactively<a class="headerlink" href="#running-the-code-interactively" title="Permalink to this headline">¶</a></h2>
 <p>A great advantage of writing this online textbook as a JupyterBook is that coding examples that accompany the text in order to aid in comprehension can be embedded in-line as code blocks within. Even better, the reader can interactively run the code, allowing you to experiment and gain intuition for the modeling or data-analysis procedure that is being described.</p>
-<p>This can be done in three ways.</p>
-<div class="section" id="running-in-a-temporary-environment-on-this-page">
-<h3>1. Running in a temporary environment on this page<a class="headerlink" href="#running-in-a-temporary-environment-on-this-page" title="Permalink to this headline">¶</a></h3>
-<p>We’ll start with the most straight forward way for readers to run the code. Using a project called (Thebe)[ <a class="reference external" href="https://thebe.readthedocs.io/en/latest/index.html">https://thebe.readthedocs.io/en/latest/index.html</a>]. On any page that includes a code block (such as this one) hover over the rocket icon in the top right of the screen and click on the <strong>Live Code</strong> menu item that appears. Buttons labelled <strong>Run</strong> and <strong>Restart</strong> appear in each code cell and after a short delay during which the computing resources are spun up, these buttons can be used to run each cell in turn. Note that the code can be edited, allowing you to experiment with it.</p>
-<p>The advantage of running the code in this way is that it is right here in the same window as the rest of the text and you will be able to easily navigate between pages. The disadvantage of this option is that you have little flexibility in how you use the computing environment (e.g., you cannot open a terminal, or download or upload the results of computations). Another disadvantage is that any edits you make to the code are lost when you close the window and the computing environment closes down.</p>
+<p>You can run the code in at least three ways.</p>
+<div class="section" id="in-a-temporary-environment-on-this-page">
+<h3>1. In a temporary environment on this page<a class="headerlink" href="#in-a-temporary-environment-on-this-page" title="Permalink to this headline">¶</a></h3>
+<p>We’ll start with the most straight forward way for readers to run the code. Using a project called <strong><a class="reference external" href="https://thebe.readthedocs.io/en/latest/index.html">hebe</a></strong>. On any page that includes a code block (such as this one), hover over the rocket icon in the top right of the screen and click on the <strong>Live Code</strong> menu item that appears. Buttons labelled <strong>Run</strong> and <strong>Restart</strong> appear in each code cell and after a short delay during which the computing resources are spun up, these buttons can be used to run each cell in turn. Note that the code can be edited, allowing you to experiment with it.</p>
+<p>Advantages of running the code in this way are that it is right here in the same window as the rest of the text, so you will be able to easily navigate between pages. A disadvantage is that you have little flexibility in how you use the computing environment (you cannot open a terminal, install new packages, or download the results of computations or figures). Another disadvantage is that any edits you make to the code are lost when you close the window and the computing environment shuts down.</p>
 </div>
-<div class="section" id="running-the-code-in-a-temporary-environment-in-a-separate-window">
-<h3>2. Running the code in a temporary environment in a separate window<a class="headerlink" href="#running-the-code-in-a-temporary-environment-in-a-separate-window" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="in-a-temporary-environment-in-a-separate-window">
+<h3>2. In a temporary environment in a separate window<a class="headerlink" href="#in-a-temporary-environment-in-a-separate-window" title="Permalink to this headline">¶</a></h3>
+<p>A second option is to start a computing environment in a separate JupyterLab window using Binder. On any page that includes a code block, hover over the rocket icon in the top right of the screen and click on <strong>Binder</strong> menu item that appears. This will start a JupyterLab window running inside a Binder session on computing resources supplied <a class="reference external" href="http://MyBinder.org">MyBinder.org</a> which will enable you to navigate to, edit and run all the notebooks in this book. The advantage of using this approach is that you have the flexibility of the JupyterLab environment, meaning that results of computation or figures can be downloaded, new packages can be installed etc. This approach shares one disadvantage with the first option above, in that when you close the JupyterLab/Binder session you lose all changes and results.</p>
 </div>
+<div class="section" id="on-your-local-machine">
+<h3>3. On your local machine<a class="headerlink" href="#on-your-local-machine" title="Permalink to this headline">¶</a></h3>
+<p>A third option is to download and run the notebooks on your local machine. The advantage of this approach is that you will have full flexibility on how you run the code and you can make edits which can be saved locally.</p>
+<p>The easiest way to download the notebooks is to clone the GitHub repo where this book lives as follows. In the terminal run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ldeo</span><span class="o">-</span><span class="n">glaciology</span><span class="o">/</span><span class="n">glaciology</span><span class="o">-</span><span class="n">intro</span><span class="o">-</span><span class="n">book</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If this does not work try</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">ldeo</span><span class="o">-</span><span class="n">glaciology</span><span class="o">/</span><span class="n">glaciology</span><span class="o">-</span><span class="n">intro</span><span class="o">-</span><span class="n">book</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>depending on how you have git permissions setup on your machine, it may be necessary to use this version.</p>
+</div>
+<p>Next you will need to instal the python packages needed to run the notebooks in this JupyterBook. The easiest way to do this is using <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a>. Follow the instructions on the Conda website to instal Conda, then in the terminal run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">cloned</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">glaciology</span><span class="o">-</span><span class="n">intro</span><span class="o">-</span><span class="n">book</span><span class="o">/</span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Finally, run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">lab</span>
+</pre></div>
+</div>
+<p>in the terminal and a JupyterLab session will start up. You are now ready to start.</p>
+</div>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -335,7 +388,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="impulse-radar.html" title="next page">Impulse Radar</a>
+    <a class='right-next' id="next-link" href="sections/ice-flow-intro.html" title="next page">Introduction to ice flow</a>
 
         </div>
         
@@ -344,8 +397,6 @@
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
-        
-          By Jonny Kingslake<br/>
         
             &copy; Copyright 2021.<br/>
       </p>
