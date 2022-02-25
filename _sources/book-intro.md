@@ -59,4 +59,4 @@ Finally, run
 ```
 jupyter-lab
 ```
-in the terminal and a JupyterLab session will start up. You are now ready to start.
+in the terminal and a JupyterLab session will start up. You are now ready to start running the notebooks on your local machine. 
