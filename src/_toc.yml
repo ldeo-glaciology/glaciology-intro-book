@@ -5,13 +5,15 @@ parts:
 - caption: Ice flow
   chapters:
   - file: sections/ice-flow-intro
+  - file: sections/ablation_accumulation
   - file: sections/antarctic-ice-flow
 
 - caption: Radar
   chapters:
   - file: impulse-radar
-  - file: apres-intro
+  - file: sections/apres-intro
     sections:
+    - file: sections/apres-range-frequency
     - file: sections/beat-frequency
     - file: sections/coarse-range
     - file: sections/phase-frequency

@@ -9,7 +9,7 @@
 # 
 # The idealized sinusoidal signals used in these demonstrations are intended to be simplified version of the signals recorded by ApRES. Specifically, they represent the signal obtained when the received signal is differenced with the transmitted signal. In general this results in a signal with a wide range of different frequencies. However, we will construct our synthetic signal with only two frequencies.
 
-# In[20]:
+# In[1]:
 
 
 import numpy as np
@@ -55,7 +55,7 @@ print(f'tau2 is {tau2:.3e} s.')
 
 
 # ## 3. Compute the beat frequencies we would receive from these reflectors
-# Equation 1 from Brennan et al. relates the difference in frequency between the transmitted and received signals (the beat frequency; $f_d$) to $\tau$ using some configuration parameters realted to how the frequency changes during each chirp:
+# Equation 1 from Brennan et al. relates the difference in frequency between the transmitted and received signals (the beat frequency; $f_d$) to $\tau$ using some configuration parameters related to how the frequency changes during each chirp:
 # 
 # ```{math}
 # :label: eq:f_d1

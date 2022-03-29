@@ -22,7 +22,7 @@ Several seminal glaciological textbooks, e.g., Cuffey and Paterson's Physics of 
 
 
 ## Running the code interactively
-A great advantage of writing this online textbook as a JupyterBook is that coding examples that accompany the text in order to aid in comprehension can be embedded in-line as code blocks within. Even better, the reader can interactively run the code, allowing you to experiment and gain intuition for the modeling or data-analysis procedure that is being described.
+A great advantage of writing this online textbook as a JupyterBook is that coding examples that accompany the text in order to aid in comprehension can be embedded in-line as code blocks. Even better, the reader can interactively run the code, allowing you to experiment with and gain intuition for the modeling or data-analysis procedure being described.
 
 You can run the code in at least three ways.
 

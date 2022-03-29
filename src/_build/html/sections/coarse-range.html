@@ -105,7 +105,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ice-flow-intro.html">
-   Ice flow
+   Introduction to ice flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ablation_accumulation.html">
+   Ice flow, accumulation and ablation
   </a>
  </li>
  <li class="toctree-l1">
@@ -126,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../apres-intro.html">
+  <a class="reference internal" href="apres-intro.html">
    Autonomous phase-sensitive radio echo sounder
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -135,6 +140,11 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="apres-range-frequency.html">
+     Frequency and range
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="beat-frequency.html">
      Beat frequency
@@ -427,7 +437,7 @@ tau2 is 1.410e-06 s.
 </div>
 <div class="section" id="compute-the-beat-frequencies-we-would-receive-from-these-reflectors">
 <h2>3. Compute the beat frequencies we would receive from these reflectors<a class="headerlink" href="#compute-the-beat-frequencies-we-would-receive-from-these-reflectors" title="Permalink to this headline">¶</a></h2>
-<p>Equation 1 from Brennan et al. relates the difference in frequency between the transmitted and received signals (the beat frequency; <span class="math notranslate nohighlight">\(f_d\)</span>) to <span class="math notranslate nohighlight">\(\tau\)</span> using some configuration parameters realted to how the frequency changes during each chirp:</p>
+<p>Equation 1 from Brennan et al. relates the difference in frequency between the transmitted and received signals (the beat frequency; <span class="math notranslate nohighlight">\(f_d\)</span>) to <span class="math notranslate nohighlight">\(\tau\)</span> using some configuration parameters related to how the frequency changes during each chirp:</p>
 <div class="math notranslate nohighlight" id="equation-eq-f-d1">
 <span class="eqno">(2)<a class="headerlink" href="#equation-eq-f-d1" title="Permalink to this equation">¶</a></span>\[f_d = K\tau = \frac{2\pi B \tau}{T}, \]</div>
 <p>where <span class="math notranslate nohighlight">\(K\)</span> is the rate of frequency increase in Hz s<span class="math notranslate nohighlight">\(^{-1}\)</span>, <span class="math notranslate nohighlight">\(B\)</span> is the bandwidth (the difference between the lowest and highest frequency covered by each chirp), and <span class="math notranslate nohighlight">\(T\)</span> is the chirp duration.</p>
@@ -759,6 +769,8 @@ second reflector detected at -0.303 rad.
     </div>
     <footer class="footer">
   <p>
+    
+      By The Jupyter Book community<br/>
     
         &copy; Copyright 2021.<br/>
   </p>

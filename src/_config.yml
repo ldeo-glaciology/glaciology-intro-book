@@ -1,5 +1,4 @@
 title:  The Glaciology Data Analysis and Modeling book
-author:
 copyright: "2021"
 logo:  images/thumbnail.png
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]

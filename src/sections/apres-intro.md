@@ -1,0 +1,6 @@
+(apres-intro)=
+# Autonomous phase-sensitive radio echo sounder
+
+The Autonomous phase-sensitive radio echo sounder (ARES) is a frequency modulated continuous wave radar primarily designed to measure changes over time in the separate of sub-surface reflectors. Radar reflections arise at interfaces between materials with different dielectric properties. When ApRES is used on an ice sheet these reflectors can be internal (or englacial) reflectors, which originate from contrasts in density or chemistry of the ice or the ice base, which originate from the strong contrast between the ice and the underlying sediment, bedrock, or water. ApRES has most commonly been used to estimate melt rates at the base of ice shelves (the floating extensions of ice sheets), by tracking the separation between the ice-water interface and the englacial reflectors (REF). pRES, along with it predecessor, pRES, have also been used to measure englacial deformation on grounded ice (REF) and constrain ice crystal fabric (REF).
+
+In the following pages we describe some of the interesting aspects of the theory behind the operation of ApRES, followed by some example processing of data collected in various glacial settings.
