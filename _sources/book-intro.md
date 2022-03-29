@@ -1,11 +1,11 @@
 # The Glaciology Data Analysis and Modeling book
 
 ## Introduction
-This book is a collaborative effort across the international glaciology community to document key glaciological concepts and computational approaches for observing and understanding them in an **open** and **understandable** way.
+This book is a collaborative effort across the international glaciology community to document key glaciological concepts and computational approaches for observing and understanding them. We aim to do this in an **open** and **understandable** way.
 
 By **open** we mean that this is a free resource for everyone and anyone can contribute (see the Contributing page). This also means that all data used in examples are openly accessible online, often in cloud-optimized, analysis ready formats. It also means that it uses an open-source code base: the Python scientific computing ecosystem.
 
-By **understandable** we mean that we will aim to explain all concepts and computational procedures in sufficient detail such that those who are just starting their career in glaciology will be able to fully comprehend them. In other words, we endeavor to assume very little prior knowledge about glaciological computational or advanced mathematical concepts.
+By **understandable** we mean that we will aim to explain all concepts and computational procedures in sufficient detail such that those who are just starting their career in glaciology will be able to fully comprehend them. In other words, we endeavor to assume very little prior knowledge about glaciological, computational or advanced mathematical concepts.
 
 ## Who is this book for?
 - undergraduate or early graduate students of glaciology looking to learn some key concepts and computational approaches
@@ -13,15 +13,16 @@ By **understandable** we mean that we will aim to explain all concepts and compu
 - glaciologists looking for inspiration on how to access datasets in the cloud using Python.s
 
 ## This book compared to previous texts
-Several seminal glaciological textbooks, e.g., Cuffey and Paterson's Physics of Glaciers, have be instrumental in the training of a generations of glaciologists. This book cannot hope to be as comprehensive as many such texts, but it does aim to cover similar material. So, despite this overlap, it will have several important advantages:  
+Several seminal glaciological textbooks, e.g., Cuffey and Paterson's Physics of Glaciers, have be instrumental in the training of generations of glaciologists. This book cannot hope to be as comprehensive as many such texts, but it does aim to cover similar material. So, despite this overlap, we hope it compliment existing text in several ways:  
 1. It will be available to anyone, anytime, at no cost. This removes any barriers to entry usually associated with the cost of textbooks.
 2. It will be community driven, with multiple contributors sharing their time and expertise. This will more evenly distribute both the work load and the credit for creating a useful text, and it will enable a larger diversity of topics to be covered than a standard introductory text.
 3. It will be easily updatable as the science develops.
 4. It will include executable code examples embedded in the text (see below).
+5. Key physics concepts (the stress equations, mass conservations) will be explained from close-to first principles.
 
 
 ## Running the code interactively
-A great advantage of writing this online textbook as a JupyterBook is that coding examples that accompany the text in order to aid in comprehension can be embedded in-line as code blocks within. Even better, the reader can interactively run the code, allowing you to experiment and gain intuition for the modeling or data-analysis procedure that is being described.
+A great advantage of writing this online textbook as a JupyterBook is that coding examples that accompany the text in order to aid in comprehension can be embedded in-line as code blocks. Even better, the reader can interactively run the code, allowing you to experiment with and gain intuition for the modeling or data-analysis procedure being described.
 
 You can run the code in at least three ways.
 
@@ -47,10 +48,10 @@ git clone https://github.com/ldeo-glaciology/glaciology-intro-book.git
   ```
   git clone git@github.com:ldeo-glaciology/glaciology-intro-book.git
   ```
-  depending on how you have git permissions setup on your machine, it may be necessary to use this version.
+  depending on how you have git permissions setup on your machine, it may be necessary to use this version
   `````
 
-Next you will need to instal the python packages needed to run the notebooks in this JupyterBook. The easiest way to do this is using [Conda](https://docs.conda.io/en/latest/). Follow the instructions on the Conda website to instal Conda, then in the terminal run
+Next you will need to install the python packages needed to run the notebooks in this JupyterBook. The easiest way to do this is using [Conda](https://docs.conda.io/en/latest/). Follow the instructions on the Conda website to install Conda, then in the terminal run
 ```
 conda env create -f path/to/cloned/repo/glaciology-intro-book/environment.yml
 ```
@@ -59,4 +60,4 @@ Finally, run
 ```
 jupyter-lab
 ```
-in the terminal and a JupyterLab session will start up. You are now ready to start running the notebooks on your local machine. 
+in the terminal and a JupyterLab session will start up. You are now ready to start running the notebooks on your local machine.

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beat frequency &#8212; The Glaciology Data Analysis and Modeling book</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -31,32 +31,34 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Discrete fourier transforms and phase" href="coarse-range.html" />
-    <link rel="prev" title="Autonomous phase-sensitive radio echo sounder" href="../apres-intro.html" />
+    <link rel="prev" title="Frequency and range" href="apres-range-frequency.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -73,6 +75,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/thumbnail.png" class="logo" alt="logo">
       
       
@@ -82,7 +88,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -91,7 +97,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Ice flow
  </span>
@@ -103,12 +109,17 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ablation_accumulation.html">
+   Ice flow, accumulation and ablation
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="antarctic-ice-flow.html">
    Flow of the Antarctic Ice sheet
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Radar
  </span>
@@ -120,7 +131,7 @@
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../apres-intro.html">
+  <a class="reference internal" href="apres-intro.html">
    Autonomous phase-sensitive radio echo sounder
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -129,6 +140,11 @@
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="apres-range-frequency.html">
+     Frequency and range
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Beat frequency
@@ -147,7 +163,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   References
  </span>
@@ -204,7 +220,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -260,21 +276,26 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numerical-superposition-of-waves">
-   Numerical superposition of waves
+  <a class="reference internal nav-link" href="#numerical-addition-of-waves">
+   Numerical addition of waves
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analytical-superposition-of-waves">
-   Analytical superposition of waves
+  <a class="reference internal nav-link" href="#theory-tells-us-the-frequencies">
+   Theory tells us the frequencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-the-theoretical-and-numerical-predictions">
+   Compare the theoretical and numerical predictions
   </a>
  </li>
 </ul>
@@ -285,20 +306,52 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Beat frequency</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-addition-of-waves">
+   Numerical addition of waves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory-tells-us-the-frequencies">
+   Theory tells us the frequencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-the-theoretical-and-numerical-predictions">
+   Compare the theoretical and numerical predictions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="beat-frequency">
+  <div class="tex2jax_ignore mathjax_ignore section" id="beat-frequency">
 <h1>Beat frequency<a class="headerlink" href="#beat-frequency" title="Permalink to this headline">¶</a></h1>
-<p>(under construction)</p>
-<p>The Autonomous radio-echo sounder (ApRES) uses the concept of <em>beat frequency</em> to compute the difference in the frequency between a transmitted signal and a received signal. From this frequency, the range to each englacial reflector can be calculated (see <a class="reference internal" href="../apres-intro.html#apres-intro"><span class="std std-ref">here</span></a>).</p>
-<p>Beat freqencies occur when two waves with different frequencies are superimposed, producing a third wave that is the sum of the two original waves. Because the two waves are differnt frequencies, they gradually shift out of and into phase with one another  as time goes by. When they are in phase they interfere destructively and when they are out of phase they interfere destructively. So, as they shift in and out of phase the resulting wave increases and descreases in amplitude. This occurs at a particular frequency: the beat frequency.</p>
-<p>Below we explore this theoretically and numerically.</p>
-<div class="section" id="numerical-superposition-of-waves">
-<h2>Numerical superposition of waves<a class="headerlink" href="#numerical-superposition-of-waves" title="Permalink to this headline">¶</a></h2>
-<p>Let’s start by getting a feel for what we expect to see by suprimposing some waves numerically. `</p>
-<p>We will define two waves <span class="math notranslate nohighlight">\(s_1\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span> by</p>
-<p><span class="math notranslate nohighlight">\(
+<p>The Autonomous radio-echo sounder (ApRES) uses the concept of <em>beat frequency</em> to compute the difference in the frequency between a transmitted signal and a received signal. From this frequency, the range to each englacial reflector can be calculated (see <a class="reference internal" href="apres-intro.html#apres-intro"><span class="std std-ref">here</span></a>).</p>
+<p>Beat freqencies occur when two waves with different frequencies are superimposed, producing a third wave that is the sum of the two original waves. Because the two waves have different frequencies, they gradually shift out of and into phase with one another as time goes by. Where they are in phase they interfere constructively and where they are out of phase they interfere destructively. So, as they shift in and out of phase the resulting wave increases and descreases in amplitude. This occurs at a particular frequency: the beat frequency.</p>
+<p>Below we explore this numerically and theoretically.</p>
+<div class="section" id="numerical-addition-of-waves">
+<h2>Numerical addition of waves<a class="headerlink" href="#numerical-addition-of-waves" title="Permalink to this headline">¶</a></h2>
+<p>Let’s start by getting a feel for what we expect to see by superimposing two waves numerically.
+We will define two waves <span class="math notranslate nohighlight">\(s_1\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span> by
+<span class="math notranslate nohighlight">\(
 s_1 = A_1 \sin \left(\omega_1 t\right)
 \)</span></p>
 <p>and</p>
@@ -308,51 +361,75 @@ s_2 = A_2 \sin \left(\omega_2 t\right).
 <p>Their amplitudes are <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span>, and their <em>angular frequencies</em> are <span class="math notranslate nohighlight">\(\omega_1\)</span> and <span class="math notranslate nohighlight">\(\omega_2\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Angular frequencies <span class="math notranslate nohighlight">\(\omega\)</span> tell us how fast the phase of a wave increaes with time. The units of  <span class="math notranslate nohighlight">\(\omega\)</span> are radians per second. Angular frequency is related to <em>frequency</em> <span class="math notranslate nohighlight">\(f\)</span> by <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span>.</p>
+<p>Angular frequencies <span class="math notranslate nohighlight">\(\omega\)</span> tell us how fast the phase of a wave increaes with time. The units of <span class="math notranslate nohighlight">\(\omega\)</span> are radians per second. Angular frequency is related to <em>frequency</em> <span class="math notranslate nohighlight">\(f\)</span> by <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span>.</p>
 <p>See the <a class="reference internal" href="phase-frequency.html#phase-frequency-label"><span class="std std-ref">page</span></a> on phase and frequency for more details</p>
 </div>
-<p>Let’s plot both waves</p>
+<p>We start by loading two python packages, Numpy and Matplotlib. <a class="reference external" href="https://numpy.org/">Numpy</a> is for doing calculations with arrays. <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> is for plotting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>                                <span class="c1"># define pi</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">40</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>     <span class="c1"># define a time vector </span>
-
-<span class="c1"># define the first wave</span>
-<span class="n">omega_1</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">A_1</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">s1</span> <span class="o">=</span> <span class="n">A_1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega_1</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
-
-<span class="c1"># define the second wave</span>
-<span class="n">omega_2</span> <span class="o">=</span> <span class="mf">1.8</span>
-<span class="n">A_2</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="n">A_2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega_2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Next let’s define <span class="math notranslate nohighlight">\(\pi\)</span> and a time vector which runs from <span class="math notranslate nohighlight">\(t=0\)</span> seconds to <span class="math notranslate nohighlight">\(t=40\pi\)</span> seconds and has 1000 elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>                                <span class="c1"># define pi</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">40</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>     <span class="c1"># define a time vector </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we define a function which we will use to create our waves. It will take as input the desired amplitude and the desired angular frequency.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wave</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">omega</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can use this function to define two waves with two slightly different frequencies of 2 and 1.8 rad s<span class="math notranslate nohighlight">\(^{-1}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omega1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">A1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">wave</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">omega1</span><span class="p">)</span>
+
+<span class="n">omega1</span> <span class="o">=</span> <span class="mf">1.8</span>
+<span class="n">A2</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">wave</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">omega1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we plot both waves against time we can see how <span class="math notranslate nohighlight">\(s_1\)</span>, with its slightly lower frequency (in blue below) starts to lag behind <span class="math notranslate nohighlight">\(s_2\)</span> (in orange) after only one cycle. By <span class="math notranslate nohighlight">\(t\approx 15\)</span> s they are in anti-phase, and by <span class="math notranslate nohighlight">\(t\approx 30\)</span> s they are back in phase again. This shifting in and out of phase repeats regularly across the plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">s2</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;our two waves&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time, $t$ [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">enable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$s_1$&#39;</span><span class="p">,</span><span class="s1">&#39;$s_2$&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/beat-frequency_9_0.png" src="../_images/beat-frequency_9_0.png" />
+<img alt="../_images/beat-frequency_14_0.png" src="../_images/beat-frequency_14_0.png" />
 </div>
 </div>
+<p>To see how this affects the sum of the two waves we will plot <span class="math notranslate nohighlight">\(s_1+s_2\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s1</span><span class="o">+</span><span class="n">s2</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$s_2$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$s_1 + s_2$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$s_1+s_2$&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$t$ [s]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">enable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -360,16 +437,71 @@ s_2 = A_2 \sin \left(\omega_2 t\right).
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/beat-frequency_10_0.png" src="../_images/beat-frequency_10_0.png" />
+<img alt="../_images/beat-frequency_16_0.png" src="../_images/beat-frequency_16_0.png" />
 </div>
 </div>
 </div>
-<div class="section" id="analytical-superposition-of-waves">
-<h2>Analytical superposition of waves<a class="headerlink" href="#analytical-superposition-of-waves" title="Permalink to this headline">¶</a></h2>
-<p>Assuming for now that the amplitudes of the waves are the same (<span class="math notranslate nohighlight">\(A_1 = A_2\)</span>) and using a <em>sum-to-product trignometric identity</em>, the sum of the two waves is
-$<span class="math notranslate nohighlight">\(
-s_3 = s_1 + s_2 = 2A\sin\left( \pi \left(f_1+f_2 \right) t \right) \cos\left( \pi \left(f_1-f_2 \right) t \right)
-\)</span>$</p>
+<div class="section" id="theory-tells-us-the-frequencies">
+<h2>Theory tells us the frequencies<a class="headerlink" href="#theory-tells-us-the-frequencies" title="Permalink to this headline">¶</a></h2>
+<p>As we discussed at the top of this page, where the two waves are in phase, summing them causes constructive interference and we get waves with amplitudes of <span class="math notranslate nohighlight">\(A_1+A_2 = 1\)</span>. Similarly, where they are in antiphase they interfer destructively and the waves are much smaller, instanteously reaching zero amplitude at <span class="math notranslate nohighlight">\(t\approx\)</span> 15, 50, etc. In other words, it appears that this new signal (<span class="math notranslate nohighlight">\(s_1 + s_2\)</span>) consists of relatively high frequency waves with a uniform frequency similar to the frequency of <span class="math notranslate nohighlight">\(s_1\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span>, which are modulated by a lower frequency repeating signal.</p>
+<p>It turns out that some trignometry shows that this lower frequency signal is the difference between the two signals - exactly waht we need for estimating the range to reflectors with ApRES.</p>
+<p>Assume, as we did above, that the amplitudes of the waves are the same (<span class="math notranslate nohighlight">\(A_1 = A_2\)</span>). Summing two well known trignometric identities</p>
+<p><span class="math notranslate nohighlight">\(
+\sin(\alpha+\beta) = \sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta)
+\)</span></p>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(
+\sin(\alpha-\beta) = \sin(\alpha)\cos(\beta) - \cos(\alpha)\sin(\beta),  
+\)</span></p>
+<p>gives</p>
+<p><span class="math notranslate nohighlight">\(
+\frac{1}{2}[\sin(\alpha+\beta)+\sin(\alpha-\beta)] = \sin(\alpha)\cos(\beta).
+\)</span></p>
+<p>Then we substitute in <span class="math notranslate nohighlight">\(u = \alpha+\beta\)</span> and <span class="math notranslate nohighlight">\(v = \alpha-\beta\)</span> to get</p>
+<p><span class="math notranslate nohighlight">\(
+\frac{1}{2}[\sin(u)+\sin(v)] = \sin(\alpha)\cos(\beta).
+\)</span></p>
+<p>Then, recongizing that <span class="math notranslate nohighlight">\(u + v = 2\alpha\)</span> and <span class="math notranslate nohighlight">\(u - v = 2\beta\)</span>, we find</p>
+<p><span class="math notranslate nohighlight">\(
+\frac{1}{2}[\sin(u)+\sin(v)] = \sin\left(\frac{u + v}{2}\right)\cos\left(\frac{u - v}{2}\right).
+\)</span></p>
+<p>This is one of the so-called <em>sum-to-product</em> trignometric identities. Finally, subsituting in <span class="math notranslate nohighlight">\(u = \omega_1 t\)</span> and <span class="math notranslate nohighlight">\(v = \omega_2 t\)</span> provides our answer:</p>
+<p><span class="math notranslate nohighlight">\(
+\frac{1}{2}[\sin(\omega_1 t)+\sin(\omega_2 t)] = \sin\left(\frac{\omega_1 t + \omega_2 t}{2}\right)\cos\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
+\)</span></p>
+<p>The frequencies of the two components of the function (<span class="math notranslate nohighlight">\(s_1+s_2\)</span>) plotted above are (1) the average of frequencies of the two waves, and (2) half the difference between the frequencies.</p>
+</div>
+<div class="section" id="compare-the-theoretical-and-numerical-predictions">
+<h2>Compare the theoretical and numerical predictions<a class="headerlink" href="#compare-the-theoretical-and-numerical-predictions" title="Permalink to this headline">¶</a></h2>
+<p>To demonstrate this, let’s plot the two components and their sum and compare to the plot above. For clarity, let’s first define</p>
+<p><span class="math notranslate nohighlight">\(
+g_1 = \sin\left(\frac{\omega_1 t + \omega_2 t}{2}\right)
+\)</span></p>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(
+g_2 = \sin\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
+\)</span></p>
+<p>Then plot these two functions against time</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we will use our function &#39;wave&#39; again</span>
+<span class="n">g1</span> <span class="o">=</span> <span class="n">wave</span><span class="p">(</span><span class="n">A1</span><span class="p">,(</span><span class="n">omega_1</span> <span class="o">+</span> <span class="n">omega_2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g2</span> <span class="o">=</span> <span class="n">wave</span><span class="p">(</span><span class="n">A2</span><span class="p">,(</span><span class="n">omega_1</span> <span class="o">-</span> <span class="n">omega_2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">g1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">g2</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$g_1$ and $g_2$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$g_1$&#39;</span><span class="p">,</span><span class="s1">&#39;$g_2$&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$t$ [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">enable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/beat-frequency_20_0.png" src="../_images/beat-frequency_20_0.png" />
+</div>
+</div>
 </div>
 </div>
 
@@ -395,32 +527,42 @@ s_3 = s_1 + s_2 = 2A\sin\left( \pi \left(f_1+f_2 \right) t \right) \cos\left( \p
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../apres-intro.html" title="previous page">Autonomous phase-sensitive radio echo sounder</a>
-    <a class='right-next' id="next-link" href="coarse-range.html" title="next page">Discrete fourier transforms and phase</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="apres-range-frequency.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Frequency and range</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="coarse-range.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Discrete fourier transforms and phase</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

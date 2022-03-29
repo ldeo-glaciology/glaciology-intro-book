@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction to ice flow &#8212; The Glaciology Data Analysis and Modeling book</title>
+    <title>Frequency and range &#8212; The Glaciology Data Analysis and Modeling book</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,10 +48,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Ice flow, accumulation and ablation" href="ablation_accumulation.html" />
-    <link rel="prev" title="The Glaciology Data Analysis and Modeling book" href="../book-intro.html" />
+    <link rel="next" title="Beat frequency" href="beat-frequency.html" />
+    <link rel="prev" title="Autonomous phase-sensitive radio echo sounder" href="apres-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,9 +102,9 @@ const thebe_selector_output = ".output, .cell_output"
   Ice flow
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ice-flow-intro.html">
    Introduction to ice flow
   </a>
  </li>
@@ -122,24 +124,24 @@ const thebe_selector_output = ".output, .cell_output"
   Radar
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../impulse-radar.html">
    Impulse Radar
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="apres-intro.html">
    Autonomous phase-sensitive radio echo sounder
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="apres-range-frequency.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Frequency and range
     </a>
    </li>
@@ -213,9 +215,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/sections/ice-flow-intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/sections/apres-range-frequency.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -233,10 +235,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/ice-flow-intro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/apres-range-frequency.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/ice-flow-intro.md"><button
+        <a class="edit-button" href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/apres-range-frequency.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -251,11 +253,49 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jkingslake/apres_jp/main?urlpath=lab/tree/src/sections/apres-range-frequency.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-do-add-cartoon-of-chirp-and-delay-in-received-signal">
+   TO do: add cartoon of chirp and delay in received signal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-do-derive-equation-1-from-brennan-et-al">
+   To do: derive Equation 1 from Brennan et al.
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -263,25 +303,46 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction to ice flow</h1>
+                <h1>Frequency and range</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-do-add-cartoon-of-chirp-and-delay-in-received-signal">
+   TO do: add cartoon of chirp and delay in received signal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-do-derive-equation-1-from-brennan-et-al">
+   To do: derive Equation 1 from Brennan et al.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-ice-flow">
-<h1>Introduction to ice flow<a class="headerlink" href="#introduction-to-ice-flow" title="Permalink to this headline">¶</a></h1>
-<p>One of the most remarkable facts about ice is that under certain circumstances it flows under its own weight like a fluid. This is one of the things that excites glaciologists the most about their subject. The ice we are referring to here is not some exotic family of ice that is softer than the frozen water we experience in our every day lives. It is in many ways similiar to the ice you make in your freezer and it behaves in many of the same ways: if you threw a chunk of this ice at a hard surface it will shatter, if you were walking on this ice and you fell over it would hurt as much as falling on concrete. And yet, when enough water ice gathers in one place it flows under the influence of gravity.</p>
-<div class="figure align-default" id="baltoro-gif">
-<a class="reference internal image-reference" href="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2015/11/panmah_and_choktoi_glaciers/15696280-1-eng-GB/Panmah_and_Choktoi_glaciers_pillars.gif"><img alt="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2015/11/panmah_and_choktoi_glaciers/15696280-1-eng-GB/Panmah_and_Choktoi_glaciers_pillars.gif" src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2015/11/panmah_and_choktoi_glaciers/15696280-1-eng-GB/Panmah_and_Choktoi_glaciers_pillars.gif" style="height: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Using fifteen images from Landsat, this animation compresses 25 years of change into 1.5 seconds to reveal the complex behaviour of the surging glaciers in the Panmah region of the Karakoram mountain range in Asia. Glaciers are shown in pale blue, snow in light blue to cyan, clouds in white, water in dark blue, vegetation in green and bare terrain in pink to brown.</span><a class="headerlink" href="#baltoro-gif" title="Permalink to this image">¶</a></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="frequency-and-range">
+<h1>Frequency and range<a class="headerlink" href="#frequency-and-range" title="Permalink to this headline">¶</a></h1>
+<p>Many of the material on this and following pages can be found in the <a class="reference external" href="https://github.com/ldeo-glaciology/phase-sensitive-radar-processing/blob/5cce6bd838cb70e290316195af9ceefe3d4a52ee/other%20documents/ApRES%20Manual%20V102.1.pdf">ApRES manual</a>, Brennan et al., ????, and Nicholls et al. 2015.</p>
+<p>ApRES emits ‘chirps’, which consist of continuous radio waves lasting 1 second. Due each chirp the frequency of the emmitted radio wave increased linearly with time from <span class="math notranslate nohighlight">\(f1\)</span> to <span class="math notranslate nohighlight">\(f2\)</span> where the bandwidth <span class="math notranslate nohighlight">\(B = f2-f1\)</span>. The signal is transmitted downwards into the ice sheet and is partly reflected back to the radar’s receiving antenna where it is compared to the transmitted signal to determine the travel time of the signal and hence the range to sub-surface reflectors. Specifically, at every moment during a chirp the radar measures the difference between the frequency of the reveived signal and signal being tranmistted in that instant. Because the transmitted signal is always increasing in frequency and because the reveived signal was tranmitted a few milliseconds earlier than it is received, the recieved signal is always lower frequency than the transmitted signal.</p>
+<div class="section" id="to-do-add-cartoon-of-chirp-and-delay-in-received-signal">
+<h2>TO do: add cartoon of chirp and delay in received signal<a class="headerlink" href="#to-do-add-cartoon-of-chirp-and-delay-in-received-signal" title="Permalink to this headline">¶</a></h2>
 </div>
-<p>Ice flow is not just a curiosity. It is one of the key components of glacial systems. This because it controls how ice sheets and glaciers grow and shrink. To understand this we will first need to discuss how ice sheets and glaciers gain and lose mass and how this depends on location.</p>
+<div class="section" id="to-do-derive-equation-1-from-brennan-et-al">
+<h2>To do: derive Equation 1 from Brennan et al.<a class="headerlink" href="#to-do-derive-equation-1-from-brennan-et-al" title="Permalink to this headline">¶</a></h2>
+<p>This expression describes how the frequency difference between the transmitted signal and the received signal relates to the range to a reflector detected by ApRES. What we havent discussed is how this frequency difference is calculated. Next, we discuss how combining and summing the received and transmitted signals, then filtering the result, allows this to be computed using the concept of <em>beat frequency</em></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -309,17 +370,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../book-intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="apres-intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The Glaciology Data Analysis and Modeling book</p>
+            <p class="prev-next-title">Autonomous phase-sensitive radio echo sounder</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="ablation_accumulation.html" title="next page">
+    <a class='right-next' id="next-link" href="beat-frequency.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Ice flow, accumulation and ablation</p>
+        <p class="prev-next-title">Beat frequency</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
