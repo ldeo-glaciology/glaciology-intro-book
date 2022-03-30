@@ -160,6 +160,11 @@ const thebe_selector_output = ".output, .cell_output"
      Phase and Frequency
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stacking.html">
+     Stacking ApRES data
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -333,7 +338,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="frequency-and-range">
-<h1>Frequency and range<a class="headerlink" href="#frequency-and-range" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Frequency and range<a class="headerlink" href="#frequency-and-range" title="Permalink to this headline">¶</a></h1>
 <p>Many of the material on this and following pages can be found in the <a class="reference external" href="https://github.com/ldeo-glaciology/phase-sensitive-radar-processing/blob/5cce6bd838cb70e290316195af9ceefe3d4a52ee/other%20documents/ApRES%20Manual%20V102.1.pdf">ApRES manual</a>, Brennan et al., ????, and Nicholls et al. 2015.</p>
 <p>ApRES emits ‘chirps’, which consist of continuous radio waves lasting 1 second. Due each chirp the frequency of the emmitted radio wave increased linearly with time from <span class="math notranslate nohighlight">\(f1\)</span> to <span class="math notranslate nohighlight">\(f2\)</span> where the bandwidth <span class="math notranslate nohighlight">\(B = f2-f1\)</span>. The signal is transmitted downwards into the ice sheet and is partly reflected back to the radar’s receiving antenna where it is compared to the transmitted signal to determine the travel time of the signal and hence the range to sub-surface reflectors. Specifically, at every moment during a chirp the radar measures the difference between the frequency of the reveived signal and signal being tranmistted in that instant. Because the transmitted signal is always increasing in frequency and because the reveived signal was tranmitted a few milliseconds earlier than it is received, the recieved signal is always lower frequency than the transmitted signal.</p>
 <div class="section" id="to-do-add-cartoon-of-chirp-and-delay-in-received-signal">

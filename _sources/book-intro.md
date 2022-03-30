@@ -3,7 +3,7 @@
 ## Introduction
 This book is a collaborative effort across the international glaciology community to document key glaciological concepts and computational approaches for observing and understanding them. We aim to do this in an **open** and **understandable** way.
 
-By **open** we mean that this is a free resource for everyone and anyone can contribute (see the Contributing page). This also means that all data used in examples are openly accessible online, often in cloud-optimized, analysis ready formats. It also means that it uses an open-source code base: the Python scientific computing ecosystem.
+By **open** we mean that this is a free resource for everyone and anyone can contribute (see the [Contributing](sec:contributing) section below). This also means that all data used in examples are openly accessible online, often in cloud-optimized, analysis ready formats. It also means that it uses an open-source code base: the Python scientific computing ecosystem.
 
 By **understandable** we mean that we will aim to explain all concepts and computational procedures in sufficient detail such that those who are just starting their career in glaciology will be able to fully comprehend them. In other words, we endeavor to assume very little prior knowledge about glaciological, computational or advanced mathematical concepts.
 
@@ -61,3 +61,11 @@ Finally, run
 jupyter-lab
 ```
 in the terminal and a JupyterLab session will start up. You are now ready to start running the notebooks on your local machine.
+
+(sec:contributing)=
+## Contributing
+The best way to contribute to this book is to engage through the Github repository that stores the book. This can be found [here](https://github.com/ldeo-glaciology/glaciology-intro-book).
+
+Any suggestions for additional content, corrections, or thoughts are very welcome in the form a GitHub issue. Please do not hesitate to create a new [issue](https://github.com/ldeo-glaciology/glaciology-intro-book/issues).
+
+Pull requests with correction, additional material, or entire new pages or chapters are also very welcome. But the first stop if you want to contribute something should probably be creating a new issue, so that everyone knows what everyone else is interested in working on.
