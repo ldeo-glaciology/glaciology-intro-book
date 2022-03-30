@@ -23,7 +23,7 @@
 # 
 # %% satellites 
 
-# In[4]:
+# In[3]:
 
 
 import fsspec
@@ -33,7 +33,7 @@ M = xr.open_zarr(mapper)
 M
 
 
-# In[5]:
+# In[4]:
 
 
 import xarray.ufuncs as xu
@@ -49,7 +49,7 @@ speed = xu.sqrt(M.VX**2 + M.VY**2)
 # In[6]:
 
 
-speed.isel(x=slice(4000,5500,2), y = slice(4000,5500,2)).plot()
+speed.isel(x=slice(4000,5500,20), y = slice(4000,5500,20)).plot()
 
 
 # In[ ]:

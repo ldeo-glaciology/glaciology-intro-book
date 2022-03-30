@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# (frequency-and-range)=
 # # Frequency and range
 
 # Many of the material on this and following pages can be found in the [ApRES manual](https://github.com/ldeo-glaciology/phase-sensitive-radar-processing/blob/5cce6bd838cb70e290316195af9ceefe3d4a52ee/other%20documents/ApRES%20Manual%20V102.1.pdf), Brennan et al., ????, and Nicholls et al. 2015. 

@@ -17,6 +17,7 @@ parts:
     - file: sections/beat-frequency
     - file: sections/coarse-range
     - file: sections/phase-frequency
+    - file: sections/stacking
 
 
 - caption: References
