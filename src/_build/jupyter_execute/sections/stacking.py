@@ -7,7 +7,7 @@
 # A page to describe 
 # - the purpose of stacking the data you get from ApRES chirps
 # - how its done
-# - a demosontration of how it reduces the noise floor potentially using [Impdar](https://github.com/dlilien/ImpDAR).
+# - a demostration of how it reduces the noise floor, potentially using [Impdar](https://github.com/dlilien/ImpDAR).
 
 # In[ ]:
 

@@ -194,7 +194,7 @@ plt.show()
 
 # ## Filtering to isolate the beat frequency
 
-# Throughout each chirp, ApRES continuously sums the received and transmitted signals, producing a signal with high frequency components corresponding to $g_1$ and low frequency components corresponding to $g_2 = \omega_2 - \omega_1$, the beat frequency, which is the component used to compute the range to reflectors. The high frequency component is in the megahertz range and the low frequency component is in the kilohertz range. To isolate the low frequnecy component, the radar passes the signal through a low-pass filter. The response is shown below {numref}`fig:active-filter-ApRES`.
+# Throughout each chirp, ApRES continuously sums the received and transmitted signals, producing a signal with high frequency components corresponding to $g_1$ and low frequency components corresponding to $g_2 = \omega_2 - \omega_1$, the beat frequency, which is the component used to compute the range to reflectors. The high frequency component is in the megahertz range and the low frequency component is in the kilohertz range. To isolate the low frequnecy component, the radar passes the signal through a low-pass filter. The response is shown in {numref}`fig:active-filter-ApRES`.
 
 # ```{figure} ../images/active-filter-ApRES.png
 # ---
