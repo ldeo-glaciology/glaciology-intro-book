@@ -19,11 +19,11 @@
 # ```
 # 
 
-# An alternative approach is to identify features already present on the glacier's surface and track their movement over time. One of the earliest examples of this was by the glaciologist John Nye. In 1956, on an expedition to Austerdalsbreen, an outlet of Jostedalsbreen, an ice cap in Norway, Nye took repeat photographs of a fast-moving, upstream section of the glacier over a period of around 30 days. The team then carefully recorded the relative motion of prominent features on the ice surface (crevasses and seracs) and used these measurements to compute velocities along a profile. Nye's talk, which covered this experiment and several other interesting early history from the early days of glaciology, can be found [here] (https://www.youtube.com/watch?v=5w38d4GL2O4). A time lapse video of the  Austerdahlsbreen images can be found around [minute thirty-eight] (https://youtu.be/5w38d4GL2O4?t=2307).
+# An alternative approach is to identify features already present on the glacier's surface and track their movement over time. One of the earliest examples of this was by the glaciologist John Nye. In 1956, on an expedition to Austerdalsbreen, an outlet of Jostedalsbreen, an ice cap in Norway, Nye took repeat photographs of a fast-moving, upstream section of the glacier over a period of around 30 days. The team then carefully recorded the relative motion of prominent features on the ice surface (crevasses and seracs) and used these measurements to compute velocities along a profile. Nye's talk, which covered this experiment and several other interesting early history from the early days of glaciology, can be found [here](https://www.youtube.com/watch?v=5w38d4GL2O4). A time lapse video of the  Austerdahlsbreen images can be found around [minute thirty-eight](https://youtu.be/5w38d4GL2O4?t=2307).
 # 
 # %% satellites 
 
-# In[3]:
+# In[1]:
 
 
 import fsspec

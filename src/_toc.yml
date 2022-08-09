@@ -19,7 +19,14 @@ parts:
     - file: sections/phase-frequency
     - file: sections/stacking
 
+- caption: Heat flow
+  chapters: 
+  - file: sections/temperature/heat_intro
+  - file: sections/temperature/heat_equation
+  - file: sections/temperature/analytical_solution
+  - file: sections/temperature/numerical_solutions
 
+  
 - caption: References
   chapters:
   - file: bibliography.md
