@@ -170,6 +170,28 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Heat flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="temperature/heat_intro.html">
+   Heat flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="temperature/heat_equation.html">
+   Heat equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="temperature/analytical_solution.html">
+   An analytical solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   References
  </span>
 </p>
@@ -538,7 +560,7 @@ g_2 = \cos\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
 </div>
 <div class="section" id="filtering-to-isolate-the-beat-frequency">
 <h2>Filtering to isolate the beat frequency<a class="headerlink" href="#filtering-to-isolate-the-beat-frequency" title="Permalink to this headline">¶</a></h2>
-<p>Throughout each chirp, ApRES continuously sums the received and transmitted signals, producing a signal with high frequency components corresponding to <span class="math notranslate nohighlight">\(g_1\)</span> and low frequency components corresponding to <span class="math notranslate nohighlight">\(g_2 = \omega_2 - \omega_1\)</span>, the beat frequency, which is the component used to compute the range to reflectors. The high frequency component is in the megahertz range and the low frequency component is in the kilohertz range. To isolate the low frequnecy component, the radar passes the signal through a low-pass filter. The response is shown below <a class="reference internal" href="#fig-active-filter-apres"><span class="std std-numref">Fig. 3</span></a>.</p>
+<p>Throughout each chirp, ApRES continuously sums the received and transmitted signals, producing a signal with high frequency components corresponding to <span class="math notranslate nohighlight">\(g_1\)</span> and low frequency components corresponding to <span class="math notranslate nohighlight">\(g_2 = \omega_2 - \omega_1\)</span>, the beat frequency, which is the component used to compute the range to reflectors. The high frequency component is in the megahertz range and the low frequency component is in the kilohertz range. To isolate the low frequnecy component, the radar passes the signal through a low-pass filter. The response is shown in <a class="reference internal" href="#fig-active-filter-apres"><span class="std std-numref">Fig. 3</span></a>.</p>
 <div class="figure align-default" id="fig-active-filter-apres">
 <a class="reference internal image-reference" href="../_images/active-filter-ApRES.png"><img alt="../_images/active-filter-ApRES.png" src="../_images/active-filter-ApRES.png" style="height: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">The frequency response of the active filter in ApRES. From a slide show that can be found <a class="reference external" href="https://github.com/ldeo-glaciology/phase-sensitive-radar-processing/blob/5cce6bd838cb70e290316195af9ceefe3d4a52ee/other%20documents/ApRES%20Tutorial.pdf">here</a>.</span><a class="headerlink" href="#fig-active-filter-apres" title="Permalink to this image">¶</a></p>
