@@ -1,5 +1,5 @@
 # Ice flow, accumulation and ablation
-A couple chapter of this book should be dedicated to ablation and accumulation (and in the future we hope one will be). But here we discuss these concepts in the context of ice flow so that we can build an understanding of how ice flow affects how ice sheets and glaciers grow and shrink.
+A whole chapter of this book should be dedicated to ablation and accumulation (and in the future we hope one will be). But here we discuss these concepts in the context of ice flow so that we can build an understanding of how ice flow affects how ice sheets and glaciers grow and shrink.
 
 ## Accumulation and ablation
 Glacier and ice sheets gain mass through several processes, collectively known as **accumulation**. These includes deposition, where water vapor condenses as ice, freezing of rain or meltwater, avalanching, and, most importantly by far, snowfall.

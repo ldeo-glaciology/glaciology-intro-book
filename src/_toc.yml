@@ -4,20 +4,20 @@ parts:
 
 - caption: Ice flow
   chapters:
-  - file: sections/ice-flow-intro
-  - file: sections/ablation_accumulation
-  - file: sections/antarctic-ice-flow
+  - file: sections/ice_flow/ice-flow-intro
+  - file: sections/ice_flow/ablation_accumulation
+  - file: sections/ice_flow/antarctic-ice-flow
 
 - caption: Radar
   chapters:
-  - file: impulse-radar
-  - file: sections/apres-intro
+  - file: section/impulse/impulse-radar
+  - file: sections/apres/apres-intro
     sections:
-    - file: sections/apres-range-frequency
-    - file: sections/beat-frequency
-    - file: sections/coarse-range
-    - file: sections/phase-frequency
-    - file: sections/stacking
+    - file: sections/apres/apres-range-frequency
+    - file: sections/apres/beat-frequency
+    - file: sections/apres/coarse-range
+    - file: sections/apres/phase-frequency
+    - file: sections/apres/stacking
 
 - caption: Heat flow
   chapters: 
