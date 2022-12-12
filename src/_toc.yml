@@ -10,14 +10,14 @@ parts:
 
 - caption: Radar
   chapters:
-  - file: section/impulse/impulse-radar
-  - file: sections/apres/apres-intro
+  - file: sections/radar/impulse/impulse-radar
+  - file: sections/radar/apres/apres-intro
     sections:
-    - file: sections/apres/apres-range-frequency
-    - file: sections/apres/beat-frequency
-    - file: sections/apres/coarse-range
-    - file: sections/apres/phase-frequency
-    - file: sections/apres/stacking
+    - file: sections/radar/apres/apres-range-frequency
+    - file: sections/radar/apres/beat-frequency
+    - file: sections/radar/apres/coarse-range
+    - file: sections/radar/apres/phase-frequency
+    - file: sections/radar/apres/stacking
 
 - caption: Heat flow
   chapters: 
@@ -26,7 +26,10 @@ parts:
   - file: sections/temperature/analytical_solution
   - file: sections/temperature/numerical_solutions
 
-  
+- caption: Appendix
+  chapters:
+  - file: sections/appendix/upload_Measures_data_to_bucket
+
 - caption: References
   chapters:
   - file: bibliography.md

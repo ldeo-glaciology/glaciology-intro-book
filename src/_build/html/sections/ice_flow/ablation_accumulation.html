@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Ice flow, accumulation and ablation &#8212; The Glaciology Data Analysis and Modeling book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Flow of the Antarctic Ice sheet" href="antarctic-ice-flow.html" />
+    <link rel="prev" title="Introduction to ice flow" href="ice-flow-intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/thumbnail.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Glaciology Data Analysis and Modeling book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../book-intro.html">
+                    The Glaciology Data Analysis and Modeling book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ice flow
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ice-flow-intro.html">
+   Introduction to ice flow
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Ice flow, accumulation and ablation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="antarctic-ice-flow.html">
+   Flow of the Antarctic Ice sheet
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Radar
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../radar/impulse/impulse-radar.html">
+   Impulse Radar
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../radar/apres/apres-intro.html">
+   Autonomous phase-sensitive radio echo sounder
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/apres-range-frequency.html">
+     Frequency and range
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/beat-frequency.html">
+     Beat frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/coarse-range.html">
+     Discrete fourier transforms and phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/phase-frequency.html">
+     Phase and Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/stacking.html">
+     Stacking ApRES data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Heat flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/heat_intro.html">
+   Heat flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/heat_equation.html">
+   Heat equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/analytical_solution.html">
+   An analytical solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/numerical_solutions.html">
+   Numerical solutions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/upload_Measures_data_to_bucket.html">
+   Adding the MEASURES data to the google bucket
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jkingslake/apres_jp"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/ice_flow/ablation_accumulation.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/ice_flow/ablation_accumulation.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/sections/ice_flow/ablation_accumulation.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accumulation-and-ablation">
+   Accumulation and ablation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accumulation-and-ablation-vary-in-space-and-time">
+   Accumulation and ablation vary in space and time.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-role-of-ice-flow">
+   The role of ice flow
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ice flow, accumulation and ablation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accumulation-and-ablation">
+   Accumulation and ablation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accumulation-and-ablation-vary-in-space-and-time">
+   Accumulation and ablation vary in space and time.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-role-of-ice-flow">
+   The role of ice flow
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="ice-flow-accumulation-and-ablation">
+<h1>Ice flow, accumulation and ablation<a class="headerlink" href="#ice-flow-accumulation-and-ablation" title="Permalink to this headline">#</a></h1>
+<p>A whole chapter of this book should be dedicated to ablation and accumulation (and in the future we hope one will be). But here we discuss these concepts in the context of ice flow so that we can build an understanding of how ice flow affects how ice sheets and glaciers grow and shrink.</p>
+<section id="accumulation-and-ablation">
+<h2>Accumulation and ablation<a class="headerlink" href="#accumulation-and-ablation" title="Permalink to this headline">#</a></h2>
+<p>Glacier and ice sheets gain mass through several processes, collectively known as <strong>accumulation</strong>. These includes deposition, where water vapor condenses as ice, freezing of rain or meltwater, avalanching, and, most importantly by far, snowfall.</p>
+<p>Glaciers and ice sheets lose mass through several processes, collectively known as <strong>ablation</strong>. These include scouring, whereby wind removes snow from the ice-sheet surface, sublimation, melting at the base of the ice, melting on the surface of the ice and calving of icebergs.</p>
+</section>
+<section id="accumulation-and-ablation-vary-in-space-and-time">
+<h2>Accumulation and ablation vary in space and time.<a class="headerlink" href="#accumulation-and-ablation-vary-in-space-and-time" title="Permalink to this headline">#</a></h2>
+<p>In any particular location on a glacier’s surface mass may accumulate at one time of year and ablate at another. The net accumulation (accumulation minus ablation) summed over a specific time period, is called the specific mass balance, <span class="math notranslate nohighlight">\(b_n\)</span>. This quantity has units of mass per area per time and is function of location, <span class="math notranslate nohighlight">\(b_n(x)\)</span>. Those locations where the annual specific mass balance, <span class="math notranslate nohighlight">\(b\)</span> (accumulation minus ablation summed over a year) is positive make up the ‘accumulation zone’ and those locations where <span class="math notranslate nohighlight">\(b\)</span> is negative make up the ablation zone. If you add up all the annual specific mass balance on a glacier of ice sheet (or, more precisely, integrate <span class="math notranslate nohighlight">\(b\)</span> spatially) you get what is referred to simply as the mass balance, <span class="math notranslate nohighlight">\(M\)</span>, with units of mass per time, which applies to the whole ice mass.</p>
+</section>
+<section id="the-role-of-ice-flow">
+<h2>The role of ice flow<a class="headerlink" href="#the-role-of-ice-flow" title="Permalink to this headline">#</a></h2>
+<p>So far our discussion of accumulation, ablation and mass balance has not mentioned ice flow. One way to appreciate the role of ice flow in all this is to consider what would happen to a hypothetical glacier which while experiencing accumulation in the form of snow fall and ablation due to melt, does not flow at all. In its accumulation zone our glacier would thicken indefinitely, or at least as long as snow continued to fall, while its ablation zone would soon cease to exist, as the all the ice is removed by melting.</p>
+<p>Of course, this is not what we observe in nature. In stark contrast to this picture of indefinite thickening and disappearance of ice (in the accumulation zone and ablation zones, respectively), we see that if the spatial pattern of the specific mass balance stays constant in time, ice thickness stays constant; despite continuous addition of mass in the accumulation zone and removal of mass in the ablation zone, the ice thickness does not change over time. The system can attain a dynamic equilibrium. The reason this is possible, as we will show, is that <strong>ice flow causes thinning in the accumulation zone to counteract the thickening caused by accumulation, and thickening in the ablation zone to counteract the thinning caused by ablation.</strong></p>
+<p>A second, more detailed view of how ice flow acts in concert with ablation and accumulation to control the thickness of glaciers can be gained through consideration of where accumulation zones and ablation zones form. Let us consider two important types of ice mass separately: mountain glaciers and ice sheet. In mountain glaciers, which form in mountain valleys and on the sides of mountains, ablation zones form at low elevations where air temperatures are relatively high. Due to the fact that air density decreases with altitude in the atmosphere, air temperatures decrease as you move up a mountain. Therefore, the dominant form of ablation in mountain glaciers, surface melting, decreases as you move up glacier. Conversely, as temperatures decrease up glacier a higher proportion of precipitation falls as snow and the accumulation tends to increase (at least until yo reach very high elevations). The result of both effects is that the annual specific mass balance <span class="math notranslate nohighlight">\(b\)</span> increases as you move to higher elevations on a mountain glacier’s surface.</p>
+<p>This is where ice flow comes in. We previously noted how ice flow thins glaciers in the accumulation zone and thickens the ice in the ablation zone, but now we can additionally note that ice flow is driven by gravity and therefore in the vast majority of cases ice flows from high to elevations, i.e. in the case of a mountain glacier that we are considering, form the accumulation zone to the ablation zone. <strong>Ice flow moves ice from areas where it accumulates down to lower, warmer locations where it is removed through melting.</strong></p>
+<p>The same scenario is seen in ice sheets, where ice flow moves ice from the cold interior where it accumulates to lower elevations where the surface melts. In addition however, ice often flows all the way to the ocean where it is removed by melting at the interface between the ice and the ocean, and through the calving of icebergs. These are two additional ablation mechanisms that apply only to the minority of mountain glaciers (those that extend all the way to the ocean and are called ‘marine terminating’ glaciers). They act at the edges of ice sheets, and so the role of ice flow in facilitating them is the same as for surface melting; i.e., <strong>ice flow moves ice from the interior of ice sheets where it accumulates to the edges of the ice sheets where it ablates</strong> through calving, basal melting, and surface melting.</p>
+<p>Later in this chapter, we will dig into the details of this mathematically to gain more insight into both ways of seeing the interacts between ablation, accumulation, and ice flow. this will require us to derive mathematical descriptions of deformation, mass conservation, and the rheology (or flow properties) of ice. But first let’s gain some intuition into ice flow using some ice velocity and surface elevation data from Antarctica.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jkingslake/apres_jp",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./sections/ice_flow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ice-flow-intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction to ice flow</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="antarctic-ice-flow.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Flow of the Antarctic Ice sheet</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book community<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
