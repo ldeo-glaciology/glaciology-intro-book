@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Discrete fourier transforms and phase &#8212; The Glaciology Data Analysis and Modeling book</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,30 +18,30 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/design-tabs.js"></script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -63,21 +61,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,10 +70,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,15 +90,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../../../book-intro.html">
-                    The Glaciology Data Analysis and Modeling book
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../book-intro.html">
+   The Glaciology Data Analysis and Modeling book
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Ice flow
  </span>
@@ -239,17 +221,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -257,226 +234,99 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/jkingslake/apres_jp/main?urlpath=lab/tree/src/sections/radar/apres/coarse-range.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="headerbtn__text-container">Live Code</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jkingslake/apres_jp"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/radar/apres/coarse-range.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/radar/apres/coarse-range.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/sections/radar/apres/coarse-range.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/sections/radar/apres/coarse-range.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jkingslake/apres_jp"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/radar/apres/coarse-range.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/radar/apres/coarse-range.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jkingslake/apres_jp/main?urlpath=lab/tree/src/sections/radar/apres/coarse-range.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#define-some-reflectors">
    1. Define some reflectors
@@ -514,11 +364,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Discrete fourier transforms and phase</h1>
@@ -572,12 +423,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="discrete-fourier-transforms-and-phase">
-<h1>Discrete fourier transforms and phase<a class="headerlink" href="#discrete-fourier-transforms-and-phase" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="discrete-fourier-transforms-and-phase">
+<h1>Discrete fourier transforms and phase<a class="headerlink" href="#discrete-fourier-transforms-and-phase" title="Permalink to this headline">¶</a></h1>
 <p>(under construction)</p>
 <p>This page demonstrates the use of a fourier transform to compute the range to reflectors in ApRES data.</p>
 <p>The idealized sinusoidal signals used in these demonstrations are intended to be simplified version of the signals recorded by ApRES. Specifically, they represent the signal obtained when the received signal is differenced with the transmitted signal. In general this results in a signal with a wide range of different frequencies. However, we will construct our synthetic signal with only two frequencies.</p>
@@ -590,8 +440,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="define-some-reflectors">
-<h2>1. Define some reflectors<a class="headerlink" href="#define-some-reflectors" title="Permalink to this headline">#</a></h2>
+<div class="section" id="define-some-reflectors">
+<h2>1. Define some reflectors<a class="headerlink" href="#define-some-reflectors" title="Permalink to this headline">¶</a></h2>
 <p>Suppose that there are just two reflectors beneath you when you deploy ApRES. In reality there are hundreds, but we will assume there are just two.</p>
 <p>Let’s use <span class="math notranslate nohighlight">\(R\)</span> as the range, and define the range to the two reflectors as</p>
 <div class="cell docutils container">
@@ -602,12 +452,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="compute-the-two-way-travel-time-to-the-reflectors">
-<h2>2. Compute the two-way travel time to the reflectors<a class="headerlink" href="#compute-the-two-way-travel-time-to-the-reflectors" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="compute-the-two-way-travel-time-to-the-reflectors">
+<h2>2. Compute the two-way travel time to the reflectors<a class="headerlink" href="#compute-the-two-way-travel-time-to-the-reflectors" title="Permalink to this headline">¶</a></h2>
 <p>The two-way radio-wave travel time in ice <span class="math notranslate nohighlight">\(\tau\)</span> is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-tau1">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-tau1" title="Permalink to this equation">#</a></span>\[\tau = 2R\frac{\sqrt\epsilon}{c},\]</div>
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-tau1" title="Permalink to this equation">¶</a></span>\[\tau = 2R\frac{\sqrt\epsilon}{c},\]</div>
 <p>where <span class="math notranslate nohighlight">\(c\)</span> is the speed of light in a vacuum and <span class="math notranslate nohighlight">\(\epsilon\)</span> is the dielactric constant of ice.</p>
 <p>Next, let’s use constants from <span id="id1">[<a class="reference internal" href="../../../bibliography.html#id2" title="Paul V. Brennan, Lai Bun Lok, Keith Nicholls, and Hugh Corr. Phase-sensitive FMCW radar system for high-precision Antarctic ice shelf profile monitoring. IET Radar, Sonar &amp; Navigation, 8(7):776–786, 2014. _eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1049/iet-rsn.2013.0053. URL: https://onlinelibrary.wiley.com/doi/abs/10.1049/iet-rsn.2013.0053 (visited on 2022-01-14), doi:10.1049/iet-rsn.2013.0053.">Brennan <em>et al.</em>, 2014</a>]</span>, to compute <span class="math notranslate nohighlight">\(\tau\)</span> for our two reflectors:</p>
 <div class="cell docutils container">
@@ -628,12 +478,12 @@ tau2 is 1.410e-06 s.
 </div>
 </div>
 </div>
-</section>
-<section id="compute-the-beat-frequencies-we-would-receive-from-these-reflectors">
-<h2>3. Compute the beat frequencies we would receive from these reflectors<a class="headerlink" href="#compute-the-beat-frequencies-we-would-receive-from-these-reflectors" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="compute-the-beat-frequencies-we-would-receive-from-these-reflectors">
+<h2>3. Compute the beat frequencies we would receive from these reflectors<a class="headerlink" href="#compute-the-beat-frequencies-we-would-receive-from-these-reflectors" title="Permalink to this headline">¶</a></h2>
 <p>Equation 1 from Brennan et al. relates the difference in frequency between the transmitted and received signals (the beat frequency; <span class="math notranslate nohighlight">\(f_d\)</span>) to <span class="math notranslate nohighlight">\(\tau\)</span> using some configuration parameters related to how the frequency changes during each chirp:</p>
 <div class="math notranslate nohighlight" id="equation-eq-f-d1">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-f-d1" title="Permalink to this equation">#</a></span>\[f_d = K\tau = \frac{2\pi B \tau}{T}, \]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-f-d1" title="Permalink to this equation">¶</a></span>\[f_d = K\tau = \frac{2\pi B \tau}{T}, \]</div>
 <p>where <span class="math notranslate nohighlight">\(K\)</span> is the rate of frequency increase in Hz s<span class="math notranslate nohighlight">\(^{-1}\)</span>, <span class="math notranslate nohighlight">\(B\)</span> is the bandwidth (the difference between the lowest and highest frequency covered by each chirp), and <span class="math notranslate nohighlight">\(T\)</span> is the chirp duration.</p>
 <p>Again using parameters from Brennan et al., let’s compute the beat frequencies we expect to receive from our two reflectors:</p>
 <div class="cell docutils container">
@@ -657,9 +507,9 @@ f2 = 281.90 Hz.
 </div>
 </div>
 </div>
-</section>
-<section id="construct-our-signal">
-<h2>4. Construct our signal<a class="headerlink" href="#construct-our-signal" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="construct-our-signal">
+<h2>4. Construct our signal<a class="headerlink" href="#construct-our-signal" title="Permalink to this headline">¶</a></h2>
 <p>The signal ApRES recieves is the sum of two sinusoids. One has a frequency of <code class="docutils literal notranslate"><span class="pre">f1</span></code> and the other <code class="docutils literal notranslate"><span class="pre">f2</span></code>.</p>
 <p>Before computing the received signal, we need to define a sampling frequncy, which is controlled by the ApRES system (Brennan used 12 kHz),</p>
 <div class="cell docutils container">
@@ -712,9 +562,9 @@ f2 = 281.90 Hz.
 <img alt="../../../_images/coarse-range_17_0.png" src="../../../_images/coarse-range_17_0.png" />
 </div>
 </div>
-</section>
-<section id="compute-frequencies-with-a-fourier-transform">
-<h2>5. Compute frequencies with a fourier transform<a class="headerlink" href="#compute-frequencies-with-a-fourier-transform" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="compute-frequencies-with-a-fourier-transform">
+<h2>5. Compute frequencies with a fourier transform<a class="headerlink" href="#compute-frequencies-with-a-fourier-transform" title="Permalink to this headline">¶</a></h2>
 <p>The signal recieved by ApRES is a combination of signals from every reflector. The frequencies of these signals is directly proportional
 to the range to the reflectors. The frequencies that make up a signal can be extracted using a fourier transform. <a class="reference external" href="https://www.youtube.com/watch?v=spUNpyF58B">This video</a> is an incredibly clear explanation of how fourier transforms achieve this.</p>
 <p>The cell below computes the discrete fourier transform of <code class="docutils literal notranslate"><span class="pre">s</span></code> and the frequency bins. By default <code class="docutils literal notranslate"><span class="pre">np.fft.fft</span></code> produces as many freqency bins as there are time-domain samples (<code class="docutils literal notranslate"><span class="pre">=len(s)</span></code>), evenly distributed between 0 Hz and the sampling frequency (12x10<span class="math notranslate nohighlight">\(^3\)</span>). Therefore the value of the frequencies is computed by multiplying the indexes by <code class="docutils literal notranslate"><span class="pre">sampling_frequency/no_of_samples</span></code>, which is equal to <span class="math notranslate nohighlight">\(1/T = 1\)</span>s. Note also that the frequency spectrum is normalized by the number of samples.</p>
@@ -761,9 +611,9 @@ second peak detected at 282.000 Hz.
 </div>
 </div>
 <p>Notice how the frequencies are close to the frequencies we computed above (<code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code>) but because <code class="docutils literal notranslate"><span class="pre">frequencies</span></code> is quantized and (in our case) increases in 1 Hz increments, the retrieved spectral peaks are restricted to be an integer number of Hz. This is why Brennan et al. call this the coarse range measurment.</p>
-</section>
-<section id="convert-frequency-to-range">
-<h2>6. Convert frequency to range<a class="headerlink" href="#convert-frequency-to-range" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="convert-frequency-to-range">
+<h2>6. Convert frequency to range<a class="headerlink" href="#convert-frequency-to-range" title="Permalink to this headline">¶</a></h2>
 <p>Next we convert <code class="docutils literal notranslate"><span class="pre">frequencies</span></code> to depths using a combination of <a class="reference internal" href="#equation-eq-tau1">(1)</a> and <a class="reference internal" href="#equation-eq-f-d1">(2)</a>,</p>
 <p><span class="math notranslate nohighlight">\(
 f_d = 2KR\frac{\sqrt\epsilon}{c},
@@ -823,9 +673,9 @@ second reflector detected at 120.041 m.
 </div>
 </div>
 <p>but, again, they are a coarse measurement due to the resolution of the frequency spectrum, which in turn derives from the bandwidth, <span class="math notranslate nohighlight">\(B\)</span> and the rate of increase in frequencies <span class="math notranslate nohighlight">\(K\)</span>.</p>
-</section>
-<section id="below-this-is-scrap">
-<h2>below this is scrap<a class="headerlink" href="#below-this-is-scrap" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="below-this-is-scrap">
+<h2>below this is scrap<a class="headerlink" href="#below-this-is-scrap" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
@@ -915,8 +765,8 @@ second reflector detected at -0.303 rad.
 <img alt="../../../_images/coarse-range_40_0.png" src="../../../_images/coarse-range_40_0.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -940,11 +790,9 @@ second reflector detected at -0.303 rad.
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="beat-frequency.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -960,28 +808,24 @@ second reflector detected at -0.303 rad.
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By The Jupyter Book community<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
