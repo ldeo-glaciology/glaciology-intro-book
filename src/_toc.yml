@@ -7,6 +7,9 @@ parts:
   - file: sections/ice_flow/ice-flow-intro
   - file: sections/ice_flow/ablation_accumulation
   - file: sections/ice_flow/antarctic-ice-flow
+  - file: sections/ice_flow/vec_calc.md
+  - file: sections/ice_flow/strain_velocity.md
+  - file: sections/ice_flow/gradient
 
 - caption: Radar
   chapters:
