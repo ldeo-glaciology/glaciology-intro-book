@@ -299,19 +299,14 @@
 #   +  \frac{\partial}{\partial z} \left( K \frac{\partial T}{\partial z}  \right)\right]
 # $$(Heat_eq_full_final)
 
-# Let's note what happened here: the tern on the right of {eq}`Heat_eq_full_1`, $ c T \frac{\partial \rho}{\partial t}$, representing the heat density, i.e. how much heat is in each cubic meter, cancelled with the three flux diveregence terms on the right ($c T \frac{\partial \left(u\rho \right)}{\partial x}$ etc.). This shows us that while these divergence terms can change the ammount of heat in the box, they cannot change the temperature because the density in the box changes to counterbalance any change in the heat content. For example, suppose that spatial gradients in flux caused the heat content in the box to double. At the same time, the density in the box would also double, meaning that the ice requires double the heat to maintain the same temperatue as it had before the change. 
-
-# Equation {eq}`Heat_eq_full_final` is our final complete for of the heat equation that we will analyze in the following pages. Again, for those familiar with the notation, a more compact way to write this is with the del operator:
+# Again, for those familiar with the notation, a more compact way to write this is with the del operator:
 # 
 # $$
 # \frac{\partial T}{\partial t} = -\vec{u} \cdot \vec{\nabla}T
-# +  \frac{1}{c \rho} \vec{\nabla} \cdot K \vec{\nabla}T
+# +  \frac{1}{c \rho} \vec{\nabla} \cdot K \vec{\nabla}T.
 # $$
+
+# Let's note what happened here: the tern on the right of {eq}`Heat_eq_full_1`, $ c T \frac{\partial \rho}{\partial t}$, representing the heat density, i.e. how much heat is in each cubic meter, cancelled with the three flux diveregence terms on the right ($c T \frac{\partial \left(u\rho \right)}{\partial x}$ etc.). This shows us that while these divergence terms can change the ammount of heat in the box, they cannot change the temperature because the density in the box changes to counterbalance any change in the heat content. For example, suppose that spatial gradients in flux caused the heat content in the box to double. At the same time, the density in the box would also double, meaning that the ice requires double the heat to maintain the same temperatue as it had before the change. 
+
+# Equation {eq}`Heat_eq_full_final` is our final complete form of the heat equation that we will analyze in the following pages. 
 # 
-# 
-
-# In[ ]:
-
-
-
-
