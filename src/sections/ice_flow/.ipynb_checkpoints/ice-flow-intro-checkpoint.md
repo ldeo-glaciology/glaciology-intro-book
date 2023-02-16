@@ -11,4 +11,4 @@ Using fifteen images from Landsat, this animation compresses 25 years of change 
 
 ```
 
-Ice flow is not just a curiosity. It is one of the key components of glacial systems. This is because it controls how ice sheets and glaciers grow and shrink. To understand this we will first need to discuss how ice sheets and glaciers gain and lose mass and how this depends on where you are looking on a glacier or ice sheet, then we will look at some data that reveal how the Antarctic Ice Sheet flows, then we will build an ice sheet model, starting from simple theory. 
+Ice flow is not just a curiosity. It is one of the key components of glacial systems. This is because it controls how ice sheets and glaciers grow and shrink. To understand this we will first need to discuss how ice sheets and glaciers gain and lose mass and how this depends location across glaciers and ice sheets, then we will look at some data that reveal how the Antarctic Ice Sheet flows, then we will build an ice sheet model, starting from simple theory. 
