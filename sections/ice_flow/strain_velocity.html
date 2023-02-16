@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strain rate and velocity fields &#8212; The Glaciology Data Analysis and Modeling book</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The gradient of Antarctic Ice Sheet" href="gradient.html" />
+    <link rel="prev" title="Vector calculus background" href="vec_calc.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/thumbnail.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Glaciology Data Analysis and Modeling book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book-intro.html">
+   The Glaciology Data Analysis and Modeling book
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ice flow
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ice-flow-intro.html">
+   Introduction to ice flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ablation_accumulation.html">
+   Ice flow, accumulation and ablation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="antarctic-ice-flow.html">
+   Flow of the Antarctic Ice sheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vec_calc.html">
+   Vector calculus background
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Strain rate and velocity fields
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gradient.html">
+   The gradient of Antarctic Ice Sheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rheology.html">
+   Ice rheology (under construction)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stress_strain_tensors.html">
+   Stress and strain tensors (under construction)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="deviatoric_stress.html">
+   Deviatoric stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="driving_stress.html">
+   Driving stress (under construction)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="depth_integrated_mass_balance.html">
+   depth-integrated mass balance (under construction)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stress_balance_eqns.html">
+   Stress balance equations
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Radar
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../radar/impulse/impulse-radar.html">
+   Impulse Radar
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../radar/apres/apres-intro.html">
+   Autonomous phase-sensitive radio echo sounder
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/apres-range-frequency.html">
+     Frequency and range
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/beat-frequency.html">
+     Beat frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/coarse-range.html">
+     Discrete fourier transforms and phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/phase-frequency.html">
+     Phase and Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/stacking.html">
+     Stacking ApRES data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Heat flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/heat_intro.html">
+   Heat flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/heat_equation.html">
+   Heat equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/analytical_solution.html">
+   An analytical solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/numerical_solutions.html">
+   Numerical solutions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/upload_Measures_data_to_bucket.html">
+   Adding the MEASURES data to the google bucket
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/sections/ice_flow/strain_velocity.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jkingslake/apres_jp"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/ice_flow/strain_velocity.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/ice_flow/strain_velocity.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proof-of-this-strain-rate-velocity-relationship">
+   Proof of this strain rate - velocity relationship
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Strain rate and velocity fields</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proof-of-this-strain-rate-velocity-relationship">
+   Proof of this strain rate - velocity relationship
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="strain-rate-and-velocity-fields">
+<h1>Strain rate and velocity fields<a class="headerlink" href="#strain-rate-and-velocity-fields" title="Permalink to this headline">¶</a></h1>
+<p>Normal strain is deformation which changes the length of a material element. It is defined as the fractional change in length in a particular direction. For example, if the length of a piece of ice is <span class="math notranslate nohighlight">\(L\)</span> in the <span class="math notranslate nohighlight">\(x\)</span> direction, then the strain in the <span class="math notranslate nohighlight">\(x\)</span> direction is</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon_{xx} = \frac{\Delta L}{L}.
+\]</div>
+<p>The rate of change of strain (the strain rate) is denoted <span class="math notranslate nohighlight">\(\dot{\epsilon}\)</span> and this is related to gradients in the velocity field as follows</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\epsilon}_{xx} = \frac{\partial u}{\partial x}.
+\]</div>
+<div class="section" id="proof-of-this-strain-rate-velocity-relationship">
+<h2>Proof of this strain rate - velocity relationship<a class="headerlink" href="#proof-of-this-strain-rate-velocity-relationship" title="Permalink to this headline">¶</a></h2>
+<p>Consider a segment of ice within a glacier that is <span class="math notranslate nohighlight">\(L\)</span> long in the <span class="math notranslate nohighlight">\(x\)</span> direction. It sits in a velocity field <span class="math notranslate nohighlight">\(\underline{u}(x) = u(x)\)</span> which only varies in the <span class="math notranslate nohighlight">\(x\)</span> direction. Let’s define <span class="math notranslate nohighlight">\(x=0\)</span> at the left side of the block. Arbitrarily, we say that the velocity at the left side of the block is <span class="math notranslate nohighlight">\(u\)</span>. Because the block is in a velocity field, the ends of the block move at different speeds.</p>
+<p>After a time <span class="math notranslate nohighlight">\(\Delta t\)</span>, the left side of the block has moved from <span class="math notranslate nohighlight">\(x=0\)</span> to <span class="math notranslate nohighlight">\(x = u\Delta t\)</span>.</p>
+<p>The right side of the block moves at a velocity of <span class="math notranslate nohighlight">\(u + L\frac{\partial u}{\partial x}\)</span>. To understand this, consider that the spatial gradient inthe velocity (<span class="math notranslate nohighlight">\(\partial u/\partial x\)</span>) expresses how much <span class="math notranslate nohighlight">\(u\)</span> increases for every meter you shift in the <span class="math notranslate nohighlight">\(x\)</span> direction. So the difference in the velocity between the left of the block and the right is simply this gradient times the length of the block <span class="math notranslate nohighlight">\(L\)</span>. This approach is valid as long as we consider the distance <span class="math notranslate nohighlight">\(L\)</span> small enough that <span class="math notranslate nohighlight">\(u\)</span> varies linearly.</p>
+<p>In <span class="math notranslate nohighlight">\(\Delta t\)</span> the right side of the block has moved <span class="math notranslate nohighlight">\(\Delta t(u + L\frac{\partial u}{\partial x})\)</span>. It started at <span class="math notranslate nohighlight">\(x = L\)</span>, so its new position is <span class="math notranslate nohighlight">\(L + \Delta t(u + L\frac{\partial u}{\partial x})\)</span></p>
+<p>Now, if the left side is at  <span class="math notranslate nohighlight">\(x = u\Delta t\)</span> and the right side of the block is  at <span class="math notranslate nohighlight">\(x = L+ \Delta t(u + L\frac{\partial u}{\partial x})\)</span>, the new length of the block is
+$<span class="math notranslate nohighlight">\(
+L + \Delta t(u + L\frac{\partial u}{\partial x}) - \Delta t u = L + \Delta t L\frac{\partial u}{\partial x}
+\)</span>$</p>
+<p>and the change in length is</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta L = L + \Delta t L\frac{\partial u}{\partial x} - L = \Delta t L\frac{\partial u}{\partial x}.
+\]</div>
+<p>Rearranging shows that the strain in a time <span class="math notranslate nohighlight">\(\Delta t\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon_{xx} = \Delta t \frac{\partial u}{\partial x}.
+\]</div>
+<p>Dividing through by the time gives us the relationship between the strain rate and gradient in velocity,</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\epsilon}_{xx} = \frac{\partial u}{\partial x}.
+\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jkingslake/apres_jp",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./sections/ice_flow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="vec_calc.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Vector calculus background</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="gradient.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The gradient of Antarctic Ice Sheet</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
