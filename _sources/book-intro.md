@@ -10,7 +10,7 @@ By **understandable** we mean that we will aim to explain all concepts and compu
 ## Who is this book for?
 - undergraduate or early graduate students of glaciology looking to learn some key concepts and computational approaches
 - teachers, professors or lecturers designing glaciological course material
-- glaciologists looking for inspiration on how to access datasets in the cloud using Python.s
+- glaciologists looking for inspiration on how to access datasets in the cloud using Python.
 
 ## This book compared to previous texts
 Several seminal glaciological textbooks, e.g., Cuffey and Paterson's Physics of Glaciers, have be instrumental in the training of generations of glaciologists. This book cannot hope to be as comprehensive as many such texts, but it does aim to cover similar material. So, despite this overlap, we hope it compliment existing text in several ways:  
