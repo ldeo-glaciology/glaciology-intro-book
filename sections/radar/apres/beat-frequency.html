@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Discrete fourier transforms and phase" href="coarse-range.html" />
+    <link rel="next" title="The fundamental operation of ApRES" href="chirps.html" />
     <link rel="prev" title="Frequency and range" href="apres-range-frequency.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -159,6 +159,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../../ice_flow/sia_derivation.html">
+   Ice flux
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../ice_flow/stress_balance_eqns.html">
    Stress balance equations
   </a>
@@ -193,6 +198,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Beat frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chirps.html">
+     The fundamental operation of ApRES
     </a>
    </li>
    <li class="toctree-l2">
@@ -566,7 +576,7 @@ s_2 = A_2 \sin \left(\omega_2 t\right).
 \)</span></p>
 <p>This is one of the so-called <em>sum-to-product</em> trignometric identities. Finally, subsituting in <span class="math notranslate nohighlight">\(u = \omega_1 t\)</span> and <span class="math notranslate nohighlight">\(v = \omega_2 t\)</span> provides our answer:</p>
 <p><span class="math notranslate nohighlight">\(
-\sin(\omega_1 t)+\sin(\omega_2 t) = 2\sin\left(\frac{\omega_1 t + \omega_2 t}{2}\right)\cos\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
+\sin(\omega_1 t)+\sin(\omega_2 t) = 2\sin\left(\frac{\omega_1  + \omega_2}{2}t\right)\cos\left(\frac{\omega_1  - \omega_2 }{2}t\right).
 \)</span></p>
 <p>The frequencies of the two components of the function (<span class="math notranslate nohighlight">\(s_1+s_2\)</span>) plotted above are (1) the average of frequencies of the two waves, and (2) half the difference between the frequencies.</p>
 </div>
@@ -663,10 +673,10 @@ g_2 = \cos\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
             <p class="prev-next-title">Frequency and range</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="coarse-range.html" title="next page">
+    <a class='right-next' id="next-link" href="chirps.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Discrete fourier transforms and phase</p>
+        <p class="prev-next-title">The fundamental operation of ApRES</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

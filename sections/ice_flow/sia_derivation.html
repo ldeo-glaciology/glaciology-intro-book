@@ -1,0 +1,867 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ice flux &#8212; The Glaciology Data Analysis and Modeling book</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Stress balance equations" href="stress_balance_eqns.html" />
+    <link rel="prev" title="Driving stress (under construction)" href="driving_stress.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/thumbnail.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Glaciology Data Analysis and Modeling book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book-intro.html">
+   The Glaciology Data Analysis and Modeling book
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ice flow
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ice-flow-intro.html">
+   Introduction to ice flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ablation_accumulation.html">
+   Ice flow, accumulation and ablation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="antarctic-ice-flow.html">
+   Flow of the Antarctic Ice sheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vec_calc.html">
+   Vector calculus background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="depth_integrated_mass_balance.html">
+   Depth-integrated mass balance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gradient.html">
+   The gradient of Antarctic Ice Sheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="strain_velocity.html">
+   Strain rate and velocity fields
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rheology.html">
+   Ice rheology (under construction)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stress_strain_tensors.html">
+   Stress and strain tensors (under construction)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="deviatoric_stress.html">
+   Deviatoric stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="driving_stress.html">
+   Driving stress (under construction)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Ice flux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stress_balance_eqns.html">
+   Stress balance equations
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Radar
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../radar/impulse/impulse-radar.html">
+   Impulse Radar
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../radar/apres/apres-intro.html">
+   Autonomous phase-sensitive radio echo sounder
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/apres-range-frequency.html">
+     Frequency and range
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/beat-frequency.html">
+     Beat frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/chirps.html">
+     The fundamental operation of ApRES
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/coarse-range.html">
+     Discrete fourier transforms and phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/phase-frequency.html">
+     Phase and Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../radar/apres/stacking.html">
+     Stacking ApRES data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Heat flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/heat_intro.html">
+   Heat flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/heat_equation.html">
+   Heat equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/analytical_solution.html">
+   An analytical solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../temperature/numerical_solutions.html">
+   Numerical solutions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/upload_Measures_data_to_bucket.html">
+   Adding the MEASURES data to the google bucket
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/sections/ice_flow/sia_derivation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jkingslake/apres_jp"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/ice_flow/sia_derivation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/ice_flow/sia_derivation.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduce-to-two-dimensions-x-and-z">
+   Reduce to two dimensions,
+   <span class="math notranslate nohighlight">
+    \(x\)
+   </span>
+   and
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#substitute-in-deviatoric-stress">
+   Substitute in deviatoric stress
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drop-stress-terms-the-shallow-ice-approximation">
+   Drop stress terms - the ‘Shallow Ice Approximation’
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integrate-the-z-equation-vertically">
+   Integrate the
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   equation vertically
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differentiate-horizontally">
+   Differentiate horizontally
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integrate-vertically">
+   Integrate vertically
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rheology">
+   Rheology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strain-rates-and-velocity-gradients">
+   Strain rates and velocity gradients.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#horizontal-velocity">
+   Horizontal velocity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Ice flux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mean-velocity">
+   Mean velocity
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ice flux</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduce-to-two-dimensions-x-and-z">
+   Reduce to two dimensions,
+   <span class="math notranslate nohighlight">
+    \(x\)
+   </span>
+   and
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#substitute-in-deviatoric-stress">
+   Substitute in deviatoric stress
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drop-stress-terms-the-shallow-ice-approximation">
+   Drop stress terms - the ‘Shallow Ice Approximation’
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integrate-the-z-equation-vertically">
+   Integrate the
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   equation vertically
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differentiate-horizontally">
+   Differentiate horizontally
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integrate-vertically">
+   Integrate vertically
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rheology">
+   Rheology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strain-rates-and-velocity-gradients">
+   Strain rates and velocity gradients.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#horizontal-velocity">
+   Horizontal velocity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Ice flux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mean-velocity">
+   Mean velocity
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="ice-flux">
+<h1>Ice flux<a class="headerlink" href="#ice-flux" title="Permalink to this headline">¶</a></h1>
+<p>Finally we are ready to derive our simple equation of ice flux, which will be combined with the depth-averaged mass balance equation to make our ice-sheet model.</p>
+<p>We will use the so-called ‘shallow ice approximation’ to simplify the stress balance equations,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{\partial \sigma_{xx}}{\partial x}+\frac{\partial \tau_{yx}}{\partial y}+\frac{\partial \tau_{zx}}{\partial z} = 0\\
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{xy}}{\partial x} + \frac{\partial \sigma_{yy}}{\partial y} +\frac{\partial \tau_{zy}}{\partial z} = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{xz}}{\partial x}+\frac{\partial \tau_{yz}}{\partial y}+\frac{\partial \sigma_{zz}}{\partial z} = \rho g
+\]</div>
+<p>which we derived previously to produce an expression for the depth-integrated ice flux <span class="math notranslate nohighlight">\(q\)</span> in one horizontal dimension, <span class="math notranslate nohighlight">\(q\)</span>, defined by</p>
+<div class="math notranslate nohighlight">
+\[
+q = \int^H_0 u(z) dz.
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(z\)</span> is the vertical coordinate measured from the ice base, <span class="math notranslate nohighlight">\(H\)</span> is the ice thickness  and <span class="math notranslate nohighlight">\(u\)</span> is the horizontal ice velocity. <span class="math notranslate nohighlight">\(q\)</span> is the volume of ice flowing horizontally past a location per unit time, per unit width across flow.</p>
+<p>The depth integral in the expression above is a hint that this is a depth-integrated ice-flow model, meaning that the final model will consider the stresses, fluxes, and velocities in a depth integrated/averaged sense, which does not resolve variations in these properties with depth. (Although some of the equations that we see along the way can be used to compute some of these as functions of <span class="math notranslate nohighlight">\(z\)</span>.)</p>
+<p>Note that in the stress balance equations above, we have three equations and nine unknowns - we cannot solve this system of equations without more information. In the a ‘full-stokes’ ice-sheet model this information comes from the rheology. In our case,s we will make simplifications until we have two equations and two unknowns.</p>
+<div class="section" id="reduce-to-two-dimensions-x-and-z">
+<h2>Reduce to two dimensions, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span><a class="headerlink" href="#reduce-to-two-dimensions-x-and-z" title="Permalink to this headline">¶</a></h2>
+<p>The first step is drop the <span class="math notranslate nohighlight">\(y\)</span> dimension. We are just considering how properties vary in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span>, so all terms in the stress balance that include a <span class="math notranslate nohighlight">\(y\)</span> are assumed to be zero:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{\partial \sigma_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = 0\\
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{xz}}{\partial x}+\frac{\partial \sigma_{zz}}{\partial z} = \rho g
+\]</div>
+<p>You can think of this as an assumption that the ice is a vertical slice of ice with zero thickness in the <span class="math notranslate nohighlight">\(y\)</span> direction, or (probably more helpfully) you can think of it as an assumption that the ice has infinite across-flow width and no properties vary in that across-flow direction. The latter assumption is a good one in some real-world scenarios, so it seems reasonable to make this assumption here to simplify the maths.</p>
+</div>
+<div class="section" id="substitute-in-deviatoric-stress">
+<h2>Substitute in deviatoric stress<a class="headerlink" href="#substitute-in-deviatoric-stress" title="Permalink to this headline">¶</a></h2>
+<p>As defined previously, the deviatoric stress is the component of the stress tensor that varies with direction. It is related to the total stress by</p>
+<div class="math notranslate nohighlight">
+\[
+\underline{\underline{\tau}}=\underline{\underline{\sigma}}-\sigma_m\underline{\underline{I}}
+\]</div>
+<p>where the mean stress <span class="math notranslate nohighlight">\(\sigma_m = \frac{1}{3}(\sigma_{xx}+\sigma_{yy}+\sigma_{zz})\)</span> and <span class="math notranslate nohighlight">\(\underline{\underline{I}}\)</span> is the identity tensor. Element-wise this means</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_{xx} = \tau_{xx} + \sigma_{m}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\sigma_{zz} = \tau_{zz} + \sigma_{m}
+\]</div>
+<p>and therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sigma_{xx}}{\partial x} = \frac{\partial \tau_{xx}}{\partial x} + \frac{\partial \sigma_{m}}{\partial x}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sigma_{zz}}{\partial z} = \frac{\partial \tau_{zz}}{\partial z} + \frac{\partial \sigma_{m}}{\partial z}
+\]</div>
+<p>Substituting these two expressions into the stress balance equation gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{\partial \tau_{xx}}{\partial x} + \frac{\partial \sigma_{m}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = 0\\
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{xz}}{\partial x}+\frac{\partial \tau_{zz}}{\partial z}+\frac{\partial \sigma_{m}}{\partial z} = \rho g
+\]</div>
+</div>
+<div class="section" id="drop-stress-terms-the-shallow-ice-approximation">
+<h2>Drop stress terms - the ‘Shallow Ice Approximation’<a class="headerlink" href="#drop-stress-terms-the-shallow-ice-approximation" title="Permalink to this headline">¶</a></h2>
+<p>Next, we make <em>part of</em> what is called the ‘Shallow Ice Approximation.’ Based on the assumption that the ice is much wider than it is tall (i.e. the aspect ratio is very large), we neglect the variation of stresses in the <span class="math notranslate nohighlight">\(x\)</span> direction. We also assume the vertical stress is hydrostatic (i.e. <span class="math notranslate nohighlight">\(\frac{\partial \tau_{zz}}{\partial z} =0\)</span>).</p>
+<p>These are serious simplifications. They mean that our model will not be applicable to places where the bed slope varies rapidly, places where the bed is very slippery, at grounding lines, in ice shelves, or at ice divides. In all these cases, the terms we are about to neglect are likely to be very important and should not be ignored. We would need to retain some (or all) of these terms in the stress balance to have a hope of realistically simulating ice flow in those places. Nonetheless, neglecting them here can help us to understand the basics of ice sheet flow and we can come back to more sophisticated models later.</p>
+<p>Neglecting the variation of stresses in the <span class="math notranslate nohighlight">\(x\)</span> direction and <span class="math notranslate nohighlight">\(\frac{\partial \tau_{zz}}{\partial z}\)</span> in the stress balance equations leaves</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \frac{\partial \sigma_{m}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = 0\\
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sigma_{m}}{\partial z} = \rho g
+\]</div>
+<p>We started with three equations and nine unknowns. The simplifications above have reduced the model to two equations and two unknowns. Therefore, as long as we have boundary conditions, we can solve this system of equations to get the stresses, then use the result with Glen’s flow law to get ice flux.</p>
+</div>
+<div class="section" id="integrate-the-z-equation-vertically">
+<h2>Integrate the <span class="math notranslate nohighlight">\(z\)</span> equation vertically<a class="headerlink" href="#integrate-the-z-equation-vertically" title="Permalink to this headline">¶</a></h2>
+<p>Our first challenge is to combine these equations to get an expression for <span class="math notranslate nohighlight">\(\tau_{zx}\)</span>. The first step is to integrate the <span class="math notranslate nohighlight">\(z\)</span>-direction stress balance equation vertically. Integrating both sides gives</p>
+<div class="math notranslate nohighlight">
+\[
+\int^0_{\sigma_m} d \sigma_m = \rho g \int^H_z dz
+\]</div>
+<p>where we have used the limits of integration to impose a boundary condition at the upper surface, <span class="math notranslate nohighlight">\(z=H\)</span>, of <span class="math notranslate nohighlight">\(\sigma_m(z=H) = 0\)</span>.</p>
+<p>Evaluating the integrals gives</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_m = -\rho g (H-z)
+\]</div>
+<p>i.e. as expected, the mean normal stress is negative (compressive) and increasing with depth from the surface at a rate proportional to the strength of gravity and the density of ice.</p>
+</div>
+<div class="section" id="differentiate-horizontally">
+<h2>Differentiate horizontally<a class="headerlink" href="#differentiate-horizontally" title="Permalink to this headline">¶</a></h2>
+<p>Next we differentiate this expression horizontally to get</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sigma_{m}}{\partial x} =- \rho g \frac{\partial H}{\partial x}
+\]</div>
+<p>Substituting this into the <span class="math notranslate nohighlight">\(x\)</span>-direction stress balance equation shows</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial H}{\partial x}
+\]</div>
+<p>Noting that <span class="math notranslate nohighlight">\(\frac{\partial H}{\partial x}\)</span> is usually negative, this expression suggests that the vertical shear stress <span class="math notranslate nohighlight">\(\tau_{zx}\)</span> decreases with <span class="math notranslate nohighlight">\(z\)</span>.</p>
+</div>
+<div class="section" id="integrate-vertically">
+<h2>Integrate vertically<a class="headerlink" href="#integrate-vertically" title="Permalink to this headline">¶</a></h2>
+<p>To get an expression for <span class="math notranslate nohighlight">\(\tau_{zx}\)</span>, we integrate the expression above vertically:</p>
+<div class="math notranslate nohighlight">
+\[
+\int^0_{\tau_{zx}} \tau_{zx} dz = \rho g \frac{\partial H}{\partial x} \int^H_z  dz
+\]</div>
+<p>where we have imposed the boundary condition <span class="math notranslate nohighlight">\(\tau_{zx}(z=H) = 0\)</span>, i.e.  there is no shear stress exerted by the air on the ice sheet at the surface.</p>
+<p>Evaluating this integral gives</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_{zx} = \rho g \alpha  (H-z),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha = -\frac{\partial H}{\partial x}\)</span>.</p>
+<p>This is a solution to the stress balance equations for the vertical shear stress. It says that vertical shear stress is zero at the surface and increases linearly with depth at a rate proportional to the density, the strength of gravity, and the surface slope. To determine how this corresponds to deformation and ultimately the ice flux we need to bring in rheology.</p>
+</div>
+<div class="section" id="rheology">
+<h2>Rheology<a class="headerlink" href="#rheology" title="Permalink to this headline">¶</a></h2>
+<p>To derive expressions for deformation we will use a description of ice rheology, Glen’s flow law:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\epsilon_{ij}} = A\tau_E^{n-1}\tau_{ij}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_{ij}\)</span> are the elements of the strain rate tensor <span class="math notranslate nohighlight">\(\underline{\underline{\epsilon}}\)</span> and <span class="math notranslate nohighlight">\(\tau_E\)</span> is the so-called effective stress, defined as the second invariant of the deviatoric stress tensor:</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_E^2 = \frac{1}{2}(\tau_{xx}^2+\tau_{yy}^2+\tau_{zz}^2)+\tau_{xz}^2+\tau_{xy}^2+\tau_{yz}^2.
+\]</div>
+<p>As part of the shallow ice approximation we neglect all terms on the right except <span class="math notranslate nohighlight">\(\tau_{xz}^2\)</span>. Neglecting <span class="math notranslate nohighlight">\(\tau_{yy}^2\)</span>, <span class="math notranslate nohighlight">\(\tau_{xy}^2\)</span> and <span class="math notranslate nohighlight">\(\tau_{yz}^2\)</span> is equivalent to assuming the ice flow is two dimensional. Neglecting <span class="math notranslate nohighlight">\(\tau_{xx}^2\)</span> is an additional assumption; previously we neglected the effect of <span class="math notranslate nohighlight">\(\frac{\partial \tau_{xx}}{\partial x}\)</span> on the stress balance, but here we are additionally neglecting the effect of <span class="math notranslate nohighlight">\(\tau_{xx}\)</span> on ice viscosity.</p>
+<p>These assumption leave</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_E = \tau_{zz}
+\]</div>
+<p>and therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\epsilon_{zx}} = A\tau_{zx}^n.
+\]</div>
+</div>
+<div class="section" id="strain-rates-and-velocity-gradients">
+<h2>Strain rates and velocity gradients.<a class="headerlink" href="#strain-rates-and-velocity-gradients" title="Permalink to this headline">¶</a></h2>
+<p>To relate strain rates to velocity gradients we use the expression we derived a few weeks ago:</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon_{zx} = \frac{1}{2}\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right)
+\]</div>
+<p>We make a final additional simplification associated with the shallow ice approximation - we assume that <span class="math notranslate nohighlight">\(\frac{\partial w}{\partial x}\)</span> is much smaller than <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial x}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon_{zx} = \frac{1}{2}\frac{\partial u}{\partial z}.
+\]</div>
+</div>
+<div class="section" id="horizontal-velocity">
+<h2>Horizontal velocity<a class="headerlink" href="#horizontal-velocity" title="Permalink to this headline">¶</a></h2>
+<p>Combining our simplified flow law, the stress-balance-based equation for <span class="math notranslate nohighlight">\(\tau_{zx}\)</span> and the expression above for <span class="math notranslate nohighlight">\(\epsilon_{zx}\)</span> yields an expression for the vertical variation of horizontal velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial u}{\partial z} = 2A \left(\rho g \alpha  (H-z)\right)^n
+\]</div>
+<p>To determine the horizontal velocity we need to integrate vertically:</p>
+<div class="math notranslate nohighlight">
+\[
+\int^u_0 du = 2A \left(\rho g \alpha H \right)^n \int^z_0\left(1-\frac{z}{H}\right)^n dz.
+\]</div>
+<p>To evaluate the integral we use the substitution <span class="math notranslate nohighlight">\(\zeta = 1-\frac{z}{H}\)</span>, which is usually referred to as the normalized depth.</p>
+<p>Differentiating gives us <span class="math notranslate nohighlight">\(\frac{d\zeta}{dz} = -\frac{1}{H}\)</span>; <span class="math notranslate nohighlight">\(dz = -H d\zeta\)</span>. To change the limits in the integral we need <span class="math notranslate nohighlight">\(\zeta\)</span> at <span class="math notranslate nohighlight">\(z=0\)</span>: <span class="math notranslate nohighlight">\(\zeta(z=0) = 1\)</span>. Using these results in the above equation gives us</p>
+<div class="math notranslate nohighlight">
+\[
+\int^u_0 du = -2A \left(\rho g \alpha \right)^n  H^{n+1} \int^\zeta_1\zeta^n dz
+\]</div>
+<p>Evaluating the integrals,</p>
+<div class="math notranslate nohighlight">
+\[
+u = -2A \left(\rho g \alpha \right)^n  H^{n+1} \left[ \frac{\zeta^{n+1}}{n+1}\right]^\zeta_1 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+u =  -2A \left(\rho g \alpha \right)^n  H^{n+1} \left[ \frac{\zeta^{n+1}}{n+1} - \frac{1}{n+1}\right],
+\]</div>
+<p>and rearranging slightly gives</p>
+<div class="math notranslate nohighlight">
+\[
+u(\zeta)=  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1} \left( 1- \zeta^{n+1} \right).
+\]</div>
+<p>We can get the horizontal velocity at the surface by evaluating this expression at <span class="math notranslate nohighlight">\(\zeta = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+u_s = u(0)=  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1},
+\]</div>
+<p>which shows that</p>
+<div class="math notranslate nohighlight">
+\[
+u(\zeta) = u_s \left( 1- \zeta^{n+1} \right).
+\]</div>
+<p>This highlights how you can think of the velocity as being the product of the surface velocity and a function of depth: <span class="math notranslate nohighlight">\(1- \zeta^{n+1} \)</span>. This function is often called a ‘shape function’.</p>
+</div>
+<div class="section" id="id1">
+<h2>Ice flux<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>To determine the ice flux</p>
+<div class="math notranslate nohighlight">
+\[
+q = \int^H_0 u(z) dz
+\]</div>
+<p>we need to integrate the horizontal velocity vertically:</p>
+<div class="math notranslate nohighlight">
+\[
+q = \int^H_0 u dz =  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1} \int^H_0\left( 1- \zeta^{n+1} \right) dz.
+\]</div>
+<p>We will use the same substitution as before. To change the limits in the integral we need <span class="math notranslate nohighlight">\(\zeta(z=H) = 0\)</span> and <span class="math notranslate nohighlight">\(\zeta(z=0) = 1\)</span>. making use of <span class="math notranslate nohighlight">\(dz = -H d\zeta\)</span> again we get</p>
+<div class="math notranslate nohighlight">
+\[
+q = \int^H_0 u dz =  -\frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+2} \int^0_1\left( 1- \zeta^{n+1} \right) d\zeta.
+\]</div>
+<p>Evaluating the integral yields</p>
+<div class="math notranslate nohighlight">
+\[
+q = -\frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+2} \left[ \zeta- \frac{\zeta^{n+2}}{n+2} \right]^0_1 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+q = -\frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+2} \left( (0- 0) - \left(1- \frac{1}{n+2}\right) \right)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+q = \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+2} \left(1- \frac{1}{n+2} \right) .
+\]</div>
+<p>To simplify we substitute in <span class="math notranslate nohighlight">\(\frac{n+2}{n+2} = 1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+q = \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+2} \left(\frac{n+2}{n+2}- \frac{1}{n+2} \right) .
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+q = \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+2} \left(\frac{n+1}{n+2} \right) .
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{q = \frac{2A}{n+2} \left(\rho g \alpha \right)^n  H^{n+2}} .
+\]</div>
+<p>This is the final expression for the ice flux in the Shallow Ice Approximation model.</p>
+<p>Note how strongly dependent on the thickness it is: <span class="math notranslate nohighlight">\(H^5\)</span>, if <span class="math notranslate nohighlight">\(n=3\)</span>.</p>
+</div>
+<div class="section" id="mean-velocity">
+<h2>Mean velocity<a class="headerlink" href="#mean-velocity" title="Permalink to this headline">¶</a></h2>
+<p>We can compute the mean velocity from <span class="math notranslate nohighlight">\(q\)</span> as <span class="math notranslate nohighlight">\(\overline{u} = q/H\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\overline{u} = \frac{2A}{n+2} \left(\rho g \alpha \right)^n  H^{n+1}. 
+\]</div>
+<p>This looks very similar the surface velocity. In fact, according the shallow ice approximation, the surface velocity and the depth-averaged velocity have a very simple relationship:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{u_s}{ \overline{u}} = \frac{n+2}{n+1}.
+\]</div>
+<p>The surface velocity is always larger than the depth-averaged velocity, but by a smaller fraction for increasing nonlinear ice rheology. For example, if is linear, <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(u_s/\overline{u} = 3/2\)</span>, or if <span class="math notranslate nohighlight">\(n=3\)</span> and <span class="math notranslate nohighlight">\(u_s/\overline{u} = 5/4\)</span>. This can be understood mathematically by looking at the horizontal velocity shape function <span class="math notranslate nohighlight">\(1- \zeta^{n+1} \)</span>. The second term in the shape function controls how much the velocity deviates from the surface velocity. It deviates less for higher <span class="math notranslate nohighlight">\(n\)</span> (just consider what the curves of <span class="math notranslate nohighlight">\(y=x^{n+1}\)</span> look like between 0 and 1 for different values of <span class="math notranslate nohighlight">\(n\)</span>). Ths effect can be understood physically by remembering that we showed the that vertical shear stress increases linearly with depth:</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_{zx} = -\rho g \alpha  (z-H).
+\]</div>
+<p>It is the rheology of the ice that determines how this linear increase in <span class="math notranslate nohighlight">\(\tau_{zx}\)</span> with depth translates into shear strain. Therefore, it makes sense that in more non-linear ice the deformation is concentrated where the shear stress is highest – the bottom – and the vertical gradient of <span class="math notranslate nohighlight">\(u\)</span> is highest there, which is exactly what <span class="math notranslate nohighlight">\(1- \zeta^{n+1} \)</span>
+does for higher <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jkingslake/apres_jp",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./sections/ice_flow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="driving_stress.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Driving stress (under construction)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="stress_balance_eqns.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Stress balance equations</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
