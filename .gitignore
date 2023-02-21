@@ -2,3 +2,9 @@
 firedrake-install
 antarctica_ice_velocity_450m_v2.nc
 src/sections/appendix/.ipynb_checkpoints/upload_Measures_data_to_bucket-checkpoint.ipynb
+.DS_Store
+.DS_Store
+src/.DS_Store
+src/_build/**
+Src/**/*checkpoints*
+
