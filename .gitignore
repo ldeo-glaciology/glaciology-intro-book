@@ -6,4 +6,5 @@ src/sections/appendix/.ipynb_checkpoints/upload_Measures_data_to_bucket-checkpoi
 .DS_Store
 src/.DS_Store
 src/_build/**
+Src/**/*checkpoints*
 
