@@ -48,6 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Ice flux" href="sia_derivation.html" />
@@ -355,6 +357,19 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#derivation">
+   Derivation.
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -367,6 +382,19 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#derivation">
+   Derivation.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -375,6 +403,81 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="driving-stress-under-construction">
 <h1>Driving stress (under construction)<a class="headerlink" href="#driving-stress-under-construction" title="Permalink to this headline">¶</a></h1>
+<p>Ice-sheet flow is driven by gravity. Specifically it is a quantity called the  driving stress that drives flow:</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_d = - \rho g H \frac{\partial H}{\partial x},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho\)</span> is the density of ice (<span class="math notranslate nohighlight">\(~9.17 \text{ kg m}^{-3}\)</span>), <span class="math notranslate nohighlight">\(g\)</span> is gravitational acceleration ( ~9.8 <span class="math notranslate nohighlight">\(\text{m s}^{-2}\)</span>), <span class="math notranslate nohighlight">\(H\)</span> is the ice thickness, <span class="math notranslate nohighlight">\(x\)</span> is the horizontal coordinate oriented in teh ice flow direction.</p>
+<div class="section" id="derivation">
+<h2>Derivation.<a class="headerlink" href="#derivation" title="Permalink to this headline">¶</a></h2>
+<p>Consider a column of ice that extends from the ice-sheet bed to the surface and has length <span class="math notranslate nohighlight">\(\delta x\)</span> in the <span class="math notranslate nohighlight">\(x\)</span> direction and length <span class="math notranslate nohighlight">\(\delta y\)</span> in the <span class="math notranslate nohighlight">\(y\)</span> directon perpendicula to flow. We will assume that the bed is flat. The pressure at each elevation <span class="math notranslate nohighlight">\(z\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+P = \rho g (H-z),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(P\)</span> is the pressure, and <span class="math notranslate nohighlight">\(z\)</span> is the vertical coordinate  (increasing upward). The equation above comes from integrating the hydrostatic pressure equation</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d P}{d x} = -\rho g z.
+\]</div>
+<p>(todo: replace this figure, add figure caption)</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/90412051/196259608-df6514b0-1267-4b05-8365-447518651a39.png" /></p>
+<p>To calculate the force acting on one side of the ice column (blue arrow), with thickness <span class="math notranslate nohighlight">\(H\)</span>, we can consider that force = pressure <span class="math notranslate nohighlight">\(\times\)</span> area. However, ppressure <span class="math notranslate nohighlight">\(p\)</span> depends on <span class="math notranslate nohighlight">\(z\)</span>, so we need to integrate over the thickness of the ice, rather than just multiply by the area.   We will call the force on the left-hand side of the column <span class="math notranslate nohighlight">\(F_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+F_1 = \delta y\int_0^H P(z)  dz
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+F_1 = \delta y\int_0^H \rho g (H-z)  dz = \delta y \rho g \left[Hz - \frac{z^2}{2}\right] = \delta y \rho g \left[H^2 - \frac{H^2}{2}\right] 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+F_1 = \frac{1}{2}\delta y \rho g H^2 
+\]</div>
+<p>Note that in this calculation, we have assumed constant <span class="math notranslate nohighlight">\(\rho\)</span> and g, and that air pressure is negligible compared to ice pressure.</p>
+<p>The more relevant quantity to consider here is not just the force acting on one side of the ice column, but rather the difference between the forces on either side. If we imagine that the ice column is part of an ice sheet with a surface slope of <span class="math notranslate nohighlight">\(\frac{dH}{dx}\)</span>, and has thickness <span class="math notranslate nohighlight">\(\partial x\)</span> in the x-direction, then the force acting on the opposite side of the ice column can be calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+F_2  = \frac{1}{2}\delta y \rho g H^2 + \delta x \frac{d}{dx}\left(\frac{1}{2}\delta y \rho g H^2 \right)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Delta F = F_1 - F_2 = \frac{1}{2}\delta y \rho g H^2 - \left(\frac{1}{2}\delta y \rho g H^2 + \delta x \frac{d}{dx}\left(\frac{1}{2}\delta y \rho g H^2\right)\right)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Delta F = -\frac{1}{2}\delta x \delta y \rho g \frac{\partial H^2}{\partial x}
+\]</div>
+<p>We can now invoke the chain rule to rewrite this as</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta F = -\frac{1}{2}\delta x \delta y \rho g \left(2 H \frac{\partial H}{\partial x}\right) = -\delta x \delta y\rho g  H \frac{\partial H}{\partial x}
+\]</div>
+<p>This is the stres imbalance integrated over the is ice thickness and across a width <span class="math notranslate nohighlight">\(\delta y\)</span> perpendicular to flow. We define the driving stress as the force imbalance per unit area of the bed:</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_d = \frac{\Delta F}{A} = \frac {\Delta F}{\partial x \partial y}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\tau_d = - \rho g H \frac{\partial H}{\partial x}
+\]</div>
+<p>This makes sense intuitively; there is more driving stress where the ice is thicker (higher <span class="math notranslate nohighlight">\(H\)</span>) and steeper (higher <span class="math notranslate nohighlight">\(\frac{\partial H}{\partial x}\)</span>).</p>
+<p>We can generalize this to two dimensions as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+\underline{\tau_d} = - \rho g H \left(\frac{\partial H}{\partial x} \hat{i} + \frac{\partial H}{\partial y} \hat{j}\right) = - \rho g H \vec{\nabla} H
+\]</div>
+<p>The driving stress field will point in the direction in which the slope changes the fastest.</p>
+<p>We can also generalize this to account for cases when the be topography is not flat:</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_d = - \rho g H \frac{\partial h}{\partial x}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> is the ice surface height.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
