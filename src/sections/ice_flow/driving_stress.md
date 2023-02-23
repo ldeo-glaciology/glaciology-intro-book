@@ -10,7 +10,7 @@ where $\rho$ is the density of ice ($~9.17 \text{ kg m}^{-3}$), $g$ is gravitati
 
 ## Derivation.
 
-Consider a column of ice that extends from the ice-sheetbed to the surface and has length $\delta x$ in the $x$ direction and length $\delta y$ in the $y$ directon perpendicula to flow. The pressure at each elevation $z$ is given by
+Consider a column of ice that extends from the ice-sheet bed to the surface and has length $\delta x$ in the $x$ direction and length $\delta y$ in the $y$ directon perpendicula to flow. We will assume that the bed is flat. The pressure at each elevation $z$ is given by
 
 $$
 P = \rho g (H-z),
@@ -45,11 +45,11 @@ Note that in this calculation, we have assumed constant $\rho$ and g, and that a
 The more relevant quantity to consider here is not just the force acting on one side of the ice column, but rather the difference between the forces on either side. If we imagine that the ice column is part of an ice sheet with a surface slope of $\frac{dH}{dx}$, and has thickness $\partial x$ in the x-direction, then the force acting on the opposite side of the ice column can be calculated as follows:
 
 $$
-F_2  = \frac{1}{2}\delta y \rho g H^2 + \delta x \frac{d}{dx}(\frac{1}{2}\delta y \rho g H^2 )
+F_2  = \frac{1}{2}\delta y \rho g H^2 + \delta x \frac{d}{dx}\left(\frac{1}{2}\delta y \rho g H^2 \right)
 $$
 
 $$
-\Delta F = F_1 - F_2 = \frac{1}{2}\delta y \rho g H^2 - (\frac{1}{2}\delta y \rho g H^2 + \delta x \frac{d}{dx}(\frac{1}{2}\delta y \rho g H^2))
+\Delta F = F_1 - F_2 = \frac{1}{2}\delta y \rho g H^2 - \left(\frac{1}{2}\delta y \rho g H^2 + \delta x \frac{d}{dx}\left(\frac{1}{2}\delta y \rho g H^2\right)\right)
 $$
 
 $$
@@ -59,7 +59,7 @@ $$
 We can now invoke the chain rule to rewrite this as
 
 $$
-\Delta F = -\frac{1}{2}\delta x \delta y \rho g (2 H \frac{\partial H}{\partial x}) = -\delta x \delta y\rho g  H \frac{\partial H}{\partial x}
+\Delta F = -\frac{1}{2}\delta x \delta y \rho g \left(2 H \frac{\partial H}{\partial x}\right) = -\delta x \delta y\rho g  H \frac{\partial H}{\partial x}
 $$
 
 This is the stres imbalance integrated over the is ice thickness and across a width $\delta y$ perpendicular to flow. We define the driving stress as the force imbalance per unit area of the bed:
@@ -69,7 +69,7 @@ $$
 $$
 
 $$
-\vec{\tau_d} = - \rho g H \frac{\partial H}{\partial x}
+\tau_d = - \rho g H \frac{\partial H}{\partial x}
 $$
 
 This makes sense intuitively; there is more driving stress where the ice is thicker (higher $H$) and steeper (higher $\frac{\partial H}{\partial x}$).
@@ -77,7 +77,15 @@ This makes sense intuitively; there is more driving stress where the ice is thic
 We can generalize this to two dimensions as follows:
 
 $$
-\vec{\tau_d} = - \rho g H \left(\frac{\partial H}{\partial x} \hat{i} + \frac{\partial H}{\partial y} \hat{j}\right) = - \rho g H \vec{\nabla} H
+\underline{\tau_d} = - \rho g H \left(\frac{\partial H}{\partial x} \hat{i} + \frac{\partial H}{\partial y} \hat{j}\right) = - \rho g H \vec{\nabla} H
 $$
 
 The driving stress field will point in the direction in which the slope changes the fastest.
+
+We can also generalize this to account for cases when the be topography is not flat:
+
+$$
+\tau_d = - \rho g H \frac{\partial h}{\partial x}
+$$
+
+where $h$ is the ice surface height. 
