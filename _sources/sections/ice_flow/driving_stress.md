@@ -1,4 +1,4 @@
-# Driving stress (under construction)
+# Driving stress 
 
 Ice-sheet flow is driven by gravity. Specifically it is a quantity called the  driving stress that drives flow:
 

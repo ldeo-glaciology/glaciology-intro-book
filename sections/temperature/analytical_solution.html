@@ -155,7 +155,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ice_flow/driving_stress.html">
-   Driving stress (under construction)
+   Driving stress
   </a>
  </li>
  <li class="toctree-l1">
@@ -166,6 +166,33 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../ice_flow/stress_balance_eqns.html">
    Stress balance equations
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Heat flow
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="heat_intro.html">
+   Heat flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="heat_equation.html">
+   Heat equation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   An analytical solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numerical_solutions.html">
+   Numerical solutions
   </a>
  </li>
 </ul>
@@ -221,33 +248,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Heat flow
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="heat_intro.html">
-   Heat flow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="heat_equation.html">
-   Heat equation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   An analytical solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="numerical_solutions.html">
-   Numerical solutions
-  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -400,7 +400,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>In this section we apply the general heat equation we derived in the previous section to a simplified scenario in which we have no advection and the temperature and the ice-sheet surface varies sinusoidally with time. Under these condictions an ‘analytical’ solution to the equation can be found, i.e. one which does not require any computational methods to derive. Analytical solutions are useful for building intuition for the physics and for testing numerical solutions.</p>
 <p>Our full heat equation, derived on the previous page is</p>
 <div class="math notranslate nohighlight" id="equation-heat-eq-full">
-<span class="eqno">(23)<a class="headerlink" href="#equation-heat-eq-full" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(21)<a class="headerlink" href="#equation-heat-eq-full" title="Permalink to this equation">¶</a></span>\[
 \frac{\partial T}{\partial t} = 
 -   u  \frac{\partial T}{\partial x}
 - v  \frac{\partial T}{\partial y}

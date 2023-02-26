@@ -155,7 +155,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../ice_flow/driving_stress.html">
-   Driving stress (under construction)
+   Driving stress
   </a>
  </li>
  <li class="toctree-l1">
@@ -166,6 +166,33 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../ice_flow/stress_balance_eqns.html">
    Stress balance equations
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Heat flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../temperature/heat_intro.html">
+   Heat flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../temperature/heat_equation.html">
+   Heat equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../temperature/analytical_solution.html">
+   An analytical solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../temperature/numerical_solutions.html">
+   Numerical solutions
   </a>
  </li>
 </ul>
@@ -221,33 +248,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Heat flow
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../temperature/heat_intro.html">
-   Heat flow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../temperature/heat_equation.html">
-   Heat equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../temperature/analytical_solution.html">
-   An analytical solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../temperature/numerical_solutions.html">
-   Numerical solutions
-  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -512,7 +512,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>2. Compute the two-way travel time to the reflectors<a class="headerlink" href="#compute-the-two-way-travel-time-to-the-reflectors" title="Permalink to this headline">¶</a></h2>
 <p>The two-way radio-wave travel time in ice <span class="math notranslate nohighlight">\(\tau\)</span> is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-tau1">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-tau1" title="Permalink to this equation">¶</a></span>\[\tau = 2R\frac{\sqrt\epsilon}{c},\]</div>
+<span class="eqno">(22)<a class="headerlink" href="#equation-eq-tau1" title="Permalink to this equation">¶</a></span>\[\tau = 2R\frac{\sqrt\epsilon}{c},\]</div>
 <p>where <span class="math notranslate nohighlight">\(c\)</span> is the speed of light in a vacuum and <span class="math notranslate nohighlight">\(\epsilon\)</span> is the dielactric constant of ice.</p>
 <p>Next, let’s use constants from <span id="id1">[<a class="reference internal" href="../../../bibliography.html#id2" title="Paul V. Brennan, Lai Bun Lok, Keith Nicholls, and Hugh Corr. Phase-sensitive FMCW radar system for high-precision Antarctic ice shelf profile monitoring. IET Radar, Sonar &amp; Navigation, 8(7):776–786, 2014. _eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1049/iet-rsn.2013.0053. URL: https://onlinelibrary.wiley.com/doi/abs/10.1049/iet-rsn.2013.0053 (visited on 2022-01-14), doi:10.1049/iet-rsn.2013.0053.">Brennan <em>et al.</em>, 2014</a>]</span>, to compute <span class="math notranslate nohighlight">\(\tau\)</span> for our two reflectors:</p>
 <div class="cell docutils container">
@@ -538,7 +538,7 @@ tau2 is 1.410e-06 s.
 <h2>3. Compute the beat frequencies we would receive from these reflectors<a class="headerlink" href="#compute-the-beat-frequencies-we-would-receive-from-these-reflectors" title="Permalink to this headline">¶</a></h2>
 <p>Equation 1 from Brennan et al. relates the difference in frequency between the transmitted and received signals (the beat frequency; <span class="math notranslate nohighlight">\(f_d\)</span>) to <span class="math notranslate nohighlight">\(\tau\)</span> using some configuration parameters related to how the frequency changes during each chirp:</p>
 <div class="math notranslate nohighlight" id="equation-eq-f-d1">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-f-d1" title="Permalink to this equation">¶</a></span>\[f_d = K\tau = \frac{2\pi B \tau}{T}, \]</div>
+<span class="eqno">(23)<a class="headerlink" href="#equation-eq-f-d1" title="Permalink to this equation">¶</a></span>\[f_d = K\tau = \frac{2\pi B \tau}{T}, \]</div>
 <p>where <span class="math notranslate nohighlight">\(K\)</span> is the rate of frequency increase in Hz s<span class="math notranslate nohighlight">\(^{-1}\)</span>, <span class="math notranslate nohighlight">\(B\)</span> is the bandwidth (the difference between the lowest and highest frequency covered by each chirp), and <span class="math notranslate nohighlight">\(T\)</span> is the chirp duration.</p>
 <p>Again using parameters from Brennan et al., let’s compute the beat frequencies we expect to receive from our two reflectors:</p>
 <div class="cell docutils container">
@@ -669,7 +669,7 @@ second peak detected at 282.000 Hz.
 </div>
 <div class="section" id="convert-frequency-to-range">
 <h2>6. Convert frequency to range<a class="headerlink" href="#convert-frequency-to-range" title="Permalink to this headline">¶</a></h2>
-<p>Next we convert <code class="docutils literal notranslate"><span class="pre">frequencies</span></code> to depths using a combination of <a class="reference internal" href="#equation-eq-tau1">(1)</a> and <a class="reference internal" href="#equation-eq-f-d1">(2)</a>,</p>
+<p>Next we convert <code class="docutils literal notranslate"><span class="pre">frequencies</span></code> to depths using a combination of <a class="reference internal" href="#equation-eq-tau1">(22)</a> and <a class="reference internal" href="#equation-eq-f-d1">(23)</a>,</p>
 <p><span class="math notranslate nohighlight">\(
 f_d = 2KR\frac{\sqrt\epsilon}{c},
 \)</span></p>
