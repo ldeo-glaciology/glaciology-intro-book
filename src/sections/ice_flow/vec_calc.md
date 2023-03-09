@@ -1,5 +1,5 @@
 # Vector calculus background
-Before we get going on deriving a model of cie sheet flow we will go over some fundamentals of vector calculus:
+Before we get going on deriving a model of ice sheet flow we will go over some fundamentals of vector calculus:
 - scalar and vector fields
 - the del operator
 - gradients and divergence
@@ -35,7 +35,7 @@ $$
 ## The del operator
 The del operator is a vector of differential operators. A differential operator can operate on functions and the result of the operation is a derivative of the function. 
 
-In the case od del, we can think of it as a vector that has one component for each spatial dimension. So, for example, if we are considering a two-dimensional model, del has two components corresponding to these two directions. Each component is the differential operator corresponding to differentiation *in the corresponding direction*. So in two dimensions del is defined as 
+In the case of del, we can think of it as a vector that has one component for each spatial dimension. So, for example, if we are considering a two-dimensional model, del has two components corresponding to these two directions. Each component is the differential operator corresponding to differentiation *in the corresponding direction*. So in two dimensions del is defined as 
 
 $\underline{\nabla} = \left(\frac{\partial}{\partial x} , \frac{\partial}{\partial y} \right)$
 
