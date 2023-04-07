@@ -1,4 +1,4 @@
-# Ice flux 
+# The Shallow Ice Approximation model  
 Finally we are ready to derive our simple equation of ice flux, which will be combined with the depth-averaged mass balance equation to make our ice-sheet model. 
 
 We will use the so-called 'shallow ice approximation' to simplify the stress balance equations, 
