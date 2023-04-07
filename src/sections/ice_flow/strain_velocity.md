@@ -46,3 +46,13 @@ Dividing through by the time gives us the relationship between the strain rate a
 $$
 \dot{\epsilon}_{xx} = \frac{\partial u}{\partial x}.
 $$
+
+## A general relationship
+
+Doing the same exercise for shear strain shows that a general equation for this relationship is 
+
+$$
+\dot{\epsilon}_{ij} = \frac{1}{2}\left(\frac{\partial \underline{u}_i}{\partial \underline{x}_j} + \frac{\partial \underline{u}_j}{\partial \underline{x}_i}\right),
+$$
+
+where $\underline{u}$ is velocity field $(u, v, w)$ components and $\underline{x}$ are the three coordinates $x$, $y$, and $z$. 
