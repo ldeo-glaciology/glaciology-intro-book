@@ -150,7 +150,7 @@ $$
 \epsilon_E^2 = \epsilon_{xx}^2 + \epsilon_{xz}^2
 $$
 
-The the inverse flow law is therefore 
+The inverse flow law is therefore 
 
 $$ 
 \tau_{ij}= 2 \eta \dot{\epsilon_{ij}}.
@@ -195,7 +195,80 @@ $$
 
 
 ## BP to SSA
-In this section we make apply further simplifying assumptions to the BP above to derive a Shallow Shelf approximation model, which is applicable in locations where basal shear stress is relatively small compared to the longitudinal stresses and the driving stress. 
+In this section we apply further simplifying assumptions to the BP above to derive a Shallow Shelf approximation model, which is applicable in locations where basal shear stress is relatively small compared to the longitudinal stresses and the driving stress. 
+
+The SSA model is a depth integrated model, which applies when internal vertical shear $\epsilon_{zx}$ is small. 
+
+Integrating the BP equation above gives
+
+$$
+4 \int^s_b\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right) dz + \int^s_b\frac{\partial }{\partial z} \left(\eta \frac{\partial u}{\partial z} \right) dz= \rho g \frac{\partial s}{\partial x}  \int^s_b dz.
+$$
+
+The integral on the right evaluates to $s-b = H$. Recognizing that $\eta \frac{\partial u}{\partial z} = \tau_{zx}$ (see a few steps up in the BP derivation above), the second term on the left is equal to 
+
+$$
+\int^s_b\frac{\partial }{\partial z} \left(\eta \frac{\partial u}{\partial z} \right) dz = \int^s_b \frac{\partial \tau_{zx}}{\partial z}  dz,
+$$
+
+which evaluates to 
+
+$$
+\int^s_b \frac{\partial \tau_{zx}}{\partial z}  dz = 0 - \tau_b,
+$$
+
+where $\tau_b$ is the vertical shear stress at the base of the ice, we have imposed the surface boundary condition of  $\tau_{zx}(s) = 0$. We also assumed $\frac{\partial \tau_{zx}}{\partial z} = 0$ within the ice. 
+
+To evaluate the first term on the left we use the Leibniz integration rule to move the integral inside the first derivative. 
+
+The Leibniz integration rule says that for some function $f(x,z)$ and limits of integration $b$ and $s$,
+
+$$
+\frac{d}{dx} \int^s_b f(x,z) dz =  f(x,s) \frac{ds}{dx} -  f(x,b) \frac{db}{dx} + \int^s_b \frac{\partial}{\partial x} f(x,z) dz.
+$$
+
+Applying this rule to the first term on the right of the stress balance equation and assuming $\frac{ds}{dx} = \frac{db}{dx} = 0$, gives
+
+$$
+4 \int^s_b\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right) dz  = 4 \frac{\partial }{\partial x}  \int^s_b \left(\eta \frac{\partial u}{\partial x} \right) dz.
+$$
+
+Assuming that $\frac{\partial u}{\partial x} $ is uniform in depth, this becomes
+
+$$
+4 \frac{\partial }{\partial x}  \int^s_b \left(\eta \frac{\partial u}{\partial x} \right) dz = 4 \frac{\partial }{\partial x} \left(  \int^s_b\eta \, dz \frac{\partial u}{\partial x} \right) 
+$$
+
+FInally, defining the depth-averaged viscosity as
+
+$$
+\overline{\eta} = \frac{1}{H} \int^s_b\eta \, dz,
+$$
+
+$$
+4 \frac{\partial }{\partial x} \left(  \int^s_b\eta \, dz \frac{\partial u}{\partial x} \right)  = 4 \frac{\partial }{\partial x} \left(  \overline{\eta} H\frac{\partial u}{\partial x} \right). 
+$$
+
+Bring all three expressions together gives
+
+$$
+
+4 \frac{\partial }{\partial x} \left(  \overline{\eta} H\frac{\partial u}{\partial x} \right) - \tau_b = \rho g H\frac{\partial s}{\partial x} .
+$$
+
+This is one commonly used form of the SSA. Another is found by substituting in an expression for the depth-averaged effective viscosity, which is simply 
+
+$$
+\overline{\eta} = \frac{1}{2}  A^{-\frac{1}{n}} \epsilon_{xx}^{\frac{1}{n}-1} =  \frac{1}{2}  A^{-\frac{1}{n}} \left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} 
+$$
+
+if we assume $\epsilon_{E} = \epsilon_{xx}$ and that this does not vary with depth.
+
+Substituting this into the SSA equation gives 
+
+$$
+2 \frac{\partial }{\partial x} \left( A^{-\frac{1}{n}} H\left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} \frac{\partial u}{\partial x} \right) - \tau_b = \rho g H\frac{\partial s}{\partial x}.
+$$
 
 ## BP to SIA
 For completeness and to compliment the derivation of the SIA on the previous page, in this section we derive the SIA from the BP equation. 
