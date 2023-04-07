@@ -15,9 +15,10 @@ parts:
   - file: sections/ice_flow/stress_strain_tensors.md
   - file: sections/ice_flow/deviatoric_stress.md
   - file: sections/ice_flow/driving_stress.md
-  - file: sections/ice_flow/sia_derivation.md
-  
   - file: sections/ice_flow/stress_balance_eqns.md
+  - file: sections/ice_flow/sia_derivation.md
+  - file: sections/ice_flow/other-ice-flow-models.md
+  
 
 - caption: Heat flow
   chapters: 
