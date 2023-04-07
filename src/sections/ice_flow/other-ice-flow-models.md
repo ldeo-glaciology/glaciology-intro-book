@@ -1,11 +1,11 @@
-# Other ice flow models
+# Two other ice flow models
 
-So far in this chapter we started from the full stokes stress balance equations and used the shallow ice approximation (SIA) to derive the simplest widely-used ie sheet model. 
+So far in this chapter we started from the full stokes stress balance equations and applied the shallow ice approximation (SIA) to derive the simplest widely-used ie sheet model. 
 
 Below we describe the derivation of two other commonly used ice-flow models the 'higher-order' Blatter-Pattyn (BP) model, and the shallow shelf approximation (SSA) model. 
 
 ## Full stokes to BP
-The Blatter-Pattyn model is considered higher-order than the SIA and SSA because it retains more of the terms in the stress balance equations that those models. The following comes from the [documentation of the Community Ie Sheet model](https://cism.github.io/data/cism_documentation_v2_1.pdf).
+The Blatter-Pattyn (BP) model is considered higher-order than the SIA and SSA because it retains more of the terms in the stress balance equations that those models. The following derivation of the BP model comes from the [documentation of the Community Ie Sheet model](https://cism.github.io/data/cism_documentation_v2_1.pdf).
 
 Starting with the stokes equations
 $$
@@ -193,6 +193,10 @@ $$
 $$
 
 
-## BP to SIA
 
 ## BP to SSA
+In this section we make apply further simplifying assumptions to the BP above to derive a Shallow Shelf approximation model, which is applicable in locations where basal shear stress is relatively small compared to the longitudinal stresses and the driving stress. 
+
+## BP to SIA
+For completeness and to compliment the derivation of the SIA on the previous page, in this section we derive the SIA from the BP equation. 
+
