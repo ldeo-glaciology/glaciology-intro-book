@@ -285,4 +285,8 @@ $$
 
 From now on the derivation is the same as the derivation on this [page](sia_derivation), equation ({eq}`dtau_zxdz`.
 
-We integrate vertically, then substitute in Glen's flow law and the relationship between velocity gradients and strain rates. Then intergrate vertically again to obtain an expression for $u(z)$, then integrate vertically again to get an expression for the depth-integrated flux per unit width, $q$.  
+We integrate vertically, then substitute in Glen's flow law and the relationship between velocity gradients and strain rates. Then intergrate vertically again to obtain an expression for $u(z)$, then integrate vertically again to get an expression for the depth-integrated flux per unit width, $q$:
+
+$$
+q = \frac{2A}{n+2} \left(\rho g \alpha \right)^n  H^{n+2}.
+$$
