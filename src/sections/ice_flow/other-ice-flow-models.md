@@ -156,7 +156,7 @@ $$
 \tau_{ij}= 2 \eta \dot{\epsilon_{ij}}.
 $$
 
-Subsituting this into the stress balance equation gives
+Substituting this into the stress balance equation gives
 
 $$
 4\frac{\partial }{\partial x}  (\eta \epsilon_{xx}) +2 \frac{\partial }{\partial z} (\eta \epsilon_{zx}) = \rho g \frac{\partial s}{\partial x} 
@@ -271,5 +271,18 @@ $$
 $$
 
 ## BP to SIA
-For completeness and to compliment the derivation of the SIA on the previous page, in this section we derive the SIA from the BP equation. 
+For completeness and to compliment the derivation of the SIA on the previous page, in this section we derive the SIA from the BP equation, 
 
+$$
+4\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right)+ \frac{\partial }{\partial z} \left(\eta \frac{\partial u}{\partial z} \right) = \rho g \frac{\partial s}{\partial x}. 
+$$
+
+The first step is to neglect the horizontal extenstional stresses, the first term on the left. Again we recognize that $\eta \frac{\partial u}{\partial z} = \tau_{zx}$, leaving
+
+$$
+\frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial s}{\partial x}. 
+$$
+
+From now on the derivation is the same as the derivation on this [page](sia_derivation), equation ({eq}`dtau_zxdz`.
+
+We integrate vertically, then substitute in Glen's flow law and the relationship between velocity gradients and strain rates. Then intergrate vertically again to obtain an expression for $u(z)$, then integrate vertically again to get an expression for the depth-integrated flux per unit width, $q$.  

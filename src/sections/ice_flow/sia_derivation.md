@@ -1,3 +1,4 @@
+(sia_derivation)=
 # The Shallow Ice Approximation model  
 Finally we are ready to derive our simple equation of ice flux, which will be combined with the depth-averaged mass balance equation to make our ice-sheet model. 
 
@@ -127,7 +128,7 @@ Substituting this into the $x$-direction stress balance equation shows
 
 $$
 \frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial H}{\partial x}
-$$
+$$(dtau_zxdz)
 
 Noting that $\frac{\partial H}{\partial x}$ is usually negative, this expression suggests that the vertical shear stress $\tau_{zx}$ decreases with $z$. 
 
@@ -135,7 +136,7 @@ Noting that $\frac{\partial H}{\partial x}$ is usually negative, this expression
 To get an expression for $\tau_{zx}$, we integrate the expression above vertically: 
 
 $$
-\int^0_{\tau_{zx}} \tau_{zx} dz = \rho g \frac{\partial H}{\partial x} \int^H_z  dz
+\int^0_{\tau_{zx}} \frac{\partial \tau_{zx}}{\partial z}dz = \rho g \frac{\partial H}{\partial x} \int^H_z  dz
 $$
 
 where we have imposed the boundary condition $\tau_{zx}(z=H) = 0$, i.e.  there is no shear stress exerted by the air on the ice sheet at the surface. 
