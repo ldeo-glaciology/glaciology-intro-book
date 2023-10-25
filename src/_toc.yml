@@ -16,7 +16,6 @@ parts:
   - file: sections/ice_flow/deviatoric_stress.md
   - file: sections/ice_flow/driving_stress.md
   - file: sections/ice_flow/sia_derivation.md
-  
   - file: sections/ice_flow/stress_balance_eqns.md
 
 - caption: Heat flow
@@ -37,6 +36,10 @@ parts:
     - file: sections/radar/apres/coarse-range
     - file: sections/radar/apres/phase-frequency
     - file: sections/radar/apres/stacking
+
+- caption: Ice Fabric
+  chapters:
+  - file: sections/ice_structure/ice-fabric-intro.md
 
 - caption: Appendix
   chapters:
