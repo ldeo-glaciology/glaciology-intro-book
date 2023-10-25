@@ -141,9 +141,7 @@ $$
  = u_s \frac{\partial s}{\partial x} - u_b \frac{\partial b}{\partial x}  + \int^{s(x)}_{b(x)}\frac{\partial u}{\partial x}\,dz.
 $$
 
-This says that the derivative with respect to $x$ of an integral with limits that are functions of $x$, is equal to the sum of the integral of the derivative of the function and two additional terms that take account of the dependence of the limits on $x$.
-
-The left side is the flux divergence and we can see that is increases with the surface slope and decreases with the slope of the bed. This makes sense because, all else being equal, if the surface slope is larger (i.e. more positive, or less negative) the flux divergence increases - the flux increase for $x$ more rapidly.
+This says that the derivative with respect to $x$ of an integral with limits that are functions of $x$, is equal to the sum of the integral of the derivative of the function and two additional terms that take account of the dependence of the limits on $x$. The left side is the flux divergence and we can see that is increases with the surface slope and decreases with the slope of the bed. This makes sense because, all else being equal, if the surface slope is larger (i.e. more positive, or less negative) the flux divergence increases - the flux increases with $x$ more rapidly.
 
 Applying the Leibniz integration rule, our full equation is 
 
@@ -157,7 +155,8 @@ $$
 \dot{s}-a - \left(\dot{b}-m\right) =  - \frac{\partial}{\partial x} \int^{s(x)}_{b(x)} u\, dz.
 $$
 
-Recongnizing that $s-b = H$, so $\dot{s}-\dot{b} = \dot{H}$, leaves
+Recognizing that $s-b = H$, so $\dot{s}-\dot{b} = \dot{H}$, leaves
+
 $$
 \dot{H}-a  +m =  - \frac{\partial}{\partial x} \int^{s(x)}_{b(x)} u\, dz.
 $$
@@ -178,7 +177,7 @@ This is the same as we had before except that it includes the minor addition of 
 1. it shows that this equation does not assume that the base and surface are flat, which isn't obvious from the simpler derivation,
 2. it links the general mass balance equation ($\nabla\cdot\underline{u} = 0$) to this depth-averaged version used in ice sheet models, 
 3. it highlights the fact that we indeed need to integrate vertically (i.e. 'depth-integrate') to derive it, and 
-4. it lead us to also derive the kinematic condition for the ice surface ($\dot{s} = w_s + a - u_s \frac{\partial s}{\partial x}.$).
+4. it leads us to also derive the kinematic condition for the ice surface ($\dot{s} = w_s + a - u_s \frac{\partial s}{\partial x}.$).
 
 
 
