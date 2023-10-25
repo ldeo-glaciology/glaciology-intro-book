@@ -1,6 +1,6 @@
 # Depth-integrated mass balance 
 
-As we build our ice sheet model, we will need an equation to describe how the ice thickness, $H$ changes with time. As our ice sheet model is so-called 'depth-integrated' we can use the depth-integrated mass balance equation to describe how $H$ varies in time.
+As we build our ice sheet model, we will need an equation to describe how the ice thickness, $H$, changes with time. As our ice sheet model is so-called 'depth-integrated' we can use the depth-integrated mass balance equation to describe how $H$ varies in time.
 
 $$
 \dot{H} = a -  \nabla_h\cdot\underline{q}, 
