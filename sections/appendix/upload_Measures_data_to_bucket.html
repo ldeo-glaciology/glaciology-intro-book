@@ -1,474 +1,501 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Adding the MEASURES data to the google bucket &#8212; The Glaciology Data Analysis and Modeling book</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sections/appendix/upload_Measures_data_to_bucket';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Bibliography" href="../../bibliography.html" />
-    <link rel="prev" title="Numerical solutions" href="../temperature/numerical_solutions.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+    <link rel="prev" title="Stacking ApRES data" href="../radar/apres/stacking.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../book-intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/thumbnail.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">The Glaciology Data Analysis and Modeling book</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../book-intro.html">
-   The Glaciology Data Analysis and Modeling book
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Ice flow
- </span>
-</p>
+    
+    
+    <img src="../../_static/thumbnail.png" class="logo__image only-light" alt="The Glaciology Data Analysis and Modeling book - Home"/>
+    <script>document.write(`<img src="../../_static/thumbnail.png" class="logo__image only-dark" alt="The Glaciology Data Analysis and Modeling book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../book-intro.html">
+                    The Glaciology Data Analysis and Modeling book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ice flow</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/ice-flow-intro.html">
-   Introduction to ice flow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/ablation_accumulation.html">
-   Ice flow, accumulation and ablation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/antarctic-ice-flow.html">
-   Flow of the Antarctic Ice sheet
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/vec_calc.html">
-   Vector calculus background
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/depth_integrated_mass_balance.html">
-   Depth-integrated mass balance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/gradient.html">
-   The gradient of Antarctic Ice Sheet
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/strain_velocity.html">
-   Strain rate and velocity fields
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/rheology.html">
-   Ice rheology (under construction)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/stress_strain_tensors.html">
-   Stress and strain tensors (under construction)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/deviatoric_stress.html">
-   Deviatoric stress
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/driving_stress.html">
-   Driving stress (under construction)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/sia_derivation.html">
-   Ice flux
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ice_flow/stress_balance_eqns.html">
-   Stress balance equations
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/ice-flow-intro.html">Introduction to ice flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/ablation_accumulation.html">Ice flow, accumulation and ablation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/antarctic-ice-flow.html">Flow of the Antarctic Ice sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/vec_calc.html">Vector calculus background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/depth_integrated_mass_balance.html">Depth-integrated mass balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/gradient.html">The gradient of Antarctic Ice Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/strain_velocity.html">Strain rate and velocity fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/rheology.html">Ice rheology (under construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/stress_strain_tensors.html">Stress and strain tensors (under construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/deviatoric_stress.html">Deviatoric stress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/driving_stress.html">Driving stress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/stress_balance_eqns.html">Stress balance equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/sia_derivation.html">Ice flux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/u_bar_and_lliboutry.html">Building on the Shallow Ice Approximation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Radar
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Heat flow</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../radar/impulse/impulse-radar.html">
-   Impulse Radar
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../radar/apres/apres-intro.html">
-   Autonomous phase-sensitive radio echo sounder
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../radar/apres/apres-range-frequency.html">
-     Frequency and range
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../radar/apres/beat-frequency.html">
-     Beat frequency
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../radar/apres/chirps.html">
-     The fundamental operation of ApRES
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../radar/apres/coarse-range.html">
-     Discrete fourier transforms and phase
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../radar/apres/phase-frequency.html">
-     Phase and Frequency
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../radar/apres/stacking.html">
-     Stacking ApRES data
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../temperature/heat_intro.html">Heat flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../temperature/heat_equation.html">Heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../temperature/analytical_solution.html">An analytical solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../temperature/numerical_solutions.html">Numerical solutions</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Heat flow
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radar</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../temperature/heat_intro.html">
-   Heat flow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../temperature/heat_equation.html">
-   Heat equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../temperature/analytical_solution.html">
-   An analytical solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../temperature/numerical_solutions.html">
-   Numerical solutions
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../radar/impulse/impulse-radar.html">Impulse Radar</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../radar/apres/apres-intro.html">Autonomous phase-sensitive radio echo sounder</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/apres-range-frequency.html">Frequency and range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/beat-frequency.html">Beat frequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/chirps.html">The fundamental operation of ApRES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/coarse-range.html">Discrete fourier transforms and phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/phase-frequency.html">Phase and Frequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/stacking.html">Stacking ApRES data</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix
- </span>
-</p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Adding the MEASURES data to the google bucket
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Adding the MEASURES data to the google bucket</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  References
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../bibliography.html">
-   Bibliography
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/sections/appendix/upload_Measures_data_to_bucket.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/jkingslake/apres_jp"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/appendix/upload_Measures_data_to_bucket.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/appendix/upload_Measures_data_to_bucket.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jkingslake/apres_jp/main?urlpath=lab/tree/src/sections/appendix/upload_Measures_data_to_bucket.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/jkingslake/apres_jp/main?urlpath=lab/tree/src/sections/appendix/upload_Measures_data_to_bucket.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/appendix/upload_Measures_data_to_bucket.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/appendix/upload_Measures_data_to_bucket.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/sections/appendix/upload_Measures_data_to_bucket.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Adding the MEASURES data to the google bucket</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#download">
-   Download
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load">
-   Load
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rechunk">
-   Rechunk
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#write-to-bucket">
-   Write to bucket
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reload">
-   Reload
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download">Download</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load">Load</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rechunk">Rechunk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-to-bucket">Write to bucket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reload">Reload</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Adding the MEASURES data to the google bucket</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#download">
-   Download
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load">
-   Load
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rechunk">
-   Rechunk
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#write-to-bucket">
-   Write to bucket
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reload">
-   Reload
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="adding-the-measures-data-to-the-google-bucket">
-<h1>Adding the MEASURES data to the google bucket<a class="headerlink" href="#adding-the-measures-data-to-the-google-bucket" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="adding-the-measures-data-to-the-google-bucket">
+<h1>Adding the MEASURES data to the google bucket<a class="headerlink" href="#adding-the-measures-data-to-the-google-bucket" title="Permalink to this heading">#</a></h1>
 <p>In the ice flow chapter we loaded some widely used antarcitc surface velocity data from the cloud. This notebook demonstrates how to download that data, manipulate it so that it is in a format that makes cloud computing efficient, and upload it to a google bucket.</p>
 <p>To actually download and upload these data you will need your own NSIDC credentials (for the download) and google bucket token (for the upload).</p>
-<div class="section" id="download">
-<h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<section id="download">
+<h2>Download<a class="headerlink" href="#download" title="Permalink to this heading">#</a></h2>
 <p>To download the data from NSIDC to your local machine, run the following command. You will need an free account with NASA Earthdata Login account. More details can be found <a class="reference external" href="https://urs.earthdata.nasa.gov/profile">here</a>. Then replace USERNAME and PASSWORD in the command below with your Earthdata Login username and password.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget --http-user<span class="o">=</span>USERNAME --http-password<span class="o">=</span>PASSWORD https://n5eil01u.ecs.nsidc.org/MEASURES/NSIDC-0484.002/1996.01.01/antarctica_ice_velocity_450m_v2.nc
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>--http-user<span class="o">=</span>USERNAME<span class="w"> </span>--http-password<span class="o">=</span>PASSWORD<span class="w"> </span>https://n5eil01u.ecs.nsidc.org/MEASURES/NSIDC-0484.002/1996.01.01/antarctica_ice_velocity_450m_v2.nc
 </pre></div>
 </div>
 </div>
@@ -508,9 +535,9 @@ antarctica_ice_velo 100%[===================&gt;]   6.35G  10.1MB/s    in 16m 54
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="load">
-<h2>Load<a class="headerlink" href="#load" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="load">
+<h2>Load<a class="headerlink" href="#load" title="Permalink to this heading">#</a></h2>
 <p>Load the data lazily (so that it isnt all loaded into memory at once) using xarray</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -989,9 +1016,9 @@ Attributes: (12/26)
        [0, 0, 0, ..., 0, 0, 0],
        [0, 0, 0, ..., 0, 0, 0]], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bd86362f-ea8a-4042-ad2b-cf1caf4b5f31' class='xr-section-summary-in' type='checkbox'  ><label for='section-bd86362f-ea8a-4042-ad2b-cf1caf4b5f31' class='xr-section-summary' >Attributes: <span>(26)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>Metadata_Conventions :</span></dt><dd>CF-1.6, Unidata Dataset Discovery v1.0, GDS v2.0</dd><dt><span>standard_name_vocabulary :</span></dt><dd>CF Standard Name Table (v22, 12 February 2013)</dd><dt><span>id :</span></dt><dd>vel_nsidc.CF16.nc</dd><dt><span>title :</span></dt><dd>MEaSURES Antarctica Ice Velocity Map 450m spacing</dd><dt><span>product_version :</span></dt><dd> </dd><dt><span>summary :</span></dt><dd> </dd><dt><span>keywords :</span></dt><dd> </dd><dt><span>keywords_vocabulary :</span></dt><dd> </dd><dt><span>platform :</span></dt><dd> </dd><dt><span>sensor :</span></dt><dd> </dd><dt><span>date_created :</span></dt><dd>2017-04-06T17:47:44.00004923343322Z</dd><dt><span>institution :</span></dt><dd>Department of Earth System Science, University of California, Irvine</dd><dt><span>cdm_data_type :</span></dt><dd>Grid</dd><dt><span>geospatial_lat_units :</span></dt><dd>degrees_north</dd><dt><span>geospatial_lon_units :</span></dt><dd>degrees_east</dd><dt><span>geospatial_lat_min :</span></dt><dd>-90</dd><dt><span>geospatial_lat_max :</span></dt><dd>-60</dd><dt><span>geospatial_lon_min :</span></dt><dd>-180</dd><dt><span>geospatial_lon_max :</span></dt><dd>180</dd><dt><span>spatial_resolution :</span></dt><dd>450m</dd><dt><span>time_coverage_start :</span></dt><dd>1995-01-01</dd><dt><span>time_coverage_end :</span></dt><dd>2016-12-31</dd><dt><span>project :</span></dt><dd>NASA/MEaSUREs</dd><dt><span>creator_name :</span></dt><dd>J. Mouginot</dd><dt><span>license :</span></dt><dd>No restrictions on access or use</dd></dl></div></li></ul></div></div></div></div>
 </div>
-</div>
-<div class="section" id="rechunk">
-<h2>Rechunk<a class="headerlink" href="#rechunk" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rechunk">
+<h2>Rechunk<a class="headerlink" href="#rechunk" title="Permalink to this heading">#</a></h2>
 <p>Zarr stores are ways of stored multi-dimensional data in a way this is optimized for fast access from distributed cloud computing. Zarr stores use a concept called chunks. Chunks are the smallest units of data that can be downloaded one-at-a-time. It is best to make them smaller than the total size fo the dataset, because then you can avoid downloading ~7 Gb every time, but making them too small introduces overheads that slow things down. The chunk size that the dataset has by default after loading from a netcdf (as we did above) may not be ideal, so one needs to inspect the chunk size and ‘rechunk’ is nessesary.</p>
 <p>For this dataset, it turns out that if you split each variable into four chunks you get about the right size of chunk. The following cell does this.</p>
 <div class="cell docutils container">
@@ -1398,13 +1425,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 1.15 GiB </td>
                         <td> 295.45 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -1457,13 +1484,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 1.15 GiB </td>
                         <td> 295.45 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -1516,13 +1543,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -1575,13 +1602,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -1634,13 +1661,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -1693,13 +1720,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -1752,13 +1779,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -1811,13 +1838,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -1870,13 +1897,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -1919,9 +1946,9 @@ Attributes: (12/26)
     </tr>
 </table></div></li></ul></div></li><li class='xr-section-item'><input id='section-fa5f8f33-494e-4709-873a-89b471a18ee3' class='xr-section-summary-in' type='checkbox'  ><label for='section-fa5f8f33-494e-4709-873a-89b471a18ee3' class='xr-section-summary' >Attributes: <span>(26)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>Metadata_Conventions :</span></dt><dd>CF-1.6, Unidata Dataset Discovery v1.0, GDS v2.0</dd><dt><span>standard_name_vocabulary :</span></dt><dd>CF Standard Name Table (v22, 12 February 2013)</dd><dt><span>id :</span></dt><dd>vel_nsidc.CF16.nc</dd><dt><span>title :</span></dt><dd>MEaSURES Antarctica Ice Velocity Map 450m spacing</dd><dt><span>product_version :</span></dt><dd> </dd><dt><span>summary :</span></dt><dd> </dd><dt><span>keywords :</span></dt><dd> </dd><dt><span>keywords_vocabulary :</span></dt><dd> </dd><dt><span>platform :</span></dt><dd> </dd><dt><span>sensor :</span></dt><dd> </dd><dt><span>date_created :</span></dt><dd>2017-04-06T17:47:44.00004923343322Z</dd><dt><span>institution :</span></dt><dd>Department of Earth System Science, University of California, Irvine</dd><dt><span>cdm_data_type :</span></dt><dd>Grid</dd><dt><span>geospatial_lat_units :</span></dt><dd>degrees_north</dd><dt><span>geospatial_lon_units :</span></dt><dd>degrees_east</dd><dt><span>geospatial_lat_min :</span></dt><dd>-90</dd><dt><span>geospatial_lat_max :</span></dt><dd>-60</dd><dt><span>geospatial_lon_min :</span></dt><dd>-180</dd><dt><span>geospatial_lon_max :</span></dt><dd>180</dd><dt><span>spatial_resolution :</span></dt><dd>450m</dd><dt><span>time_coverage_start :</span></dt><dd>1995-01-01</dd><dt><span>time_coverage_end :</span></dt><dd>2016-12-31</dd><dt><span>project :</span></dt><dd>NASA/MEaSUREs</dd><dt><span>creator_name :</span></dt><dd>J. Mouginot</dd><dt><span>license :</span></dt><dd>No restrictions on access or use</dd></dl></div></li></ul></div></div></div></div>
 </div>
-</div>
-<div class="section" id="write-to-bucket">
-<h2>Write to bucket<a class="headerlink" href="#write-to-bucket" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="write-to-bucket">
+<h2>Write to bucket<a class="headerlink" href="#write-to-bucket" title="Permalink to this heading">#</a></h2>
 <p>We will write both the default (small chunked) dataset and the rechunked dataset to the google bucket, for use elsewhere in the book.</p>
 <p>To write this to the google bucket, we require an authentication token, that is private. To do yourself you will need your own google bucket and token specific to that bucket.</p>
 <div class="cell docutils container">
@@ -1959,9 +1986,9 @@ Attributes: (12/26)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="reload">
-<h2>Reload<a class="headerlink" href="#reload" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="reload">
+<h2>Reload<a class="headerlink" href="#reload" title="Permalink to this heading">#</a></h2>
 <p>To check that the data was uploaded correctly, reload both the dataset using the syntax that will be used in the main page making use of these data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2366,13 +2393,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 1.15 GiB </td>
                         <td> 2.31 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -2456,13 +2483,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 1.15 GiB </td>
                         <td> 2.31 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -2546,13 +2573,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 2.31 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -2633,13 +2660,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 2.31 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -2720,13 +2747,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 2.31 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -2807,13 +2834,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 2.31 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -2894,13 +2921,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 2.31 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -2981,13 +3008,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 2.31 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -3068,13 +3095,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 2.31 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -3547,13 +3574,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 1.15 GiB </td>
                         <td> 295.45 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -3606,13 +3633,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 1.15 GiB </td>
                         <td> 295.45 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -3665,13 +3692,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -3724,13 +3751,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -3783,13 +3810,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -3842,13 +3869,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -3901,13 +3928,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -3960,13 +3987,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -4019,13 +4046,13 @@ Attributes: (12/26)
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 590.81 MiB </td>
                         <td> 147.73 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (12445, 12445) </td>
@@ -4068,8 +4095,8 @@ Attributes: (12/26)
     </tr>
 </table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>coord_system</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>|S1</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8d36c7d1-5ddc-4aae-9b04-0198fe0d1627' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8d36c7d1-5ddc-4aae-9b04-0198fe0d1627' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-80913942-beaf-44fd-8223-9c2b16e15130' class='xr-var-data-in' type='checkbox'><label for='data-80913942-beaf-44fd-8223-9c2b16e15130' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>ellipsoid :</span></dt><dd>WGS84</dd><dt><span>false_easting :</span></dt><dd>0.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>grid_mapping_name :</span></dt><dd>polar_stereographic</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>-90.0</dd><dt><span>longitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>standard_parallel :</span></dt><dd>-71.0</dd><dt><span>straight_vertical_longitude_from_pole :</span></dt><dd>0.0</dd></dl></div><div class='xr-var-data'><pre>array(b&#x27;&#x27;, dtype=&#x27;|S1&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2464e7c2-01e0-4df4-8d71-ab47e0b8b6f6' class='xr-section-summary-in' type='checkbox'  ><label for='section-2464e7c2-01e0-4df4-8d71-ab47e0b8b6f6' class='xr-section-summary' >Attributes: <span>(26)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>Metadata_Conventions :</span></dt><dd>CF-1.6, Unidata Dataset Discovery v1.0, GDS v2.0</dd><dt><span>cdm_data_type :</span></dt><dd>Grid</dd><dt><span>creator_name :</span></dt><dd>J. Mouginot</dd><dt><span>date_created :</span></dt><dd>2017-04-06T17:47:44.00004923343322Z</dd><dt><span>geospatial_lat_max :</span></dt><dd>-60</dd><dt><span>geospatial_lat_min :</span></dt><dd>-90</dd><dt><span>geospatial_lat_units :</span></dt><dd>degrees_north</dd><dt><span>geospatial_lon_max :</span></dt><dd>180</dd><dt><span>geospatial_lon_min :</span></dt><dd>-180</dd><dt><span>geospatial_lon_units :</span></dt><dd>degrees_east</dd><dt><span>id :</span></dt><dd>vel_nsidc.CF16.nc</dd><dt><span>institution :</span></dt><dd>Department of Earth System Science, University of California, Irvine</dd><dt><span>keywords :</span></dt><dd> </dd><dt><span>keywords_vocabulary :</span></dt><dd> </dd><dt><span>license :</span></dt><dd>No restrictions on access or use</dd><dt><span>platform :</span></dt><dd> </dd><dt><span>product_version :</span></dt><dd> </dd><dt><span>project :</span></dt><dd>NASA/MEaSUREs</dd><dt><span>sensor :</span></dt><dd> </dd><dt><span>spatial_resolution :</span></dt><dd>450m</dd><dt><span>standard_name_vocabulary :</span></dt><dd>CF Standard Name Table (v22, 12 February 2013)</dd><dt><span>summary :</span></dt><dd> </dd><dt><span>time_coverage_end :</span></dt><dd>2016-12-31</dd><dt><span>time_coverage_start :</span></dt><dd>1995-01-01</dd><dt><span>title :</span></dt><dd>MEaSURES Antarctica Ice Velocity Map 450m spacing</dd></dl></div></li></ul></div></div></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -4083,7 +4110,7 @@ Attributes: (12/26)
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./sections/appendix"
         },
         predefinedOutput: true
@@ -4091,44 +4118,105 @@ Attributes: (12/26)
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../temperature/numerical_solutions.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Numerical solutions</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../radar/apres/stacking.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Stacking ApRES data</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../../bibliography.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../../bibliography.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Bibliography</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By The Jupyter Book community<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download">Download</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load">Load</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rechunk">Rechunk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-to-bucket">Write to bucket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reload">Reload</a></li>
+</ul>
+  </nav></div>
 
-      </div>
-    </div>
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
