@@ -296,24 +296,3 @@ This is the final expression for the ice flux in the Shallow Ice Approximation m
 Note how strongly dependent on the thickness it is: $H^5$, if $n=3$.
 
 
-## Mean velocity
-We can compute the mean velocity from $q$ as $\overline{u} = q/H$:
-
-$$
-\overline{u} = \frac{2A}{n+2} \left(\rho g \alpha \right)^n  H^{n+1}. 
-$$
-
-This looks very similar the surface velocity. In fact, according the shallow ice approximation, the surface velocity and the depth-averaged velocity have a very simple relationship:
-
-$$
-\frac{u_s}{ \overline{u}} = \frac{n+2}{n+1}.
-$$
-
-The surface velocity is always larger than the depth-averaged velocity, but by a smaller fraction for increasing nonlinear ice rheology. For example, if is linear, $n=1$ and $u_s/\overline{u} = 3/2$, or if $n=3$ and $u_s/\overline{u} = 5/4$. This can be understood mathematically by looking at the horizontal velocity shape function $1- \zeta^{n+1} $. The second term in the shape function controls how much the velocity deviates from the surface velocity. It deviates less for higher $n$ (just consider what the curves of $y=x^{n+1}$ look like between 0 and 1 for different values of $n$). Ths effect can be understood physically by remembering that we showed the that vertical shear stress increases linearly with depth:
-
-$$
-\tau_{zx} = -\rho g \alpha  (z-H).
-$$
-
-It is the rheology of the ice that determines how this linear increase in $\tau_{zx}$ with depth translates into shear strain. Therefore, it makes sense that in more non-linear ice the deformation is concentrated where the shear stress is highest -- the bottom -- and the vertical gradient of $u$ is highest there, which is exactly what $1- \zeta^{n+1} $
-does for higher $n$. 
