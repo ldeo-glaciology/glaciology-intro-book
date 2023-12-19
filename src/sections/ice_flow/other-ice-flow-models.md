@@ -1,13 +1,14 @@
 # Two other ice flow models
 
-So far in this chapter we started from the full stokes stress balance equations and applied the shallow ice approximation (SIA) to derive the simplest widely-used ie sheet model. 
+Pn the previous page, we started from the full stokes stress balance equations and applied the shallow ice approximation (SIA) to derive the simplest widely-used ice sheet model. 
 
-Below we describe the derivation of two other commonly used ice-flow models the 'higher-order' Blatter-Pattyn (BP) model, and the shallow shelf approximation (SSA) model. 
+Below we describe the derivation of two other commonly used ice-flow models the 'higher-order' Blatter-Pattyn (BP) model, and the shallow shelf approximation (SSA) model. For completeness we also describe the derivation of the SIA model from the BP model. 
 
 ## Full stokes to BP
-The Blatter-Pattyn (BP) model is considered higher-order than the SIA and SSA because it retains more of the terms in the stress balance equations that those models. The following derivation of the BP model comes from the [documentation of the Community Ie Sheet model](https://cism.github.io/data/cism_documentation_v2_1.pdf).
+The Blatter-Pattyn (BP) model is considered higher-order than the SIA and SSA because it retains more of the terms in the stress balance equations that those models. The following derivation of the BP model comes from the [documentation of the Community Ice Sheet model](https://cism.github.io/data/cism_documentation_v2_1.pdf).
 
 Starting with the stokes equations
+
 $$
 \frac{\partial \sigma_{xx}}{\partial x}+\frac{\partial \tau_{yx}}{\partial y}+\frac{\partial \tau_{zx}}{\partial z} = 0
 $$
@@ -98,9 +99,9 @@ $$
 \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0 
 $$
 
-where $u$ is the horizontal velocity and $w$ is the vertical velocity. 
+where $u$ is the horizontal velocity and $w$ is the vertical velocity, i.e. the horizontal normal strain rate is equal to the negative of the vertical normal strain rate.
 
-Additionally assuming that the stresses and strains are aligned gives 
+Additionally assuming that the stresses and strain rates are aligned gives 
 
 $$
 \tau_{zz} = -\tau_{xx}
@@ -159,7 +160,7 @@ $$
 Substituting this into the stress balance equation gives
 
 $$
-4\frac{\partial }{\partial x}  (\eta \epsilon_{xx}) +2 \frac{\partial }{\partial z} (\eta \epsilon_{zx}) = \rho g \frac{\partial s}{\partial x} 
+4\frac{\partial }{\partial x}  (\eta \dot{\epsilon}_{xx}) +2 \frac{\partial }{\partial z} (\eta \dot{\epsilon}_{zx}) = \rho g \frac{\partial s}{\partial x} 
 $$
 
 Finally we will need the relationship between strain rates and velocity gradients: 
@@ -167,6 +168,7 @@ Finally we will need the relationship between strain rates and velocity gradient
 $$
 \dot{\epsilon}_{ij} = \frac{1}{2}\left(\frac{\partial \underline{u}_i}{\partial \underline{x}_j} + \frac{\partial \underline{u}_j}{\partial \underline{x}_i}\right),
 $$
+
 where $\underline{u}$ is velocity field $(u, v, w)$ components and $\underline{x}$ are the three coordinates $x$, $y$, and $z$. 
 For our two remaining strain rates this gives
 
@@ -217,7 +219,7 @@ $$
 \int^s_b \frac{\partial \tau_{zx}}{\partial z}  dz = 0 - \tau_b,
 $$
 
-where $\tau_b$ is the vertical shear stress at the base of the ice, we have imposed the surface boundary condition of  $\tau_{zx}(s) = 0$. We also assumed $\frac{\partial \tau_{zx}}{\partial z} = 0$ within the ice. 
+where $\tau_b$ is the vertical shear stress at the base of the ice, we have imposed the surface boundary condition of  $\tau_{zx}(s) = 0$. 
 
 To evaluate the first term on the left we use the Leibniz integration rule to move the integral inside the first derivative. 
 
@@ -227,7 +229,7 @@ $$
 \frac{d}{dx} \int^s_b f(x,z) dz =  f(x,s) \frac{ds}{dx} -  f(x,b) \frac{db}{dx} + \int^s_b \frac{\partial}{\partial x} f(x,z) dz.
 $$
 
-Applying this rule to the first term on the right of the stress balance equation and assuming $\frac{ds}{dx} = \frac{db}{dx} = 0$, gives
+We will assume $\frac{ds}{dx} = \frac{db}{dx} = 0$, which is consistent with large-aspect-ratio assumption that is key to the SSA. Therefore, applying the Leibniz rule to the first term on the left of the stress balance equation gives
 
 $$
 4 \int^s_b\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right) dz  = 4 \frac{\partial }{\partial x}  \int^s_b \left(\eta \frac{\partial u}{\partial x} \right) dz.
@@ -252,8 +254,7 @@ $$
 Bring all three expressions together gives
 
 $$
-
-4 \frac{\partial }{\partial x} \left(  \overline{\eta} H\frac{\partial u}{\partial x} \right) - \tau_b = \rho g H\frac{\partial s}{\partial x} .
+4 \frac{\partial }{\partial x} \left(  \overline{\eta} H\frac{\partial u}{\partial x} \right) - \tau_b = \rho g H\frac{\partial s}{\partial x}.
 $$
 
 This is one commonly used form of the SSA. Another is found by substituting in an expression for the depth-averaged effective viscosity, which is simply 
@@ -283,7 +284,7 @@ $$
 \frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial s}{\partial x}. 
 $$
 
-From now on the derivation is the same as the derivation on this [page](sia_derivation), equation ({eq}`dtau_zxdz`.
+From now on the derivation is the same as the derivation on this [page](sia_derivation), equation ({eq}`dtau_zxdz`).
 
 We integrate vertically, then substitute in Glen's flow law and the relationship between velocity gradients and strain rates. Then intergrate vertically again to obtain an expression for $u(z)$, then integrate vertically again to get an expression for the depth-integrated flux per unit width, $q$:
 
