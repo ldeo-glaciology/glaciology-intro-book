@@ -65,7 +65,7 @@ $$
 This is the stres imbalance integrated over the is ice thickness and across a width $\delta y$ perpendicular to flow. We define the driving stress as the force imbalance per unit area of the bed:
 
 $$
-\tau_d = \frac{\Delta F}{A} = \frac {\Delta F}{\partial x \partial y}
+\tau_d = \frac{\Delta F}{A} = \frac {\Delta F}{\delta x \delta y}
 $$
 
 $$
