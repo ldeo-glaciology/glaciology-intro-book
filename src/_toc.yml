@@ -18,6 +18,7 @@ parts:
   - file: sections/ice_flow/stress_balance_eqns.md
   - file: sections/ice_flow/sia_derivation.md
   - file: sections/ice_flow/u_bar_and_lliboutry.md
+  - file: sections/ice_flow/other-ice-flow-models.md
   
 
 - caption: Heat flow

@@ -8,3 +8,5 @@ src/.DS_Store
 src/_build/**
 Src/**/*checkpoints*
 
+src/.DS_Store
+.DS_Store
