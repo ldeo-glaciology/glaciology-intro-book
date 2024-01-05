@@ -7,9 +7,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Ice flux &#8212; The Glaciology Data Analysis and Modeling book</title>
+    <title>The Shallow Ice Approximation model &#8212; The Glaciology Data Analysis and Modeling book</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -183,8 +183,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="deviatoric_stress.html">Deviatoric stress</a></li>
 <li class="toctree-l1"><a class="reference internal" href="driving_stress.html">Driving stress</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stress_balance_eqns.html">Stress balance equations</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ice flux</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The Shallow Ice Approximation model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="u_bar_and_lliboutry.html">Building on the Shallow Ice Approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-ice-flow-models.html">Two other ice flow models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heat flow</span></p>
 <ul class="nav bd-sidenav">
@@ -413,7 +414,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ice flux</h1>
+    <h1>The Shallow Ice Approximation model</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,8 +433,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rheology">Rheology</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strain-rates-and-velocity-gradients">Strain rates and velocity gradients.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal-velocity">Horizontal velocity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ice flux</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-velocity">Mean velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice-flux">Ice flux</a></li>
 </ul>
             </nav>
         </div>
@@ -445,8 +445,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="ice-flux">
-<h1>Ice flux<a class="headerlink" href="#ice-flux" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-shallow-ice-approximation-model">
+<span id="sia-derivation"></span><h1>The Shallow Ice Approximation model<a class="headerlink" href="#the-shallow-ice-approximation-model" title="Permalink to this heading">#</a></h1>
 <p>Finally we are ready to derive our simple equation of ice flux, which will be combined with the depth-averaged mass balance equation to make our ice-sheet model.</p>
 <p>We will use the so-called ‘shallow ice approximation’ to simplify the stress balance equations,</p>
 <div class="math notranslate nohighlight">
@@ -555,8 +555,8 @@ q = \int^H_0 u(z) dz.
 \frac{\partial \sigma_{m}}{\partial x} =- \rho g \frac{\partial H}{\partial x}
 \]</div>
 <p>Substituting this into the <span class="math notranslate nohighlight">\(x\)</span>-direction stress balance equation shows</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-dtau-zxdz">
+<span class="eqno">(1)<a class="headerlink" href="#equation-dtau-zxdz" title="Permalink to this equation">#</a></span>\[
 \frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial H}{\partial x}
 \]</div>
 <p>Noting that <span class="math notranslate nohighlight">\(\frac{\partial H}{\partial x}\)</span> is usually negative, this expression suggests that the vertical shear stress <span class="math notranslate nohighlight">\(\tau_{zx}\)</span> decreases with <span class="math notranslate nohighlight">\(z\)</span>.</p>
@@ -566,7 +566,7 @@ q = \int^H_0 u(z) dz.
 <p>To get an expression for <span class="math notranslate nohighlight">\(\tau_{zx}\)</span>, we integrate the expression above vertically:</p>
 <div class="math notranslate nohighlight">
 \[
-\int^0_{\tau_{zx}} \tau_{zx} dz = \rho g \frac{\partial H}{\partial x} \int^H_z  dz
+\int^0_{\tau_{zx}} \frac{\partial \tau_{zx}}{\partial z}dz = \rho g \frac{\partial H}{\partial x} \int^H_z  dz
 \]</div>
 <p>where we have imposed the boundary condition <span class="math notranslate nohighlight">\(\tau_{zx}(z=H) = 0\)</span>, i.e.  there is no shear stress exerted by the air on the ice sheet at the surface.</p>
 <p>Evaluating this integral gives</p>
@@ -658,8 +658,8 @@ u(\zeta) = u_s \left( 1- \zeta^{n+1} \right).
 \]</div>
 <p>This highlights how you can think of the velocity as being the product of the surface velocity and a function of depth: <span class="math notranslate nohighlight">\(1- \zeta^{n+1} \)</span>. This function is often called a ‘shape function’.</p>
 </section>
-<section id="id1">
-<h2>Ice flux<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<section id="ice-flux">
+<h2>Ice flux<a class="headerlink" href="#ice-flux" title="Permalink to this heading">#</a></h2>
 <p>To determine the ice flux</p>
 <div class="math notranslate nohighlight">
 \[
@@ -703,26 +703,6 @@ q = \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+2} \left(\frac{n+1}{n+2} 
 \]</div>
 <p>This is the final expression for the ice flux in the Shallow Ice Approximation model.</p>
 <p>Note how strongly dependent on the thickness it is: <span class="math notranslate nohighlight">\(H^5\)</span>, if <span class="math notranslate nohighlight">\(n=3\)</span>.</p>
-</section>
-<section id="mean-velocity">
-<h2>Mean velocity<a class="headerlink" href="#mean-velocity" title="Permalink to this heading">#</a></h2>
-<p>We can compute the mean velocity from <span class="math notranslate nohighlight">\(q\)</span> as <span class="math notranslate nohighlight">\(\overline{u} = q/H\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-\overline{u} = \frac{2A}{n+2} \left(\rho g \alpha \right)^n  H^{n+1}. 
-\]</div>
-<p>This looks very similar the surface velocity. In fact, according the shallow ice approximation, the surface velocity and the depth-averaged velocity have a very simple relationship:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{u_s}{ \overline{u}} = \frac{n+2}{n+1}.
-\]</div>
-<p>The surface velocity is always larger than the depth-averaged velocity, but by a smaller fraction for increasing nonlinear ice rheology. For example, if is linear, <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(u_s/\overline{u} = 3/2\)</span>, or if <span class="math notranslate nohighlight">\(n=3\)</span> and <span class="math notranslate nohighlight">\(u_s/\overline{u} = 5/4\)</span>. This can be understood mathematically by looking at the horizontal velocity shape function <span class="math notranslate nohighlight">\(1- \zeta^{n+1} \)</span>. The second term in the shape function controls how much the velocity deviates from the surface velocity. It deviates less for higher <span class="math notranslate nohighlight">\(n\)</span> (just consider what the curves of <span class="math notranslate nohighlight">\(y=x^{n+1}\)</span> look like between 0 and 1 for different values of <span class="math notranslate nohighlight">\(n\)</span>). Ths effect can be understood physically by remembering that we showed the that vertical shear stress increases linearly with depth:</p>
-<div class="math notranslate nohighlight">
-\[
-\tau_{zx} = -\rho g \alpha  (z-H).
-\]</div>
-<p>It is the rheology of the ice that determines how this linear increase in <span class="math notranslate nohighlight">\(\tau_{zx}\)</span> with depth translates into shear strain. Therefore, it makes sense that in more non-linear ice the deformation is concentrated where the shear stress is highest – the bottom – and the vertical gradient of <span class="math notranslate nohighlight">\(u\)</span> is highest there, which is exactly what <span class="math notranslate nohighlight">\(1- \zeta^{n+1} \)</span>
-does for higher <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </section>
 </section>
 
@@ -798,8 +778,7 @@ does for higher <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rheology">Rheology</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strain-rates-and-velocity-gradients">Strain rates and velocity gradients.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal-velocity">Horizontal velocity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ice flux</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-velocity">Mean velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice-flux">Ice flux</a></li>
 </ul>
   </nav></div>
 
@@ -847,8 +826,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

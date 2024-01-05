@@ -1,6 +1,6 @@
 # Building on the Shallow Ice Approximation
 
-On previous page we derived expressions for the horizontal ice velocity as function of depth $\zeta$ and depth-integrated flux. As a slight aside, on this page we build on these results to derive expressions for the depth-averaged velocity and the vertical velocity as a function of $\zeta$.
+On previous page we derived expressions for the horizontal ice velocity as a function of depth $\zeta$ and for the depth-integrated flux. On this page we build on these results to derive expressions for the depth-averaged velocity and the vertical velocity as a function of $\zeta$.
 
 ## Horizontal velocity
 To summarize the previous page, we showed that the horizontal velocity as a function of depth $\zeta$ is 
@@ -9,7 +9,7 @@ $$
 u(\zeta)=  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1} \left( 1- \zeta^{n+1} \right),
 $$
 
-where $A$ is th. flow parameter in Glen's flow law (the power-law, shear thinning rheology assumed for ice), $n$ is the flow-law exponent, $\rho$ is the ice density, $g$ is the acceleration due to gravity, $\alpha$ is the surface slope, $H$ is the ice thickness, and $\zeta$ is the dimensionless depth coordinate defined as $\zeta = 1-z/H$.
+where $A$ is the flow parameter in [Glen's flow law](ice-rheology) (the power-law, shear-thinning rheology assumed for ice), $n$ is the flow-law exponent, $\rho$ is the ice density, $g$ is the acceleration due to gravity, $\alpha$ is the surface slope, $H$ is the ice thickness, and $\zeta$ is the dimensionless depth coordinate defined as $\zeta = 1-z/H$.
 
 We can get the horizontal velocity at the surface by evaluating this expression at $\zeta = 0$:
 
@@ -24,7 +24,7 @@ u(\zeta) = u_s \left( 1- \zeta^{n+1} \right).
 $$
 
 ## Mean velocity
-We can compute the mean velocity from this by integrating vertically and dividing by $H$:
+We can compute the mean horizontal velocity from this by integrating vertically and dividing by $H$:
 
 $$
 \overline{u} = \frac{2A}{n+2} \left(\rho g \alpha \right)^n  H^{n+1}. 
@@ -51,19 +51,19 @@ does for higher $n$.
 
 
 ## Vertical velocity
-Another extension from our expression for horizontal velocity:
+Another extension to our expression for horizontal velocity from the previous page,
 
 $$
 u(x, \zeta)=  u_s(x) \left( 1- \zeta^{n+1} \right),
 $$
 
- is to compute the vertical velocity as function of depth. This is often referred to as the Lliboutry function. Here we explicitly noting that $u_s$ and therefore $u$ are functions of $x$. We will use the general mass continuity equation 
+is to compute the vertical velocity as function of depth. This is often referred to as the Lliboutry function. In the expression above we are explicitly noting that $u_s$ and therefore $u$ are functions of $x$. We will use the general mass continuity equation, 
 
- $$
-    \nabla\cdot\underline{u} =   \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0,
- $$
+$
+\nabla\cdot\underline{u} =   \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0,
+$$
 
- where $w$ is the vertical velocity, $u$ is the horizontal velocity, $x$ is the horizontal coordinate, and $z$ is the vertical. As our velocity expression is in terms of normalized depth, $\zeta = 1-z/H$, we want the expression above in terms of $\zeta$. Differentiating the definition of $\zeta$ provides
+where $w$ is the vertical velocity, $u$ is the horizontal velocity, $x$ is the horizontal coordinate, and $z$ is the vertical coordinate. As our velocity expression is in terms of normalized depth, $\zeta = 1-z/H$, we want the expression above in terms of $\zeta$. Differentiating the definition of $\zeta$ provides
 
 $$ 
 \frac{\partial \zeta}{\partial z} = -\frac{1}{H} 
@@ -75,7 +75,6 @@ $$
 \frac{\partial w}{\partial z} = \frac{\partial w}{\partial \zeta} \frac{\partial \zeta}{\partial z} = -\frac{1}{H} \frac{\partial w}{\partial \zeta}.
 $$
 
-
 Therefore, from the mass continuity equation
 
 $$ 
@@ -85,13 +84,13 @@ $$
 Differentiating our expression for $u(x, \zeta)$ with respect to $x$ gives 
 
 $$
-   \frac{\partial u}{\partial x} =  \frac{\partial u_s}{\partial x} \left( 1- \zeta^{n+1} \right) - u_s \frac{\partial \zeta}{\partial x} (n+1) \zeta^n.
+\frac{\partial u}{\partial x} =  \frac{\partial u_s}{\partial x} \left( 1- \zeta^{n+1} \right) - u_s \frac{\partial \zeta}{\partial x} (n+1) \zeta^n.
 $$
 
 Here we assume that $H$ is not a function of $x$, so $\partial \zeta/\partial x = 0$. Putting this into the expression above leaves
 
 $$
-    \frac{\partial u}{\partial x} =  \frac{\partial u_s}{\partial x} \left( 1- \zeta^{n+1} \right). 
+\frac{\partial u}{\partial x} =  \frac{\partial u_s}{\partial x} \left( 1- \zeta^{n+1} \right). 
 $$
 
 Based on the mass continuity equation

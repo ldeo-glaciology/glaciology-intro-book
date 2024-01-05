@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Building on the Shallow Ice Approximation &#8212; The Glaciology Data Analysis and Modeling book</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'sections/ice_flow/u_bar_and_lliboutry';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Heat flow" href="../temperature/heat_intro.html" />
-    <link rel="prev" title="Ice flux" href="sia_derivation.html" />
+    <link rel="next" title="Two other ice flow models" href="other-ice-flow-models.html" />
+    <link rel="prev" title="The Shallow Ice Approximation model" href="sia_derivation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,8 +183,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="deviatoric_stress.html">Deviatoric stress</a></li>
 <li class="toctree-l1"><a class="reference internal" href="driving_stress.html">Driving stress</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stress_balance_eqns.html">Stress balance equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sia_derivation.html">Ice flux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sia_derivation.html">The Shallow Ice Approximation model</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Building on the Shallow Ice Approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-ice-flow-models.html">Two other ice flow models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heat flow</span></p>
 <ul class="nav bd-sidenav">
@@ -439,7 +440,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="building-on-the-shallow-ice-approximation">
 <h1>Building on the Shallow Ice Approximation<a class="headerlink" href="#building-on-the-shallow-ice-approximation" title="Permalink to this heading">#</a></h1>
-<p>On previous page we derived expressions for the horizontal ice velocity as function of depth <span class="math notranslate nohighlight">\(\zeta\)</span> and depth-integrated flux. As a slight aside, on this page we build on these results to derive expressions for the depth-averaged velocity and the vertical velocity as a function of <span class="math notranslate nohighlight">\(\zeta\)</span>.</p>
+<p>On previous page we derived expressions for the horizontal ice velocity as a function of depth <span class="math notranslate nohighlight">\(\zeta\)</span> and for the depth-integrated flux. On this page we build on these results to derive expressions for the depth-averaged velocity and the vertical velocity as a function of <span class="math notranslate nohighlight">\(\zeta\)</span>.</p>
 <section id="horizontal-velocity">
 <h2>Horizontal velocity<a class="headerlink" href="#horizontal-velocity" title="Permalink to this heading">#</a></h2>
 <p>To summarize the previous page, we showed that the horizontal velocity as a function of depth <span class="math notranslate nohighlight">\(\zeta\)</span> is</p>
@@ -447,7 +448,7 @@ document.write(`
 \[
 u(\zeta)=  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1} \left( 1- \zeta^{n+1} \right),
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(A\)</span> is th. flow parameter in Glen’s flow law (the power-law, shear thinning rheology assumed for ice), <span class="math notranslate nohighlight">\(n\)</span> is the flow-law exponent, <span class="math notranslate nohighlight">\(\rho\)</span> is the ice density, <span class="math notranslate nohighlight">\(g\)</span> is the acceleration due to gravity, <span class="math notranslate nohighlight">\(\alpha\)</span> is the surface slope, <span class="math notranslate nohighlight">\(H\)</span> is the ice thickness, and <span class="math notranslate nohighlight">\(\zeta\)</span> is the dimensionless depth coordinate defined as <span class="math notranslate nohighlight">\(\zeta = 1-z/H\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is the flow parameter in <a class="reference internal" href="rheology.html#ice-rheology"><span class="std std-ref">Glen’s flow law</span></a> (the power-law, shear-thinning rheology assumed for ice), <span class="math notranslate nohighlight">\(n\)</span> is the flow-law exponent, <span class="math notranslate nohighlight">\(\rho\)</span> is the ice density, <span class="math notranslate nohighlight">\(g\)</span> is the acceleration due to gravity, <span class="math notranslate nohighlight">\(\alpha\)</span> is the surface slope, <span class="math notranslate nohighlight">\(H\)</span> is the ice thickness, and <span class="math notranslate nohighlight">\(\zeta\)</span> is the dimensionless depth coordinate defined as <span class="math notranslate nohighlight">\(\zeta = 1-z/H\)</span>.</p>
 <p>We can get the horizontal velocity at the surface by evaluating this expression at <span class="math notranslate nohighlight">\(\zeta = 0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -461,7 +462,7 @@ u(\zeta) = u_s \left( 1- \zeta^{n+1} \right).
 </section>
 <section id="mean-velocity">
 <h2>Mean velocity<a class="headerlink" href="#mean-velocity" title="Permalink to this heading">#</a></h2>
-<p>We can compute the mean velocity from this by integrating vertically and dividing by <span class="math notranslate nohighlight">\(H\)</span>:</p>
+<p>We can compute the mean horizontal velocity from this by integrating vertically and dividing by <span class="math notranslate nohighlight">\(H\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 \overline{u} = \frac{2A}{n+2} \left(\rho g \alpha \right)^n  H^{n+1}. 
@@ -485,17 +486,16 @@ does for higher <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </section>
 <section id="vertical-velocity">
 <h2>Vertical velocity<a class="headerlink" href="#vertical-velocity" title="Permalink to this heading">#</a></h2>
-<p>Another extension from our expression for horizontal velocity:</p>
+<p>Another extension to our expression for horizontal velocity from the previous page,</p>
 <div class="math notranslate nohighlight">
 \[
 u(x, \zeta)=  u_s(x) \left( 1- \zeta^{n+1} \right),
 \]</div>
-<p>is to compute the vertical velocity as function of depth. This is often referred to as the Lliboutry function. Here we explicitly noting that <span class="math notranslate nohighlight">\(u_s\)</span> and therefore <span class="math notranslate nohighlight">\(u\)</span> are functions of <span class="math notranslate nohighlight">\(x\)</span>. We will use the general mass continuity equation</p>
-<div class="math notranslate nohighlight">
-\[
-    \nabla\cdot\underline{u} =   \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0,
- \]</div>
-<p>where <span class="math notranslate nohighlight">\(w\)</span> is the vertical velocity, <span class="math notranslate nohighlight">\(u\)</span> is the horizontal velocity, <span class="math notranslate nohighlight">\(x\)</span> is the horizontal coordinate, and <span class="math notranslate nohighlight">\(z\)</span> is the vertical. As our velocity expression is in terms of normalized depth, <span class="math notranslate nohighlight">\(\zeta = 1-z/H\)</span>, we want the expression above in terms of <span class="math notranslate nohighlight">\(\zeta\)</span>. Differentiating the definition of <span class="math notranslate nohighlight">\(\zeta\)</span> provides</p>
+<p>is to compute the vertical velocity as function of depth. This is often referred to as the Lliboutry function. In the expression above we are explicitly noting that <span class="math notranslate nohighlight">\(u_s\)</span> and therefore <span class="math notranslate nohighlight">\(u\)</span> are functions of <span class="math notranslate nohighlight">\(x\)</span>. We will use the general mass continuity equation,</p>
+<p><span class="math notranslate nohighlight">\(
+\nabla\cdot\underline{u} =   \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0,
+\)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(w\)</span> is the vertical velocity, <span class="math notranslate nohighlight">\(u\)</span> is the horizontal velocity, <span class="math notranslate nohighlight">\(x\)</span> is the horizontal coordinate, and <span class="math notranslate nohighlight">\(z\)</span> is the vertical coordinate. As our velocity expression is in terms of normalized depth, <span class="math notranslate nohighlight">\(\zeta = 1-z/H\)</span>, we want the expression above in terms of <span class="math notranslate nohighlight">\(\zeta\)</span>. Differentiating the definition of <span class="math notranslate nohighlight">\(\zeta\)</span> provides</p>
 <div class="math notranslate nohighlight">
 \[ 
 \frac{\partial \zeta}{\partial z} = -\frac{1}{H} 
@@ -513,12 +513,12 @@ u(x, \zeta)=  u_s(x) \left( 1- \zeta^{n+1} \right),
 <p>Differentiating our expression for <span class="math notranslate nohighlight">\(u(x, \zeta)\)</span> with respect to <span class="math notranslate nohighlight">\(x\)</span> gives</p>
 <div class="math notranslate nohighlight">
 \[
-   \frac{\partial u}{\partial x} =  \frac{\partial u_s}{\partial x} \left( 1- \zeta^{n+1} \right) - u_s \frac{\partial \zeta}{\partial x} (n+1) \zeta^n.
+\frac{\partial u}{\partial x} =  \frac{\partial u_s}{\partial x} \left( 1- \zeta^{n+1} \right) - u_s \frac{\partial \zeta}{\partial x} (n+1) \zeta^n.
 \]</div>
 <p>Here we assume that <span class="math notranslate nohighlight">\(H\)</span> is not a function of <span class="math notranslate nohighlight">\(x\)</span>, so <span class="math notranslate nohighlight">\(\partial \zeta/\partial x = 0\)</span>. Putting this into the expression above leaves</p>
 <div class="math notranslate nohighlight">
 \[
-    \frac{\partial u}{\partial x} =  \frac{\partial u_s}{\partial x} \left( 1- \zeta^{n+1} \right). 
+\frac{\partial u}{\partial x} =  \frac{\partial u_s}{\partial x} \left( 1- \zeta^{n+1} \right). 
 \]</div>
 <p>Based on the mass continuity equation</p>
 <div class="math notranslate nohighlight">
@@ -617,15 +617,15 @@ w = w_s \left(1 -\zeta  \right).
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Ice flux</p>
+        <p class="prev-next-title">The Shallow Ice Approximation model</p>
       </div>
     </a>
     <a class="right-next"
-       href="../temperature/heat_intro.html"
+       href="other-ice-flow-models.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Heat flow</p>
+        <p class="prev-next-title">Two other ice flow models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -694,8 +694,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

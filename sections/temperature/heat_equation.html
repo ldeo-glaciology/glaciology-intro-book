@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Heat equation &#8212; The Glaciology Data Analysis and Modeling book</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -183,8 +183,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ice_flow/deviatoric_stress.html">Deviatoric stress</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ice_flow/driving_stress.html">Driving stress</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ice_flow/stress_balance_eqns.html">Stress balance equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ice_flow/sia_derivation.html">Ice flux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/sia_derivation.html">The Shallow Ice Approximation model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ice_flow/u_bar_and_lliboutry.html">Building on the Shallow Ice Approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_flow/other-ice-flow-models.html">Two other ice flow models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heat flow</span></p>
 <ul class="current nav bd-sidenav">
@@ -526,50 +527,50 @@ document.write(`
 <h2>Deriving the heat equation<a class="headerlink" href="#deriving-the-heat-equation" title="Permalink to this heading">#</a></h2>
 <p>To derive an expression for the rate of change of temperature in this box we equate the rate of change of heat in the box to the rate of heat flow into the box minus the rate of heat flow out of the box. Or, separating the heat flow into contributions from advection and conduction,</p>
 <div class="math notranslate nohighlight" id="equation-heat-in-out">
-<span class="eqno">(1)<a class="headerlink" href="#equation-heat-in-out" title="Permalink to this equation">#</a></span>\[ 
+<span class="eqno">(2)<a class="headerlink" href="#equation-heat-in-out" title="Permalink to this equation">#</a></span>\[ 
 \frac{\partial H}{\partial t} = A_{in} - A_{out} + C_{in} - C_{out}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(H\)</span> is the heat in box, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span> are the advective and conductive heat flows and the <em>in</em> and <em>out</em> subscripts denote heat flow in and out. We will also define <span class="math notranslate nohighlight">\(A_{net} = A_{in} - A_{out}\)</span> and <span class="math notranslate nohighlight">\(C_{net} = C_{in} - C_{out}\)</span>.</p>
 <p>The heat in the box <span class="math notranslate nohighlight">\(H\)</span> is linearly related to the temperature, the density, the volume on the box and the specific heat capacity of ice, <span class="math notranslate nohighlight">\(c\)</span> 2.0 kJ kg<span class="math notranslate nohighlight">\(^{−1}\)</span> K<span class="math notranslate nohighlight">\(^{−1}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-heat-in-box">
-<span class="eqno">(2)<a class="headerlink" href="#equation-heat-in-box" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(3)<a class="headerlink" href="#equation-heat-in-box" title="Permalink to this equation">#</a></span>\[
 H = c V \rho T.
 \]</div>
-<p>As a first step we differentiate <a class="reference internal" href="#equation-heat-in-box">(2)</a> with respect to <span class="math notranslate nohighlight">\(t\)</span> to expand the left side of <a class="reference internal" href="#equation-heat-in-out">(1)</a>:</p>
+<p>As a first step we differentiate <a class="reference internal" href="#equation-heat-in-box">(3)</a> with respect to <span class="math notranslate nohighlight">\(t\)</span> to expand the left side of <a class="reference internal" href="#equation-heat-in-out">(2)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-hdot-expanded">
-<span class="eqno">(3)<a class="headerlink" href="#equation-hdot-expanded" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(4)<a class="headerlink" href="#equation-hdot-expanded" title="Permalink to this equation">#</a></span>\[
 \frac{\partial H}{\partial t} =  c V \left(\rho \frac{\partial T}{\partial t} + T \frac{\partial \rho}{\partial t}\right). 
 \]</div>
-<p>Next, we derive expressions for all the terms on the right of <a class="reference internal" href="#equation-heat-in-out">(1)</a>, considering the three direction <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> in turn.</p>
+<p>Next, we derive expressions for all the terms on the right of <a class="reference internal" href="#equation-heat-in-out">(2)</a>, considering the three direction <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> in turn.</p>
 <section id="advection">
 <h3>Advection<a class="headerlink" href="#advection" title="Permalink to this heading">#</a></h3>
 <p>We focus first on advective heat flow in the <span class="math notranslate nohighlight">\(x\)</span> direction. Heat advected into the box through its left wall per unit time (per second, say) by advection is</p>
 <div class="math notranslate nohighlight" id="equation-a-in1">
-<span class="eqno">(4)<a class="headerlink" href="#equation-a-in1" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(5)<a class="headerlink" href="#equation-a-in1" title="Permalink to this equation">#</a></span>\[
 A^x_{in} = u\, \delta y\, \delta z\, c\, \rho\, T
 \]</div>
 <p>where the <span class="math notranslate nohighlight">\(x\)</span> superscript denots that this is in the <span class="math notranslate nohighlight">\(x\)</span>-direction only.
-To understand this expression, recognize that <span class="math notranslate nohighlight">\(u \delta y \delta z\)</span> is the volume of ice that moves into the box from the left every second (This assumes that the <span class="math notranslate nohighlight">\(x\)</span>-component of the velocity field, <span class="math notranslate nohighlight">\(u\)</span>,  is positive, if <span class="math notranslate nohighlight">\(u\)</span> was negative <span class="math notranslate nohighlight">\(u \delta y \delta z\)</span>  would represent the volume of ice leaving the box, but that’s fine, it would just be a negative heat flux). Also recognize that the heat contained in each cubic meter of ice is given by <span class="math notranslate nohighlight">\(c \rho T\)</span>. Therefore the heat entering every second (from the left) is the product of the volume entering every second (<span class="math notranslate nohighlight">\(u \delta y \delta z\)</span>) and the heat contained in each cubic meter (<span class="math notranslate nohighlight">\(c \rho T\)</span>), which gives <a class="reference internal" href="#equation-a-in1">(4)</a>.</p>
+To understand this expression, recognize that <span class="math notranslate nohighlight">\(u \delta y \delta z\)</span> is the volume of ice that moves into the box from the left every second (This assumes that the <span class="math notranslate nohighlight">\(x\)</span>-component of the velocity field, <span class="math notranslate nohighlight">\(u\)</span>,  is positive, if <span class="math notranslate nohighlight">\(u\)</span> was negative <span class="math notranslate nohighlight">\(u \delta y \delta z\)</span>  would represent the volume of ice leaving the box, but that’s fine, it would just be a negative heat flux). Also recognize that the heat contained in each cubic meter of ice is given by <span class="math notranslate nohighlight">\(c \rho T\)</span>. Therefore the heat entering every second (from the left) is the product of the volume entering every second (<span class="math notranslate nohighlight">\(u \delta y \delta z\)</span>) and the heat contained in each cubic meter (<span class="math notranslate nohighlight">\(c \rho T\)</span>), which gives <a class="reference internal" href="#equation-a-in1">(5)</a>.</p>
 <p>To compute the heat advected out of the box through its right wall per second we remember that <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(\rho\)</span>, and <span class="math notranslate nohighlight">\(T\)</span> are all functions of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span>, and <span class="math notranslate nohighlight">\(t\)</span>. In particular, their <span class="math notranslate nohighlight">\(x\)</span>-dependence is important to us here. We are now considering the right wall of the box, so it is not correct to simply use the same values for <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(\rho\)</span>, and <span class="math notranslate nohighlight">\(T\)</span> as we did above when computing <span class="math notranslate nohighlight">\(A^x_{in}\)</span>. Instead we use a trick, which we use in multiple places in this chapters and others, and say that on the right wall these variables take a value that is equal to their values on the left wall plus a small change which depends on their gradient in the <span class="math notranslate nohighlight">\(x\)</span> direction. As noted above we denote their gradients in the <span class="math notranslate nohighlight">\(x\)</span> direction by <span class="math notranslate nohighlight">\( \frac{\partial u}{\partial x} \)</span>, <span class="math notranslate nohighlight">\( \frac{\partial \rho}{\partial x} \)</span>, and <span class="math notranslate nohighlight">\( \frac{\partial T}{\partial x} \)</span>. These tell us how much these variables changes for every meter that you move in the <span class="math notranslate nohighlight">\(x\)</span> direction. In our case, we are moving a distance of <span class="math notranslate nohighlight">\(\delta x\)</span> from one side of the box to the other, so the total change in each variable relative to its values on the left wall of the box is simply <span class="math notranslate nohighlight">\(\delta x \frac{\partial u}{\partial x} \)</span>, <span class="math notranslate nohighlight">\(\delta x \frac{\partial \rho}{\partial x} \)</span>, and <span class="math notranslate nohighlight">\(\delta x \frac{\partial T}{\partial x} \)</span>.</p>
 <p>This allows us to write down an expression for <span class="math notranslate nohighlight">\(A^x_{out}\)</span> by repeating the pattern of {eq}A_in1, but replacing the varibles with modified values that include this small change relative to their values on the left wall:</p>
 <div class="math notranslate nohighlight" id="equation-ax-out1">
-<span class="eqno">(5)<a class="headerlink" href="#equation-ax-out1" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(6)<a class="headerlink" href="#equation-ax-out1" title="Permalink to this equation">#</a></span>\[
 A^x_{out} = \left(u + \delta x \frac{\partial u}{\partial x} \right) \delta y \delta z c \left(\rho + \delta x \frac{\partial \rho}{\partial x} \right) \left(T + \delta x \frac{\partial T}{\partial x}\right).
 \]</div>
 <p>Next we multiple out these brackets to give</p>
 <div class="math notranslate nohighlight" id="equation-ax-out2">
-<span class="eqno">(6)<a class="headerlink" href="#equation-ax-out2" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(7)<a class="headerlink" href="#equation-ax-out2" title="Permalink to this equation">#</a></span>\[
 A^x_{out} = \delta y \delta z c \left(u \rho T + \delta x  \frac{\partial u}{\partial x} \rho  T +  \delta x u  \frac{\partial \rho}{\partial x} T +
 \delta x u \rho \frac{\partial T}{\partial x} + \delta x^2 \frac{\partial u}{\partial x} \frac{\partial \rho}{\partial x} T  + \delta x^2 \frac{\partial u}{\partial x} \rho  \frac{\partial T}{\partial x}  + 
 \delta x^2 u  \frac{\partial \rho}{\partial x} \frac{\partial T}{\partial x}  + \delta x^3 \frac{\partial u}{\partial x} \frac{\partial \rho}{\partial x}  \frac{\partial T}{\partial x} \right)
 \]</div>
 <p>then omit any terms with <span class="math notranslate nohighlight">\(\delta x\)</span> rasies to a power of 2 or higher, recognizing that <span class="math notranslate nohighlight">\(\delta x\)</span> is already very small so <span class="math notranslate nohighlight">\(\delta x^2\)</span> and <span class="math notranslate nohighlight">\(\delta x^3\)</span> are vanishinglsy small. This leaves</p>
 <div class="math notranslate nohighlight" id="equation-ax-out3">
-<span class="eqno">(7)<a class="headerlink" href="#equation-ax-out3" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(8)<a class="headerlink" href="#equation-ax-out3" title="Permalink to this equation">#</a></span>\[
 A^x_{out} = \delta y \delta z c \left(u \rho T + \delta x  \frac{\partial u}{\partial x} \rho  T +  \delta x u  \frac{\partial \rho}{\partial x} T +
 \delta x u \rho \frac{\partial T}{\partial x}\right).
 \]</div>
-<p>At this point it is useful to define <span class="math notranslate nohighlight">\(A^x_{net} = A_{in} - A_{out}\)</span> as the net advective heat flow into the box in the <span class="math notranslate nohighlight">\(x\)</span> direction. Using <a class="reference internal" href="#equation-a-in1">(4)</a> and <a class="reference internal" href="#equation-ax-out3">(7)</a>, <span class="math notranslate nohighlight">\(A^x_{net}\)</span> is given by</p>
+<p>At this point it is useful to define <span class="math notranslate nohighlight">\(A^x_{net} = A_{in} - A_{out}\)</span> as the net advective heat flow into the box in the <span class="math notranslate nohighlight">\(x\)</span> direction. Using <a class="reference internal" href="#equation-a-in1">(5)</a> and <a class="reference internal" href="#equation-ax-out3">(8)</a>, <span class="math notranslate nohighlight">\(A^x_{net}\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[
 A^x_{net} = -\delta x \delta y \delta z c \left(  \frac{\partial u}{\partial x} \rho  T +   u  \frac{\partial \rho}{\partial x} T +
@@ -578,7 +579,7 @@ A^x_{net} = -\delta x \delta y \delta z c \left(  \frac{\partial u}{\partial x} 
 \]</div>
 <p>Using the product rule on the terms containing derivatives of <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span> yields</p>
 <div class="math notranslate nohighlight" id="equation-ax-net">
-<span class="eqno">(8)<a class="headerlink" href="#equation-ax-net" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(9)<a class="headerlink" href="#equation-ax-net" title="Permalink to this equation">#</a></span>\[
 A^x_{net} = - V c \left(  \frac{\partial \left(u \rho\right)}{\partial x}  T +
   u \rho \frac{\partial T}{\partial x}\right)
 \]</div>
@@ -589,25 +590,25 @@ A^x_{net} = - V c \left(  \frac{\partial \left(u \rho\right)}{\partial x}  T +
 \[
 A^x_{net} = - V c \left(  \frac{\partial \left(u \rho T\right)}{\partial x} \right)
 \]</div>
-<p>but leaving it in the form of <a class="reference internal" href="#equation-ax-net">(8)</a> proves useful for an important step later, which uses mass conservation to simplify the expression.</p>
+<p>but leaving it in the form of <a class="reference internal" href="#equation-ax-net">(9)</a> proves useful for an important step later, which uses mass conservation to simplify the expression.</p>
 </div>
-<p>Equation <a class="reference internal" href="#equation-ax-net">(8)</a> describes the net advection of heat into the box due to two mechansims. The first term in the parentheses is associated with a change in mass in the box. <span class="math notranslate nohighlight">\( u\rho\)</span> is the mass flux in the <span class="math notranslate nohighlight">\(x\)</span> direction. If this quantity, for example, increased in the <span class="math notranslate nohighlight">\(x\)</span> direction, then mass would be leaving the box over time (because mass would be leaving faster through the right wall than it would be entering through the left wall) and this would be represented by <span class="math notranslate nohighlight">\(\frac{\partial u \rho}{\partial x}\)</span> being larger than zero, which, due to the minus sign in <a class="reference internal" href="#equation-ax-net">(8)</a>, contributes to a decrease in the heat in the box. We will see later that this effect is actually exactly balanced by flow in the other directions or temporal changes in <span class="math notranslate nohighlight">\(\rho\)</span>, or both. Therefore, although this term can result in changes in the heat in the box, it does not affect the temperature. We will come back to this point later.</p>
-<p>The second term in the parentheses of <a class="reference internal" href="#equation-ax-net">(8)</a> represents advection resulting from the fact that <span class="math notranslate nohighlight">\(T\)</span> can vary with <span class="math notranslate nohighlight">\(x\)</span>. Suppose for example that <span class="math notranslate nohighlight">\(T\)</span> increased with <span class="math notranslate nohighlight">\(x\)</span> and that <span class="math notranslate nohighlight">\(u\)</span> is positive, so there is a component of ice flow along the <span class="math notranslate nohighlight">\(x\)</span> axis in a positive direction. Then ice upstream of our box (at smaller <span class="math notranslate nohighlight">\(x\)</span>) is colder than the ice in the box and this colder ice is being brought into the box by the flow. This contributes to reducing the temperatue in the box and is represented by  <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial x} &gt; 0\)</span> and the minus sign on the right of <a class="reference internal" href="#equation-ax-net">(8)</a>.</p>
+<p>Equation <a class="reference internal" href="#equation-ax-net">(9)</a> describes the net advection of heat into the box due to two mechansims. The first term in the parentheses is associated with a change in mass in the box. <span class="math notranslate nohighlight">\( u\rho\)</span> is the mass flux in the <span class="math notranslate nohighlight">\(x\)</span> direction. If this quantity, for example, increased in the <span class="math notranslate nohighlight">\(x\)</span> direction, then mass would be leaving the box over time (because mass would be leaving faster through the right wall than it would be entering through the left wall) and this would be represented by <span class="math notranslate nohighlight">\(\frac{\partial u \rho}{\partial x}\)</span> being larger than zero, which, due to the minus sign in <a class="reference internal" href="#equation-ax-net">(9)</a>, contributes to a decrease in the heat in the box. We will see later that this effect is actually exactly balanced by flow in the other directions or temporal changes in <span class="math notranslate nohighlight">\(\rho\)</span>, or both. Therefore, although this term can result in changes in the heat in the box, it does not affect the temperature. We will come back to this point later.</p>
+<p>The second term in the parentheses of <a class="reference internal" href="#equation-ax-net">(9)</a> represents advection resulting from the fact that <span class="math notranslate nohighlight">\(T\)</span> can vary with <span class="math notranslate nohighlight">\(x\)</span>. Suppose for example that <span class="math notranslate nohighlight">\(T\)</span> increased with <span class="math notranslate nohighlight">\(x\)</span> and that <span class="math notranslate nohighlight">\(u\)</span> is positive, so there is a component of ice flow along the <span class="math notranslate nohighlight">\(x\)</span> axis in a positive direction. Then ice upstream of our box (at smaller <span class="math notranslate nohighlight">\(x\)</span>) is colder than the ice in the box and this colder ice is being brought into the box by the flow. This contributes to reducing the temperatue in the box and is represented by  <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial x} &gt; 0\)</span> and the minus sign on the right of <a class="reference internal" href="#equation-ax-net">(9)</a>.</p>
 <p>Applying exactly the same approach to the advective heat fluxes into and out of the box in the <span class="math notranslate nohighlight">\(y\)</span> direction yields:</p>
 <div class="math notranslate nohighlight" id="equation-ay-net">
-<span class="eqno">(9)<a class="headerlink" href="#equation-ay-net" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(10)<a class="headerlink" href="#equation-ay-net" title="Permalink to this equation">#</a></span>\[
 A^y_{net} = - V c \left(  \frac{\partial \left(v \rho\right)}{\partial y}  T +
   v \rho \frac{\partial T}{\partial y}\right).
 \]</div>
 <p>And applying it again in <span class="math notranslate nohighlight">\(z\)</span> direction yields</p>
 <div class="math notranslate nohighlight" id="equation-az-net">
-<span class="eqno">(10)<a class="headerlink" href="#equation-az-net" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(11)<a class="headerlink" href="#equation-az-net" title="Permalink to this equation">#</a></span>\[
 A^z_{net} = - V c \left(  \frac{\partial \left(w \rho\right)}{\partial z}  T +
   w \rho \frac{\partial T}{\partial z}\right).
 \]</div>
-<p>Summing <a class="reference internal" href="#equation-ax-net">(8)</a>, <a class="reference internal" href="#equation-ay-net">(9)</a>, <a class="reference internal" href="#equation-az-net">(10)</a> yields an expression for net advective flow</p>
+<p>Summing <a class="reference internal" href="#equation-ax-net">(9)</a>, <a class="reference internal" href="#equation-ay-net">(10)</a>, <a class="reference internal" href="#equation-az-net">(11)</a> yields an expression for net advective flow</p>
 <div class="math notranslate nohighlight" id="equation-a-net">
-<span class="eqno">(11)<a class="headerlink" href="#equation-a-net" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(12)<a class="headerlink" href="#equation-a-net" title="Permalink to this equation">#</a></span>\[
 A_{net} = - V c \left[ \left(  \frac{\partial \left(u \rho\right)}{\partial x}  T +
   u \rho \frac{\partial T}{\partial x}\right) 
   + \left(  \frac{\partial \left(v \rho\right)}{\partial y}  T +
@@ -621,7 +622,7 @@ A_{net} = - V c \left[ \left(  \frac{\partial \left(u \rho\right)}{\partial x}  
 <p>Diffusion of heat is due to spatial gradients in the heat flux due to conduction. In other words, if heat is being conducted through one wall of the box at a different rate than it is being conducted on through the opposite wall, this will contribute to a change in the heat in the box.</p>
 <p>Heat conduction is described by <a class="reference external" href="https://en.wikipedia.org/wiki/Thermal_conduction#Fourier's_law">Fouriers law</a> of thermal conduction. Applying it in the <span class="math notranslate nohighlight">\(x\)</span> direction gives</p>
 <div class="math notranslate nohighlight" id="equation-q-x">
-<span class="eqno">(12)<a class="headerlink" href="#equation-q-x" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(13)<a class="headerlink" href="#equation-q-x" title="Permalink to this equation">#</a></span>\[
 q_x = -K\frac{\partial T}{\partial x},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(q_x\)</span> is the heat flux in every square meter of cross-sectional area measured perpendicular to the <span class="math notranslate nohighlight">\(x\)</span> axis. The heat conducted into the box through the left wall is therefore</p>
@@ -642,7 +643,7 @@ C^x_{net} = C^x_{in} - C^x_{out} = \delta x \delta y \delta z \frac{\partial}{\p
 \]</div>
 <p>As expected, the second derivative (or ‘curvature’) of the temperature appears in this expression. This can be understood by considering the case when <span class="math notranslate nohighlight">\(K(x) = K\)</span> (i.e. <span class="math notranslate nohighlight">\(K\)</span> is not a function of <span class="math notranslate nohighlight">\(x\)</span>) and therefore</p>
 <div class="math notranslate nohighlight" id="equation-c-x-net">
-<span class="eqno">(13)<a class="headerlink" href="#equation-c-x-net" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(14)<a class="headerlink" href="#equation-c-x-net" title="Permalink to this equation">#</a></span>\[
 C^x_{net} \propto \frac{\partial^2 T}{\partial x^2}.
 \]</div>
 <figure class="align-default" id="fig-t-minimum">
@@ -651,23 +652,23 @@ C^x_{net} \propto \frac{\partial^2 T}{\partial x^2}.
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">Schematic of the variation of <span class="math notranslate nohighlight">\(T\)</span> with <span class="math notranslate nohighlight">\(x\)</span> in the region of a minimum in <span class="math notranslate nohighlight">\(T\)</span>. As indicated on the plot, the gradient of <span class="math notranslate nohighlight">\(T\)</span> is negative to the left and positive to the right of the minimum. This causes heat to flow towards the minimum, as indicated by the large red arrows.</span><a class="headerlink" href="#fig-t-minimum" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Consider a location with a local minimum in <span class="math notranslate nohighlight">\(T\)</span> (<a class="reference internal" href="#fig-t-minimum"><span class="std std-numref">Fig. 4</span></a>). Immediately to the left of this location <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial x} &lt; 0\)</span>. Immediately to the right, <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial x} &gt; 0\)</span>  -  <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial x}\)</span> is increasing with <span class="math notranslate nohighlight">\(x\)</span>. In other words,  <span class="math notranslate nohighlight">\(\frac{\partial^2 T}{\partial x^2} &gt; 0\)</span>, so according to <a class="reference internal" href="#equation-c-x-net">(13)</a> this process contributes to an increase in heat in this location, reducing the depth of the minima. This makes sense because we are at a minimum in <span class="math notranslate nohighlight">\(T\)</span>, so in both directions higher <span class="math notranslate nohighlight">\(T\)</span> causes heat to be conducted towards this minimum. The same argument applies, not just at minima (or in reverse at maxima) in <span class="math notranslate nohighlight">\(T\)</span>, but anywhere with curvature in <span class="math notranslate nohighlight">\(T\)</span>: its all down to the gradient in <span class="math notranslate nohighlight">\(T\)</span> being different on side of a given location than it is on the other side, so that the <em>net</em> contribution of conduction is to either increase or decrease tempeature.</p>
+<p>Consider a location with a local minimum in <span class="math notranslate nohighlight">\(T\)</span> (<a class="reference internal" href="#fig-t-minimum"><span class="std std-numref">Fig. 4</span></a>). Immediately to the left of this location <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial x} &lt; 0\)</span>. Immediately to the right, <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial x} &gt; 0\)</span>  -  <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial x}\)</span> is increasing with <span class="math notranslate nohighlight">\(x\)</span>. In other words,  <span class="math notranslate nohighlight">\(\frac{\partial^2 T}{\partial x^2} &gt; 0\)</span>, so according to <a class="reference internal" href="#equation-c-x-net">(14)</a> this process contributes to an increase in heat in this location, reducing the depth of the minima. This makes sense because we are at a minimum in <span class="math notranslate nohighlight">\(T\)</span>, so in both directions higher <span class="math notranslate nohighlight">\(T\)</span> causes heat to be conducted towards this minimum. The same argument applies, not just at minima (or in reverse at maxima) in <span class="math notranslate nohighlight">\(T\)</span>, but anywhere with curvature in <span class="math notranslate nohighlight">\(T\)</span>: its all down to the gradient in <span class="math notranslate nohighlight">\(T\)</span> being different on side of a given location than it is on the other side, so that the <em>net</em> contribution of conduction is to either increase or decrease tempeature.</p>
 <p>Applying the same approach outlined above to in the <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> directions gives us</p>
 <div class="math notranslate nohighlight" id="equation-c-y-net">
-<span class="eqno">(14)<a class="headerlink" href="#equation-c-y-net" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(15)<a class="headerlink" href="#equation-c-y-net" title="Permalink to this equation">#</a></span>\[
 C^y_{net}= V \frac{\partial}{\partial y} \left( K \frac{\partial T}{\partial y}  \right)
 \]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-c-z-net">
-<span class="eqno">(15)<a class="headerlink" href="#equation-c-z-net" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(16)<a class="headerlink" href="#equation-c-z-net" title="Permalink to this equation">#</a></span>\[
 C^z_{net} = V \frac{\partial}{\partial z} \left( K \frac{\partial T}{\partial z}  \right)
 \]</div>
 </section>
 <section id="bringing-everything-together">
 <h3>Bringing everything together<a class="headerlink" href="#bringing-everything-together" title="Permalink to this heading">#</a></h3>
-<p>Bringing together expressions for the net advective flow, <span class="math notranslate nohighlight">\(A_{net}\)</span> (<a class="reference internal" href="#equation-a-net">(11)</a>), the net conductive heat flows in each direction, (<a class="reference internal" href="#equation-c-x-net">(13)</a>, <a class="reference internal" href="#equation-c-y-net">(14)</a>, <a class="reference internal" href="#equation-c-z-net">(15)</a>), and the rate of change of heat in the box (<a class="reference internal" href="#equation-hdot-expanded">(3)</a>) gives us</p>
+<p>Bringing together expressions for the net advective flow, <span class="math notranslate nohighlight">\(A_{net}\)</span> (<a class="reference internal" href="#equation-a-net">(12)</a>), the net conductive heat flows in each direction, (<a class="reference internal" href="#equation-c-x-net">(14)</a>, <a class="reference internal" href="#equation-c-y-net">(15)</a>, <a class="reference internal" href="#equation-c-z-net">(16)</a>), and the rate of change of heat in the box (<a class="reference internal" href="#equation-hdot-expanded">(4)</a>) gives us</p>
 <div class="math notranslate nohighlight" id="equation-heat-eq-full-1">
-<span class="eqno">(16)<a class="headerlink" href="#equation-heat-eq-full-1" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(17)<a class="headerlink" href="#equation-heat-eq-full-1" title="Permalink to this equation">#</a></span>\[
 c  \left(\rho \frac{\partial T}{\partial t} + T \frac{\partial \rho}{\partial t}\right)= 
   -  c \left[ \left(  \frac{\partial \left(u \rho\right)}{\partial x}  T 
   + u \rho \frac{\partial T}{\partial x}\right) 
@@ -690,7 +691,7 @@ c  \left(\rho \frac{\partial T}{\partial t} + T \frac{\partial \rho}{\partial t}
 \]</div>
 <p>Note the <span class="math notranslate nohighlight">\(V\)</span> is constant in time so it is unaffected by the differentiation. We equate this to the net rate of mass flow it to the box through the walls.</p>
 <div class="math notranslate nohighlight" id="equation-m-net">
-<span class="eqno">(17)<a class="headerlink" href="#equation-m-net" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(18)<a class="headerlink" href="#equation-m-net" title="Permalink to this equation">#</a></span>\[
 V \frac{\partial \rho}{\partial t} = M_{net}.
 \]</div>
 <p>Next we write down expressions for the rate of mass flow in and out through each wall of the box, considering each direction in turn. The mass flowing in through the left wall in the <span class="math notranslate nohighlight">\(x\)</span> direction is</p>
@@ -713,9 +714,9 @@ M^x_{net} =  M^x_{in} - M^x_{out} = -\delta y \delta z \delta x \frac{\partial \
 \[
 M_{net} =  -V \left(\frac{\partial \left(u \rho \right)}{\partial x} + \frac{\partial \left(v \rho \right)}{\partial y} + \frac{\partial \left(w\rho \right)}{\partial z} \right).
 \]</div>
-<p>which we can combine with <a class="reference internal" href="#equation-m-net">(17)</a> to give</p>
+<p>which we can combine with <a class="reference internal" href="#equation-m-net">(18)</a> to give</p>
 <div class="math notranslate nohighlight" id="equation-mass-con">
-<span class="eqno">(18)<a class="headerlink" href="#equation-mass-con" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(19)<a class="headerlink" href="#equation-mass-con" title="Permalink to this equation">#</a></span>\[
 \frac{\partial \rho}{\partial t} = - \left(\frac{\partial \left(u\rho \right)}{\partial x} + \frac{\partial \left(v\rho \right)}{\partial y} + \frac{\partial \left(w \rho \right)}{\partial z} \right)
 \]</div>
 <p>This is a general statement of mass conservation. It says that the flux divergence is the negative of densification. For those familiar with the notation, it can be expressed more compactly as</p>
@@ -724,15 +725,15 @@ M_{net} =  -V \left(\frac{\partial \left(u \rho \right)}{\partial x} + \frac{\pa
 \dot{\rho} = \vec{\nabla} \cdot \vec{q}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\vec{q} \)</span> is the flux, <span class="math notranslate nohighlight">\( \vec{q}= \vec{u} \rho\)</span>, and <span class="math notranslate nohighlight">\(\vec{\nabla}\)</span> is the del operator, <span class="math notranslate nohighlight">\(\vec{\nabla} = \vec{i}\frac{\partial }{\partial x}  + \vec{j} \frac{\partial }{\partial y}+  \vec{k}\frac{\partial }{\partial z}. \)</span></p>
-<p>Equation <a class="reference internal" href="#equation-mass-con">(18)</a> can be understood by considering a simply scenario where <span class="math notranslate nohighlight">\(\rho\)</span> is uniform in space but can change in time, and ice flow is along the <span class="math notranslate nohighlight">\(z\)</span> axis, <span class="math notranslate nohighlight">\(\vec{u} = w\)</span>. Under these conditions <a class="reference internal" href="#equation-mass-con">(18)</a> reduces to</p>
+<p>Equation <a class="reference internal" href="#equation-mass-con">(19)</a> can be understood by considering a simply scenario where <span class="math notranslate nohighlight">\(\rho\)</span> is uniform in space but can change in time, and ice flow is along the <span class="math notranslate nohighlight">\(z\)</span> axis, <span class="math notranslate nohighlight">\(\vec{u} = w\)</span>. Under these conditions <a class="reference internal" href="#equation-mass-con">(19)</a> reduces to</p>
 <div class="math notranslate nohighlight" id="equation-m-z">
-<span class="eqno">(19)<a class="headerlink" href="#equation-m-z" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(20)<a class="headerlink" href="#equation-m-z" title="Permalink to this equation">#</a></span>\[
 \frac{\partial \rho}{\partial t} = - \rho \frac{\partial w }{\partial z} 
 \]</div>
-<p>Consider the case when <span class="math notranslate nohighlight">\(w\)</span> increases with <span class="math notranslate nohighlight">\(w\)</span>. The ice above any given location is flowing faster than the ice below, leading to vertical stretching. As expected, according to <a class="reference internal" href="#equation-m-z">(19)</a>, stretching is associated with a reduction in density. The reverse is also intuitive. If <span class="math notranslate nohighlight">\(w\)</span> decreases with <span class="math notranslate nohighlight">\(x\)</span>, ice above any given location is flowing faster than the ice below, leading to vertical compression. It makes sense that, <a class="reference internal" href="#equation-m-z">(19)</a> says this is  is associated with densification. In fact, this is a common situation in the relatively low density, near-surface layer of the ice sheets called firn.</p>
-<p>Substituting in <a class="reference internal" href="#equation-mass-con">(18)</a> to <a class="reference internal" href="#equation-heat-eq-full-1">(16)</a> gives us</p>
+<p>Consider the case when <span class="math notranslate nohighlight">\(w\)</span> increases with <span class="math notranslate nohighlight">\(w\)</span>. The ice above any given location is flowing faster than the ice below, leading to vertical stretching. As expected, according to <a class="reference internal" href="#equation-m-z">(20)</a>, stretching is associated with a reduction in density. The reverse is also intuitive. If <span class="math notranslate nohighlight">\(w\)</span> decreases with <span class="math notranslate nohighlight">\(x\)</span>, ice above any given location is flowing faster than the ice below, leading to vertical compression. It makes sense that, <a class="reference internal" href="#equation-m-z">(20)</a> says this is  is associated with densification. In fact, this is a common situation in the relatively low density, near-surface layer of the ice sheets called firn.</p>
+<p>Substituting in <a class="reference internal" href="#equation-mass-con">(19)</a> to <a class="reference internal" href="#equation-heat-eq-full-1">(17)</a> gives us</p>
 <div class="math notranslate nohighlight" id="equation-heat-eq-full-final">
-<span class="eqno">(20)<a class="headerlink" href="#equation-heat-eq-full-final" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(21)<a class="headerlink" href="#equation-heat-eq-full-final" title="Permalink to this equation">#</a></span>\[
 \frac{\partial T}{\partial t} = 
 -   u  \frac{\partial T}{\partial x}
 - v  \frac{\partial T}{\partial y}
@@ -747,8 +748,8 @@ M_{net} =  -V \left(\frac{\partial \left(u \rho \right)}{\partial x} + \frac{\pa
 \frac{\partial T}{\partial t} = -\vec{u} \cdot \vec{\nabla}T
 +  \frac{1}{c \rho} \vec{\nabla} \cdot K \vec{\nabla}T.
 \]</div>
-<p>Let’s note what happened here: the tern on the right of <a class="reference internal" href="#equation-heat-eq-full-1">(16)</a>, <span class="math notranslate nohighlight">\( c T \frac{\partial \rho}{\partial t}\)</span>, representing the heat density, i.e. how much heat is in each cubic meter, cancelled with the three flux diveregence terms on the right (<span class="math notranslate nohighlight">\(c T \frac{\partial \left(u\rho \right)}{\partial x}\)</span> etc.). This shows us that while these divergence terms can change the ammount of heat in the box, they cannot change the temperature because the density in the box changes to counterbalance any change in the heat content. For example, suppose that spatial gradients in flux caused the heat content in the box to double. At the same time, the density in the box would also double, meaning that the ice requires double the heat to maintain the same temperatue as it had before the change.</p>
-<p>Equation <a class="reference internal" href="#equation-heat-eq-full-final">(20)</a> is our final complete form of the heat equation that we will analyze in the following pages.</p>
+<p>Let’s note what happened here: the tern on the right of <a class="reference internal" href="#equation-heat-eq-full-1">(17)</a>, <span class="math notranslate nohighlight">\( c T \frac{\partial \rho}{\partial t}\)</span>, representing the heat density, i.e. how much heat is in each cubic meter, cancelled with the three flux diveregence terms on the right (<span class="math notranslate nohighlight">\(c T \frac{\partial \left(u\rho \right)}{\partial x}\)</span> etc.). This shows us that while these divergence terms can change the ammount of heat in the box, they cannot change the temperature because the density in the box changes to counterbalance any change in the heat content. For example, suppose that spatial gradients in flux caused the heat content in the box to double. At the same time, the density in the box would also double, meaning that the ice requires double the heat to maintain the same temperatue as it had before the change.</p>
+<p>Equation <a class="reference internal" href="#equation-heat-eq-full-final">(21)</a> is our final complete form of the heat equation that we will analyze in the following pages.</p>
 </section>
 </section>
 </section>
@@ -872,8 +873,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

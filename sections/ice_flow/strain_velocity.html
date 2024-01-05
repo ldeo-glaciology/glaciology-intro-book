@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Strain rate and velocity fields &#8212; The Glaciology Data Analysis and Modeling book</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -183,8 +183,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="deviatoric_stress.html">Deviatoric stress</a></li>
 <li class="toctree-l1"><a class="reference internal" href="driving_stress.html">Driving stress</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stress_balance_eqns.html">Stress balance equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sia_derivation.html">Ice flux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sia_derivation.html">The Shallow Ice Approximation model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="u_bar_and_lliboutry.html">Building on the Shallow Ice Approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-ice-flow-models.html">Two other ice flow models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heat flow</span></p>
 <ul class="nav bd-sidenav">
@@ -424,6 +425,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-this-strain-rate-velocity-relationship">Proof of this strain rate - velocity relationship</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-general-relationship">A general relationship</a></li>
 </ul>
             </nav>
         </div>
@@ -472,6 +474,15 @@ L + \Delta t(u + L\frac{\partial u}{\partial x}) - \Delta t u = L + \Delta t L\f
 \[
 \dot{\epsilon}_{xx} = \frac{\partial u}{\partial x}.
 \]</div>
+</section>
+<section id="a-general-relationship">
+<h2>A general relationship<a class="headerlink" href="#a-general-relationship" title="Permalink to this heading">#</a></h2>
+<p>Doing the same exercise for shear strain shows that a general equation for this relationship is</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\epsilon}_{ij} = \frac{1}{2}\left(\frac{\partial \underline{u}_i}{\partial \underline{x}_j} + \frac{\partial \underline{u}_j}{\partial \underline{x}_i}\right),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\underline{u}\)</span> is velocity field <span class="math notranslate nohighlight">\((u, v, w)\)</span> components and <span class="math notranslate nohighlight">\(\underline{x}\)</span> are the three coordinates <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span>.</p>
 </section>
 </section>
 
@@ -539,6 +550,7 @@ L + \Delta t(u + L\frac{\partial u}{\partial x}) - \Delta t u = L + \Delta t L\f
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-this-strain-rate-velocity-relationship">Proof of this strain rate - velocity relationship</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-general-relationship">A general relationship</a></li>
 </ul>
   </nav></div>
 
@@ -586,8 +598,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
