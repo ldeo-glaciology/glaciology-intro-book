@@ -62,7 +62,10 @@ where $\nabla_h$ is the del operator in the horizontal direction only: $\nabla_h
 
 ## A more complete (but more complicated) derivation of mass balance
 
-Another form of the depth-integrated mass balance equation can be derived, starting with $\nabla\cdot\underline{u} = 0$. 
+Another form of the depth-integrated mass balance equation can be derived, starting with $\nabla\cdot\underline{u} = 0$ which implies incompressibility. Mathematically, this means the divergence of the field ($u$) is zero, meaning there are no source terms implying that there is no net accumulation or depletion of fluid within any infinitesimally small region of space. From the continuity equation we can see that if $\nabla\cdot\underline{u} = 0$, the change in density ($\rho$) is $0$ at all points in the fluid.
+$$
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \underline{u}) = 0
+$$
 
 Shifting to two spatial dimensions we have 
 
