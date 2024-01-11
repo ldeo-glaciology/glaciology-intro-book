@@ -55,7 +55,7 @@ This can be represented by
 
 $$
 \dot{H} = a -  \nabla_h\cdot\underline{q}, 
-$$
+$$ (eq:depth_int_mass_balance)
 
 where $\nabla_h$ is the del operator in the horizontal direction only: $\nabla_h = \frac{\partial}{\partial x} + \frac{\partial}{\partial y}$.
 

@@ -287,11 +287,11 @@ $$
 
 $$
 q = \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+2} \left(\frac{n+1}{n+2} \right) .
-$$
+$$ 
 
 $$
 \boxed{q = \frac{2A}{n+2} \left(\rho g \alpha \right)^n  H^{n+2}} .
-$$
+$$ (eq:SIA_flux)
 
 This is the final expression for the ice flux in the Shallow Ice Approximation model. 
 
