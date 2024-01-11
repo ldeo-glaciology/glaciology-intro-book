@@ -99,7 +99,7 @@ $$
 \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0 
 $$
 
-where $u$ is the horizontal velocity and $w$ is the vertical velocity, i.e. the horizontal normal strain rate is equal to the negative of the vertical normal strain rate ($\dot{\epsilon_{ij}} \propto \frac{\partial u_i}{\partial x_j}$). Additionally assuming that the stresses and strain rates are aligned (Glen's flow law, $\dot{\epsilon_{ij}} = A \tau_{ij}^n$) gives 
+where $u$ is the horizontal velocity and $w$ is the vertical velocity, i.e. the horizontal normal strain rate is equal to the negative of the vertical normal strain rate. Remembring that $\dot{\epsilon_{ii}} = \frac{\partial u_i}{\partial x_i}$ and assuming that the stresses and strain rates are aligned (Glen's flow law, $\dot{\epsilon_{ij}} = A \tau_{ij}^n$) gives
 
 $$
 \tau_{zz} = -\tau_{xx}
@@ -125,7 +125,7 @@ $$
 
 where $\dot{\epsilon_{ij}}$ are the components of the strain rate tensor, $A$ is a flow parameter, $n$ is the flow exponent, and $\tau_E$ is the effective stress. The inverse form of the flow law is more useful for use here. 
 
-Rearranging the equation above gives:
+Rearranging the equation above gives
 
 $$
 \dot{\epsilon_{ij}}^{\frac{1}{n}} = A^{\frac{1}{n}} \tau_{ij}
@@ -137,7 +137,7 @@ $$
 \tau_{ij}= A^{-\frac{1}{n}} \dot{\epsilon_{ij}}^{\frac{1}{n}}. 
 $$
 
-Then we define the effective viscosity as:
+Then we define the effective viscosity as
 
 $$
 \eta = \frac{1}{2}  A^{-\frac{1}{n}} \dot\epsilon_E^{\frac{1}{n}-1}, 
@@ -155,7 +155,7 @@ $$
 \tau_{ij}= 2 \eta \dot{\epsilon_{ij}}.
 $$
 
-Substituting this into the stress balance equation:
+Substituting this into the stress balance equation
 
 $$
 2\frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial s}{\partial x} 
@@ -239,7 +239,7 @@ $$
 4 \int^s_b\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right) dz  = 4 \frac{\partial }{\partial x}  \int^s_b \left(\eta \frac{\partial u}{\partial x} \right) dz.
 $$
 
-Assuming that $\frac{\partial u}{\partial x}$ is uniform in depth, meaning the normal strain rate ($\dot\epsilon_{xx}$) and hence by glens law, the normal stress ($\tau_{xx}$) is uniform with depth, this becomes
+Assuming that $\frac{\partial u}{\partial x} = \dot\epsilon_{xx}$, and hence by Glen's flow law, the normal stress ($\tau_{xx}$) is uniform in depth, this becomes
 
 $$
 4 \frac{\partial }{\partial x}  \int^s_b \left(\eta \frac{\partial u}{\partial x} \right) dz = 4 \frac{\partial }{\partial x} \left(  \int^s_b\eta \, dz \frac{\partial u}{\partial x} \right) 
