@@ -1,7 +1,8 @@
 # Modeling using ice models
 In this segment, we provide a concise overview of various ice models, detailing their underlying assumptions and the consequential implications. These mathematical expressions play a crucial role in simulating ice flow within computer models. It's essential to ensure a determinant system by balancing the number of equations with the number of unknowns.
 
-## 3D equations
+## 1. High-Fidelity Models:
+### Stokes Flow Model:
 
 The stress balance equations known as the Stokes Equations have 4 variables, the velocity vector and pressure. Note: we make an assumption that the advection term is negligible which is a very resonable assumption 
 
@@ -23,14 +24,22 @@ $$
 \nabla\cdot\underline{u} = 0
 $$
 
+and rheological properties and models like the Glen's flow law which relates strain rate and stress.
+
 These equations are integrated with appropriate boundary conditions to ensure their solvability.
 
-## 2D equations
+## 2. Intermediate-Fidelity Models:
+### Blatter-Pattyn Model (BP Model):
 
-The Blatter-Pattyn (BP) stress conservation equations make simplifying assumptions in the stokes equations. We have two unknowns, the velocity and surface elevation 
+
+The Blatter-Pattyn (BP) stress conservation equations make simplifying assumptions in the stokes equations. We have two unknowns, the velocity vector $\underbar{u} = (u(x,y,z),v(x,y,z))$ and surface elevation $s$ 
 
 $$
 4\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right)+ \frac{\partial }{\partial z} \left(\eta \frac{\partial u}{\partial z} \right) = \rho g \frac{\partial s}{\partial x} 
+$$
+
+$$
+4\frac{\partial }{\partial yx}  \left(\eta \frac{\partial v}{\partial y} \right)+ \frac{\partial }{\partial z} \left(\eta \frac{\partial v}{\partial z} \right) = \rho g \frac{\partial s}{\partial y} 
 $$
 
 This is combined with the depth integrated mass balance equation to ensure solvability.
@@ -46,7 +55,7 @@ The list of assumptions and their implications on the applicability of the model
 | Horizontal gradient of vertical velocity is small ($\frac{\partial w}{\partial x}$) |   |
 
 
-## 1D equations
+### Shallow Shelf Approximation (SSA):
 
 The Shallow Shelf Approximation (SSA) is derived from the BP by making further simplifying assumptions. The resulting stress balance equation is as follows:
 
@@ -54,7 +63,11 @@ $$
 2 \frac{\partial }{\partial x} \left( A^{-\frac{1}{n}} H\left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} \frac{\partial u}{\partial x} \right) - \tau_b = \rho g H\frac{\partial s}{\partial x}.
 $$
 
-This equation has two unknowns, u and H.
+$$
+2 \frac{\partial }{\partial y} \left( A^{-\frac{1}{n}} H\left(\frac{\partial v}{\partial y}\right)^{\frac{1}{n}-1} \frac{\partial v}{\partial y} \right) - \tau_b = \rho g H\frac{\partial s}{\partial y}.
+$$
+
+This equation has two unknowns, $\underbar{u} = (u(x,y),v(x,y))$ and H.
 
 This is combined with the depth integrated mass balance equation to ensure solvability.
 
@@ -72,9 +85,10 @@ This is combined with the depth integrated mass balance equation to ensure solva
 | assume $\dot\epsilon_{E} = \dot\epsilon_{xx}$ |   |
 | $\frac{\partial u}{\partial x}$ is uniform in depth|  |
 
-## 0D equations
+## 3. Lower-Fidelity Models:
+### Shallow Ice Approximation (SIA):
 
-The Shallow Ice Approximation is derived from BP by making some assumptions. The stress balance equation results in:
+The Shallow Ice Approximation is derived from BP by making some more simplifying assumptions. The stress balance equation results in:
 
 $$
 u(\zeta)=  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1} \left( 1- \zeta^{n+1} \right)
@@ -100,13 +114,12 @@ This is combined with the depth integrated mass balance equation to determine th
 ## Depth integrated mass balance equation assumptions
 
 $$
-\dot{H} = a-m - \frac{\partial q}{\partial x},
+\dot{H} = a -  m - \nabla_h\cdot\underline{q},
 $$
 
-where $a$ is the accumulation rate and $m$ is the melting rate. This is derived from the $\nabla\cdot\underline{u} = 0$ by making the following assumptions.
+where $a$ is the accumulation rate, $m$ is the melting rate and $\nabla_h = <\frac{\partial}{\partial x}, \frac{\partial }{\partial y}>$ . This is derived from the $\nabla\cdot\underline{u} = 0$ by making the following assumptions.
 
 
 | Assumption  | Implication | 
 |-------|-----|
-| 2D assumption, infinite y dimension |   |
 | Integrate vertically  |   |
