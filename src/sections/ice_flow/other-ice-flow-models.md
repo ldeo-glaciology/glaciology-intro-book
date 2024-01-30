@@ -1,6 +1,6 @@
 # Two other ice flow models
 
-Pn the previous page, we started from the full stokes stress balance equations and applied the shallow ice approximation (SIA) to derive the simplest widely-used ice sheet model. 
+In the previous page, we started from the full stokes stress balance equations and applied the shallow ice approximation (SIA) to derive the simplest widely-used ice sheet model. 
 
 Below we describe the derivation of two other commonly used ice-flow models the 'higher-order' Blatter-Pattyn (BP) model, and the shallow shelf approximation (SSA) model. For completeness we also describe the derivation of the SIA model from the BP model. 
 
