@@ -8,3 +8,9 @@ dependencies:
   - xarray
   - scipy
   - matplotlib
+  - zarr
+  - tqdm
+  - IPython
+  - pip
+  - pip:
+    - xapres  
