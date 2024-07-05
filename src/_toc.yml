@@ -33,11 +33,8 @@ parts:
   - file: sections/radar/impulse/impulse-radar
   - file: sections/radar/apres/apres-intro
     sections:
-    - file: sections/radar/apres/apres-range-frequency
+    - file: sections/radar/apres/theory_1.ipynb
     - file: sections/radar/apres/beat-frequency
-    - file: sections/radar/apres/chirps.ipynb
-    - file: sections/radar/apres/coarse-range
-    - file: sections/radar/apres/phase-frequency
     - file: sections/radar/apres/stacking
 
 - caption: Appendix
