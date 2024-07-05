@@ -1,0 +1,1241 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>ApRES theory &#8212; The Glaciology Data Analysis and Modeling book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sections/radar/apres/theory_1';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Beat frequency" href="beat-frequency.html" />
+    <link rel="prev" title="Autonomous phase-sensitive Radio Echo Sounder" href="apres-intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../book-intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/thumbnail.png" class="logo__image only-light" alt="The Glaciology Data Analysis and Modeling book - Home"/>
+    <script>document.write(`<img src="../../../_static/thumbnail.png" class="logo__image only-dark" alt="The Glaciology Data Analysis and Modeling book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../book-intro.html">
+                    The Glaciology Data Analysis and Modeling book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ice flow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/ice-flow-intro.html">Introduction to ice flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/ablation_accumulation.html">Ice flow, accumulation and ablation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/antarctic-ice-flow.html">Flow of the Antarctic Ice sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/vec_calc.html">Vector calculus background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/depth_integrated_mass_balance.html">Depth-integrated mass balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/gradient.html">The gradient of Antarctic Ice Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/strain_velocity.html">Strain rate and velocity fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/rheology.html">Ice rheology (under construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/stress_strain_tensors.html">Stress and strain tensors (under construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/deviatoric_stress.html">Deviatoric stress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/driving_stress.html">Driving stress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/stress_balance_eqns.html">Stress balance equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/sia_derivation.html">The Shallow Ice Approximation model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/u_bar_and_lliboutry.html">Building on the Shallow Ice Approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ice_flow/other-ice-flow-models.html">Two other ice flow models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Heat flow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../temperature/heat_intro.html">Heat flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../temperature/heat_equation.html">Heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../temperature/analytical_solution.html">An analytical solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../temperature/numerical_solutions.html">Numerical solutions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radar</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../impulse/impulse-radar.html">Impulse Radar</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="apres-intro.html">Autonomous phase-sensitive Radio Echo Sounder</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ApRES theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beat-frequency.html">Beat frequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stacking.html">Stacking ApRES data</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/upload_Measures_data_to_bucket.html">Adding the MEASURES data to the google bucket</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jkingslake/apres_jp/main?urlpath=lab/tree/src/sections/radar/apres/theory_1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/radar/apres/theory_1.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/radar/apres/theory_1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/sections/radar/apres/theory_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ApRES theory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-a-reflector">1. Define a reflector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-two-way-travel-time-to-the-reflector">2. Compute the two-way travel time to the reflector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-frequency-of-the-transmitted-signal">3. Plot the frequency of the transmitted signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-frequency-of-the-received-signal">4. Plot the frequency of the received signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-frequency-difference">5. Compute the frequency difference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-apres-measure-this-frequency-difference">6. How does ApRES measure this frequency difference?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-frequency-of-this-deramped-signal-with-a-fourier-transform">7. Compute the frequency of this deramped signal with a fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-effect-of-bandwidth">9. The effect of bandwidth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-more-reflectors">10. Add more reflectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-frequency-componets-using-a-fourier-transform">11. Compute the frequency componets using a fourier transform</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="apres-theory">
+<span id="page-apres-theory"></span><h1>ApRES theory<a class="headerlink" href="#apres-theory" title="Permalink to this heading">#</a></h1>
+<p>This page describes the theory behind the Autonomous Radio-echo sounder, including</p>
+<ul class="simple">
+<li><p>a description of the linear chirps the system emits,</p></li>
+<li><p>how individual and multiple reflectors are represented in the returned signal,</p></li>
+<li><p>how the range to these reflectors is encoded in the frequency content of returned signal, and</p></li>
+<li><p>how to extract the range to reflectors using a fourier transform.</p></li>
+</ul>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>Many of the material below can be found in the <a class="reference external" href="https://github.com/ldeo-glaciology/phase-sensitive-radar-processing/blob/5cce6bd838cb70e290316195af9ceefe3d4a52ee/other%20documents/ApRES%20Manual%20V102.1.pdf">ApRES manual</a>, <span id="id1">[<a class="reference internal" href="../../../bibliography.html#id2" title="Paul V. Brennan, Lai Bun Lok, Keith Nicholls, and Hugh Corr. Phase-sensitive FMCW radar system for high-precision Antarctic ice shelf profile monitoring. IET Radar, Sonar &amp; Navigation, 8(7):776–786, 2014. _eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1049/iet-rsn.2013.0053. URL: https://onlinelibrary.wiley.com/doi/abs/10.1049/iet-rsn.2013.0053 (visited on 2022-01-14), doi:10.1049/iet-rsn.2013.0053.">Brennan <em>et al.</em>, 2014</a>]</span>, and Nicholls et al. 2015.</p>
+<p>ApRES emits ‘chirps’, which consist of continuous radio waves lasting one second. Durin each chirp the frequency of the emmitted radio wave increases linearly with time from <span class="math notranslate nohighlight">\(f1\)</span> to <span class="math notranslate nohighlight">\(f2\)</span>. The bandwidth of the system is defined as <span class="math notranslate nohighlight">\(B = f2-f1\)</span>. The signal is transmitted downwards into the ice sheet through one antenna (referred to by ‘Tx’ for transmit) and is partly reflected back to the radar’s receiving (or ‘Rx’) antenna, where it is compared to the transmitted signal to determine the range to sub-surface reflectors.</p>
+<p>To be more specific, throughout each chirp, the radar continally compares the received signal and to the signal being tranmistted. Because the transmitted signal is increasing in frequency throughout the chirp and because the received signal was tranmitted upto 10’s of micro-seconds earlier than it is received, the recieved signal is always lower frequency than the transmitted signal. In fact, the difference in the frequencies of the two signals is linearly proportional to the time it took the received signal to travel to the reflector and back. Finally, if we know the speed of radio waves in the ice, we can use this travel time to compute the range to a reflector.</p>
+<p>We will demonstrate how this is done for the simple case of one reflector, before explaining how this pplies when there are multiple reflectors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">default_rng</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">argrelextrema</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-a-reflector">
+<h2>1. Define a reflector<a class="headerlink" href="#define-a-reflector" title="Permalink to this heading">#</a></h2>
+<p>Suppose that there is just one reflector beneath you when you deploy ApRES. In reality there are hundreds, but we will assume there is just one.</p>
+<p>Let’s define the range to the two reflectors as</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="mi">110</span>  <span class="c1"># units [m]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compute-the-two-way-travel-time-to-the-reflector">
+<h2>2. Compute the two-way travel time to the reflector<a class="headerlink" href="#compute-the-two-way-travel-time-to-the-reflector" title="Permalink to this heading">#</a></h2>
+<p>If we assume uniform dialectric properties in the ice, we can consider how long it would take for a transmitted signal to travel to a reflector which has a range <span class="math notranslate nohighlight">\(R\)</span>, and back to the receiving antenna. This is called the ‘two-way travel time’ to a reflector and it is given by
+$<span class="math notranslate nohighlight">\(
+\tau = 2R\frac{\sqrt\epsilon}{c},
+\)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(c\)</span> is the speed of light in a vacuum and <span class="math notranslate nohighlight">\(\epsilon\)</span> is the relative permittivity of ice.</p>
+<p>We’ll use constants from <span id="id2">[<a class="reference internal" href="../../../bibliography.html#id2" title="Paul V. Brennan, Lai Bun Lok, Keith Nicholls, and Hugh Corr. Phase-sensitive FMCW radar system for high-precision Antarctic ice shelf profile monitoring. IET Radar, Sonar &amp; Navigation, 8(7):776–786, 2014. _eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1049/iet-rsn.2013.0053. URL: https://onlinelibrary.wiley.com/doi/abs/10.1049/iet-rsn.2013.0053 (visited on 2022-01-14), doi:10.1049/iet-rsn.2013.0053.">Brennan <em>et al.</em>, 2014</a>]</span>, to compute <span class="math notranslate nohighlight">\(\tau\)</span> for our reflector:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">299792458</span>
+<span class="n">ep</span> <span class="o">=</span> <span class="mf">3.1</span>
+<span class="k">def</span> <span class="nf">tau</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span><span class="o">/</span><span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;two-way travel time, τ = </span><span class="si">{</span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="si">:</span><span class="s1">.3e</span><span class="si">}</span><span class="s1"> s.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>two-way travel time, τ = 1.292e-06 s.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-the-frequency-of-the-transmitted-signal">
+<h2>3. Plot the frequency of the transmitted signal<a class="headerlink" href="#plot-the-frequency-of-the-transmitted-signal" title="Permalink to this heading">#</a></h2>
+<p>ApRES transmits one-second-long chirps of radio wave with a frequency that increases linearly from <span class="math notranslate nohighlight">\(f_1 = 200\)</span> MHz to <span class="math notranslate nohighlight">\(f_2 = 300\)</span> MHz:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">=</span><span class="mi">1</span>                 <span class="c1"># chirp duration</span>
+<span class="n">f_1</span> <span class="o">=</span> <span class="mf">200e6</span>         <span class="c1"># starting frequency</span>
+<span class="n">f_2</span> <span class="o">=</span> <span class="mf">400e6</span>         <span class="c1"># ending frequency</span>
+<span class="n">f_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">f_1</span><span class="o">+</span><span class="n">f_2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>   <span class="c1"># center frequency</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">f_2</span> <span class="o">-</span> <span class="n">f_1</span>       <span class="c1"># bandwidth</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s define a simple function which returns the frequency of the signal as a (linear) function of time. So that later we can demonstrate what it looks like when the returned signal is delayed by a given time, we add to the function an optional delay in seconds. The bandwidth <span class="math notranslate nohighlight">\(B\)</span> and the center frequency <span class="math notranslate nohighlight">\(f_c\)</span> are set by the design of the radar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampling_frequency</span> <span class="o">=</span> <span class="mi">40000</span>    <span class="c1"># [Hz]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">sampling_frequency</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>   <span class="c1"># time vector</span>
+<span class="k">def</span> <span class="nf">chirp</span><span class="p">(</span><span class="n">delay</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f_1</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">delay</span><span class="p">)</span><span class="o">/</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="n">f_2</span><span class="o">-</span><span class="n">f_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we use this function to create and plot the frequency of the transmitted signal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tx</span> <span class="o">=</span> <span class="n">chirp</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">tx</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;transmitted signal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time, $t$ [s]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;frequency, $f$ [MHz]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency of transmitted signal during one chirp&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9f82996e6bf7b2cb00eb1b9721356367b1edcdc02476f5b2bc500c78cb0d806e.png" src="../../../_images/9f82996e6bf7b2cb00eb1b9721356367b1edcdc02476f5b2bc500c78cb0d806e.png" />
+</div>
+</div>
+</section>
+<section id="plot-the-frequency-of-the-received-signal">
+<h2>4. Plot the frequency of the received signal<a class="headerlink" href="#plot-the-frequency-of-the-received-signal" title="Permalink to this heading">#</a></h2>
+<p>The signal received by ApRES is the same as the transmitted signal except that it has travelled to the reflector and back. This means that the received signal is delayed by the two-way travel time <span class="math notranslate nohighlight">\(\tau\)</span> to the reflector.</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">chirp</span></code>, defined above, to generate a plot representing the frequency of the received signal and plot it with the frequency of the transmitted signal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rx</span> <span class="o">=</span> <span class="n">chirp</span><span class="p">(</span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">tx</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span> <span class="s1">&#39;-C0&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;transmitted signal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">rx</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span> <span class="s1">&#39;-C1&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;received signal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time, $t$ [s]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;frequency, $f$ [MHz]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency of transmitted and received signals during one chirp&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">));</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">f_1</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">f_1</span><span class="o">/</span><span class="mf">1e6</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="mf">1e6</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/5a9f935be935e4b9b65e227a994838769feece705015af6ebeb09c5a01045ba2.png" src="../../../_images/5a9f935be935e4b9b65e227a994838769feece705015af6ebeb09c5a01045ba2.png" />
+</div>
+</div>
+<p>Note that we have had to zoom into a the first few microseconds of the chirp to be able to see the delay in the received signal, because the two-way travel time, <span class="math notranslate nohighlight">\(\tau\)</span>, is so small compared to the total duration of the chirp.</p>
+<p>We can see by eye that the horizontal distance between the two signals is the two-way travel time, <span class="math notranslate nohighlight">\(\tau\)</span>, as required:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.292060425871348e-06
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compute-the-frequency-difference">
+<h2>5. Compute the frequency difference<a class="headerlink" href="#compute-the-frequency-difference" title="Permalink to this heading">#</a></h2>
+<p>From the plot above you can see that the delay in the received signal causes a difference in the frequency of the transmitted and the received signals at each moment throughout a chirp. This frequency difference is equal to the vertical distance between the two curves.</p>
+<p>Given the simple geometry of the plot, it is straightforward to relate this frequency difference, <span class="math notranslate nohighlight">\(f_d\)</span>, to the two-way-travel time, <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f_d = K\tau, 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(K\)</span> is the rate of frequency increase in Hz/s, given by <span class="math notranslate nohighlight">\(K=B/T\)</span>, where <span class="math notranslate nohighlight">\(T\)</span> is the chirp duration (1 s) (Equation 1 from Brennan et al.).</p>
+<p>This can be understood by looking at the plot above and recognizing that <span class="math notranslate nohighlight">\(K\)</span> is the slope of the curves, the vertical distance between them is the frequency difference, <span class="math notranslate nohighlight">\(f_d\)</span>, and the horozontal distance between them is the time delay, <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<p>Let’s compute the frequency difference between the transmitted signal and the signal received from our reflector at a range of 110 m:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="n">B</span><span class="o">/</span><span class="n">T</span>             <span class="c1"># [Hz/s]</span>
+<span class="n">f_d</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>         <span class="c1"># [Hz]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The frequency difference for a reflector </span><span class="si">{</span><span class="n">R</span><span class="si">}</span><span class="s1"> m deep in ice is </span><span class="si">{</span><span class="n">f_d</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> Hz.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The frequency difference for a reflector 110 m deep in ice is 258.4 Hz.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that this frequency is much lower than the transmitted and received signals. It is in the range that is audible to humans, rather than the MHz range of the transmitted and received signals. In fact, the frequency is very close to middle C.</p>
+</section>
+<section id="how-does-apres-measure-this-frequency-difference">
+<h2>6. How does ApRES measure this frequency difference?<a class="headerlink" href="#how-does-apres-measure-this-frequency-difference" title="Permalink to this heading">#</a></h2>
+<p>Above we defined the range to a reflector, <span class="math notranslate nohighlight">\(R\)</span>, and computed the difference, <span class="math notranslate nohighlight">\(f_d\)</span>, between the frequencies of the transmitted and received signals that this reflector would yield. In reality, we don’t know <span class="math notranslate nohighlight">\(R\)</span> apriori; we want to use ApRES to estimate <span class="math notranslate nohighlight">\(f_d\)</span> so we can compute <span class="math notranslate nohighlight">\(R\)</span>. To estimate <span class="math notranslate nohighlight">\(f_d\)</span>, ApRES uses the concept of beat frequency. More details can be found <a class="reference internal" href="beat-frequency.html#page-beat-frequency"><span class="std std-ref">here</span></a>.</p>
+<p>In brief, when there is only one reflector, the received signal is a simple sine wave. It is mixed with the transmitted signal by electronics within the radar in real time during each chirp. The two signals interfere with each other in such a way as to generate a new signal, which has a frequency of <span class="math notranslate nohighlight">\(f_d/2\)</span> (this signal also has a higher frequency component that is filtered out, also in real time, during each chirp). This frequency (<span class="math notranslate nohighlight">\(f_d/2\)</span>) is called the ‘beat frequency’ and the signal that comes of the mixer (and a low-pass filter) is called the ‘deramped’ signal. To compute the range to our single reflector we simply need to compute the frequency of the deramped signal and use the two equations above:</p>
+<div class="math notranslate nohighlight">
+\[
+f_d = K\tau, 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\tau = 2R\frac{\sqrt\epsilon}{c},
+\]</div>
+<p>which when combined and rearranged give:</p>
+<div class="math notranslate nohighlight">
+\[
+R = \frac{c}{2\sqrt\epsilon} \frac{f_d}{K}.
+\]</div>
+<p>This deramped signal is what is saved to disk by ApRES. We refer to these second-long deramped signals as ‘chirps’.</p>
+</section>
+<section id="compute-the-frequency-of-this-deramped-signal-with-a-fourier-transform">
+<h2>7. Compute the frequency of this deramped signal with a fourier transform<a class="headerlink" href="#compute-the-frequency-of-this-deramped-signal-with-a-fourier-transform" title="Permalink to this heading">#</a></h2>
+<p>In our simple case, the deramped signal looks like a sine wave:</p>
+<div class="math notranslate nohighlight">
+\[
+s = e^{2i\pi f_d t}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_d</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot the real and imaginary parts of this signal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># the real and imaginary components of the signal in the plot on the left</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;received signal: time series&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t [s]&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;imaginary&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># the Argand diagram on the right</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">real</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;received signal: complex plane&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Im(s)&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Re(s)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/437c7bd7bbbd92b229f3f4f9793fedec336fce1996fb3674aa2f05e4a4d1567f.png" src="../../../_images/437c7bd7bbbd92b229f3f4f9793fedec336fce1996fb3674aa2f05e4a4d1567f.png" />
+</div>
+</div>
+<p>As mentioned above, we need to compute the frequency of this signal. We do this using a fourier transform. <a class="reference external" href="https://www.youtube.com/watch?v=spUNpyF58B">This video</a> is an incredibly clear explanation of how fourier transforms achieve this.</p>
+<p>The cell below computes the discrete fourier transform of <code class="docutils literal notranslate"><span class="pre">s</span></code> and the frequency bins. By default <code class="docutils literal notranslate"><span class="pre">np.fft.fft</span></code> produces as many frequency bins as there are time-domain samples (<code class="docutils literal notranslate"><span class="pre">=len(s)</span></code>), evenly distributed between 0 Hz and the sampling frequency. Therefore the values of the frequencies are computed by multiplying the indexes by <code class="docutils literal notranslate"><span class="pre">sampling_frequency/no_of_samples</span></code>. Note also that the frequency spectrum is normalized by the number of samples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">no_of_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">/</span><span class="n">no_of_samples</span>         
+    <span class="n">indexes</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">no_of_samples</span><span class="p">)</span> 
+    <span class="n">frequencies</span>  <span class="o">=</span> <span class="n">indexes</span> <span class="o">*</span> <span class="n">sampling_frequency</span><span class="o">/</span><span class="n">no_of_samples</span>
+    <span class="k">return</span> <span class="n">S</span><span class="p">,</span> <span class="n">frequencies</span>
+<span class="n">S</span><span class="p">,</span> <span class="n">frequencies</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we compute the absolute value of the complex numbers in <code class="docutils literal notranslate"><span class="pre">S</span></code> and plot them against the frequencies yielding the usual depiction of frequency domain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;frequency domain&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;frequency [Hz]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;amplitude&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">f_d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/cf1bc2b2716f3d34cee07a4cc2cf15915eefbe94077ec292ced63ef75f3e823b.png" src="../../../_images/cf1bc2b2716f3d34cee07a4cc2cf15915eefbe94077ec292ced63ef75f3e823b.png" />
+</div>
+</div>
+<p>We can now use the equation above,</p>
+<div class="math notranslate nohighlight">
+\[
+R = \frac{c}{2\sqrt\epsilon} \frac{f_d}{K},
+\]</div>
+<p>to convert these frequencies to range,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">range</span><span class="p">(</span><span class="n">frequencies</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">frequencies</span> <span class="o">*</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">K</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ep</span><span class="p">))</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">frequencies</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and plot the result</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;amplitude-range plot showing our two reflectors&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;range [m]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;amplitude&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9c1226f05c631f6637e25984c9a3f12b7bee1227b5793fb4ee67c632b95d2328.png" src="../../../_images/9c1226f05c631f6637e25984c9a3f12b7bee1227b5793fb4ee67c632b95d2328.png" />
+</div>
+</div>
+<p>This range-amplitude plot is the ApRES equivalent of the usual time domain plot you would get from an impulse radar system: i.e. one which sends out a single pulse of radio-wave energy and records the echo from the reflector(s) beneath.</p>
+<p>As expected, in the plot above we see a peak at 110 m. We can detect the position of the peak using <code class="docutils literal notranslate"><span class="pre">argrelextrema</span></code>, a function from the pckage <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">argrelextrema</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">)</span>      <span class="c1"># this function finds local maxima  </span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;reflector detected at </span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reflector detected at 109.825 m.
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is very close to the prescribed range of 110 m. However, because <code class="docutils literal notranslate"><span class="pre">frequencies</span></code> is quantized and (in our case) increases in 1 Hz increments, the retrieved  peaks are restricted to be an integer number of hertz. This is why Brennan et al. call this a <em>coarse</em> range measurment.</p>
+</section>
+<section id="the-effect-of-bandwidth">
+<h2>9. The effect of bandwidth<a class="headerlink" href="#the-effect-of-bandwidth" title="Permalink to this heading">#</a></h2>
+<p>The peak in the plot above has a non-zero width that is related to length of the deramped signal. For example, increasing the bandwidth, <span class="math notranslate nohighlight">\(B\)</span>, would decrease the width of the peak.</p>
+<p>The function below collects together the important bits of the code above and generates a range-amplitude plot, and allows us to change key parameters like the bandwidth and chirp duration to explore their impact.</p>
+<p>For example, using a much smaller bandwidth of only 30 MHz results in a much wider peak in the range-amplitude plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># [s]</span>
+<span class="n">f_1</span> <span class="o">=</span> <span class="mf">200e6</span>  <span class="c1"># [Hz]</span>
+<span class="n">f_2</span> <span class="o">=</span> <span class="mf">400e6</span>  <span class="c1"># [Hz]</span>
+<span class="n">sampling_frequency</span> <span class="o">=</span> <span class="mi">40000</span>   <span class="c1"># [Hz]</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mi">80</span>   <span class="c1"># [m]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">sampling_frequency</span><span class="o">*</span><span class="n">T</span><span class="p">))</span>   <span class="c1"># time vector</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">f_2</span> <span class="o">-</span> <span class="n">f_1</span>       <span class="c1"># bandwidth</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">B</span><span class="o">/</span><span class="n">T</span>             <span class="c1"># [Hz/s]</span>
+
+<span class="k">def</span> <span class="nf">amp_range_plot</span><span class="p">():</span>
+
+    <span class="n">tx</span> <span class="o">=</span> <span class="n">chirp</span><span class="p">()</span>
+    <span class="n">f_d</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> 
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_d</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">S</span><span class="p">,</span> <span class="n">frequencies</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">frequencies</span><span class="p">)</span>
+    
+    <span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">tx</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;transmitted signal&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time, $t$ [s]&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;frequency, $f$ [MHz]&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency of transmitted signal during one chirp&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;received signal: time series&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t [s]&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;imaginary&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;amplitude-range plot showing our two reflectors&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;range [m]&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;amplitude&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="p">)</span>
+    <span class="n">peaks</span> <span class="o">=</span> <span class="n">argrelextrema</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">)</span>     
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;starting frequency: </span><span class="si">{</span><span class="n">f_1</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ending frequency: </span><span class="si">{</span><span class="n">f_2</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;B: </span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;K: </span><span class="si">{</span><span class="n">K</span><span class="si">}</span><span class="s2"> Hz/s&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T: </span><span class="si">{</span><span class="n">T</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;R: </span><span class="si">{</span><span class="n">R</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sampling_frequency: </span><span class="si">{</span><span class="n">sampling_frequency</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;two-way travel time: </span><span class="si">{</span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;frequency of deramped signal: </span><span class="si">{</span><span class="n">f_d</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;number of cycles in deramped signal: </span><span class="si">{</span><span class="n">f_d</span><span class="o">*</span><span class="n">T</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;reflector detected at </span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m.&#39;</span><span class="p">)</span> 
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">amp_range_plot</span><span class="p">()</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>starting frequency: 200000000.0 Hz
+ending frequency: 400000000.0 Hz
+B: 200000000.0 Hz
+K: 200000000.0 Hz/s
+T: 1 s
+R: 80 m
+sampling_frequency: 40000 Hz
+two-way travel time: 9.397e-07 s
+frequency of deramped signal: 187.9 Hz
+number of cycles in deramped signal: 187.9
+reflector detected at 80.027 m.
+</pre></div>
+</div>
+<img alt="../../../_images/5f96cbd9a0960cacebadc9142bf5e22e7491e48d4fa8ac4e71990584be179702.png" src="../../../_images/5f96cbd9a0960cacebadc9142bf5e22e7491e48d4fa8ac4e71990584be179702.png" />
+</div>
+</div>
+<p>The lower resolution we see when <span class="math notranslate nohighlight">\(B\)</span> is reduced is a result of their being fewer cycles in the deramped signal than in cases when <span class="math notranslate nohighlight">\(B\)</span> is larger. The number of cycles in each chirp is given by
+$<span class="math notranslate nohighlight">\(
+N = f_d T.
+\)</span>$</p>
+<p>The more cycles in a signal, the more precisely the fourier transform can determine its frequency. This is a fundamental property of fourier transforms and its crops up in many applications, including in quantum mechanics as the Heisenberg uncertainty principle. This is a great video on the subject from the same source as the video linked above about fouier transforms: <a class="reference external" href="https://www.youtube.com/watch?v=MBnnXbOM5S4">https://www.youtube.com/watch?v=MBnnXbOM5S4</a>. This video graphically demonstrates the idea that it is difficult for a foufier transform to determine the frequency of a short signal containing few cycles.</p>
+<p>Interestingly, you will notice if you play around with the numbers in the cell above, that (all else being equal) the width of the peak does not depend on the chirp duration, <span class="math notranslate nohighlight">\(T\)</span>. At first sight this is surprising because you would expect that a longer duration chirp would contain more cycles and would therefore result in a narrower peak. However, notice that as you vary <span class="math notranslate nohighlight">\(T\)</span>, the number of cycles, which is printed out beneath the cell, does not change. This is because increasing <span class="math notranslate nohighlight">\(T\)</span> while keeping <span class="math notranslate nohighlight">\(B\)</span> constant decreases the rate of change of the frequency, <span class="math notranslate nohighlight">\(K\)</span>. This means that by the time the signal arrives back at the radar, the transmitted signal has not increased as much as it would have done if <span class="math notranslate nohighlight">\(K\)</span> were larger. Therefore the frequency of the deramped signal, <span class="math notranslate nohighlight">\(f_d\)</span>, is lower than it would have been.</p>
+<p>A longer chirp duration tends to increase the number of cycles per chirp, but the decrease in frequency of the deramped signal <span class="math notranslate nohighlight">\(f_d\)</span> counteracts this. In fact, the two effects balance exactly, resulting in the number of cycles per chirp being independent of <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>Mathematically, we can show this by substituting <span class="math notranslate nohighlight">\(f_d = K\tau\)</span> into the equation above,</p>
+<div class="math notranslate nohighlight">
+\[
+N = K\tau T.
+\]</div>
+<p>then substituting in <span class="math notranslate nohighlight">\(K=B/T\)</span>, which describes how <span class="math notranslate nohighlight">\(K\)</span> decreases if <span class="math notranslate nohighlight">\(T\)</span> increases (as described in words above) gives</p>
+<div class="math notranslate nohighlight">
+\[
+N = B\tau.
+\]</div>
+<p>From this we can see how the badnwidth <span class="math notranslate nohighlight">\(B\)</span> effects the peak width, while <span class="math notranslate nohighlight">\(T\)</span> does not; <span class="math notranslate nohighlight">\(T\)</span> cancelling out in the last step above corresponds to the two effects descrbed above balancing each other exactly.</p>
+</section>
+<section id="add-more-reflectors">
+<h2>10. Add more reflectors<a class="headerlink" href="#add-more-reflectors" title="Permalink to this heading">#</a></h2>
+<p>So far we have considered just one reflectors. In general we simultaneously receive signals from reflectors at a whole range of depths. To give a feel for what this looks like, we will plot the frequency of ten signals with their delays selected randomly, to represent signals from ten reflectors at different depths.</p>
+<p>First let’s redfine a few functions to make sure to avoid any issues with varied parameter from the previous section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">299792458</span>
+<span class="n">ep</span> <span class="o">=</span> <span class="mf">3.1</span>
+<span class="k">def</span> <span class="nf">tau</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span><span class="o">/</span><span class="n">c</span>
+<span class="n">T</span><span class="o">=</span><span class="mi">1</span>                 <span class="c1"># chirp duration</span>
+<span class="n">f_1</span> <span class="o">=</span> <span class="mf">200e6</span>         <span class="c1"># starting frequency</span>
+<span class="n">f_2</span> <span class="o">=</span> <span class="mf">400e6</span>         <span class="c1"># ending frequency</span>
+<span class="n">f_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">f_1</span><span class="o">+</span><span class="n">f_2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>   <span class="c1"># center frequency</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">f_2</span> <span class="o">-</span> <span class="n">f_1</span>       <span class="c1"># bandwidth</span>
+<span class="n">sampling_frequency</span> <span class="o">=</span> <span class="mi">40000</span>    <span class="c1"># [Hz]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">sampling_frequency</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>   <span class="c1"># time vector</span>
+<span class="k">def</span> <span class="nf">chirp</span><span class="p">(</span><span class="n">delay</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f_1</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">delay</span><span class="p">)</span><span class="o">/</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="n">f_2</span><span class="o">-</span><span class="n">f_1</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">no_of_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">/</span><span class="n">no_of_samples</span>         
+    <span class="n">indexes</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">no_of_samples</span><span class="p">)</span> 
+    <span class="n">frequencies</span>  <span class="o">=</span> <span class="n">indexes</span> <span class="o">*</span> <span class="n">sampling_frequency</span><span class="o">/</span><span class="n">no_of_samples</span>
+    <span class="k">return</span> <span class="n">S</span><span class="p">,</span> <span class="n">frequencies</span>
+<span class="k">def</span> <span class="nf">range</span><span class="p">(</span><span class="n">frequencies</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">frequencies</span> <span class="o">*</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">K</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ep</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, let’s define our ten reflectors at random depths and plot the frequency of the received signals from each reflector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="mi">110</span>
+<span class="n">rx</span> <span class="o">=</span> <span class="n">chirp</span><span class="p">(</span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">tx</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span> <span class="s1">&#39;-C0&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;transmitted signal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">rx</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span> <span class="s1">&#39;-C1&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;signal received from 110 m&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="c1"># generate some randomly delayed signals</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span> <span class="o">=</span> <span class="mi">4321</span><span class="p">)</span>
+<span class="n">ranges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">R</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="c1"># np.array([110, 3, 30]) #</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plotting the frequencies of signals reflected from the following depths: </span><span class="si">{</span><span class="n">ranges</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ranges</span><span class="p">):</span>
+    <span class="n">rx_rnd</span> <span class="o">=</span> <span class="n">chirp</span><span class="p">(</span><span class="n">tau</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">rx_rnd</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="sa">f</span><span class="s1">&#39;signal received from </span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> m&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time, $t$ [s]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;frequency, $f$ [MHz]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency of transmitted and received signal during one chirp&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">));</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">f_1</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">f_1</span><span class="o">/</span><span class="mf">1e6</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">tau</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="mf">1e6</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting the frequencies of signals reflected from the following depths: [  3.37514327 889.26122168 586.31305979 135.63533655 101.12516631
+ 961.89128611  58.38920621 963.510313   556.00188035 288.82637573] m
+</pre></div>
+</div>
+<img alt="../../../_images/fd9905e6e1ee2fd392a49487bf8254aff08c790867ef3eba32c99d511d6f8a9a.png" src="../../../_images/fd9905e6e1ee2fd392a49487bf8254aff08c790867ef3eba32c99d511d6f8a9a.png" />
+</div>
+</div>
+<p>In practice, signals from all the reflectors are combined togather and arrive back at the radar simultaneously, thoughout the chirp. This means that the signal received by the radar is the sum of signals reflected by many reflectors - hundreds or thousands in reality, compared to the ten we plotted above. Moreover, the signals all have slightly different frequencies differences, <span class="math notranslate nohighlight">\(f_d\)</span>, depending on the range to each reflector. Let’s generate the deramped signal that these ten reflectors would yield and plot it.</p>
+<p>We first compute the frequency differences for each reflector:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_d</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">tau</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span>         <span class="c1"># [Hz] </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For each frequency difference we then generate a complex signal with that frequency:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chirp_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f_d</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we sum them together to create one signal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chirp_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">chirp_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">chirp_array</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;chirp from multiple reflectors&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time, $t$ [s]&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;chirp amplitude [V]&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;the full chirp&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;chirp from multiple reflectors&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time, $t$ [s]&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;chirp amplitude&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;the first 1/10 of a second&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x146ff4ad0&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/0a80616dbdf54486dfaf66baad92ae348ba9f8005c6f761232268643530127dc.png" src="../../../_images/0a80616dbdf54486dfaf66baad92ae348ba9f8005c6f761232268643530127dc.png" />
+</div>
+</div>
+<p>The plot above shows what ApRES would record to disk if in our simple 10-reflector case. The signal has ten frequency components, each correspondong to one reflector. The challenge now is to estimate these frequency componets to determine the range to all the reflectors. As above, we use a fourier transform.</p>
+</section>
+<section id="compute-the-frequency-componets-using-a-fourier-transform">
+<h2>11. Compute the frequency componets using a fourier transform<a class="headerlink" href="#compute-the-frequency-componets-using-a-fourier-transform" title="Permalink to this heading">#</a></h2>
+<p>Using the same approach as we did in the single-reflector case, we apply a fourier transform to the deramped signal to extract the frequency components, then convert the frequencies to range:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="p">,</span> <span class="n">frequencies</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">frequencies</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;amplitude-range plot showing our ten reflectors&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;range [m]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;amplitude&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span><span class="o">*</span><span class="mf">1.1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/169f939fd5f38a4a0ebf8cdcc753153db046dd1919c2324c274207a4a080cd45.png" src="../../../_images/169f939fd5f38a4a0ebf8cdcc753153db046dd1919c2324c274207a4a080cd45.png" />
+</div>
+</div>
+<p>FInally, we can extract the peaks as we did before.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">argrelextrema</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">)</span>     
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;reflectors detected at </span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="si">}</span><span class="s1"> m.&#39;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reflectors detected at [  3.40541349  58.31770596 101.31105123 135.79086279 289.03446969
+ 555.93375172 586.15679641 889.23859674 962.02931002 963.73201676] m.
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are all close to the ranges we prescribed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  3.37514327,  58.38920621, 101.12516631, 135.63533655,
+       288.82637573, 556.00188035, 586.31305979, 889.26122168,
+       961.89128611, 963.510313  ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.03027021,  0.07150025, -0.18588493, -0.15552623, -0.20809396,
+        0.06812864,  0.15626338,  0.02262495, -0.13802391, -0.22170375])
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="12">
+<li><p>Summary</p></li>
+</ol>
+<ul class="simple">
+<li><p>ApRES emits one-second-long chirps.</p></li>
+<li><p>ApRES detects the range to sub-surface reflectors by combined the frequency of a transmitted signal, which continually increases throughout each chirp, to the frequency of the signal received from the reflectors.</p></li>
+<li><p>The tranmistted and received signal are in the MHz range.</p></li>
+<li><p>This combination results in a ‘deramped’ signal which is in the audio frequency range.</p></li>
+<li><p>The deramped signal is saved to disk by ApRES.</p></li>
+<li><p>The frequency components of the deramped signal are extracted using a fourier transform to determine the range to sub-surface reflectors.</p></li>
+<li><p>The range-amplitude results, <code class="docutils literal notranslate"><span class="pre">S</span></code>, can be used to compute deisplacement of reflectors using cross-correlation betweeen successive measurements.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jkingslake/apres_jp",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./sections/radar/apres"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="apres-intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Autonomous phase-sensitive Radio Echo Sounder</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="beat-frequency.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Beat frequency</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-a-reflector">1. Define a reflector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-two-way-travel-time-to-the-reflector">2. Compute the two-way travel time to the reflector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-frequency-of-the-transmitted-signal">3. Plot the frequency of the transmitted signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-frequency-of-the-received-signal">4. Plot the frequency of the received signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-frequency-difference">5. Compute the frequency difference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-apres-measure-this-frequency-difference">6. How does ApRES measure this frequency difference?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-frequency-of-this-deramped-signal-with-a-fourier-transform">7. Compute the frequency of this deramped signal with a fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-effect-of-bandwidth">9. The effect of bandwidth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-more-reflectors">10. Add more reflectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-frequency-componets-using-a-fourier-transform">11. Compute the frequency componets using a fourier transform</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-(sia_derivation)=
+
 # The Shallow Ice Approximation model  
 Finally we are ready to derive our simple equation of ice flux, which will be combined with the depth-averaged mass balance equation to make our ice-sheet model. 
 
@@ -126,9 +126,10 @@ $$
 
 Substituting this into the $x$-direction stress balance equation shows
 
+<!--dtau_zxdz-->
 $$
 \frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial H}{\partial x}
-$$(dtau_zxdz)
+$$
 
 Noting that $\frac{\partial H}{\partial x}$ is usually negative, this expression suggests that the vertical shear stress $\tau_{zx}$ decreases with $z$. 
 
@@ -165,31 +166,31 @@ $$
 \tau_E^2 = \frac{1}{2}(\tau_{xx}^2+\tau_{yy}^2+\tau_{zz}^2)+\tau_{xz}^2+\tau_{xy}^2+\tau_{yz}^2.
 $$
 
-As part of the shallow ice approximation we neglect all terms on the right except $\tau_{xz}^2$. Neglecting $\tau_{yy}^2$, $\tau_{xy}^2$ and $\tau_{yz}^2$ is equivalent to assuming the ice flow is two dimensional. Neglecting $\tau_{xx}^2$ is an additional assumption; previously we neglected the effect of $\frac{\partial \tau_{xx}}{\partial x}$ on the stress balance, but here we are additionally neglecting the effect of $\tau_{xx}$ on ice viscosity.
+As part of the shallow ice approximation we neglect all terms on the right except $\tau_{xz}^2$. Neglecting $\tau_{yy}^2$, $\tau_{xy}^2$ and $\tau_{yz}^2$ is equivalent to assuming the ice flow is two dimensional. Neglecting $\tau_{xx}^2$ is an additional assumption; previously we neglected the effect of $\frac{\partial \tau_{xx}}{\partial x}$ on the stress balance, but here we are additionally neglecting the effect of $\tau_{xx}$ on ice viscosity, this is equivalent to saying $\frac{\partial u}{\partial x}=0$.
 
 These assumption leave
 
 $$
-\tau_E = \tau_{zz}
+\tau_E = \tau_{xz}
 $$
 
 and therefore 
 
 $$
-\dot{\epsilon_{zx}} = A\tau_{zx}^n.
+\dot{\epsilon_{xz}} = A\tau_{xz}^n.
 $$
 
 ## Strain rates and velocity gradients. 
 To relate strain rates to velocity gradients we use the expression we derived a few weeks ago:
 
 $$
-\epsilon_{zx} = \frac{1}{2}\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right)
+\dot\epsilon_{xz} = \frac{1}{2}\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right)
 $$
 
-We make a final additional simplification associated with the shallow ice approximation - we assume that $\frac{\partial w}{\partial x}$ is much smaller than $\frac{\partial u}{\partial x}$, 
+We make a final additional simplification associated with the shallow ice approximation - we assume that $\frac{\partial w}{\partial x}$ is much smaller than $\frac{\partial u}{\partial z}$, 
 
 $$
-\epsilon_{zx} = \frac{1}{2}\frac{\partial u}{\partial z}.
+\dot\epsilon_{xz} = \frac{1}{2}\frac{\partial u}{\partial z}.
 $$
 
 ## Horizontal velocity
@@ -242,7 +243,7 @@ $$
 u(\zeta) = u_s \left( 1- \zeta^{n+1} \right).
 $$
 
-This highlights how you can think of the velocity as being the product of the surface velocity and a function of depth: $1- \zeta^{n+1} $. This function is often called a 'shape function'. 
+This highlights how you can think of the velocity as being the product of the surface velocity and a function of depth: $1- \zeta^{n+1}$. This function is often called a 'shape function'. 
 
 ## Ice flux
 To determine the ice flux 

@@ -197,12 +197,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Radar</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../radar/impulse/impulse-radar.html">Impulse Radar</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../radar/apres/apres-intro.html">Autonomous phase-sensitive radio echo sounder</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/apres-range-frequency.html">Frequency and range</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../radar/apres/apres-intro.html">Autonomous phase-sensitive Radio Echo Sounder</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/theory_1.html">ApRES theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../radar/apres/beat-frequency.html">Beat frequency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/chirps.html">The fundamental operation of ApRES</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/coarse-range.html">Discrete fourier transforms and phase</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/phase-frequency.html">Phase and Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../radar/apres/stacking.html">Stacking ApRES data</a></li>
 </ul>
 </li>
@@ -458,7 +455,7 @@ document.write(`
 \[
 \frac{\partial \tau_{xz}}{\partial x} + \frac{\partial \tau_{yz}}{\partial y}+\frac{\partial \sigma_{zz}}{\partial z} = \rho g
 \]</div>
-<p>we will ignore the <span class="math notranslate nohighlight">\(y\)</span> dimension for simplicity, leaving:</p>
+<p>we will ignore the <span class="math notranslate nohighlight">\(y\)</span> dimension for simplicity, which implies a 2D assumption meaning infinite width, leaving:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial \sigma_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = 0
@@ -467,7 +464,7 @@ document.write(`
 \[
 \frac{\partial \sigma_{zz}}{\partial z}+\frac{\partial \tau_{xz}}{\partial x} = \rho g
 \]</div>
-<p>Motivated by the fact that ice sheets, streams and shelves are much wider than they are thick, we neglect the horizontal gradient of vertical shear stresses - the ‘so-called’ bridging stresses - leaving</p>
+<p>Motivated by the fact that ice sheets, streams and shelves are much wider than they are thick, we neglect the horizontal gradient of vertical shear stresses - the ‘so-called’ bridging stresses. This assumption is valid if the body of ice is relatively homogeneous horizontally, with similar properties and conditions across its width, then the horizontal gradient of shear stress may be small - leaving:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial \sigma_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = 0
@@ -504,7 +501,7 @@ document.write(`
 \[
 \int^0_P dP = -\rho g \int^s_z dz + \int^0_{\tau_{zz}} \frac{\partial \tau_{zz}}{\partial z} dz,
 \]</div>
-<p>where we have imposed boundary conditions at the surface of zero pressure <span class="math notranslate nohighlight">\(P\)</span> and zero deviatoric vertical normal stress \tau_{zz}. Evaluating the integrals and rearranging,</p>
+<p>where we have imposed boundary conditions at the surface of zero pressure <span class="math notranslate nohighlight">\(P\)</span> and zero deviatoric vertical normal stress <span class="math notranslate nohighlight">\(\tau_{zz}\)</span>. Evaluating the integrals and rearranging,</p>
 <div class="math notranslate nohighlight">
 \[
 P = \rho g(s-z) + \tau_{zz}
@@ -519,13 +516,12 @@ P = \rho g(s-z) + \tau_{zz}
 \[
 \frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = \rho g\frac{\partial s}{\partial x}+ \frac{\partial \tau_{zz}}{\partial x}
 \]</div>
-<p>Here we assume that ice is incompressible</p>
+<p>Here we assume that ice is incompressible (<span class="math notranslate nohighlight">\(\nabla\cdot\underline{u} = 0\)</span>)</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0 
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(u\)</span> is the horizontal velocity and <span class="math notranslate nohighlight">\(w\)</span> is the vertical velocity, i.e. the horizontal normal strain rate is equal to the negative of the vertical normal strain rate.</p>
-<p>Additionally assuming that the stresses and strain rates are aligned gives</p>
+<p>where <span class="math notranslate nohighlight">\(u\)</span> is the horizontal velocity and <span class="math notranslate nohighlight">\(w\)</span> is the vertical velocity, i.e. the horizontal normal strain rate is equal to the negative of the vertical normal strain rate. Remembring that <span class="math notranslate nohighlight">\(\dot{\epsilon_{ii}} = \frac{\partial u_i}{\partial x_i}\)</span> and assuming that the stresses and strain rates are aligned (Glen’s flow law, <span class="math notranslate nohighlight">\(\dot{\epsilon_{ij}} = A \tau_{ij}^n\)</span>) gives</p>
 <div class="math notranslate nohighlight">
 \[
 \tau_{zz} = -\tau_{xx}
@@ -533,7 +529,7 @@ P = \rho g(s-z) + \tau_{zz}
 <p>Substituting this into the stress balance equation above gives</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = \frac{\partial s}{\partial x} - \frac{\partial \tau_{xx}}{\partial x}
+\frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = \rho g\frac{\partial s}{\partial x} - \frac{\partial \tau_{xx}}{\partial x}
 \]</div>
 <p>or, rearranging,</p>
 <div class="math notranslate nohighlight">
@@ -559,19 +555,24 @@ P = \rho g(s-z) + \tau_{zz}
 <p>Then we define the effective viscosity as</p>
 <div class="math notranslate nohighlight">
 \[
-\eta = \frac{1}{2}  A^{-\frac{1}{n}} \epsilon_E^{\frac{1}{n}-1}, 
+\eta = \frac{1}{2}  A^{-\frac{1}{n}} \dot\epsilon_E^{\frac{1}{n}-1}, 
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\epsilon_E\)</span> is the effective strain rate, in this case  defined by</p>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_E\)</span> is the effective strain rate (second invariant of the strain rate tensor), in this case (ignoring variations in y-direction) defined by:</p>
 <div class="math notranslate nohighlight">
 \[
-\epsilon_E^2 = \epsilon_{xx}^2 + \epsilon_{xz}^2
+\dot\epsilon_E^2 = \dot\epsilon_{xx}^2 + \dot\epsilon_{xz}^2
 \]</div>
-<p>The inverse flow law is therefore</p>
+<p>The inverse flow law is therefore,</p>
 <div class="math notranslate nohighlight">
 \[ 
 \tau_{ij}= 2 \eta \dot{\epsilon_{ij}}.
 \]</div>
-<p>Substituting this into the stress balance equation gives</p>
+<p>Substituting this into the stress balance equation</p>
+<div class="math notranslate nohighlight">
+\[
+2\frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial s}{\partial x} 
+\]</div>
+<p>gives:</p>
 <div class="math notranslate nohighlight">
 \[
 4\frac{\partial }{\partial x}  (\eta \dot{\epsilon}_{xx}) +2 \frac{\partial }{\partial z} (\eta \dot{\epsilon}_{zx}) = \rho g \frac{\partial s}{\partial x} 
@@ -592,7 +593,7 @@ For our two remaining strain rates this gives</p>
 \[
 \dot{\epsilon}_{zx} = \frac{1}{2}\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right)
 \]</div>
-<p>Consistent with neglecting bridging stresses at the start of the derivation, we now neglect <span class="math notranslate nohighlight">\(\frac{\partial w}{\partial x}\)</span>, leaving</p>
+<p>Consistent with neglecting the horizontal variation of vertical shear/bridging stresses (<span class="math notranslate nohighlight">\(\frac{\partial \tau_{xz}}{\partial x}\)</span>) at the start of the derivation, we now neglect <span class="math notranslate nohighlight">\(\frac{\partial w}{\partial x}\)</span>, the horizontal variation of vertical velocity, leaving</p>
 <div class="math notranslate nohighlight">
 \[
 \dot{\epsilon}_{zx} = \frac{1}{2}\frac{\partial u}{\partial z} 
@@ -606,7 +607,7 @@ For our two remaining strain rates this gives</p>
 <section id="bp-to-ssa">
 <h2>BP to SSA<a class="headerlink" href="#bp-to-ssa" title="Permalink to this heading">#</a></h2>
 <p>In this section we apply further simplifying assumptions to the BP above to derive a Shallow Shelf approximation model, which is applicable in locations where basal shear stress is relatively small compared to the longitudinal stresses and the driving stress.</p>
-<p>The SSA model is a depth integrated model, which applies when internal vertical shear <span class="math notranslate nohighlight">\(\epsilon_{zx}\)</span> is small.</p>
+<p>The SSA model is a depth integrated model, which applies when internal vertical shear <span class="math notranslate nohighlight">\(\tau_{zx}\)</span> is small. This implies that there is little variation of horizontal velocity with depth (z-direction).</p>
 <p>Integrating the BP equation above gives</p>
 <div class="math notranslate nohighlight">
 \[
@@ -629,12 +630,12 @@ For our two remaining strain rates this gives</p>
 \[
 \frac{d}{dx} \int^s_b f(x,z) dz =  f(x,s) \frac{ds}{dx} -  f(x,b) \frac{db}{dx} + \int^s_b \frac{\partial}{\partial x} f(x,z) dz.
 \]</div>
-<p>We will assume <span class="math notranslate nohighlight">\(\frac{ds}{dx} = \frac{db}{dx} = 0\)</span>, which is consistent with large-aspect-ratio assumption that is key to the SSA. Therefore, applying the Leibniz rule to the first term on the left of the stress balance equation gives</p>
+<p>We will assume <span class="math notranslate nohighlight">\(\frac{ds}{dx} = \frac{db}{dx} = 0\)</span> meaning that there is negligible variation of basal elevation or surface elevation w.r.t. horizontal direction, which is consistent with large-aspect-ratio assumption that is key to the SSA, it also implies the ice is relatively flat. Therefore, applying the Leibniz rule to the first term on the left of the stress balance equation gives</p>
 <div class="math notranslate nohighlight">
 \[
 4 \int^s_b\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right) dz  = 4 \frac{\partial }{\partial x}  \int^s_b \left(\eta \frac{\partial u}{\partial x} \right) dz.
 \]</div>
-<p>Assuming that <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial x} \)</span> is uniform in depth, this becomes</p>
+<p>Assuming that <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial x} = \dot\epsilon_{xx}\)</span>, and hence by Glen’s flow law, the normal stress (<span class="math notranslate nohighlight">\(\tau_{xx}\)</span>) is uniform in depth, this becomes</p>
 <div class="math notranslate nohighlight">
 \[
 4 \frac{\partial }{\partial x}  \int^s_b \left(\eta \frac{\partial u}{\partial x} \right) dz = 4 \frac{\partial }{\partial x} \left(  \int^s_b\eta \, dz \frac{\partial u}{\partial x} \right) 
@@ -653,12 +654,20 @@ For our two remaining strain rates this gives</p>
 \[
 4 \frac{\partial }{\partial x} \left(  \overline{\eta} H\frac{\partial u}{\partial x} \right) - \tau_b = \rho g H\frac{\partial s}{\partial x}.
 \]</div>
-<p>This is one commonly used form of the SSA. Another is found by substituting in an expression for the depth-averaged effective viscosity, which is simply</p>
+<p>This is one commonly used form of the SSA. Another is found by substituting in an expression for the depth-averaged effective viscosity. From the BP derivation we know the viscosity is represented by:</p>
 <div class="math notranslate nohighlight">
 \[
-\overline{\eta} = \frac{1}{2}  A^{-\frac{1}{n}} \epsilon_{xx}^{\frac{1}{n}-1} =  \frac{1}{2}  A^{-\frac{1}{n}} \left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} 
+\eta = \frac{1}{2}  A^{-\frac{1}{n}} \dot\epsilon_E^{\frac{1}{n}-1}, 
 \]</div>
-<p>if we assume <span class="math notranslate nohighlight">\(\epsilon_{E} = \epsilon_{xx}\)</span> and that this does not vary with depth.</p>
+<p>We assume <span class="math notranslate nohighlight">\(\dot\epsilon_{E} = \dot\epsilon_{xx}\)</span> and that this does not vary with depth, consistent with the assumption before of uniform normal stress (<span class="math notranslate nohighlight">\(\tau_{xx}\)</span>). The assumption also implies that <span class="math notranslate nohighlight">\(\dot\epsilon_{xz}\)</span> is negligible since in the BP model <span class="math notranslate nohighlight">\(\dot\epsilon_E^2 = \dot\epsilon_{xx}^2 + \dot\epsilon_{xz}^2\)</span> . The strain rate tensor is a symmetric tensor so <span class="math notranslate nohighlight">\(\dot\epsilon_{xz} = \dot\epsilon_{zx}\)</span>. Also, at the beginning we assumed that <span class="math notranslate nohighlight">\(\tau_{zx} \propto \dot\epsilon_{zx}\)</span>, is small. So the assumption about the effective strain rate <span class="math notranslate nohighlight">\(\dot\epsilon_{E}\)</span> is consistent with the assumption made in the beginning of the derivation.</p>
+<div class="math notranslate nohighlight">
+\[
+\eta = \frac{1}{2}  A^{-\frac{1}{n}} \dot\epsilon_{xx}^{\frac{1}{n}-1} =  \frac{1}{2}  A^{-\frac{1}{n}} \left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} 
+\]</div>
+<p>Remembering that we made an assumption that <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial x}\)</span> is uniform in depth and depth averaging <span class="math notranslate nohighlight">\(\eta\)</span> we get:
+$<span class="math notranslate nohighlight">\(
+\overline{\eta} = \frac{1}{H} \int^s_b\eta \, dz = \frac{1}{2H}  A^{-\frac{1}{n}} \left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} (s-b) = \frac{1}{2H}  A^{-\frac{1}{n}} \left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} H = \frac{1}{2}  A^{-\frac{1}{n}} \left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} ,
+\)</span>$</p>
 <p>Substituting this into the SSA equation gives</p>
 <div class="math notranslate nohighlight">
 \[
@@ -672,13 +681,33 @@ For our two remaining strain rates this gives</p>
 \[
 4\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right)+ \frac{\partial }{\partial z} \left(\eta \frac{\partial u}{\partial z} \right) = \rho g \frac{\partial s}{\partial x}. 
 \]</div>
-<p>The first step is to neglect the horizontal extenstional stresses, the first term on the left. Again we recognize that <span class="math notranslate nohighlight">\(\eta \frac{\partial u}{\partial z} = \tau_{zx}\)</span>, leaving</p>
+<p>The first step is to neglect the horizontal extenstional stresses (<span class="math notranslate nohighlight">\(\tau_{xx} \propto \dot\epsilon_{xx} =\frac{\partial u}{\partial x}\)</span>), the first term on the left. Again we recognize that <span class="math notranslate nohighlight">\(\eta \frac{\partial u}{\partial z} = \tau_{zx}\)</span>, leaving</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial s}{\partial x}. 
 \]</div>
-<p>From now on the derivation is the same as the derivation on this <a class="reference internal" href="sia_derivation.html#sia-derivation"><span class="std std-ref">page</span></a>, equation (<a class="reference internal" href="sia_derivation.html#equation-dtau-zxdz">(1)</a>).</p>
-<p>We integrate vertically, then substitute in Glen’s flow law and the relationship between velocity gradients and strain rates. Then intergrate vertically again to obtain an expression for <span class="math notranslate nohighlight">\(u(z)\)</span>, then integrate vertically again to get an expression for the depth-integrated flux per unit width, <span class="math notranslate nohighlight">\(q\)</span>:</p>
+<p>From now on the derivation is the same as the derivation on this <a class="reference internal" href="sia_derivation.html"><span class="doc std std-doc">page</span></a>,  <span class="xref myst">equation</span> under the section <code class="docutils literal notranslate"><span class="pre">Differentiate</span> <span class="pre">Horizontally</span></code>.</p>
+<p>We integrate vertically, then substitute in Glen’s flow law and the relationship between velocity gradients and strain rates. Then intergrate vertically again to obtain an expression for <span class="math notranslate nohighlight">\(u\)</span>:
+$<span class="math notranslate nohighlight">\(
+u(\zeta)=  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1} \left( 1- \zeta^{n+1} \right)
+\)</span>$</p>
+<p>where  <span class="math notranslate nohighlight">\(\zeta = 1-\frac{z}{H}\)</span>.</p>
+<p>We can get the horizontal velocity at the surface by evaluating this expression at <span class="math notranslate nohighlight">\(\zeta = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+u_s = u(0)=  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1},
+\]</div>
+<p>which shows that</p>
+<div class="math notranslate nohighlight">
+\[
+u(\zeta) = u_s \left( 1- \zeta^{n+1} \right).
+\]</div>
+<p>then integrate vertically again</p>
+<div class="math notranslate nohighlight">
+\[
+q = \int^H_0 u(z) dz
+\]</div>
+<p>to get an expression for the depth-integrated flux per unit width, <span class="math notranslate nohighlight">\(q\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 q = \frac{2A}{n+2} \left(\rho g \alpha \right)^n  H^{n+2}.

@@ -197,12 +197,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Radar</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../radar/impulse/impulse-radar.html">Impulse Radar</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../radar/apres/apres-intro.html">Autonomous phase-sensitive radio echo sounder</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/apres-range-frequency.html">Frequency and range</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../radar/apres/apres-intro.html">Autonomous phase-sensitive Radio Echo Sounder</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/theory_1.html">ApRES theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../radar/apres/beat-frequency.html">Beat frequency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/chirps.html">The fundamental operation of ApRES</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/coarse-range.html">Discrete fourier transforms and phase</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/phase-frequency.html">Phase and Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../radar/apres/stacking.html">Stacking ApRES data</a></li>
 </ul>
 </li>
@@ -446,7 +443,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-shallow-ice-approximation-model">
-<span id="sia-derivation"></span><h1>The Shallow Ice Approximation model<a class="headerlink" href="#the-shallow-ice-approximation-model" title="Permalink to this heading">#</a></h1>
+<h1>The Shallow Ice Approximation model<a class="headerlink" href="#the-shallow-ice-approximation-model" title="Permalink to this heading">#</a></h1>
 <p>Finally we are ready to derive our simple equation of ice flux, which will be combined with the depth-averaged mass balance equation to make our ice-sheet model.</p>
 <p>We will use the so-called ‘shallow ice approximation’ to simplify the stress balance equations,</p>
 <div class="math notranslate nohighlight">
@@ -555,8 +552,9 @@ q = \int^H_0 u(z) dz.
 \frac{\partial \sigma_{m}}{\partial x} =- \rho g \frac{\partial H}{\partial x}
 \]</div>
 <p>Substituting this into the <span class="math notranslate nohighlight">\(x\)</span>-direction stress balance equation shows</p>
-<div class="math notranslate nohighlight" id="equation-dtau-zxdz">
-<span class="eqno">(1)<a class="headerlink" href="#equation-dtau-zxdz" title="Permalink to this equation">#</a></span>\[
+<!--dtau_zxdz-->
+<div class="math notranslate nohighlight">
+\[
 \frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial H}{\partial x}
 \]</div>
 <p>Noting that <span class="math notranslate nohighlight">\(\frac{\partial H}{\partial x}\)</span> is usually negative, this expression suggests that the vertical shear stress <span class="math notranslate nohighlight">\(\tau_{zx}\)</span> decreases with <span class="math notranslate nohighlight">\(z\)</span>.</p>
@@ -589,16 +587,16 @@ q = \int^H_0 u(z) dz.
 \[
 \tau_E^2 = \frac{1}{2}(\tau_{xx}^2+\tau_{yy}^2+\tau_{zz}^2)+\tau_{xz}^2+\tau_{xy}^2+\tau_{yz}^2.
 \]</div>
-<p>As part of the shallow ice approximation we neglect all terms on the right except <span class="math notranslate nohighlight">\(\tau_{xz}^2\)</span>. Neglecting <span class="math notranslate nohighlight">\(\tau_{yy}^2\)</span>, <span class="math notranslate nohighlight">\(\tau_{xy}^2\)</span> and <span class="math notranslate nohighlight">\(\tau_{yz}^2\)</span> is equivalent to assuming the ice flow is two dimensional. Neglecting <span class="math notranslate nohighlight">\(\tau_{xx}^2\)</span> is an additional assumption; previously we neglected the effect of <span class="math notranslate nohighlight">\(\frac{\partial \tau_{xx}}{\partial x}\)</span> on the stress balance, but here we are additionally neglecting the effect of <span class="math notranslate nohighlight">\(\tau_{xx}\)</span> on ice viscosity.</p>
+<p>As part of the shallow ice approximation we neglect all terms on the right except <span class="math notranslate nohighlight">\(\tau_{xz}^2\)</span>. Neglecting <span class="math notranslate nohighlight">\(\tau_{yy}^2\)</span>, <span class="math notranslate nohighlight">\(\tau_{xy}^2\)</span> and <span class="math notranslate nohighlight">\(\tau_{yz}^2\)</span> is equivalent to assuming the ice flow is two dimensional. Neglecting <span class="math notranslate nohighlight">\(\tau_{xx}^2\)</span> is an additional assumption; previously we neglected the effect of <span class="math notranslate nohighlight">\(\frac{\partial \tau_{xx}}{\partial x}\)</span> on the stress balance, but here we are additionally neglecting the effect of <span class="math notranslate nohighlight">\(\tau_{xx}\)</span> on ice viscosity, this is equivalent to saying <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial x}=0\)</span>.</p>
 <p>These assumption leave</p>
 <div class="math notranslate nohighlight">
 \[
-\tau_E = \tau_{zz}
+\tau_E = \tau_{xz}
 \]</div>
 <p>and therefore</p>
 <div class="math notranslate nohighlight">
 \[
-\dot{\epsilon_{zx}} = A\tau_{zx}^n.
+\dot{\epsilon_{xz}} = A\tau_{xz}^n.
 \]</div>
 </section>
 <section id="strain-rates-and-velocity-gradients">
@@ -606,12 +604,12 @@ q = \int^H_0 u(z) dz.
 <p>To relate strain rates to velocity gradients we use the expression we derived a few weeks ago:</p>
 <div class="math notranslate nohighlight">
 \[
-\epsilon_{zx} = \frac{1}{2}\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right)
+\dot\epsilon_{xz} = \frac{1}{2}\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right)
 \]</div>
-<p>We make a final additional simplification associated with the shallow ice approximation - we assume that <span class="math notranslate nohighlight">\(\frac{\partial w}{\partial x}\)</span> is much smaller than <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial x}\)</span>,</p>
+<p>We make a final additional simplification associated with the shallow ice approximation - we assume that <span class="math notranslate nohighlight">\(\frac{\partial w}{\partial x}\)</span> is much smaller than <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial z}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
-\epsilon_{zx} = \frac{1}{2}\frac{\partial u}{\partial z}.
+\dot\epsilon_{xz} = \frac{1}{2}\frac{\partial u}{\partial z}.
 \]</div>
 </section>
 <section id="horizontal-velocity">
@@ -656,7 +654,7 @@ u_s = u(0)=  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1},
 \[
 u(\zeta) = u_s \left( 1- \zeta^{n+1} \right).
 \]</div>
-<p>This highlights how you can think of the velocity as being the product of the surface velocity and a function of depth: <span class="math notranslate nohighlight">\(1- \zeta^{n+1} \)</span>. This function is often called a ‘shape function’.</p>
+<p>This highlights how you can think of the velocity as being the product of the surface velocity and a function of depth: <span class="math notranslate nohighlight">\(1- \zeta^{n+1}\)</span>. This function is often called a ‘shape function’.</p>
 </section>
 <section id="ice-flux">
 <h2>Ice flux<a class="headerlink" href="#ice-flux" title="Permalink to this heading">#</a></h2>

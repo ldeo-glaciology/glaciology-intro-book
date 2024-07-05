@@ -197,12 +197,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Radar</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../radar/impulse/impulse-radar.html">Impulse Radar</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../radar/apres/apres-intro.html">Autonomous phase-sensitive radio echo sounder</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/apres-range-frequency.html">Frequency and range</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../radar/apres/apres-intro.html">Autonomous phase-sensitive Radio Echo Sounder</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/theory_1.html">ApRES theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../radar/apres/beat-frequency.html">Beat frequency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/chirps.html">The fundamental operation of ApRES</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/coarse-range.html">Discrete fourier transforms and phase</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../radar/apres/phase-frequency.html">Phase and Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../radar/apres/stacking.html">Stacking ApRES data</a></li>
 </ul>
 </li>
@@ -486,7 +483,10 @@ q_x = \int^H_0 u(z) dz;\quad q_y = \int^H_0 v(z) dz.
 </section>
 <section id="a-more-complete-but-more-complicated-derivation-of-mass-balance">
 <h2>A more complete (but more complicated) derivation of mass balance<a class="headerlink" href="#a-more-complete-but-more-complicated-derivation-of-mass-balance" title="Permalink to this heading">#</a></h2>
-<p>Another form of the depth-integrated mass balance equation can be derived, starting with <span class="math notranslate nohighlight">\(\nabla\cdot\underline{u} = 0\)</span>.</p>
+<p>Another form of the depth-integrated mass balance equation can be derived, starting with <span class="math notranslate nohighlight">\(\nabla\cdot\underline{u} = 0\)</span> which implies incompressibility. Mathematically, this means the divergence of the field (<span class="math notranslate nohighlight">\(u\)</span>) is zero, meaning there are no source terms implying that there is no net accumulation or depletion of fluid within any infinitesimally small region of space. From the continuity equation we can see that if <span class="math notranslate nohighlight">\(\nabla\cdot\underline{u} = 0\)</span>, the change in density (<span class="math notranslate nohighlight">\(\rho\)</span>) is <span class="math notranslate nohighlight">\(0\)</span> at all points in the fluid.
+$<span class="math notranslate nohighlight">\(
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \underline{u}) = 0
+\)</span>$</p>
 <p>Shifting to two spatial dimensions we have</p>
 <div class="math notranslate nohighlight">
 \[
