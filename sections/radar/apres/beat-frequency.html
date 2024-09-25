@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'sections/radar/apres/beat-frequency';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Stacking ApRES data" href="stacking.html" />
-    <link rel="prev" title="ApRES theory" href="theory_1.html" />
+    <link rel="next" title="A first look at ApRES data" href="apres_data_1.html" />
+    <link rel="prev" title="Autonomous phase-sensitive radio-echo sounder theory" href="theory_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -198,9 +198,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../impulse/impulse-radar.html">Impulse Radar</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="apres-intro.html">Autonomous phase-sensitive Radio Echo Sounder</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="theory_1.html">ApRES theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_1.html">Autonomous phase-sensitive radio-echo sounder theory</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Beat frequency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stacking.html">Stacking ApRES data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apres_data_1.html">A first look at ApRES data</a></li>
 </ul>
 </li>
 </ul>
@@ -474,6 +474,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trignometry-tells-us-the-frequencies">Trignometry tells us the frequencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-theoretical-and-numerical-predictions">Compare the theoretical and numerical predictions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-to-isolate-the-beat-frequency">Filtering to isolate the beat frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -540,9 +541,9 @@ s_2 = A_2 \sin \left(\omega_2 t\right).
 <span class="n">A1</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="n">wave</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">omega1</span><span class="p">)</span>
 
-<span class="n">omega1</span> <span class="o">=</span> <span class="mf">1.8</span>
+<span class="n">omega2</span> <span class="o">=</span> <span class="mf">1.8</span>
 <span class="n">A2</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="n">wave</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">omega1</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">wave</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">omega2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -627,8 +628,8 @@ g_2 = \cos\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we will use our function &#39;wave&#39; again when we can</span>
-<span class="n">g1</span> <span class="o">=</span> <span class="n">wave</span><span class="p">(</span><span class="n">A1</span><span class="p">,(</span><span class="n">omega_1</span> <span class="o">+</span> <span class="n">omega_2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">g2</span> <span class="o">=</span> <span class="n">A2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="n">omega_1</span> <span class="o">-</span> <span class="n">omega_2</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g1</span> <span class="o">=</span> <span class="n">wave</span><span class="p">(</span><span class="n">A1</span><span class="p">,(</span><span class="n">omega1</span> <span class="o">+</span> <span class="n">omega2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g2</span> <span class="o">=</span> <span class="n">A2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="n">omega1</span> <span class="o">-</span> <span class="n">omega2</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">g1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">g2</span><span class="p">);</span>
@@ -641,17 +642,7 @@ g_2 = \cos\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># we will use our function &#39;wave&#39; again when we can</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">g1</span> <span class="o">=</span> <span class="n">wave</span><span class="p">(</span><span class="n">A1</span><span class="p">,(</span><span class="n">omega_1</span> <span class="o">+</span> <span class="n">omega_2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">g2</span> <span class="o">=</span> <span class="n">A2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="n">omega_1</span> <span class="o">-</span> <span class="n">omega_2</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;omega_1&#39; is not defined
-</pre></div>
-</div>
+<img alt="../../../_images/6218d2cb9292ea7d053b1dd7683bfa56d769a4f99229575a5a287db558aa290c.png" src="../../../_images/6218d2cb9292ea7d053b1dd7683bfa56d769a4f99229575a5a287db558aa290c.png" />
 </div>
 </div>
 <p>This looks promising. But to really compare this to the green plot above (<span class="math notranslate nohighlight">\(s_1 + s_2\)</span>) we need to plot <span class="math notranslate nohighlight">\(2g_1 g_2\)</span>, as follows.</p>
@@ -668,7 +659,7 @@ g_2 = \cos\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/0e0d424f07c60c0358c1925c7d16a1b5e2ae9fda81354e7f2ce2d2ec45a80755.png" src="../../../_images/0e0d424f07c60c0358c1925c7d16a1b5e2ae9fda81354e7f2ce2d2ec45a80755.png" />
+<img alt="../../../_images/5c060ba8860d4535b4d74b945c122fbe432b242c75f93d532531a0345d6ee83b.png" src="../../../_images/5c060ba8860d4535b4d74b945c122fbe432b242c75f93d532531a0345d6ee83b.png" />
 </div>
 </div>
 <p>As expected, the lower frequency signal, <span class="math notranslate nohighlight">\(g_2\)</span>, modulates the higher frequency signal, <span class="math notranslate nohighlight">\(g_1\)</span>. Note that the increase and decrease in amplitude occurs where <span class="math notranslate nohighlight">\(g_2 &gt; 0\)</span> or <span class="math notranslate nohighlight">\(g_2&lt;0\)</span>, so the modulation has a frequency of <span class="math notranslate nohighlight">\(2g_2\)</span>, i.e. <span class="math notranslate nohighlight">\(\omega_1 - \omega_2\)</span>. This is called the beat frequency.</p>
@@ -683,6 +674,12 @@ g_2 = \cos\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
 </figcaption>
 </figure>
 <p>As well as isolating the kHz component of the signal, this filter preferentially amplifies higher frequencies in the kHz range to amplify distant targets.</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>During measurements ApRES continuously combines the signal it receives from the receiving antenna with the signal it is tranmitting. Because it takes some time for the transmitted signal to arrive back at the radar, the frequencies of the transmitted and received signals are very slightly different, so they combine to create a signal with a frequnecy componet that is proportional to the difference in the frequencies - the beat frequency. This difference is proprtional to the range to the reflector, so to estimate the range, we just need to estimate the beat frequency.</p>
+<p>The previous page describes how this is done in theory using a fourier transform.</p>
+<p>The next page demonstates how this is done with real ApRES data collected from Antarctica.</p>
 </section>
 </section>
 
@@ -722,15 +719,15 @@ g_2 = \cos\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ApRES theory</p>
+        <p class="prev-next-title">Autonomous phase-sensitive radio-echo sounder theory</p>
       </div>
     </a>
     <a class="right-next"
-       href="stacking.html"
+       href="apres_data_1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Stacking ApRES data</p>
+        <p class="prev-next-title">A first look at ApRES data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -753,6 +750,7 @@ g_2 = \cos\left(\frac{\omega_1 t - \omega_2 t}{2}\right).
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trignometry-tells-us-the-frequencies">Trignometry tells us the frequencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-theoretical-and-numerical-predictions">Compare the theoretical and numerical predictions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-to-isolate-the-beat-frequency">Filtering to isolate the beat frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
 

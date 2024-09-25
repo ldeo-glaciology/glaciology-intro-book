@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>ApRES theory &#8212; The Glaciology Data Analysis and Modeling book</title>
+    <title>Autonomous phase-sensitive radio-echo sounder theory &#8212; The Glaciology Data Analysis and Modeling book</title>
   
   
   
@@ -198,9 +198,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../impulse/impulse-radar.html">Impulse Radar</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="apres-intro.html">Autonomous phase-sensitive Radio Echo Sounder</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">ApRES theory</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Autonomous phase-sensitive radio-echo sounder theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="beat-frequency.html">Beat frequency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stacking.html">Stacking ApRES data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apres_data_1.html">A first look at ApRES data</a></li>
 </ul>
 </li>
 </ul>
@@ -460,7 +460,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ApRES theory</h1>
+    <h1>Autonomous phase-sensitive radio-echo sounder theory</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -482,6 +482,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-effect-of-bandwidth">9. The effect of bandwidth</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-more-reflectors">10. Add more reflectors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-frequency-componets-using-a-fourier-transform">11. Compute the frequency componets using a fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12. Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -493,15 +494,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="apres-theory">
-<span id="page-apres-theory"></span><h1>ApRES theory<a class="headerlink" href="#apres-theory" title="Permalink to this heading">#</a></h1>
-<p>This page describes the theory behind the Autonomous Radio-echo sounder, including</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="autonomous-phase-sensitive-radio-echo-sounder-theory">
+<span id="page-apres-theory"></span><h1>Autonomous phase-sensitive radio-echo sounder theory<a class="headerlink" href="#autonomous-phase-sensitive-radio-echo-sounder-theory" title="Permalink to this heading">#</a></h1>
+<p>This page describes some of the theory behind the Autonomous phase-sensitive radio-echo (ApRES) sounder, including</p>
 <ul class="simple">
 <li><p>a description of the linear chirps the system emits,</p></li>
 <li><p>how individual and multiple reflectors are represented in the returned signal,</p></li>
-<li><p>how the range to these reflectors is encoded in the frequency content of returned signal, and</p></li>
+<li><p>how the range to these reflectors is encoded in the frequency content of the returned signal, and</p></li>
 <li><p>how to extract the range to reflectors using a fourier transform.</p></li>
+<li></li>
 </ul>
+<p>Later pages will describe how the phase information in the returned signal to compute the displacement of reflectors.</p>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>Many of the material below can be found in the <a class="reference external" href="https://github.com/ldeo-glaciology/phase-sensitive-radar-processing/blob/5cce6bd838cb70e290316195af9ceefe3d4a52ee/other%20documents/ApRES%20Manual%20V102.1.pdf">ApRES manual</a>, <span id="id1">[<a class="reference internal" href="../../../bibliography.html#id2" title="Paul V. Brennan, Lai Bun Lok, Keith Nicholls, and Hugh Corr. Phase-sensitive FMCW radar system for high-precision Antarctic ice shelf profile monitoring. IET Radar, Sonar &amp; Navigation, 8(7):776–786, 2014. _eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1049/iet-rsn.2013.0053. URL: https://onlinelibrary.wiley.com/doi/abs/10.1049/iet-rsn.2013.0053 (visited on 2022-01-14), doi:10.1049/iet-rsn.2013.0053.">Brennan <em>et al.</em>, 2014</a>]</span>, and Nicholls et al. 2015.</p>
@@ -698,7 +701,7 @@ s = e^{2i\pi f_d t}
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_d</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_d</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -794,7 +797,7 @@ R = \frac{c}{2\sqrt\epsilon} \frac{f_d}{K},
 </div>
 </div>
 <p>This range-amplitude plot is the ApRES equivalent of the usual time domain plot you would get from an impulse radar system: i.e. one which sends out a single pulse of radio-wave energy and records the echo from the reflector(s) beneath.</p>
-<p>As expected, in the plot above we see a peak at 110 m. We can detect the position of the peak using <code class="docutils literal notranslate"><span class="pre">argrelextrema</span></code>, a function from the pckage <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p>
+<p>As expected, in the plot above we see a peak at 110 m. We can detect the position of the peak using <code class="docutils literal notranslate"><span class="pre">argrelextrema</span></code>, a function from the package <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">argrelextrema</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">)</span>      <span class="c1"># this function finds local maxima  </span>
@@ -893,8 +896,8 @@ reflector detected at 80.027 m.
 $<span class="math notranslate nohighlight">\(
 N = f_d T.
 \)</span>$</p>
-<p>The more cycles in a signal, the more precisely the fourier transform can determine its frequency. This is a fundamental property of fourier transforms and its crops up in many applications, including in quantum mechanics as the Heisenberg uncertainty principle. This is a great video on the subject from the same source as the video linked above about fouier transforms: <a class="reference external" href="https://www.youtube.com/watch?v=MBnnXbOM5S4">https://www.youtube.com/watch?v=MBnnXbOM5S4</a>. This video graphically demonstrates the idea that it is difficult for a foufier transform to determine the frequency of a short signal containing few cycles.</p>
-<p>Interestingly, you will notice if you play around with the numbers in the cell above, that (all else being equal) the width of the peak does not depend on the chirp duration, <span class="math notranslate nohighlight">\(T\)</span>. At first sight this is surprising because you would expect that a longer duration chirp would contain more cycles and would therefore result in a narrower peak. However, notice that as you vary <span class="math notranslate nohighlight">\(T\)</span>, the number of cycles, which is printed out beneath the cell, does not change. This is because increasing <span class="math notranslate nohighlight">\(T\)</span> while keeping <span class="math notranslate nohighlight">\(B\)</span> constant decreases the rate of change of the frequency, <span class="math notranslate nohighlight">\(K\)</span>. This means that by the time the signal arrives back at the radar, the transmitted signal has not increased as much as it would have done if <span class="math notranslate nohighlight">\(K\)</span> were larger. Therefore the frequency of the deramped signal, <span class="math notranslate nohighlight">\(f_d\)</span>, is lower than it would have been.</p>
+<p>The more cycles in a signal, the more precisely the fourier transform can determine its frequency. This is a fundamental property of fourier transforms and its crops up in many applications, including in quantum mechanics as the Heisenberg uncertainty principle. This is a great video on the subject from the same source as the video linked above about fourier transforms: <a class="reference external" href="https://www.youtube.com/watch?v=MBnnXbOM5S4">https://www.youtube.com/watch?v=MBnnXbOM5S4</a>. This video graphically demonstrates the idea that it is difficult for a fourier transform to determine the frequency of a short signal containing few cycles.</p>
+<p>Interestingly, you will notice that if you play around with the numbers in the cell above (all else being equal) the width of the peak does not depend on the chirp duration, <span class="math notranslate nohighlight">\(T\)</span>. At first sight this is surprising because you would expect that a longer duration chirp would contain more cycles and would therefore result in a narrower peak. However, notice that as you vary <span class="math notranslate nohighlight">\(T\)</span>, the number of cycles, which is printed out beneath the cell, does not change. This is because increasing <span class="math notranslate nohighlight">\(T\)</span> while keeping <span class="math notranslate nohighlight">\(B\)</span> constant decreases the rate of change of the frequency, <span class="math notranslate nohighlight">\(K\)</span>. This means that by the time the signal arrives back at the radar, the transmitted signal has not increased as much as it would have done if <span class="math notranslate nohighlight">\(K\)</span> were larger. Therefore the frequency of the deramped signal, <span class="math notranslate nohighlight">\(f_d\)</span>, is lower than it would have been.</p>
 <p>A longer chirp duration tends to increase the number of cycles per chirp, but the decrease in frequency of the deramped signal <span class="math notranslate nohighlight">\(f_d\)</span> counteracts this. In fact, the two effects balance exactly, resulting in the number of cycles per chirp being independent of <span class="math notranslate nohighlight">\(T\)</span>.</p>
 <p>Mathematically, we can show this by substituting <span class="math notranslate nohighlight">\(f_d = K\tau\)</span> into the equation above,</p>
 <div class="math notranslate nohighlight">
@@ -906,12 +909,12 @@ N = K\tau T.
 \[
 N = B\tau.
 \]</div>
-<p>From this we can see how the badnwidth <span class="math notranslate nohighlight">\(B\)</span> effects the peak width, while <span class="math notranslate nohighlight">\(T\)</span> does not; <span class="math notranslate nohighlight">\(T\)</span> cancelling out in the last step above corresponds to the two effects descrbed above balancing each other exactly.</p>
+<p>From this we can see how the bandwidth <span class="math notranslate nohighlight">\(B\)</span> effects the peak width, while <span class="math notranslate nohighlight">\(T\)</span> does not; <span class="math notranslate nohighlight">\(T\)</span> cancelling out in the last step above corresponds to the two effects descrbed above balancing each other exactly.</p>
 </section>
 <section id="add-more-reflectors">
 <h2>10. Add more reflectors<a class="headerlink" href="#add-more-reflectors" title="Permalink to this heading">#</a></h2>
-<p>So far we have considered just one reflectors. In general we simultaneously receive signals from reflectors at a whole range of depths. To give a feel for what this looks like, we will plot the frequency of ten signals with their delays selected randomly, to represent signals from ten reflectors at different depths.</p>
-<p>First let’s redfine a few functions to make sure to avoid any issues with varied parameter from the previous section.</p>
+<p>So far we have considered just one reflector. In general we simultaneously receive signals from reflectors at a whole range of depths. To give a feel for what this looks like, we will plot the frequency of ten signals with their delays selected randomly, to represent signals from ten reflectors at different depths.</p>
+<p>First let’s redefine a few functions to make sure to avoid any issues caused by varying parameters in the previous section.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">299792458</span>
@@ -923,6 +926,8 @@ N = B\tau.
 <span class="n">f_2</span> <span class="o">=</span> <span class="mf">400e6</span>         <span class="c1"># ending frequency</span>
 <span class="n">f_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">f_1</span><span class="o">+</span><span class="n">f_2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>   <span class="c1"># center frequency</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">f_2</span> <span class="o">-</span> <span class="n">f_1</span>       <span class="c1"># bandwidth</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">B</span><span class="o">/</span><span class="n">T</span>             <span class="c1"># [Hz/s]</span>
+
 <span class="n">sampling_frequency</span> <span class="o">=</span> <span class="mi">40000</span>    <span class="c1"># [Hz]</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">sampling_frequency</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>   <span class="c1"># time vector</span>
 <span class="k">def</span> <span class="nf">chirp</span><span class="p">(</span><span class="n">delay</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
@@ -976,7 +981,7 @@ N = B\tau.
 <img alt="../../../_images/fd9905e6e1ee2fd392a49487bf8254aff08c790867ef3eba32c99d511d6f8a9a.png" src="../../../_images/fd9905e6e1ee2fd392a49487bf8254aff08c790867ef3eba32c99d511d6f8a9a.png" />
 </div>
 </div>
-<p>In practice, signals from all the reflectors are combined togather and arrive back at the radar simultaneously, thoughout the chirp. This means that the signal received by the radar is the sum of signals reflected by many reflectors - hundreds or thousands in reality, compared to the ten we plotted above. Moreover, the signals all have slightly different frequencies differences, <span class="math notranslate nohighlight">\(f_d\)</span>, depending on the range to each reflector. Let’s generate the deramped signal that these ten reflectors would yield and plot it.</p>
+<p>In practice, signals from all the reflectors are combined together and arrive back at the radar simultaneously, thoughout the chirp. This means that the signal received by the radar is the sum of signals reflected by many reflectors - hundreds or thousands in reality, compared to the ten we plotted above. Moreover, the signals all have slightly different frequencies differences, <span class="math notranslate nohighlight">\(f_d\)</span>, depending on the range to each reflector. Let’s generate the deramped signal that these ten reflectors would yield and plot it.</p>
 <p>We first compute the frequency differences for each reflector:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1029,7 +1034,7 @@ N = B\tau.
 <img alt="../../../_images/0a80616dbdf54486dfaf66baad92ae348ba9f8005c6f761232268643530127dc.png" src="../../../_images/0a80616dbdf54486dfaf66baad92ae348ba9f8005c6f761232268643530127dc.png" />
 </div>
 </div>
-<p>The plot above shows what ApRES would record to disk if in our simple 10-reflector case. The signal has ten frequency components, each correspondong to one reflector. The challenge now is to estimate these frequency componets to determine the range to all the reflectors. As above, we use a fourier transform.</p>
+<p>The plot above shows what ApRES would record to disk in our simple 10-reflector case. The signal has ten frequency components, each correspondong to one reflector. The challenge now is to estimate these frequency componets to determine the range to all the reflectors. As above, we use a fourier transform.</p>
 </section>
 <section id="compute-the-frequency-componets-using-a-fourier-transform">
 <h2>11. Compute the frequency componets using a fourier transform<a class="headerlink" href="#compute-the-frequency-componets-using-a-fourier-transform" title="Permalink to this heading">#</a></h2>
@@ -1100,9 +1105,9 @@ N = B\tau.
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="12">
-<li><p>Summary</p></li>
-</ol>
+</section>
+<section id="summary">
+<h2>12. Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>ApRES emits one-second-long chirps.</p></li>
 <li><p>ApRES detects the range to sub-surface reflectors by combined the frequency of a transmitted signal, which continually increases throughout each chirp, to the frequency of the signal received from the reflectors.</p></li>
@@ -1110,8 +1115,8 @@ N = B\tau.
 <li><p>This combination results in a ‘deramped’ signal which is in the audio frequency range.</p></li>
 <li><p>The deramped signal is saved to disk by ApRES.</p></li>
 <li><p>The frequency components of the deramped signal are extracted using a fourier transform to determine the range to sub-surface reflectors.</p></li>
-<li><p>The range-amplitude results, <code class="docutils literal notranslate"><span class="pre">S</span></code>, can be used to compute deisplacement of reflectors using cross-correlation betweeen successive measurements.</p></li>
 </ul>
+<p>On the next page we explore the beat frequency and how it help us estiamte difference between the frequncies of the transmitted and received signals.</p>
 </section>
 </section>
 
@@ -1190,6 +1195,7 @@ N = B\tau.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-effect-of-bandwidth">9. The effect of bandwidth</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-more-reflectors">10. Add more reflectors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-frequency-componets-using-a-fourier-transform">11. Compute the frequency componets using a fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12. Summary</a></li>
 </ul>
   </nav></div>
 
