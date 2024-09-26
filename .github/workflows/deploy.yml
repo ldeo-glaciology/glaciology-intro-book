@@ -45,7 +45,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build src
+        jupyter-book build --path-output . src
 
     # Upload the book's HTML as an artifact
     - name: Upload artifact

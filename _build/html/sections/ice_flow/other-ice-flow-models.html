@@ -1,0 +1,837 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Two other ice flow models &#8212; The Glaciology Data Analysis and Modeling book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sections/ice_flow/other-ice-flow-models';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Heat flow" href="../temperature/heat_intro.html" />
+    <link rel="prev" title="Building on the Shallow Ice Approximation" href="u_bar_and_lliboutry.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../book-intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/thumbnail.png" class="logo__image only-light" alt="The Glaciology Data Analysis and Modeling book - Home"/>
+    <script>document.write(`<img src="../../_static/thumbnail.png" class="logo__image only-dark" alt="The Glaciology Data Analysis and Modeling book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../book-intro.html">
+                    The Glaciology Data Analysis and Modeling book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ice flow</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ice-flow-intro.html">Introduction to ice flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ablation_accumulation.html">Ice flow, accumulation and ablation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antarctic-ice-flow.html">Flow of the Antarctic Ice sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vec_calc.html">Vector calculus background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="depth_integrated_mass_balance.html">Depth-integrated mass balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gradient.html">The gradient of Antarctic Ice Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strain_velocity.html">Strain rate and velocity fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rheology.html">Ice rheology (under construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stress_strain_tensors.html">Stress and strain tensors (under construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deviatoric_stress.html">Deviatoric stress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driving_stress.html">Driving stress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stress_balance_eqns.html">Stress balance equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sia_derivation.html">The Shallow Ice Approximation model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="u_bar_and_lliboutry.html">Building on the Shallow Ice Approximation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Two other ice flow models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Heat flow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../temperature/heat_intro.html">Heat flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../temperature/heat_equation.html">Heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../temperature/analytical_solution.html">An analytical solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../temperature/numerical_solutions.html">Numerical solutions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radar</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../radar/impulse/impulse-radar.html">Impulse Radar</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../radar/apres/apres-intro.html">Autonomous phase-sensitive Radio Echo Sounder</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/theory_1.html">Autonomous phase-sensitive radio-echo sounder theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/beat-frequency.html">Beat frequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/apres_data_1.html">A first look at ApRES data</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/upload_Measures_data_to_bucket.html">Adding the MEASURES data to the google bucket</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/ice_flow/other-ice-flow-models.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/ice_flow/other-ice-flow-models.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/sections/ice_flow/other-ice-flow-models.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Two other ice flow models</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-stokes-to-bp">Full stokes to BP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bp-to-ssa">BP to SSA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bp-to-sia">BP to SIA</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="two-other-ice-flow-models">
+<h1>Two other ice flow models<a class="headerlink" href="#two-other-ice-flow-models" title="Permalink to this heading">#</a></h1>
+<p>Pn the previous page, we started from the full stokes stress balance equations and applied the shallow ice approximation (SIA) to derive the simplest widely-used ice sheet model.</p>
+<p>Below we describe the derivation of two other commonly used ice-flow models the ‘higher-order’ Blatter-Pattyn (BP) model, and the shallow shelf approximation (SSA) model. For completeness we also describe the derivation of the SIA model from the BP model.</p>
+<section id="full-stokes-to-bp">
+<h2>Full stokes to BP<a class="headerlink" href="#full-stokes-to-bp" title="Permalink to this heading">#</a></h2>
+<p>The Blatter-Pattyn (BP) model is considered higher-order than the SIA and SSA because it retains more of the terms in the stress balance equations that those models. The following derivation of the BP model comes from the <a class="reference external" href="https://cism.github.io/data/cism_documentation_v2_1.pdf">documentation of the Community Ice Sheet model</a>.</p>
+<p>Starting with the stokes equations</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sigma_{xx}}{\partial x}+\frac{\partial \tau_{yx}}{\partial y}+\frac{\partial \tau_{zx}}{\partial z} = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sigma_{yy}}{\partial y}+\frac{\partial \tau_{xy}}{\partial x}+\frac{\partial \tau_{zy}}{\partial z} = 0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{xz}}{\partial x} + \frac{\partial \tau_{yz}}{\partial y}+\frac{\partial \sigma_{zz}}{\partial z} = \rho g
+\]</div>
+<p>we will ignore the <span class="math notranslate nohighlight">\(y\)</span> dimension for simplicity, which implies a 2D assumption meaning infinite width, leaving:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sigma_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sigma_{zz}}{\partial z}+\frac{\partial \tau_{xz}}{\partial x} = \rho g
+\]</div>
+<p>Motivated by the fact that ice sheets, streams and shelves are much wider than they are thick, we neglect the horizontal gradient of vertical shear stresses - the ‘so-called’ bridging stresses. This assumption is valid if the body of ice is relatively homogeneous horizontally, with similar properties and conditions across its width, then the horizontal gradient of shear stress may be small - leaving:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sigma_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sigma_{zz}}{\partial z} = \rho g.
+\]</div>
+<p>We define the deviatoric stress as</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_{xx} = P + \sigma_{xx},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\tau_{zz} = P + \sigma_{zz}, 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(P\)</span> is the pressure. Substituting these into the stress balance equations gives:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} - \frac{\partial P}{\partial x} = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{zz}}{\partial z} - \frac{\partial P}{\partial z} = \rho g.
+\]</div>
+<p>Next we rearrange the <span class="math notranslate nohighlight">\(z\)</span>-direction stress balance equation (the second equation above) as</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial P}{\partial z} = -\rho g + \frac{\partial \tau_{zz}}{\partial z}
+\]</div>
+<p>and integrate vertically between the surface (<span class="math notranslate nohighlight">\(z=s\)</span>) and some height <span class="math notranslate nohighlight">\(z\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\int^0_P dP = -\rho g \int^s_z dz + \int^0_{\tau_{zz}} \frac{\partial \tau_{zz}}{\partial z} dz,
+\]</div>
+<p>where we have imposed boundary conditions at the surface of zero pressure <span class="math notranslate nohighlight">\(P\)</span> and zero deviatoric vertical normal stress <span class="math notranslate nohighlight">\(\tau_{zz}\)</span>. Evaluating the integrals and rearranging,</p>
+<div class="math notranslate nohighlight">
+\[
+P = \rho g(s-z) + \tau_{zz}
+\]</div>
+<p>which states that the total vertical normal stress <span class="math notranslate nohighlight">\((P - \tau_{zz})\)</span> is equal to the hydrostatic stress <span class="math notranslate nohighlight">\((\rho g(s-z))\)</span>.</p>
+<p>Substituting this into the <span class="math notranslate nohighlight">\(x\)</span>-direction stress balance equation gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = \frac{\partial}{\partial x}\left(\rho g(s-z) + \tau_{zz}\right)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = \rho g\frac{\partial s}{\partial x}+ \frac{\partial \tau_{zz}}{\partial x}
+\]</div>
+<p>Here we assume that ice is incompressible (<span class="math notranslate nohighlight">\(\nabla\cdot\underline{u} = 0\)</span>)</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(u\)</span> is the horizontal velocity and <span class="math notranslate nohighlight">\(w\)</span> is the vertical velocity, i.e. the horizontal normal strain rate is equal to the negative of the vertical normal strain rate. Remembring that <span class="math notranslate nohighlight">\(\dot{\epsilon_{ii}} = \frac{\partial u_i}{\partial x_i}\)</span> and assuming that the stresses and strain rates are aligned (Glen’s flow law, <span class="math notranslate nohighlight">\(\dot{\epsilon_{ij}} = A \tau_{ij}^n\)</span>) gives</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_{zz} = -\tau_{xx}
+\]</div>
+<p>Substituting this into the stress balance equation above gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = \rho g\frac{\partial s}{\partial x} - \frac{\partial \tau_{xx}}{\partial x}
+\]</div>
+<p>or, rearranging,</p>
+<div class="math notranslate nohighlight">
+\[
+2\frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial s}{\partial x} 
+\]</div>
+<p>Next we bring in Glen’s flow law to describe the rheology of the ice</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\epsilon_{ij}} = A \tau_{ij}^n
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dot{\epsilon_{ij}}\)</span> are the components of the strain rate tensor, <span class="math notranslate nohighlight">\(A\)</span> is a flow parameter, <span class="math notranslate nohighlight">\(n\)</span> is the flow exponent, and <span class="math notranslate nohighlight">\(\tau_E\)</span> is the effective stress. The inverse form of the flow law is more useful for use here.</p>
+<p>Rearranging the equation above gives</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\epsilon_{ij}}^{\frac{1}{n}} = A^{\frac{1}{n}} \tau_{ij}
+\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[ 
+\tau_{ij}= A^{-\frac{1}{n}} \dot{\epsilon_{ij}}^{\frac{1}{n}}. 
+\]</div>
+<p>Then we define the effective viscosity as</p>
+<div class="math notranslate nohighlight">
+\[
+\eta = \frac{1}{2}  A^{-\frac{1}{n}} \dot\epsilon_E^{\frac{1}{n}-1}, 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_E\)</span> is the effective strain rate (second invariant of the strain rate tensor), in this case (ignoring variations in y-direction) defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot\epsilon_E^2 = \dot\epsilon_{xx}^2 + \dot\epsilon_{xz}^2
+\]</div>
+<p>The inverse flow law is therefore,</p>
+<div class="math notranslate nohighlight">
+\[ 
+\tau_{ij}= 2 \eta \dot{\epsilon_{ij}}.
+\]</div>
+<p>Substituting this into the stress balance equation</p>
+<div class="math notranslate nohighlight">
+\[
+2\frac{\partial \tau_{xx}}{\partial x}+\frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial s}{\partial x} 
+\]</div>
+<p>gives:</p>
+<div class="math notranslate nohighlight">
+\[
+4\frac{\partial }{\partial x}  (\eta \dot{\epsilon}_{xx}) +2 \frac{\partial }{\partial z} (\eta \dot{\epsilon}_{zx}) = \rho g \frac{\partial s}{\partial x} 
+\]</div>
+<p>Finally we will need the relationship between strain rates and velocity gradients:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\epsilon}_{ij} = \frac{1}{2}\left(\frac{\partial \underline{u}_i}{\partial \underline{x}_j} + \frac{\partial \underline{u}_j}{\partial \underline{x}_i}\right),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\underline{u}\)</span> is velocity field <span class="math notranslate nohighlight">\((u, v, w)\)</span> components and <span class="math notranslate nohighlight">\(\underline{x}\)</span> are the three coordinates <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span>.
+For our two remaining strain rates this gives</p>
+<div class="math notranslate nohighlight">
+\[ 
+\dot{\epsilon}_{xx} = \frac{\partial u}{\partial x}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\epsilon}_{zx} = \frac{1}{2}\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right)
+\]</div>
+<p>Consistent with neglecting the horizontal variation of vertical shear/bridging stresses (<span class="math notranslate nohighlight">\(\frac{\partial \tau_{xz}}{\partial x}\)</span>) at the start of the derivation, we now neglect <span class="math notranslate nohighlight">\(\frac{\partial w}{\partial x}\)</span>, the horizontal variation of vertical velocity, leaving</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\epsilon}_{zx} = \frac{1}{2}\frac{\partial u}{\partial z} 
+\]</div>
+<p>Substituting these expressions for <span class="math notranslate nohighlight">\(\dot{\epsilon}_{xx}\)</span> and <span class="math notranslate nohighlight">\(\dot{\epsilon}_{zx}\)</span> into the stress balance equation gives the Blatter-Pattyn model</p>
+<div class="math notranslate nohighlight">
+\[
+4\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right)+ \frac{\partial }{\partial z} \left(\eta \frac{\partial u}{\partial z} \right) = \rho g \frac{\partial s}{\partial x} 
+\]</div>
+</section>
+<section id="bp-to-ssa">
+<h2>BP to SSA<a class="headerlink" href="#bp-to-ssa" title="Permalink to this heading">#</a></h2>
+<p>In this section we apply further simplifying assumptions to the BP above to derive a Shallow Shelf approximation model, which is applicable in locations where basal shear stress is relatively small compared to the longitudinal stresses and the driving stress.</p>
+<p>The SSA model is a depth integrated model, which applies when internal vertical shear <span class="math notranslate nohighlight">\(\tau_{zx}\)</span> is small. This implies that there is little variation of horizontal velocity with depth (z-direction).</p>
+<p>Integrating the BP equation above gives</p>
+<div class="math notranslate nohighlight">
+\[
+4 \int^s_b\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right) dz + \int^s_b\frac{\partial }{\partial z} \left(\eta \frac{\partial u}{\partial z} \right) dz= \rho g \frac{\partial s}{\partial x}  \int^s_b dz.
+\]</div>
+<p>The integral on the right evaluates to <span class="math notranslate nohighlight">\(s-b = H\)</span>. Recognizing that <span class="math notranslate nohighlight">\(\eta \frac{\partial u}{\partial z} = \tau_{zx}\)</span> (see a few steps up in the BP derivation above), the second term on the left is equal to</p>
+<div class="math notranslate nohighlight">
+\[
+\int^s_b\frac{\partial }{\partial z} \left(\eta \frac{\partial u}{\partial z} \right) dz = \int^s_b \frac{\partial \tau_{zx}}{\partial z}  dz,
+\]</div>
+<p>which evaluates to</p>
+<div class="math notranslate nohighlight">
+\[
+\int^s_b \frac{\partial \tau_{zx}}{\partial z}  dz = 0 - \tau_b,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tau_b\)</span> is the vertical shear stress at the base of the ice, we have imposed the surface boundary condition of  <span class="math notranslate nohighlight">\(\tau_{zx}(s) = 0\)</span>.</p>
+<p>To evaluate the first term on the left we use the Leibniz integration rule to move the integral inside the first derivative.</p>
+<p>The Leibniz integration rule says that for some function <span class="math notranslate nohighlight">\(f(x,z)\)</span> and limits of integration <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(s\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dx} \int^s_b f(x,z) dz =  f(x,s) \frac{ds}{dx} -  f(x,b) \frac{db}{dx} + \int^s_b \frac{\partial}{\partial x} f(x,z) dz.
+\]</div>
+<p>We will assume <span class="math notranslate nohighlight">\(\frac{ds}{dx} = \frac{db}{dx} = 0\)</span> meaning that there is negligible variation of basal elevation or surface elevation w.r.t. horizontal direction, which is consistent with large-aspect-ratio assumption that is key to the SSA, it also implies the ice is relatively flat. Therefore, applying the Leibniz rule to the first term on the left of the stress balance equation gives</p>
+<div class="math notranslate nohighlight">
+\[
+4 \int^s_b\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right) dz  = 4 \frac{\partial }{\partial x}  \int^s_b \left(\eta \frac{\partial u}{\partial x} \right) dz.
+\]</div>
+<p>Assuming that <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial x} = \dot\epsilon_{xx}\)</span>, and hence by Glen’s flow law, the normal stress (<span class="math notranslate nohighlight">\(\tau_{xx}\)</span>) is uniform in depth, this becomes</p>
+<div class="math notranslate nohighlight">
+\[
+4 \frac{\partial }{\partial x}  \int^s_b \left(\eta \frac{\partial u}{\partial x} \right) dz = 4 \frac{\partial }{\partial x} \left(  \int^s_b\eta \, dz \frac{\partial u}{\partial x} \right) 
+\]</div>
+<p>FInally, defining the depth-averaged viscosity as</p>
+<div class="math notranslate nohighlight">
+\[
+\overline{\eta} = \frac{1}{H} \int^s_b\eta \, dz,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+4 \frac{\partial }{\partial x} \left(  \int^s_b\eta \, dz \frac{\partial u}{\partial x} \right)  = 4 \frac{\partial }{\partial x} \left(  \overline{\eta} H\frac{\partial u}{\partial x} \right). 
+\]</div>
+<p>Bring all three expressions together gives</p>
+<div class="math notranslate nohighlight">
+\[
+4 \frac{\partial }{\partial x} \left(  \overline{\eta} H\frac{\partial u}{\partial x} \right) - \tau_b = \rho g H\frac{\partial s}{\partial x}.
+\]</div>
+<p>This is one commonly used form of the SSA. Another is found by substituting in an expression for the depth-averaged effective viscosity. From the BP derivation we know the viscosity is represented by:</p>
+<div class="math notranslate nohighlight">
+\[
+\eta = \frac{1}{2}  A^{-\frac{1}{n}} \dot\epsilon_E^{\frac{1}{n}-1}, 
+\]</div>
+<p>We assume <span class="math notranslate nohighlight">\(\dot\epsilon_{E} = \dot\epsilon_{xx}\)</span> and that this does not vary with depth, consistent with the assumption before of uniform normal stress (<span class="math notranslate nohighlight">\(\tau_{xx}\)</span>). The assumption also implies that <span class="math notranslate nohighlight">\(\dot\epsilon_{xz}\)</span> is negligible since in the BP model <span class="math notranslate nohighlight">\(\dot\epsilon_E^2 = \dot\epsilon_{xx}^2 + \dot\epsilon_{xz}^2\)</span> . The strain rate tensor is a symmetric tensor so <span class="math notranslate nohighlight">\(\dot\epsilon_{xz} = \dot\epsilon_{zx}\)</span>. Also, at the beginning we assumed that <span class="math notranslate nohighlight">\(\tau_{zx} \propto \dot\epsilon_{zx}\)</span>, is small. So the assumption about the effective strain rate <span class="math notranslate nohighlight">\(\dot\epsilon_{E}\)</span> is consistent with the assumption made in the beginning of the derivation.</p>
+<div class="math notranslate nohighlight">
+\[
+\eta = \frac{1}{2}  A^{-\frac{1}{n}} \dot\epsilon_{xx}^{\frac{1}{n}-1} =  \frac{1}{2}  A^{-\frac{1}{n}} \left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} 
+\]</div>
+<p>Remembering that we made an assumption that <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial x}\)</span> is uniform in depth and depth averaging <span class="math notranslate nohighlight">\(\eta\)</span> we get:
+$<span class="math notranslate nohighlight">\(
+\overline{\eta} = \frac{1}{H} \int^s_b\eta \, dz = \frac{1}{2H}  A^{-\frac{1}{n}} \left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} (s-b) = \frac{1}{2H}  A^{-\frac{1}{n}} \left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} H = \frac{1}{2}  A^{-\frac{1}{n}} \left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} ,
+\)</span>$</p>
+<p>Substituting this into the SSA equation gives</p>
+<div class="math notranslate nohighlight">
+\[
+2 \frac{\partial }{\partial x} \left( A^{-\frac{1}{n}} H\left(\frac{\partial u}{\partial x}\right)^{\frac{1}{n}-1} \frac{\partial u}{\partial x} \right) - \tau_b = \rho g H\frac{\partial s}{\partial x}.
+\]</div>
+</section>
+<section id="bp-to-sia">
+<h2>BP to SIA<a class="headerlink" href="#bp-to-sia" title="Permalink to this heading">#</a></h2>
+<p>For completeness and to compliment the derivation of the SIA on the previous page, in this section we derive the SIA from the BP equation,</p>
+<div class="math notranslate nohighlight">
+\[
+4\frac{\partial }{\partial x}  \left(\eta \frac{\partial u}{\partial x} \right)+ \frac{\partial }{\partial z} \left(\eta \frac{\partial u}{\partial z} \right) = \rho g \frac{\partial s}{\partial x}. 
+\]</div>
+<p>The first step is to neglect the horizontal extenstional stresses (<span class="math notranslate nohighlight">\(\tau_{xx} \propto \dot\epsilon_{xx} =\frac{\partial u}{\partial x}\)</span>), the first term on the left. Again we recognize that <span class="math notranslate nohighlight">\(\eta \frac{\partial u}{\partial z} = \tau_{zx}\)</span>, leaving</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial s}{\partial x}. 
+\]</div>
+<p>From now on the derivation is the same as the derivation on this <a class="reference internal" href="sia_derivation.html"><span class="doc std std-doc">page</span></a>,  <span class="xref myst">equation</span> under the section <code class="docutils literal notranslate"><span class="pre">Differentiate</span> <span class="pre">Horizontally</span></code>.</p>
+<p>We integrate vertically, then substitute in Glen’s flow law and the relationship between velocity gradients and strain rates. Then intergrate vertically again to obtain an expression for <span class="math notranslate nohighlight">\(u\)</span>:
+$<span class="math notranslate nohighlight">\(
+u(\zeta)=  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1} \left( 1- \zeta^{n+1} \right)
+\)</span>$</p>
+<p>where  <span class="math notranslate nohighlight">\(\zeta = 1-\frac{z}{H}\)</span>.</p>
+<p>We can get the horizontal velocity at the surface by evaluating this expression at <span class="math notranslate nohighlight">\(\zeta = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+u_s = u(0)=  \frac{2A}{n+1} \left(\rho g \alpha \right)^n  H^{n+1},
+\]</div>
+<p>which shows that</p>
+<div class="math notranslate nohighlight">
+\[
+u(\zeta) = u_s \left( 1- \zeta^{n+1} \right).
+\]</div>
+<p>then integrate vertically again</p>
+<div class="math notranslate nohighlight">
+\[
+q = \int^H_0 u(z) dz
+\]</div>
+<p>to get an expression for the depth-integrated flux per unit width, <span class="math notranslate nohighlight">\(q\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+q = \frac{2A}{n+2} \left(\rho g \alpha \right)^n  H^{n+2}.
+\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jkingslake/apres_jp",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./sections/ice_flow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="u_bar_and_lliboutry.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Building on the Shallow Ice Approximation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../temperature/heat_intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Heat flow</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-stokes-to-bp">Full stokes to BP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bp-to-ssa">BP to SSA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bp-to-sia">BP to SIA</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
