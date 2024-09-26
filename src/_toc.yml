@@ -35,7 +35,7 @@ parts:
     sections:
     - file: sections/radar/apres/theory_1.ipynb
     - file: sections/radar/apres/beat-frequency
-    - file: sections/radar/apres/stacking
+    - file: sections/radar/apres/apres_data_1.ipynb
 
 - caption: Appendix
   chapters:
