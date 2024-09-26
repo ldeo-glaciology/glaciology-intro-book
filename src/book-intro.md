@@ -69,3 +69,9 @@ The best way to contribute to this book is to engage through the Github reposito
 Any suggestions for additional content, corrections, or thoughts are very welcome in the form a GitHub issue. Please do not hesitate to create a new [issue](https://github.com/ldeo-glaciology/glaciology-intro-book/issues).
 
 Pull requests with correction, additional material, or entire new pages or chapters are also very welcome. But the first stop if you want to contribute something should probably be creating a new issue, so that everyone knows what everyone else is interested in working on.
+
+## License
+
+The book is licensed under the [MIT License](https://github.com/ldeo-glaciology/glaciology-intro-book/blob/main/LICENSE.MD).
+
+[![image](https://github.com/user-attachments/assets/e0ec131e-4f81-4d20-8a93-ef04adb57396)](https://github.com/ldeo-glaciology/glaciology-intro-book/blob/main/LICENSE.MD)
