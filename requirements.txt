@@ -4,3 +4,5 @@ scipy
 xarray
 netcdf4
 xapres
+jupyterlab
+jupyter-book
