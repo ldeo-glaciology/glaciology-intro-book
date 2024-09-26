@@ -3,3 +3,4 @@ matplotlib
 scipy
 xarray
 netcdf4
+Xapres
