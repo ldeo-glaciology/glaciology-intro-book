@@ -1,0 +1,707 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Depth-integrated mass balance &#8212; The Glaciology Data Analysis and Modeling book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sections/ice_flow/depth_integrated_mass_balance';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The gradient of Antarctic Ice Sheet" href="gradient.html" />
+    <link rel="prev" title="Vector calculus background" href="vec_calc.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../book-intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/thumbnail.png" class="logo__image only-light" alt="The Glaciology Data Analysis and Modeling book - Home"/>
+    <script>document.write(`<img src="../../_static/thumbnail.png" class="logo__image only-dark" alt="The Glaciology Data Analysis and Modeling book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../book-intro.html">
+                    The Glaciology Data Analysis and Modeling book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ice flow</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ice-flow-intro.html">Introduction to ice flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ablation_accumulation.html">Ice flow, accumulation and ablation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antarctic-ice-flow.html">Flow of the Antarctic Ice sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vec_calc.html">Vector calculus background</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Depth-integrated mass balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gradient.html">The gradient of Antarctic Ice Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strain_velocity.html">Strain rate and velocity fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rheology.html">Ice rheology (under construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stress_strain_tensors.html">Stress and strain tensors (under construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deviatoric_stress.html">Deviatoric stress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driving_stress.html">Driving stress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stress_balance_eqns.html">Stress balance equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sia_derivation.html">The Shallow Ice Approximation model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="u_bar_and_lliboutry.html">Building on the Shallow Ice Approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-ice-flow-models.html">Two other ice flow models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Heat flow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../temperature/heat_intro.html">Heat flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../temperature/heat_equation.html">Heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../temperature/analytical_solution.html">An analytical solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../temperature/numerical_solutions.html">Numerical solutions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radar</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../radar/impulse/impulse-radar.html">Impulse Radar</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../radar/apres/apres-intro.html">Autonomous phase-sensitive Radio Echo Sounder</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/theory_1.html">Autonomous phase-sensitive radio-echo sounder theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/beat-frequency.html">Beat frequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../radar/apres/apres_data_1.html">A first look at ApRES data</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/upload_Measures_data_to_bucket.html">Adding the MEASURES data to the google bucket</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp/edit/main/src/sections/ice_flow/depth_integrated_mass_balance.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jkingslake/apres_jp/issues/new?title=Issue%20on%20page%20%2Fsections/ice_flow/depth_integrated_mass_balance.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/sections/ice_flow/depth_integrated_mass_balance.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Depth-integrated mass balance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-derivation">Simple derivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-more-complete-but-more-complicated-derivation-of-mass-balance">A more complete (but more complicated) derivation of mass balance</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="depth-integrated-mass-balance">
+<h1>Depth-integrated mass balance<a class="headerlink" href="#depth-integrated-mass-balance" title="Permalink to this heading">#</a></h1>
+<p>As we build our ice sheet model, we will need an equation to describe how the ice thickness, <span class="math notranslate nohighlight">\(H\)</span>, changes with time. As our ice sheet model is so-called ‘depth-integrated’ we can use the depth-integrated mass balance equation to describe how <span class="math notranslate nohighlight">\(H\)</span> varies in time.</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{H} = a -  \nabla_h\cdot\underline{q}, 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dot{H} = \frac{\partial H}{\partial t}\)</span> is the rate of change of ice thickness, a is the ice-equivalent mass balance, <span class="math notranslate nohighlight">\(\nabla_h\)</span> is the del operator in the horizontal direction <span class="math notranslate nohighlight">\(\nabla_h = \frac{\partial}{\partial x} + \frac{\partial}{\partial y}\)</span> and <span class="math notranslate nohighlight">\(q\)</span> is the depth-integrated ice flux.</p>
+<p>Depth integrated in this context refers to the fact that this mass balance equation, and the whole model we will build in later pages, does not resolve how variables vary with depth within the ice sheet.</p>
+<section id="simple-derivation">
+<h2>Simple derivation<a class="headerlink" href="#simple-derivation" title="Permalink to this heading">#</a></h2>
+<p>The volume of the column of ice in the diagram below is <span class="math notranslate nohighlight">\(V= \delta x \delta y H\)</span>, where <span class="math notranslate nohighlight">\(H\)</span> is the ice sheet thickness. The rate of change of the volume is</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{H}\delta x \delta y = \text{rate of mass in} - \text{rate of mass out}.
+\]</div>
+<p><img alt="ice_column_mass_balance" src="https://github.com/ldeo-glaciology/ice-sheet-seminar-2022/blob/29fca4498ff512dc556ccdef2b03ccdd9195495f/images/ice_column_mass_balance.jpg" /></p>
+<p>Mass fluxes are the accumulation at the upper surface and the two ice flow fluxes labelled <span class="math notranslate nohighlight">\(q_x\)</span> and <span class="math notranslate nohighlight">\(q_y\)</span> in the diagram. The flux from accumulation is <span class="math notranslate nohighlight">\(a\delta x \delta y\)</span>, where <span class="math notranslate nohighlight">\(a\)</span> is the net rate of snow fall expressed in units of distance per time, assuming the snow fall is instantaneously compacted to the density of ice. This is called the ice-equivalent accumulation rate. It is commonly used in ice-sheet modelling.</p>
+<p>The fluxes <span class="math notranslate nohighlight">\(q_x\)</span> and <span class="math notranslate nohighlight">\(q_y\)</span> are depth-integrated ice fluxes. They are defined as</p>
+<div class="math notranslate nohighlight">
+\[
+q_x = \int^H_0 u(z) dz;\quad q_y = \int^H_0 v(z) dz.
+\]</div>
+<p>They are the depth-integrated fluxes per unit width in the across flow direction. They have units of area per time (not volume per time, like you would assume a flux would have). (Additionally, you can treat them as the scalar component of a two-dimensional vector field <span class="math notranslate nohighlight">\(\underline{q}  = (q_x, q_y)\)</span>.) The total ice-flow flux into the column is therefore <span class="math notranslate nohighlight">\(q_x\delta y + q_y \delta x\)</span>.</p>
+<p>Using the approach we have used several times before, the ice-flow fluxes out of the column on the opposite faces are <span class="math notranslate nohighlight">\(\delta y(q_x+ \delta x \frac{\partial q_x}{\partial x})\)</span> and <span class="math notranslate nohighlight">\(\delta x(q_y+ \delta y \frac{\partial q_y}{\partial y})\)</span> .</p>
+<p>Bringing all these fluxes together we get</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{H}\delta x \delta y = a\delta x \delta y + q_x\delta y + q_y \delta x - \delta y\left(q_x+ \delta x \frac{\partial q_x}{\partial x}\right) - \delta x\left(q_y+ \delta y \frac{\partial q_y}{\partial y}\right)
+\]</div>
+<p>The <span class="math notranslate nohighlight">\(q_y \delta x\)</span> and <span class="math notranslate nohighlight">\(q_x\delta y\)</span> cancel leaving</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{H}\delta x \delta y = a\delta x \delta y - \delta y\delta x \frac{\partial q_x}{\partial x} - \delta x \delta y \frac{\partial q_y}{\partial y}
+\]</div>
+<p>Finally,  <span class="math notranslate nohighlight">\(\delta y \delta x\)</span> cancels leaving</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{H} = a -  \frac{\partial q_x}{\partial x} -  \frac{\partial q_y}{\partial y}.
+\]</div>
+<p>This can be represented by</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{H} = a -  \nabla_h\cdot\underline{q}, 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\nabla_h\)</span> is the del operator in the horizontal direction only: <span class="math notranslate nohighlight">\(\nabla_h = \frac{\partial}{\partial x} + \frac{\partial}{\partial y}\)</span>.</p>
+</section>
+<section id="a-more-complete-but-more-complicated-derivation-of-mass-balance">
+<h2>A more complete (but more complicated) derivation of mass balance<a class="headerlink" href="#a-more-complete-but-more-complicated-derivation-of-mass-balance" title="Permalink to this heading">#</a></h2>
+<p>Another form of the depth-integrated mass balance equation can be derived, starting with <span class="math notranslate nohighlight">\(\nabla\cdot\underline{u} = 0\)</span> which implies incompressibility. Mathematically, this means the divergence of the field (<span class="math notranslate nohighlight">\(u\)</span>) is zero, meaning there are no source terms implying that there is no net accumulation or depletion of fluid within any infinitesimally small region of space. From the continuity equation we can see that if <span class="math notranslate nohighlight">\(\nabla\cdot\underline{u} = 0\)</span>, the change in density (<span class="math notranslate nohighlight">\(\rho\)</span>) is <span class="math notranslate nohighlight">\(0\)</span> at all points in the fluid.
+$<span class="math notranslate nohighlight">\(
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \underline{u}) = 0
+\)</span>$</p>
+<p>Shifting to two spatial dimensions we have</p>
+<div class="math notranslate nohighlight">
+\[
+\underline{u} = (u(x,z), w(x,z)); \quad \underline{q} = q_x = \int^{s(x)}_{b(x)} u(z) dz.
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla\cdot\underline{u} = \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z}=0,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(b\)</span> is the elevation of the base of the ice sheet and <span class="math notranslate nohighlight">\(s\)</span> is the elevation of the ice surface. Rearranging gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial w}{\partial z} = - \frac{\partial u}{\partial x}.
+\]</div>
+<p>Integrating between the bed and the surface gives</p>
+<div class="math notranslate nohighlight">
+\[
+\int^{w_s}_{w_b} dw = - \int^{s(x)}_{b(x)}\frac{\partial u}{\partial x} dz,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(w_s\)</span> is the vertical velocity at the surface and <span class="math notranslate nohighlight">\(w_b\)</span> is the vertical velocity at the base. The rate at which the ice surface goes up or down, <span class="math notranslate nohighlight">\(\dot{s}\)</span>, is related to the ice-equivalent accumulation rate <span class="math notranslate nohighlight">\(a\)</span>, the vertical velocity at the surface <span class="math notranslate nohighlight">\(w_s\)</span>, and advection of upstream ice-surface-height:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{s} = w_s + a - u_s \frac{\partial s}{\partial x}.
+\]</div>
+<p>or, rearranging,</p>
+<div class="math notranslate nohighlight">
+\[
+w_s = \dot{s}-a+u_s \frac{\partial s}{\partial x}.
+\]</div>
+<p>To understand the last term in the equation above, consider that the slope <span class="math notranslate nohighlight">\(\frac{\partial s}{\partial x}\)</span> shows how much the surface height changes for every meter you move in the <span class="math notranslate nohighlight">\(x\)</span> direction. So if the ice is moving in that direction a distance <span class="math notranslate nohighlight">\(u\)</span> every second, the height of the ice changes due to this ‘advection’ effect by <span class="math notranslate nohighlight">\(u \frac{\partial s}{\partial x}\)</span> every second.</p>
+<p>Note that the above equation is sometimes called a kinematic equation for the ice surface height, <span class="math notranslate nohighlight">\(\dot{s}\)</span>. In a non-depth-integrated ice-sheet model, this is the equation used to move the ice-surface up and down.</p>
+<p>The same arguments applies at the bottom of the ice sheet (or ‘ice base’) where it is in contact with rock, sediment, or water. If we define melting <span class="math notranslate nohighlight">\(m\)</span> as positive if mass is being removed, we get:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{b} = w_b + m - u_b \frac{\partial b}{\partial x}.
+\]</div>
+<p>or, rearranging,</p>
+<div class="math notranslate nohighlight">
+\[
+w_b = \dot{b}-m+u_b \frac{\partial b}{\partial x}.
+\]</div>
+<p>Evaluating the integral on the left of our main equation above gives.</p>
+<div class="math notranslate nohighlight">
+\[
+w_s - w_b = - \int^{s(x)}_{b(x)}\frac{\partial u}{\partial x} dz,
+\]</div>
+<p>and substituting in the two expressions for <span class="math notranslate nohighlight">\(w_s\)</span> and <span class="math notranslate nohighlight">\(w_b\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{s}-a+u_s \frac{\partial s}{\partial x} - \left(\dot{b}-m+u_b \frac{\partial b}{\partial x}\right) = - \int^{s(x)}_{b(x)}\frac{\partial u}{\partial x} dz. 
+\]</div>
+<p>To evaluate the integral on the right, we need to be careful of the limits because they are functions of <span class="math notranslate nohighlight">\(x\)</span>, so we cannot just move the differential operator out of the integral. To make progress we use the <a class="reference external" href="https://en.wikipedia.org/wiki/Leibniz_integral_rule">Leibniz integration rule</a> to show</p>
+<div class="math notranslate nohighlight">
+\[
+-\int^{s(x)}_{b(x)}\frac{\partial u}{\partial x}\,dz = u_s \frac{\partial s}{\partial x} - u_b \frac{\partial b}{\partial x}  - \frac{\partial}{\partial x} \int^{s(x)}_{b(x)} u\, dz.
+\]</div>
+<p>To understand what this rule means, we can rearrange by moving the last term of the right over to the left and the left side over to the right, leading to</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial}{\partial x} \int^{s(x)}_{b(x)} u\, dz
+ = u_s \frac{\partial s}{\partial x} - u_b \frac{\partial b}{\partial x}  + \int^{s(x)}_{b(x)}\frac{\partial u}{\partial x}\,dz.
+\]</div>
+<p>This says that the derivative with respect to <span class="math notranslate nohighlight">\(x\)</span> of an integral with limits that are functions of <span class="math notranslate nohighlight">\(x\)</span>, is equal to the sum of the integral of the derivative of the function and two additional terms that take account of the dependence of the limits on <span class="math notranslate nohighlight">\(x\)</span>. The left side is the flux divergence and we can see that is increases with the surface slope and decreases with the slope of the bed. This makes sense because, all else being equal, if the surface slope is larger (i.e. more positive, or less negative) the flux divergence increases - the flux increases with <span class="math notranslate nohighlight">\(x\)</span> more rapidly.</p>
+<p>Applying the Leibniz integration rule, our full equation is</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{s}-a+u_s \frac{\partial s}{\partial x} - \left(\dot{b}-m+u_b \frac{\partial b}{\partial x}\right) = u_s \frac{\partial s}{\partial x} - u_b \frac{\partial b}{\partial x}  - \frac{\partial}{\partial x} \int^{s(x)}_{b(x)} u\, dz.
+\]</div>
+<p>We see that the slope terms cancel, i.e. the flux divergence and the rate of change of surface elevation both depend on the surface and basal slopes in exactly the same way and the two effects cancel. This leaves</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{s}-a - \left(\dot{b}-m\right) =  - \frac{\partial}{\partial x} \int^{s(x)}_{b(x)} u\, dz.
+\]</div>
+<p>Recognizing that <span class="math notranslate nohighlight">\(s-b = H\)</span>, so <span class="math notranslate nohighlight">\(\dot{s}-\dot{b} = \dot{H}\)</span>, leaves</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{H}-a  +m =  - \frac{\partial}{\partial x} \int^{s(x)}_{b(x)} u\, dz.
+\]</div>
+<p>Rearranging and using our definition of flux we finally get</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{H} = a-m - \frac{\partial q}{\partial x},
+\]</div>
+<p>which in two horizontal dimensions is</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{H} = a -  m - \nabla_h\cdot\underline{q}. 
+\]</div>
+<p>This is the same as we had before except that it includes the minor addition of basal melting <span class="math notranslate nohighlight">\(m\)</span>. However, the slightly more rigorous derivation does four things for us:</p>
+<ol class="arabic simple">
+<li><p>it shows that this equation does not assume that the base and surface are flat, which isn’t obvious from the simpler derivation,</p></li>
+<li><p>it links the general mass balance equation (<span class="math notranslate nohighlight">\(\nabla\cdot\underline{u} = 0\)</span>) to this depth-averaged version used in ice sheet models,</p></li>
+<li><p>it highlights the fact that we indeed need to integrate vertically (i.e. ‘depth-integrate’) to derive it, and</p></li>
+<li><p>it leads us to also derive the kinematic condition for the ice surface (<span class="math notranslate nohighlight">\(\dot{s} = w_s + a - u_s \frac{\partial s}{\partial x}.\)</span>).</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jkingslake/apres_jp",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./sections/ice_flow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vec_calc.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Vector calculus background</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="gradient.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The gradient of Antarctic Ice Sheet</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-derivation">Simple derivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-more-complete-but-more-complicated-derivation-of-mass-balance">A more complete (but more complicated) derivation of mass balance</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
