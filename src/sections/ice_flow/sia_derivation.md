@@ -181,7 +181,7 @@ $$
 $$
 
 ## Strain rates and velocity gradients. 
-To relate strain rates to velocity gradients we use the expression we derived a few weeks ago:
+To relate strain rates to velocity gradients we use the expression:
 
 $$
 \dot\epsilon_{xz} = \frac{1}{2}\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right)
