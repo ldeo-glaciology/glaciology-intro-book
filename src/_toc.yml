@@ -34,7 +34,6 @@ parts:
   - file: sections/radar/apres/apres-intro
     sections:
     - file: sections/radar/apres/theory_1.ipynb
-    - file: sections/radar/apres/beat-frequency
     - file: sections/radar/apres/apres_data_1.ipynb
 
 - caption: Appendix
